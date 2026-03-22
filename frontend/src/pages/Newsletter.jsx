@@ -1,4 +1,4 @@
-import { CheckCircle } from "lucide-react";
+import { Calculator } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Newsletter = () => {
@@ -45,16 +45,35 @@ const Newsletter = () => {
         </div>
       </section>
 
-      {/* AI Automation Guide Embed */}
-      <section className="bg-gray-50" data-testid="ai-guide-section">
-        <div className="w-full">
-          <iframe
-            src="https://customer-assets.emergentagent.com/job_site-generator-157/artifacts/yesi02fo_ai-automation-guide.html"
-            width="100%"
-            style={{ minHeight: '3000px', border: 'none' }}
-            title="AI Automation Guide for SMBs"
-            data-testid="ai-guide-iframe"
-          ></iframe>
+      {/* Resources Tiles Section */}
+      <section className="py-16 bg-gray-50" data-testid="resources-section">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">Resources</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* AI ROI Calculator Tile */}
+            <a
+              href="https://customer-assets.emergentagent.com/job_site-generator-157/artifacts/yesi02fo_ai-automation-guide.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-[#FF6B2C] transition-all hover:shadow-lg group"
+              data-testid="ai-roi-calculator-tile"
+            >
+              <div className="w-14 h-14 bg-[#FF6B2C] bg-opacity-10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-opacity-20 transition-colors">
+                <Calculator className="w-7 h-7 text-[#FF6B2C]" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">AI ROI Calculator</h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Calculate your potential savings from AI automation. Includes 15+ proven use cases with real ROI calculations.
+              </p>
+              <span className="text-[#FF6B2C] font-medium text-sm inline-flex items-center gap-2">
+                Open resource
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
       </section>
 
