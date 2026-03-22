@@ -12,7 +12,7 @@ const Header = () => {
     { name: "Case Studies", path: "/case-studies" },
     { name: "About", path: "/about" },
     { name: "Free Resources", path: "/newsletter" },
-    { name: "Contact", path: "/contact" },
+    { name: "Products", path: "/contact" },
   ];
 
   const handleLogoClick = (e) => {
