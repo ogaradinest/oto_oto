@@ -26,7 +26,7 @@ const Home = () => {
     {
       icon: Rocket,
       title: "Design & Deployment",
-      description: "Design AI solution: agent and/or automation.",
+      description: "Design AI solutions: agent and/or automation.",
       subDescription: "Implement. Test. Deploy.",
       highlight: null,
       bullets: [
