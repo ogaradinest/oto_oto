@@ -57,7 +57,7 @@ jobs:
       - name: Build the React app
         working-directory: ./frontend
         env:
-          PUBLIC_URL: /oto_oto
+          PUBLIC_URL: /
           CI: false
         run: yarn build
 
