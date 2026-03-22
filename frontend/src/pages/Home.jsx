@@ -218,12 +218,39 @@ const Home = () => {
             <div className="pt-8" data-testid="contact-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
                 Ready to <span className="text-[#FF6B2C]">automate the work</span><br />
-                your business shouldn't be doing?
+                you shouldn't be doing?
               </h2>
               <p className="text-lg text-gray-700 mb-8">
-                Book a free 30-minute discovery call.
+                Book a free 25-minute discovery call.
               </p>
-              <YourCallButton />
+              
+              {/* Locations */}
+              <div className="mb-6">
+                <p className="font-semibold text-gray-900 mb-3">Locations:</p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>RO, Bucharest, <a href="tel:+40722465536" className="hover:text-[#FF6B2C] transition-colors">+40 722 465 536</a></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>UK, Milton Keynes, <a href="tel:+447572638793" className="hover:text-[#FF6B2C] transition-colors">+44 7572 638 793</a></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>UK, London, <a href="tel:+447577774805" className="hover:text-[#FF6B2C] transition-colors">+44 7577 774 805</a></span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Email */}
+              <a 
+                href="mailto:support@otobrothers.com" 
+                className="text-[#FF6B2C] hover:underline font-medium"
+                data-testid="contact-email"
+              >
+                support@otobrothers.com
+              </a>
             </div>
             {/* Right Column - Google Calendar */}
             <div className="bg-white rounded-2xl p-2 shadow-sm" data-testid="contact-calendar">
