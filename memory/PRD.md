@@ -4,12 +4,7 @@
 AI Automation Consultancy website for otobrothers, serving SMBs across UK and Europe.
 
 ## Original Problem Statement
-Build a website based on a JSON specification file for otobrothers AI Automation Consultancy with:
-- Multi-page React website
-- Beehiiv newsletter embed
-- Google Calendar booking integration
-- Skool.com community embed
-- Legal pages from PDF content
+Build a website based on a JSON specification file for otobrothers AI Automation Consultancy. Subsequently modified to match reference site at otobrothers-preview.preview.emergentagent.com.
 
 ## User Personas
 1. **SMB Decision Makers** - CEOs, Operations Directors looking to implement AI automation
@@ -22,13 +17,12 @@ Build a website based on a JSON specification file for otobrothers AI Automation
 - Case studies with measurable results
 - Newsletter signup for lead generation
 - Calendar booking for discovery calls
-- Community access via Skool
 - Legal compliance (Privacy, Terms, Cookies)
 
 ## Tech Stack
 - **Frontend**: React 19, Tailwind CSS, Radix UI components
 - **Backend**: FastAPI (minimal usage for this static site)
-- **Embeds**: Beehiiv (newsletter), Google Calendar (booking), Skool (community)
+- **Embeds**: Beehiiv (newsletter), Google Calendar (booking)
 
 ## Pages Implemented
 | Page | Route | Status |
@@ -37,39 +31,37 @@ Build a website based on a JSON specification file for otobrothers AI Automation
 | Case Studies | /case-studies | ✅ Complete |
 | About | /about | ✅ Complete |
 | Newsletter | /newsletter | ✅ Complete |
-| Community | /community | ✅ Complete |
 | Contact | /contact | ✅ Complete |
+| Community | /community | ✅ Complete (hidden from nav) |
 | Privacy Policy | /privacy | ✅ Complete |
 | Terms of Service | /terms | ✅ Complete |
 | Cookie Policy | /cookies | ✅ Complete |
 
 ## What's Been Implemented (22 March 2026)
 
-### MVP Complete
-- [x] Fixed header with navigation and "Let's talk" CTA
-- [x] Hero section with compelling headline and orange accent colors
-- [x] Services section with 3 cards (Audit, Design & Deployment, Training)
-- [x] FAQ accordion (4 questions)
-- [x] Contact section with Google Calendar embed
-- [x] Case Studies page with 3 detailed case studies
-- [x] About page with company info
-- [x] Newsletter page with Beehiiv embed
-- [x] Community page with Skool embed
-- [x] Legal pages with full content from PDFs
-- [x] Footer with navigation links
-- [x] Mobile responsive navigation
-- [x] Smooth scroll to contact section
+### MVP Complete - Iteration 1
+- [x] Initial website build from JSON spec
+- [x] All pages created with content
+
+### Design Update - Iteration 2 (Matches Reference)
+- [x] Header: Orange "Your call" CTA button, removed Community from nav
+- [x] Hero: New text structure "You own a business. Limited resources. You heard that AI increases business efficiency" with numbered steps
+- [x] Services: Gray (#E8E8E8) background, white cards, icons inline with titles, checkmark bullets
+- [x] FAQ: White background, clean accordion styling  
+- [x] Contact: Gray background with calendar embed
+- [x] Case Studies: 3 updated case studies (Marketing Agency Romania, Property Management UK, Manufacturing France)
+- [x] About: Simplified with co-founders image
+- [x] Newsletter: Beehiiv embed with "What you'll receive" section and lead magnet
 
 ### Key Features
 - **Beehiiv Integration**: Newsletter signup form embedded
 - **Google Calendar**: 25 min discovery call booking
-- **Skool Community**: Clear AI Learning community embed
 - **Legal Compliance**: Full Privacy, Terms, Cookies policies
 
 ## Prioritized Backlog
 
 ### P0 (Critical) - Done
-- All core pages implemented
+- All core pages implemented and styled to match reference
 
 ### P1 (High Priority) - Future
 - [ ] Analytics integration (Google Analytics)
@@ -78,7 +70,6 @@ Build a website based on a JSON specification file for otobrothers AI Automation
 
 ### P2 (Medium Priority) - Future
 - [ ] Cookie consent banner
-- [ ] Team member bios on About page
 - [ ] Additional case studies
 
 ### P3 (Nice to Have)
