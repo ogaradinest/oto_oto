@@ -1,7 +1,8 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const YourCallButton = ({ className = "" }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     if (location.pathname === "/") {
@@ -10,7 +11,13 @@ const YourCallButton = ({ className = "" }) => {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      window.location.href = "/#contact";
+      navigate("/");
+      setTimeout(() => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
     }
   };
 
