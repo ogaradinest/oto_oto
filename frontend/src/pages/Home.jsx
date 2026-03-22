@@ -31,9 +31,10 @@ const Home = () => {
       highlight: null,
       bullets: [
         { text: "create deployment plan", bold: false },
-        { text: "agent / automation deployment", bold: false },
+        { text: "implement automation", bold: "automation" },
+        { text: "agent deployment", bold: "agent" },
         { text: "measure KPIs", bold: "KPIs" },
-        { text: "document it & handover", bold: false },
+        { text: "document process & handover", bold: "handover" },
       ],
     },
     {
