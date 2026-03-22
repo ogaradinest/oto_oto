@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import "@/App.css";
 
 // Layout components
@@ -21,7 +21,7 @@ import AIAssessment from "@/pages/AIAssessment";
 function App() {
   return (
     <div className="App min-h-screen flex flex-col">
-      <BrowserRouter>
+      <HashRouter>
         <ScrollToTop />
         <Routes>
           {/* AI Assessment - standalone page without header/footer */}
@@ -48,7 +48,7 @@ function App() {
             </>
           } />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
