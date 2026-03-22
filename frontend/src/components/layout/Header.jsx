@@ -29,15 +29,21 @@ const Header = () => {
   };
 
   const scrollToContact = () => {
+    setMobileMenuOpen(false);
     if (location.pathname === "/") {
       const contactSection = document.getElementById("contact");
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      window.location.href = "/#contact";
+      navigate("/");
+      setTimeout(() => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
     }
-    setMobileMenuOpen(false);
   };
 
   const isActive = (path) => location.pathname === path;
