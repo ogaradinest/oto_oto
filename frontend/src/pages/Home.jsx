@@ -142,7 +142,7 @@ const Home = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8"
+                className="bg-white rounded-2xl p-8 flex flex-col"
                 data-testid={`service-card-${service.title.toLowerCase().replace(" & ", "-")}`}
               >
                 <div className="flex items-center gap-3 mb-6">
@@ -150,19 +150,21 @@ const Home = () => {
                   <h3 className="text-xl font-semibold">{service.title}</h3>
                 </div>
                 
-                <p className="text-gray-700 mb-2">{service.description}</p>
-                {service.subDescription && (
-                  <p className="text-gray-700 mb-4">{service.subDescription}</p>
-                )}
+                <div className="flex-1">
+                  <p className="text-gray-700 mb-2">{service.description}</p>
+                  {service.subDescription && (
+                    <p className="text-gray-700 mb-4">{service.subDescription}</p>
+                  )}
+                  
+                  {service.highlight && (
+                    <p className="font-semibold text-gray-900 mb-4">{service.highlight}</p>
+                  )}
+                  {service.highlightSub && (
+                    <p className="text-gray-700 mb-4">{service.highlightSub}</p>
+                  )}
+                </div>
                 
-                {service.highlight && (
-                  <p className="font-semibold text-gray-900 mb-4">{service.highlight}</p>
-                )}
-                {service.highlightSub && (
-                  <p className="text-gray-700 mb-4">{service.highlightSub}</p>
-                )}
-                
-                <ul className="space-y-2.5 mt-4">
+                <ul className="space-y-2.5 mt-auto pt-4">
                   {service.bullets.map((bullet, bulletIndex) => (
                     <li key={bulletIndex} className="flex items-center gap-3 text-gray-700">
                       <CheckCircle2 className="w-5 h-5 text-[#FF6B2C] flex-shrink-0" strokeWidth={1.5} />
