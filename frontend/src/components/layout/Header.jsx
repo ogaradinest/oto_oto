@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -13,6 +14,19 @@ const Header = () => {
     { name: "Resources", path: "/newsletter" },
     { name: "Contact", path: "/contact" },
   ];
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    }
+    setMobileMenuOpen(false);
+  };
 
   const scrollToContact = () => {
     if (location.pathname === "/") {
@@ -32,13 +46,13 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 bg-white z-50 h-20" data-testid="main-header">
       <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center" data-testid="header-logo">
+        <a href="/" onClick={handleLogoClick} className="flex items-center" data-testid="header-logo">
           <img
             src="https://customer-assets.emergentagent.com/job_smb-workflow/artifacts/4r8sz9s2_logo_otobrothers-03.png"
             alt="otobrothers"
             className="h-10"
           />
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8" data-testid="desktop-nav">
