@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 
-const LetsTalkButton = ({ className = "" }) => {
+const YourCallButton = ({ className = "" }) => {
   const location = useLocation();
 
   const handleClick = () => {
@@ -18,13 +17,12 @@ const LetsTalkButton = ({ className = "" }) => {
   return (
     <button
       onClick={handleClick}
-      className={`inline-flex items-center gap-2 bg-red-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-red-700 transition-colors ${className}`}
-      data-testid="lets-talk-button"
+      className={`inline-flex items-center justify-center bg-[#FF6B2C] text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-[#e55a1f] transition-colors ${className}`}
+      data-testid="your-call-button"
     >
-      Let's talk
-      <ArrowRight size={16} />
+      Your call
     </button>
   );
 };
 
-export default LetsTalkButton;
+export default YourCallButton;

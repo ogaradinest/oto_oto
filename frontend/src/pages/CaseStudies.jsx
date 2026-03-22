@@ -1,163 +1,142 @@
-import { MapPin, Users, Briefcase, Quote } from "lucide-react";
-import LetsTalkButton from "@/components/LetsTalkButton";
+import { MapPin, Users, Briefcase, Tag } from "lucide-react";
+import YourCallButton from "@/components/LetsTalkButton";
 
 const CaseStudies = () => {
   const caseStudies = [
     {
       id: 1,
-      company: "Marketing Agency",
-      location: "Romania",
-      employees: "25-50",
-      industry: "Marketing & Advertising",
-      serviceType: "Automation",
-      challenge: "Manual reporting was consuming 15+ hours weekly. The team spent excessive time gathering data from multiple platforms, creating reports, and sending updates to clients.",
-      solution: "We deployed automated reporting workflows that pull data from Google Analytics, Meta Ads, and Google Ads. Reports are generated and distributed automatically every Monday morning.",
-      techStack: ["n8n", "Google Sheets", "Slack", "Make"],
+      location: "Bucharest, Romania",
+      employees: "14 employees",
+      industry: "Professional Services",
+      serviceType: "Marketing Agency",
+      challenge: "The agency was spending 15+ hours weekly on client reporting, proposal generation, and project status updates. Manual data collection from multiple platforms created bottlenecks and delayed client communications.",
+      solution: "We implemented an n8n-based automation system that aggregates data from Google Analytics, their sales data, and project management tools. An AI agent generates personalised weekly reports based on templates and client history.",
+      techStack: ["n8n", "ChatGPT", "Google Sheets", "Slack", "HubSpot"],
       results: [
-        { value: "80%", label: "Reduction in reporting time" },
-        { value: "15hrs", label: "Saved per week" },
-        { value: "€2,400", label: "Monthly savings" },
+        { value: "65%", label: "Reduction in reporting time" },
+        { value: "12 hrs", label: "Saved per week" },
+        { value: "€18,000", label: "Annual cost savings" },
+        { value: "2x", label: "Faster proposal turnaround" },
       ],
       testimonial: {
-        quote: "The automated reporting has been a game-changer. Our team can now focus on strategy instead of data gathering.",
-        author: "Maria C.",
+        quote: "Before the initial conversation, we were reluctant to change anything but we knew something should change. The automation implemented by otobrothers transformed how we work. Our team now focuses on strategy and creativity instead of copying data between spreadsheets.",
+        author: "Veronica D.",
         role: "Operations Director",
       },
     },
     {
       id: 2,
-      company: "Property Management",
-      location: "United Kingdom",
-      employees: "10-25",
-      industry: "Real Estate",
-      serviceType: "AI Agent",
-      challenge: "Tenant enquiries were overwhelming the small team. Response times averaged 48 hours, leading to lost prospects and frustrated tenants.",
-      solution: "We implemented an AI-powered chatbot for initial tenant screening and FAQ responses. The system handles scheduling, answers common questions, and escalates complex issues to staff.",
-      techStack: ["OpenAI", "Zapier", "Calendly", "WhatsApp"],
+      location: "Milton Keynes, UK",
+      employees: "7 employees",
+      industry: "Professional Services",
+      serviceType: "Property Management Firm",
+      challenge: "Managing 34 rental properties meant constant tenant communications, maintenance scheduling, and compliance tracking. The small team was overwhelmed with repetitive queries and manual scheduling tasks.",
+      solution: "We built an AI-powered tenant communication system that summarises email inquiry and schedules maintenance appointments. The system adding voice chatbots integrates with customer's property management software and sends proactive alerts to their maintenance team.",
+      techStack: ["n8n", "ChatGPT", "Twilio", "Google Calendar", "Vapi", "Propertyware"],
       results: [
-        { value: "90%", label: "Of enquiries handled by AI" },
-        { value: "< 2min", label: "Average response time" },
-        { value: "35%", label: "Increase in bookings" },
+        { value: "60%", label: "Fewer manual responses" },
+        { value: "£12,000", label: "Annual cost reduction" },
+        { value: "24/7", label: "Tenant support availability" },
+        { value: "90%", label: "Faster response times" },
       ],
       testimonial: {
-        quote: "We went from drowning in messages to having meaningful conversations only when needed. The AI handles everything else perfectly.",
-        author: "James T.",
+        quote: "Dan and Chris were great from the initial conversation to the last deployment. We went from drowning in emails to having better interaction with our tenants.",
+        author: "Nadia K.",
         role: "Managing Director",
       },
     },
     {
       id: 3,
-      company: "Manufacturing SME",
-      location: "France",
-      employees: "50-100",
+      location: "Lyon, France",
+      employees: "42 employees",
       industry: "Manufacturing",
-      serviceType: "Audit + Training",
-      challenge: "The company knew AI could help but didn't know where to start. Leadership needed guidance on which processes to automate first and how to upskill their team.",
-      solution: "We conducted a comprehensive workflow audit, identified 12 automation opportunities, and delivered customised training for the operations team on AI tools and best practices.",
-      techStack: ["Notion", "Airtable", "Claude", "Custom Training"],
+      serviceType: "Industrial parts manufacturer",
+      challenge: "Quality control documentation and supplier communication consumed significant administrative time. Back office spent hours on paperwork instead of problem-solving. Order tracking was fragmented across email and spreadsheets.",
+      solution: "We deployed AI-powered document processing that extracts data from supplier invoices and quality certificates, automatically updating inventory and compliance records. A custom agent handles routine supplier inquiries and provides real-time order status updates.",
+      techStack: ["n8n", "Claude", "Code & Cowork", "SAP Integration", "Microsoft Teams"],
       results: [
-        { value: "12", label: "Automation opportunities identified" },
-        { value: "€180K", label: "Projected annual savings" },
-        { value: "100%", label: "Team trained on AI tools" },
+        { value: "40%", label: "Less time on documentation" },
+        { value: "€35,000", label: "Annual savings" },
+        { value: "99.2%", label: "Data accuracy rate" },
+        { value: "4 hrs", label: "Faster order processing" },
       ],
       testimonial: {
-        quote: "The audit opened our eyes to possibilities we never considered. The training gave us confidence to drive our own automation initiatives.",
-        author: "Pierre L.",
-        role: "CEO",
+        quote: "Our employees are finally doing engineering work. The AI handles the admin that was killing our productivity.",
+        author: "Khaled M.",
+        role: "Plant Manager",
       },
     },
   ];
 
   return (
-    <div className="pt-20" data-testid="case-studies-page">
-      {/* Hero */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6" data-testid="case-studies-title">
-            Case Studies
-          </h1>
-          <p className="text-lg text-gray-600" data-testid="case-studies-subtitle">
-            Real results from real businesses. See how we've helped SMBs transform their operations with AI automation.
-          </p>
-        </div>
-      </section>
-
+    <div className="pt-20 bg-white" data-testid="case-studies-page">
       {/* Case Studies */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 space-y-16">
-          {caseStudies.map((study, index) => (
+      <section className="py-12">
+        <div className="max-w-5xl mx-auto px-6 space-y-8">
+          {caseStudies.map((study) => (
             <div
               key={study.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+              className="bg-white rounded-2xl overflow-hidden border border-gray-200"
               data-testid={`case-study-${study.id}`}
             >
-              {/* Header */}
-              <div className="p-8 border-b border-gray-100">
-                <div className="flex flex-wrap gap-4 mb-4">
-                  <span className="inline-flex items-center gap-1.5 text-sm text-gray-500">
-                    <MapPin size={14} />
-                    {study.location}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-sm text-gray-500">
-                    <Users size={14} />
-                    {study.employees} employees
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-sm text-gray-500">
-                    <Briefcase size={14} />
-                    {study.industry}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-100 text-[#FF6B2C] rounded-full text-sm font-medium">
-                    {study.serviceType}
-                  </span>
-                </div>
-                <h2 className="text-2xl font-bold">{study.company}</h2>
-              </div>
-
               {/* Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
-                {/* Challenge & Solution */}
-                <div className="lg:col-span-2 p-8 space-y-8">
-                  <div>
-                    <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                      Challenge
-                    </h3>
-                    <p className="text-gray-700">{study.challenge}</p>
+              <div className="grid grid-cols-1 lg:grid-cols-3">
+                {/* Main Content */}
+                <div className="lg:col-span-2 p-8">
+                  {/* Meta */}
+                  <div className="flex flex-wrap items-center gap-3 mb-6 text-sm text-gray-500">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin size={14} />
+                      {study.location}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Users size={14} />
+                      {study.employees}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Briefcase size={14} />
+                      {study.industry}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-[#FF6B2C]">
+                      <Tag size={14} />
+                      {study.serviceType}
+                    </span>
                   </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                      Solution
-                    </h3>
-                    <p className="text-gray-700">{study.solution}</p>
+
+                  {/* Challenge */}
+                  <div className="mb-6">
+                    <span className="font-semibold text-gray-900">challenge: </span>
+                    <span className="text-gray-700">{study.challenge}</span>
                   </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                      Tech Stack
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {study.techStack.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+
+                  {/* Solution */}
+                  <div className="mb-6">
+                    <span className="font-semibold text-[#FF6B2C]">otobrothers' solution: </span>
+                    <span className="text-gray-700">{study.solution}</span>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2">
+                    {study.techStack.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
                 {/* Results Panel */}
-                <div className="bg-gray-50 p-8 border-l border-gray-100">
-                  <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
-                    Results
-                  </h3>
-                  <div className="space-y-6">
+                <div className="bg-gray-50 p-8 border-l border-gray-200">
+                  <div className="grid grid-cols-2 gap-6">
                     {study.results.map((result, resultIndex) => (
                       <div key={resultIndex}>
-                        <div className="text-3xl font-bold text-[#FF6B2C]">
+                        <div className="text-2xl md:text-3xl font-bold text-[#FF6B2C]">
                           {result.value}
                         </div>
-                        <div className="text-sm text-gray-600">{result.label}</div>
+                        <div className="text-xs text-gray-600 mt-1">{result.label}</div>
                       </div>
                     ))}
                   </div>
@@ -165,17 +144,12 @@ const CaseStudies = () => {
               </div>
 
               {/* Testimonial */}
-              <div className="p-8 bg-gray-900 text-white">
-                <div className="flex gap-4">
-                  <Quote className="w-8 h-8 text-[#FF6B2C] flex-shrink-0" />
-                  <div>
-                    <p className="text-lg mb-4 italic">"{study.testimonial.quote}"</p>
-                    <p className="text-sm">
-                      <span className="font-medium">{study.testimonial.author}</span>
-                      <span className="text-gray-400"> — {study.testimonial.role}</span>
-                    </p>
-                  </div>
-                </div>
+              <div className="p-8 border-t border-gray-200">
+                <p className="text-gray-700 mb-4">"{study.testimonial.quote}"</p>
+                <p className="text-sm">
+                  <span className="font-semibold">{study.testimonial.author}</span>
+                  <span className="text-gray-500">, {study.testimonial.role}</span>
+                </p>
               </div>
             </div>
           ))}
@@ -183,13 +157,9 @@ const CaseStudies = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to become our next success story?</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Let's discuss how we can help transform your business with AI automation.
-          </p>
-          <LetsTalkButton />
+          <YourCallButton />
         </div>
       </section>
     </div>

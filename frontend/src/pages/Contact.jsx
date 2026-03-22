@@ -1,40 +1,21 @@
-import LetsTalkButton from "@/components/LetsTalkButton";
+import YourCallButton from "@/components/LetsTalkButton";
 
 const Contact = () => {
   return (
     <div className="pt-20" data-testid="contact-page">
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-[#E8E8E8]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left Column */}
-            <div data-testid="contact-left">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Ready to automate your business?
+            <div className="pt-8" data-testid="contact-left">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                Ready to <span className="text-[#FF6B2C]">automate the work</span><br />
+                your business shouldn't be doing?
               </h1>
-              <p className="text-lg text-gray-600 mb-8">
-                Book a free discovery call and let's discuss how AI can transform your operations.
+              <p className="text-lg text-gray-700 mb-8">
+                Book a free 30-minute discovery call.
               </p>
-              <LetsTalkButton />
-              
-              {/* Contact Info */}
-              <div className="mt-12 space-y-4">
-                <div>
-                  <p className="text-sm text-gray-400 mb-1">Email</p>
-                  <a href="mailto:hello@otobrothers.com" className="text-gray-900 hover:text-[#FF6B2C] transition-colors font-medium">
-                    hello@otobrothers.com
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-400 mb-1">Phone</p>
-                  <a href="tel:+442079460958" className="text-gray-900 hover:text-[#FF6B2C] transition-colors font-medium">
-                    +44 20 7946 0958
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-400 mb-1">Location</p>
-                  <p className="text-gray-900 font-medium">London, United Kingdom</p>
-                </div>
-              </div>
+              <YourCallButton />
             </div>
             
             {/* Right Column - Google Calendar */}
