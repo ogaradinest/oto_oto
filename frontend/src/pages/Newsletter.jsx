@@ -100,7 +100,7 @@ const Newsletter = () => {
                   className="text-center hover:opacity-80 transition-opacity"
                   data-testid="skool-community-link"
                 >
-                  <p className="text-gray-600 text-sm mb-4">Join our Skool community:<br />Simple & Clear AI Learning.</p>
+                  <p className="text-xl font-bold mb-4">Join our Skool community:<br />Simple & Clear AI Learning.</p>
                   <span className="text-[#FF6B2C] font-medium text-sm inline-flex items-center gap-2">
                     Join now
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
