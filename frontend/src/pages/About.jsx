@@ -12,11 +12,11 @@ const About = () => {
           </p>
           
           <p className="text-lg text-gray-700 mb-4">
-            120 years' combined experience in strategy, sales, marketing, advertising, finance and project management.
+            100 years combined experience in strategy, sales, marketing, advertising, finance and project management.
           </p>
           
           <p className="text-lg text-gray-700 mb-12">
-            Building a great business for great customers.
+            Building a business with great customers.
           </p>
 
           {/* Co-founders Image */}
