@@ -11,7 +11,7 @@ const Header = () => {
     { name: "Home", path: "/" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "About", path: "/about" },
-    { name: "Resources", path: "/newsletter" },
+    { name: "Free Resources", path: "/newsletter" },
     { name: "Contact", path: "/contact" },
   ];
 
