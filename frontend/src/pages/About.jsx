@@ -8,7 +8,7 @@ const About = () => {
           </h1>
           
           <p className="text-lg text-gray-700 font-bold mb-4">
-            Two co-founders + three collaborators.
+            Two co-founders + three collaborators
           </p>
           
           <p className="text-lg text-gray-700 mb-4">
