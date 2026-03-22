@@ -7,7 +7,7 @@ const About = () => {
             otobrothers: the Owls of the business world
           </h1>
           
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-lg text-gray-700 font-bold mb-4">
             Two co-founders + two collaborators.
           </p>
           
