@@ -87,8 +87,8 @@ const Newsletter = () => {
             {/* Community Tile */}
             <div className="bg-white rounded-2xl p-8 border-2 border-gray-200 flex flex-col" style={{ minHeight: '420px' }}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-[#FF6B2C] bg-opacity-10 rounded-xl flex items-center justify-center">
-                  <Users className="w-6 h-6 text-[#FF6B2C]" />
+                <div className="w-14 h-14 bg-[#FF6B2C] bg-opacity-10 rounded-xl flex items-center justify-center">
+                  <Users className="w-7 h-7 text-[#FF6B2C]" />
                 </div>
                 <h3 className="text-xl font-bold">Community</h3>
               </div>
@@ -100,7 +100,7 @@ const Newsletter = () => {
                   className="text-center hover:opacity-80 transition-opacity"
                   data-testid="skool-community-link"
                 >
-                  <p className="text-lg font-medium text-gray-700 mb-4">Join our Skool community:<br />Simple & Clear AI Learning.</p>
+                  <p className="text-gray-600 text-sm mb-4">Join our Skool community:<br />Simple & Clear AI Learning.</p>
                   <span className="text-[#FF6B2C] font-medium text-sm inline-flex items-center gap-2">
                     Join now
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,8 +114,8 @@ const Newsletter = () => {
             {/* Newsletter Tile */}
             <div className="bg-white rounded-2xl p-8 border-2 border-gray-200 flex flex-col" style={{ minHeight: '420px' }}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-[#FF6B2C] bg-opacity-10 rounded-xl flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-[#FF6B2C]" />
+                <div className="w-14 h-14 bg-[#FF6B2C] bg-opacity-10 rounded-xl flex items-center justify-center">
+                  <Mail className="w-7 h-7 text-[#FF6B2C]" />
                 </div>
                 <h3 className="text-xl font-bold">Newsletter</h3>
               </div>
