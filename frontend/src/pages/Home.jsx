@@ -150,7 +150,7 @@ const Home = () => {
             {/* Right Column - Google Calendar */}
             <div className="bg-white rounded-2xl p-2 shadow-sm" data-testid="contact-calendar">
               <iframe
-                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1cLZdLVz3KkJJC3yKl2fCOGGJTH3QvZxKQKxLHVf3YKqOFHgGh_XM3EFSvM9K_WzH8Y6J6jM9K?gv=true"
+                src="https://calendar.app.google/UugK49VvNqpE7iJN8"
                 style={{ border: 0 }}
                 width="100%"
                 height="600"
