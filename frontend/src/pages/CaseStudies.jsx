@@ -76,7 +76,7 @@ const CaseStudies = () => {
           {caseStudies.map((study) => (
             <div
               key={study.id}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-200"
+              className="bg-white rounded-2xl overflow-hidden border-2 border-black"
               data-testid={`case-study-${study.id}`}
             >
               {/* Content Grid */}
