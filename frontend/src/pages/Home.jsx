@@ -104,15 +104,15 @@ const Home = () => {
           
           <ol className="space-y-3 mb-12 text-lg">
             <li className="flex items-start gap-3">
-              <span className="text-[#FF6B2C] font-bold">1.</span>
+              <span className="font-bold">1.</span>
               <span>Pick a process. Any process: sales, marketing, operations.</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#FF6B2C] font-bold">2.</span>
+              <span className="font-bold">2.</span>
               <span><span className="text-[#FF6B2C]">We</span> build you an automated <span className="text-[#FF6B2C]">solution</span>.</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#FF6B2C] font-bold">3.</span>
+              <span className="font-bold">3.</span>
               <span>Measure your KPIs & <span className="text-[#FF6B2C]">savings</span>.</span>
             </li>
           </ol>
