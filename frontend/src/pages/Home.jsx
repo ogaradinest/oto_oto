@@ -121,7 +121,7 @@ const Home = () => {
             <p className="text-lg mb-2">
               You and your <span className="text-[#FF6B2C] font-semibold">CFO</span> will love the <span className="text-[#FF6B2C] font-semibold">results</span>.
             </p>
-            <p className="text-gray-600">
+            <p className="text-lg font-bold">
               We've done it for others, we'll do it for you.
             </p>
           </div>
