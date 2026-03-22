@@ -4,6 +4,7 @@ import "@/App.css";
 // Layout components
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // Pages
 import Home from "@/pages/Home";
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className="App min-h-screen flex flex-col">
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           {/* AI Assessment - standalone page without header/footer */}
           <Route path="/ai-assessment" element={<AIAssessment />} />
