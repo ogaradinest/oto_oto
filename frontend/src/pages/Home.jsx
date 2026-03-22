@@ -94,8 +94,8 @@ const Home = () => {
             Limited <span className="font-bold">resources</span>.
           </h2>
           <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-12">
-            <span className="font-bold">You</span> heard that <span className="text-[#FF6B2C] font-bold">AI</span> increases<br />
-            business <span className="text-[#FF6B2C] font-bold">efficiency</span>.
+            <span className="font-bold">You</span> heard that <span className="text-[#FF6B2C] font-bold">AI</span> <span className="font-bold">increases</span><br />
+            <span className="font-bold">business</span> <span className="text-[#FF6B2C] font-bold">efficiency</span>.
           </h2>
           
           <p className="text-lg font-semibold mb-6" data-testid="hero-body">
