@@ -13,15 +13,15 @@ const Footer = () => {
             />
           </Link>
           <nav className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-            <Link to="/privacy" className="hover:text-gray-900 transition-colors" data-testid="footer-link-privacy">
+            <a href="https://customer-assets.emergentagent.com/job_site-generator-157/artifacts/z2hgeqqi_new_PrivacyPolicy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors" data-testid="footer-link-privacy">
               Privacy
-            </Link>
-            <Link to="/terms" className="hover:text-gray-900 transition-colors" data-testid="footer-link-terms">
+            </a>
+            <a href="https://customer-assets.emergentagent.com/job_site-generator-157/artifacts/1613odhf_new_Terms.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors" data-testid="footer-link-terms">
               Terms
-            </Link>
-            <Link to="/cookies" className="hover:text-gray-900 transition-colors" data-testid="footer-link-cookies">
+            </a>
+            <a href="https://customer-assets.emergentagent.com/job_site-generator-157/artifacts/elc9idrm_new_CookiesPolicy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors" data-testid="footer-link-cookies">
               Cookies
-            </Link>
+            </a>
           </nav>
           <p className="text-sm text-gray-400" data-testid="footer-copyright">
             © {new Date().getFullYear()} OTOBROTHERS LTD
