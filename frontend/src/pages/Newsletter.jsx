@@ -91,16 +91,18 @@ const Newsletter = () => {
 
       {/* Newsletter Section - Beehiiv only */}
       <section className="py-16 bg-gray-50" data-testid="newsletter-section">
-        <div className="max-w-xl mx-auto px-6">
-          <iframe 
-            src="https://subscribe-forms.beehiiv.com/98522bf8-1300-4d44-841f-36c9d9ea2cfb" 
-            className="beehiiv-embed" 
-            data-test-id="beehiiv-embed" 
-            frameBorder="0" 
-            scrolling="no" 
-            style={{ width: '100%', maxWidth: '560px', height: '314px', margin: '0 auto', borderRadius: '0px', backgroundColor: 'transparent', boxShadow: '0 0 #0000' }}
-            title="Newsletter signup"
-          ></iframe>
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="flex justify-center">
+            <iframe 
+              src="https://subscribe-forms.beehiiv.com/98522bf8-1300-4d44-841f-36c9d9ea2cfb" 
+              className="beehiiv-embed w-full max-w-[560px]" 
+              data-test-id="beehiiv-embed" 
+              frameBorder="0" 
+              scrolling="no" 
+              style={{ height: '314px', borderRadius: '0px', backgroundColor: 'transparent', boxShadow: '0 0 #0000' }}
+              title="Newsletter signup"
+            ></iframe>
+          </div>
         </div>
       </section>
     </div>
