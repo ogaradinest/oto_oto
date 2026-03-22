@@ -1,4 +1,4 @@
-import { Calculator, ClipboardCheck, Bot } from "lucide-react";
+import { Calculator, ClipboardCheck, Bot, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Newsletter = () => {
@@ -6,7 +6,7 @@ const Newsletter = () => {
     <div className="pt-20" data-testid="newsletter-page">
       {/* Resources Title */}
       <section className="py-12 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold" data-testid="resources-title">
             Resources
           </h1>
@@ -86,6 +86,30 @@ const Newsletter = () => {
               </span>
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Skool Community Link */}
+      <section className="py-12 bg-white" data-testid="skool-section">
+        <div className="max-w-5xl mx-auto px-6">
+          <a
+            href="https://www.skool.com/clear-ai-learning-9263/about?ref=bc0449fe57714cd2958a2da3fb922eb7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-4 bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-[#FF6B2C] transition-all hover:shadow-lg group"
+            data-testid="skool-community-link"
+          >
+            <div className="w-12 h-12 bg-[#FF6B2C] bg-opacity-10 rounded-xl flex items-center justify-center group-hover:bg-opacity-20 transition-colors">
+              <Users className="w-6 h-6 text-[#FF6B2C]" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold">Join our Community</h3>
+              <p className="text-gray-600 text-sm">Connect with fellow AI enthusiasts on Skool</p>
+            </div>
+            <svg className="w-5 h-5 text-[#FF6B2C] ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
         </div>
       </section>
 
