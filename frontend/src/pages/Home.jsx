@@ -217,8 +217,7 @@ const Home = () => {
             {/* Left Column */}
             <div className="pt-8" data-testid="contact-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                Ready to <span className="text-[#FF6B2C]">automate the work</span><br />
-                you shouldn't be doing?
+                Ready to <span className="text-[#FF6B2C]">automate the work</span> you shouldn't be doing?
               </h2>
               <p className="text-lg text-gray-700 mb-8">
                 Book a free 25-minute discovery call.
