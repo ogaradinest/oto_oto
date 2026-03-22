@@ -40,8 +40,8 @@ const Home = () => {
     {
       icon: GraduationCap,
       title: "Training",
-      description: "Hands-on workshops, teaching your employees how to use Ai securely.",
-      subDescription: null,
+      description: "Teaching your employees how to use Ai securely.",
+      subDescription: "Hands-on workshops.",
       highlight: "This is not PowerPoint slides.",
       highlightSub: "Laptops on, learn skills. Learn Ai.",
       bullets: [
