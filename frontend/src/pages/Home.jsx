@@ -88,13 +88,13 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-white" data-testid="hero-section">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-4" data-testid="hero-headline">
-            <span className="font-bold italic">You</span> own a <span className="font-bold">business</span>.
+            <span className="font-bold">You</span> own a <span className="font-bold">business</span>.
           </h1>
           <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-8">
             Limited <span className="font-bold">resources</span>.
           </h2>
           <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-12">
-            <span className="font-bold italic">You</span> heard that <span className="text-[#FF6B2C] font-bold">AI</span> increases<br />
+            <span className="font-bold">You</span> heard that <span className="text-[#FF6B2C] font-bold">AI</span> increases<br />
             business <span className="text-[#FF6B2C] font-bold">efficiency</span>.
           </h2>
           
