@@ -49,6 +49,7 @@ const Contact = () => {
         </li>
       );
     }
+    const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
     return (
       <li key={index} className="flex items-start gap-2">
         <span className="text-[#FF6B2C] font-semibold">{index + 1}.</span>
@@ -57,7 +58,7 @@ const Contact = () => {
           <ul className="ml-4 mt-1 space-y-1">
             {module.subItems.map((subItem, subIndex) => (
               <li key={subIndex} className="flex items-start gap-2 text-gray-600">
-                <span className="text-gray-400">{String.fromCharCode(105 + subIndex)}.</span>
+                <span className="text-gray-400">{romanNumerals[subIndex]}.</span>
                 <span>{subItem}</span>
               </li>
             ))}
