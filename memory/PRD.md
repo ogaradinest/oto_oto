@@ -45,18 +45,27 @@ Build a website based on a JSON specification file for otobrothers AI Automation
 
 ### Design Update - Iteration 2 (Matches Reference)
 - [x] Header: Orange "Your call" CTA button, removed Community from nav
-- [x] Hero: New text structure "You own a business. Limited resources. You heard that AI increases business efficiency" with numbered steps
-- [x] Services: Gray (#E8E8E8) background, white cards, icons inline with titles, checkmark bullets
+- [x] Hero: New text structure with numbered steps
+- [x] Services: Gray background, white cards, icons inline with titles, checkmark bullets
 - [x] FAQ: White background, clean accordion styling  
 - [x] Contact: Gray background with calendar embed
 - [x] Case Studies: 3 updated case studies (Marketing Agency Romania, Property Management UK, Manufacturing France)
 - [x] About: Simplified with co-founders image
 - [x] Newsletter: Beehiiv embed with "What you'll receive" section and lead magnet
 
+### SEO + GDPR + Refactoring - Iteration 3 (21 April 2026)
+- [x] SEO meta tags via react-helmet-async on all pages (title, description, OG tags)
+- [x] Open Graph + Twitter Card base tags in index.html
+- [x] GDPR cookie consent banner (localStorage-based, Accept/Decline, links to Cookies PDF)
+- [x] File refactoring: Newsletter.jsx → FreeResources.jsx, Contact.jsx → Products.jsx
+- [x] App.js wrapped with HelmetProvider
+
 ### Key Features
 - **Beehiiv Integration**: Newsletter signup form embedded
 - **Google Calendar**: 25 min discovery call booking
 - **Legal Compliance**: Full Privacy, Terms, Cookies policies
+- **SEO**: Per-page meta titles, descriptions, Open Graph tags
+- **GDPR**: Cookie consent banner with localStorage persistence
 
 ## Prioritized Backlog
 
@@ -64,8 +73,8 @@ Build a website based on a JSON specification file for otobrothers AI Automation
 - All core pages implemented and styled to match reference
 
 ### P1 (High Priority) - Future
-- [ ] Analytics integration (Google Analytics)
-- [ ] SEO optimization (meta tags, schema markup)
+- [ ] Analytics integration (Google Analytics — needs G-XXXXXXXXXX ID from client)
+- [ ] SEO optimization (schema markup / JSON-LD for structured data)
 - [ ] Blog/Resources section
 
 ### P2 (Medium Priority) - Future
