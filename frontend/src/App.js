@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "@/App.css";
 
@@ -16,9 +16,6 @@ import FreeResources from "@/pages/FreeResources";
 import Products from "@/pages/Products";
 import Policy from "@/pages/Policy";
 import Community from "@/pages/Community";
-import Privacy from "@/pages/Privacy";
-import Terms from "@/pages/Terms";
-import Cookies from "@/pages/Cookies";
 import AIAssessment from "@/pages/AIAssessment";
 
 function App() {
@@ -45,9 +42,10 @@ function App() {
                     <Route path="/products" element={<Products />} />
                     <Route path="/policy" element={<Policy />} />
                     <Route path="/community" element={<Community />} />
-                    <Route path="/privacy" element={<Privacy />} />
-                    <Route path="/terms" element={<Terms />} />
-                    <Route path="/cookies" element={<Cookies />} />
+                    {/* Redirect old text-based policy routes to the new /policy page */}
+                    <Route path="/privacy" element={<Navigate to="/policy" replace />} />
+                    <Route path="/terms" element={<Navigate to="/policy" replace />} />
+                    <Route path="/cookies" element={<Navigate to="/policy" replace />} />
                   </Routes>
                 </main>
                 <Footer />
