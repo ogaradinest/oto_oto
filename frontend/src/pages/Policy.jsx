@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { ExternalLink } from "lucide-react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const policies = [
   {
@@ -20,6 +21,18 @@ const policies = [
 ];
 
 const Policy = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [hash]);
+
   return (
     <div className="pt-20" data-testid="policy-page">
       <Helmet>
@@ -31,28 +44,17 @@ const Policy = () => {
         <div className="max-w-5xl mx-auto px-6 space-y-16">
           {policies.map((policy) => (
             <div key={policy.id} id={policy.id} data-testid={`policy-section-${policy.id}`}>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold" data-testid={`policy-title-${policy.id}`}>
-                  {policy.label}
-                </h2>
-                <a
-                  href={policy.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm bg-[#FF6B2C] text-white font-medium px-4 py-2 rounded-full hover:bg-[#e55a1f] transition-colors flex-shrink-0 ml-4"
-                  data-testid={`policy-open-${policy.id}`}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Open PDF
-                </a>
-              </div>
-              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-50">
-                <embed
-                  src={policy.url}
-                  type="application/pdf"
+              <h2 className="text-2xl font-bold mb-6" data-testid={`policy-title-${policy.id}`}>
+                {policy.label}
+              </h2>
+              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-50" style={{ height: "800px" }}>
+                <iframe
+                  src={`https://docs.google.com/viewer?url=${encodeURIComponent(policy.url)}&embedded=true`}
+                  title={policy.label}
                   width="100%"
-                  height="800px"
-                  data-testid={`policy-embed-${policy.id}`}
+                  height="100%"
+                  style={{ border: "none" }}
+                  data-testid={`policy-iframe-${policy.id}`}
                 />
               </div>
             </div>
