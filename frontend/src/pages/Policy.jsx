@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { ExternalLink } from "lucide-react";
 
 const policies = [
   {
@@ -29,7 +30,7 @@ const Policy = () => {
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-6 space-y-16">
           {policies.map((policy) => (
-            <div key={policy.id} data-testid={`policy-section-${policy.id}`}>
+            <div key={policy.id} id={policy.id} data-testid={`policy-section-${policy.id}`}>
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold" data-testid={`policy-title-${policy.id}`}>
                   {policy.label}
@@ -38,19 +39,20 @@ const Policy = () => {
                   href={policy.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[#FF6B2C] hover:underline font-medium flex-shrink-0 ml-4"
-                  data-testid={`policy-download-${policy.id}`}
+                  className="inline-flex items-center gap-2 text-sm bg-[#FF6B2C] text-white font-medium px-4 py-2 rounded-full hover:bg-[#e55a1f] transition-colors flex-shrink-0 ml-4"
+                  data-testid={`policy-open-${policy.id}`}
                 >
-                  Open in new tab
+                  <ExternalLink className="w-4 h-4" />
+                  Open PDF
                 </a>
               </div>
               <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-50">
-                <iframe
+                <embed
                   src={policy.url}
-                  title={policy.label}
-                  className="w-full"
-                  style={{ height: "800px", border: "none" }}
-                  data-testid={`policy-iframe-${policy.id}`}
+                  type="application/pdf"
+                  width="100%"
+                  height="800px"
+                  data-testid={`policy-embed-${policy.id}`}
                 />
               </div>
             </div>

@@ -73,15 +73,15 @@ const Footer = () => {
           
           {/* Legal Links */}
           <nav className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-            <Link to="/policy" className="hover:text-gray-900 transition-colors" data-testid="footer-link-privacy">
+            <a href="https://customer-assets.emergentagent.com/job_9c165549-d358-4f83-9964-b69e2115aab7/artifacts/meboy2uf_Policy_Privacy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors" data-testid="footer-link-privacy">
               Privacy
-            </Link>
-            <Link to="/policy" className="hover:text-gray-900 transition-colors" data-testid="footer-link-terms">
+            </a>
+            <a href="https://customer-assets.emergentagent.com/job_9c165549-d358-4f83-9964-b69e2115aab7/artifacts/xxq08exk_Policy_TandC.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors" data-testid="footer-link-terms">
               Terms
-            </Link>
-            <Link to="/policy" className="hover:text-gray-900 transition-colors" data-testid="footer-link-cookies">
+            </a>
+            <a href="https://customer-assets.emergentagent.com/job_9c165549-d358-4f83-9964-b69e2115aab7/artifacts/837abp5l_Policy_Cookies.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors" data-testid="footer-link-cookies">
               Cookies
-            </Link>
+            </a>
           </nav>
           
           {/* Copyright */}
