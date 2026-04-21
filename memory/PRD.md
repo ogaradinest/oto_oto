@@ -53,7 +53,14 @@ Build a website based on a JSON specification file for otobrothers AI Automation
 - [x] About: Simplified with co-founders image
 - [x] Newsletter: Beehiiv embed with "What you'll receive" section and lead magnet
 
-### SEO + GDPR + Refactoring - Iteration 3 (21 April 2026)
+### Products + Policy Update - Iteration 4 (21 April 2026)
+- [x] Routes renamed: /newsletter → /free_resources, /contact → /products
+- [x] Products page: € replaced with £ throughout
+- [x] Products page: "Purchase now" buttons restyled (full-width, orange #FF6600, white, bold)
+- [x] Enterprise training card added as 3rd product with "Enquire now" → scrolls to #contact
+- [x] New /policy page with 3 inline PDF embeds (Privacy, T&C, Cookies)
+- [x] Footer Privacy/Terms/Cookies links now route to /policy
+- [x] Cookie banner "Cookie Policy" link routes to /policy
 - [x] SEO meta tags via react-helmet-async on all pages (title, description, OG tags)
 - [x] Open Graph + Twitter Card base tags in index.html
 - [x] GDPR cookie consent banner (localStorage-based, Accept/Decline, links to Cookies PDF)
