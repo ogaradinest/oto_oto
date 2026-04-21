@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "@/App.css";
 
@@ -22,7 +22,7 @@ function App() {
   return (
     <HelmetProvider>
       <div className="App min-h-screen flex flex-col">
-        <BrowserRouter>
+        <HashRouter>
           <ScrollToTop />
           <CookieConsent />
           <Routes>
@@ -52,7 +52,7 @@ function App() {
               </>
             } />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </HelmetProvider>
   );
