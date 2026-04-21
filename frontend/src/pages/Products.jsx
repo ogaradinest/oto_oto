@@ -1,12 +1,28 @@
 import { Helmet } from "react-helmet-async";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Building2 } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Products = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToContact = () => {
+    if (location.pathname === "/") {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  };
+
   const products = [
     {
       title: "AI training Level 1",
       duration: "3h workshop / 5 modules",
-      price: "€249",
+      price: "£249",
+      icon: GraduationCap,
       modules: [
         "AI Fundamentals",
         "Prompting & context",
@@ -22,12 +38,14 @@ const Products = () => {
         },
         "Governance & business implementation"
       ],
-      stripeLink: "https://buy.stripe.com/cNibIU1e0b2Rdj72BpbjW01"
+      stripeLink: "https://buy.stripe.com/cNibIU1e0b2Rdj72BpbjW01",
+      buttonLabel: "Purchase now"
     },
     {
       title: "AI training Level 2",
       duration: "4h workshop / 7 modules",
-      price: "€349",
+      price: "£349",
+      icon: GraduationCap,
       modules: [
         "Vibe coding: basics",
         "Vibe coding: app creation (CRM, Sales report tool)",
@@ -37,7 +55,26 @@ const Products = () => {
         "Business apps integration: API",
         "Social media AI content tools"
       ],
-      stripeLink: "https://buy.stripe.com/eVq9AM4qc3Apgvj1xlbjW02"
+      stripeLink: "https://buy.stripe.com/eVq9AM4qc3Apgvj1xlbjW02",
+      buttonLabel: "Purchase now"
+    },
+    {
+      title: "Enterprise training",
+      duration: "1 day workshop / 12 customisable modules",
+      price: null,
+      icon: Building2,
+      modules: [
+        "All Level 1 & Level 2 content",
+        "Custom module selection for your industry",
+        "Dedicated pre-workshop discovery session",
+        "Tailored exercises using your own business data",
+        "On-site or remote delivery",
+        "Post-workshop Q&A and support pack",
+        "Team knowledge assessment & certificates"
+      ],
+      stripeLink: null,
+      buttonLabel: "Enquire now",
+      isEnterprise: true
     }
   ];
 
@@ -74,51 +111,79 @@ const Products = () => {
     <div className="pt-20" data-testid="contact-page">
       <Helmet>
         <title>Products | otobrothers AI Training Workshops</title>
-        <meta name="description" content="Hands-on AI training workshops for your team. Level 1 (€249) and Level 2 (€349) practical courses covering AI fundamentals, prompting, vibe coding and agent deployment." />
+        <meta name="description" content="Hands-on AI training workshops for your team. Level 1 (£249), Level 2 (£349) and Enterprise — practical courses covering AI fundamentals, prompting, vibe coding and agent deployment." />
         <meta property="og:title" content="Products | otobrothers AI Training Workshops" />
         <meta property="og:description" content="Hands-on AI training workshops for business teams. Level 1 and Level 2 courses covering AI fundamentals, prompting, vibe coding and agent deployment." />
       </Helmet>
 
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {products.map((product, productIndex) => (
-              <a
-                key={productIndex}
-                href={product.stripeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-[#FF6B2C] transition-all hover:shadow-lg group flex flex-col"
-                data-testid={`product-tile-${productIndex + 1}`}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-[#FF6B2C] bg-opacity-10 rounded-xl flex items-center justify-center group-hover:bg-opacity-20 transition-colors">
-                    <GraduationCap className="w-6 h-6 text-[#FF6B2C]" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product, productIndex) => {
+              const Icon = product.icon;
+              const cardContent = (
+                <>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-[#FF6B2C] bg-opacity-10 rounded-xl flex items-center justify-center group-hover:bg-opacity-20 transition-colors">
+                      <Icon className="w-6 h-6 text-[#FF6B2C]" />
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-bold">{product.title}</h2>
+                      <p className="text-sm text-gray-500">{product.duration}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h2 className="text-xl font-bold">{product.title}</h2>
-                    <p className="text-sm text-gray-500">{product.duration}</p>
+
+                  {product.price ? (
+                    <div className="text-3xl font-bold text-[#FF6B2C] mb-6">
+                      {product.price}
+                    </div>
+                  ) : (
+                    <div className="text-base font-semibold text-gray-500 mb-6">
+                      Custom pricing
+                    </div>
+                  )}
+
+                  <ol className="space-y-3 text-sm flex-1">
+                    {product.modules.map((module, index) => renderModule(module, index))}
+                  </ol>
+
+                  <div className="mt-6 pt-6 border-t border-gray-100">
+                    <span className="inline-flex items-center justify-center gap-2 w-full bg-[#FF6600] text-white font-bold text-base px-6 py-3 rounded-full hover:bg-[#e55a00] transition-colors" data-testid={`product-btn-${productIndex + 1}`}>
+                      {product.buttonLabel}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </span>
                   </div>
-                </div>
+                </>
+              );
 
-                <div className="text-3xl font-bold text-[#FF6B2C] mb-6">
-                  {product.price}
-                </div>
+              if (product.isEnterprise) {
+                return (
+                  <div
+                    key={productIndex}
+                    onClick={scrollToContact}
+                    className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-[#FF6B2C] transition-all hover:shadow-lg group flex flex-col cursor-pointer"
+                    data-testid={`product-tile-${productIndex + 1}`}
+                  >
+                    {cardContent}
+                  </div>
+                );
+              }
 
-                <ol className="space-y-3 text-sm flex-1">
-                  {product.modules.map((module, index) => renderModule(module, index))}
-                </ol>
-
-                <div className="mt-6 pt-6 border-t border-gray-100">
-                  <span className="inline-flex items-center gap-2 text-[#FF6B2C] font-medium text-sm">
-                    Purchase now
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </span>
-                </div>
-              </a>
-            ))}
+              return (
+                <a
+                  key={productIndex}
+                  href={product.stripeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-[#FF6B2C] transition-all hover:shadow-lg group flex flex-col"
+                  data-testid={`product-tile-${productIndex + 1}`}
+                >
+                  {cardContent}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

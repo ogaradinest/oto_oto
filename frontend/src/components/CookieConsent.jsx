@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
@@ -35,15 +36,13 @@ const CookieConsent = () => {
         <p className="text-sm text-gray-600 flex-1">
           We use cookies to enhance your experience and analyse site traffic. By clicking{" "}
           <span className="font-semibold text-gray-900">Accept</span>, you consent to our use of cookies as described in our{" "}
-          <a
-            href="https://customer-assets.emergentagent.com/job_site-generator-157/artifacts/68vhz06x_new_CookiesPolicy.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/policy"
             className="text-[#FF6B2C] hover:underline font-medium"
             data-testid="cookie-policy-link"
           >
             Cookie Policy
-          </a>.
+          </Link>.
         </p>
         <div className="flex items-center gap-3 flex-shrink-0">
           <button

@@ -11,8 +11,8 @@ const Header = () => {
     { name: "Home", path: "/" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "About", path: "/about" },
-    { name: "Free Resources", path: "/newsletter" },
-    { name: "Products", path: "/contact" },
+    { name: "Free Resources", path: "/free_resources" },
+    { name: "Products", path: "/products" },
   ];
 
   const handleLogoClick = (e) => {

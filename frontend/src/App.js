@@ -14,6 +14,7 @@ import CaseStudies from "@/pages/CaseStudies";
 import About from "@/pages/About";
 import FreeResources from "@/pages/FreeResources";
 import Products from "@/pages/Products";
+import Policy from "@/pages/Policy";
 import Community from "@/pages/Community";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
@@ -40,8 +41,9 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/case-studies" element={<CaseStudies />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/newsletter" element={<FreeResources />} />
-                    <Route path="/contact" element={<Products />} />
+                    <Route path="/free_resources" element={<FreeResources />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/policy" element={<Policy />} />
                     <Route path="/community" element={<Community />} />
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
