@@ -47,7 +47,7 @@ const Policy = () => {
               <h2 className="text-2xl font-bold mb-6" data-testid={`policy-title-${policy.id}`}>
                 {policy.label}
               </h2>
-              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-50" style={{ height: "800px" }}>
+              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-50" style={{ height: "400px" }}>
                 <iframe
                   src={`https://docs.google.com/viewer?url=${encodeURIComponent(policy.url)}&embedded=true`}
                   title={policy.label}
