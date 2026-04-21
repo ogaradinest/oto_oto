@@ -1,9 +1,17 @@
+import { Helmet } from "react-helmet-async";
 import { Calculator, ClipboardCheck, Bot, Users, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Newsletter = () => {
+const FreeResources = () => {
   return (
     <div className="pt-20" data-testid="newsletter-page">
+      <Helmet>
+        <title>Free Resources | otobrothers AI Automation</title>
+        <meta name="description" content="Free AI tools and resources for SMB owners. Access the AI ROI Calculator, AI Readiness Assessment, AI Agents guide, and join our Skool community." />
+        <meta property="og:title" content="Free Resources | otobrothers AI Automation" />
+        <meta property="og:description" content="Free AI tools and resources for SMB owners. Calculate your ROI, assess your AI readiness, and learn about AI agents." />
+      </Helmet>
+
       {/* Resources Tiles Section */}
       <section className="py-16 bg-white" data-testid="resources-section">
         <div className="max-w-5xl mx-auto px-6">
@@ -138,4 +146,4 @@ const Newsletter = () => {
   );
 };
 
-export default Newsletter;
+export default FreeResources;

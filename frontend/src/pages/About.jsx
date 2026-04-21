@@ -1,6 +1,14 @@
+import { Helmet } from "react-helmet-async";
+
 const About = () => {
   return (
     <div className="pt-20" data-testid="about-page">
+      <Helmet>
+        <title>About | otobrothers AI Automation Consultancy</title>
+        <meta name="description" content="Meet the otobrothers team — two co-founders and three collaborators with 100 years of combined business experience in strategy, sales, marketing and finance." />
+        <meta property="og:title" content="About | otobrothers AI Automation Consultancy" />
+        <meta property="og:description" content="Meet the otobrothers team — two co-founders and three collaborators with 100 years of combined business experience." />
+      </Helmet>
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-6" data-testid="about-title">

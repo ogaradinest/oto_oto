@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { MapPin, Users, Briefcase, Tag } from "lucide-react";
 import YourCallButton from "@/components/LetsTalkButton";
 
@@ -70,6 +71,12 @@ const CaseStudies = () => {
 
   return (
     <div className="pt-20 bg-white" data-testid="case-studies-page">
+      <Helmet>
+        <title>Case Studies | otobrothers AI Automation</title>
+        <meta name="description" content="Real-world AI automation results. See how otobrothers helped a marketing agency, property firm and manufacturer save time and cut costs with custom AI solutions." />
+        <meta property="og:title" content="Case Studies | otobrothers AI Automation" />
+        <meta property="og:description" content="Real-world AI automation results for SMBs. See time saved, costs reduced and efficiency gains from otobrothers client projects." />
+      </Helmet>
       {/* Case Studies */}
       <section className="py-12">
         <div className="max-w-5xl mx-auto px-6 space-y-8">

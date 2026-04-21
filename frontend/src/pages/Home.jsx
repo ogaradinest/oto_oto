@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { SearchCheck, Rocket, GraduationCap, CheckCircle2, ChevronDown } from "lucide-react";
 import YourCallButton from "@/components/LetsTalkButton";
 import {
@@ -84,6 +85,12 @@ const Home = () => {
 
   return (
     <div className="pt-20" data-testid="home-page">
+      <Helmet>
+        <title>otobrothers | AI Automation Consultancy for SMBs</title>
+        <meta name="description" content="otobrothers helps SMBs across UK and Europe audit, design and deploy AI automation solutions. Book a free 25-minute discovery call today." />
+        <meta property="og:title" content="otobrothers | AI Automation Consultancy for SMBs" />
+        <meta property="og:description" content="otobrothers helps SMBs across UK and Europe audit, design and deploy AI automation solutions that save time, reduce costs and drive growth." />
+      </Helmet>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-white" data-testid="hero-section">
         <div className="max-w-4xl mx-auto px-6">

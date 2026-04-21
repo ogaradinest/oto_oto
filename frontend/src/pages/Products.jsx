@@ -1,6 +1,7 @@
+import { Helmet } from "react-helmet-async";
 import { GraduationCap } from "lucide-react";
 
-const Contact = () => {
+const Products = () => {
   const products = [
     {
       title: "AI training Level 1",
@@ -40,6 +41,8 @@ const Contact = () => {
     }
   ];
 
+  const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
+
   const renderModule = (module, index) => {
     if (typeof module === "string") {
       return (
@@ -49,7 +52,6 @@ const Contact = () => {
         </li>
       );
     }
-    const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
     return (
       <li key={index} className="flex items-start gap-2">
         <span className="text-[#FF6B2C] font-semibold">{index + 1}.</span>
@@ -70,6 +72,13 @@ const Contact = () => {
 
   return (
     <div className="pt-20" data-testid="contact-page">
+      <Helmet>
+        <title>Products | otobrothers AI Training Workshops</title>
+        <meta name="description" content="Hands-on AI training workshops for your team. Level 1 (€249) and Level 2 (€349) practical courses covering AI fundamentals, prompting, vibe coding and agent deployment." />
+        <meta property="og:title" content="Products | otobrothers AI Training Workshops" />
+        <meta property="og:description" content="Hands-on AI training workshops for business teams. Level 1 and Level 2 courses covering AI fundamentals, prompting, vibe coding and agent deployment." />
+      </Helmet>
+
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -117,4 +126,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Products;
