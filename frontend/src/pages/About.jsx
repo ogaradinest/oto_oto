@@ -28,12 +28,45 @@ const About = () => {
           </p>
 
           {/* Co-founders Image */}
-          <div className="flex justify-center" data-testid="about-image">
+          <div className="flex justify-center mb-16" data-testid="about-image">
             <img
               src="https://customer-assets.emergentagent.com/job_8cf2a72d-4e46-4040-a269-a04fc16dca96/artifacts/e2qjhhjn_Screenshot%202026-03-15%20232332.png"
               alt="Dan and Cristian Megherlich - Co-founders of otobrothers"
               className="max-w-full h-auto rounded-2xl"
             />
+          </div>
+
+          {/* Co-founders Profiles */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto" data-testid="about-founders">
+            <div
+              className="flex flex-col items-center text-center bg-yellow-400 rounded-2xl p-6 shadow-md"
+              data-testid="founder-dan"
+            >
+              <img
+                src="/dan_megherlich.jpeg"
+                alt="Dan Megherlich - Co-founder of otobrothers"
+                className="w-48 h-48 object-cover rounded-2xl mb-4 border-4 border-white"
+              />
+              <h3 className="text-xl font-bold mb-2 text-black">Dan Megherlich</h3>
+              <p className="text-black">
+                Dan brings 20+ years of B2B sales leadership across EMEA, scaling revenue from $10K to $100M+ at AMD and SHI. He builds sales engines from scratch, championing AI tools for every team.
+              </p>
+            </div>
+
+            <div
+              className="flex flex-col items-center text-center bg-black rounded-2xl p-6 shadow-md"
+              data-testid="founder-cristian"
+            >
+              <img
+                src="/cristian_megherlich.jpeg"
+                alt="Cristian Megherlich - Co-founder of otobrothers"
+                className="w-48 h-48 object-cover rounded-2xl mb-4 border-4 border-white"
+              />
+              <h3 className="text-xl font-bold mb-2 text-white">Cristian Megherlich</h3>
+              <p className="text-white">
+                Cristian has 25+ years in advertising, marketing, and award-winning design. Since 2024 he's been teaching entrepreneurs to automate and grow with AI and marketing. Strong communicator with deep business process expertise.
+              </p>
+            </div>
           </div>
         </div>
       </section>

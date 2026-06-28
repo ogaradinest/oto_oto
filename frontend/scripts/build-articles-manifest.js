@@ -114,6 +114,7 @@ function main() {
       date: meta.date || "",
       image: meta.image || "",
       excerpt: meta.excerpt || "",
+      author: meta.author || "",
       file: `articles/${file}`,
     });
   }

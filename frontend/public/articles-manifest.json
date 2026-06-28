@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-06-28T13:58:59.048Z",
+  "knownTags": [
+    "AI Strategy",
+    "AI Implementation",
+    "AI for Marketing & Sales",
+    "AI Consultancy",
+    "AI Governance",
+    "AI Technology"
+  ],
+  "articles": [
+    {
+      "slug": "ai-consultancy-first-90-days",
+      "title": "What an AI Consultancy Should Actually Do in the First 90 Days",
+      "tags": [
+        "AI Consultancy",
+        "AI Strategy"
+      ],
+      "date": "2026-06-19",
+      "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80",
+      "excerpt": "If a consultancy's first deliverable is a roadmap and not a working pilot, that's a signal worth noticing.",
+      "author": "dan",
+      "file": "articles/ai-consultancy-first-90-days.html",
+      "related": [
+        "ai-strategy-failure-points",
+        "ai-governance-basics",
+        "ai-implementation-checklist"
+      ]
+    },
+    {
+      "slug": "ai-governance-basics",
+      "title": "AI Governance for SMBs Who Don't Have a Compliance Team",
+      "tags": [
+        "AI Governance",
+        "AI Strategy"
+      ],
+      "date": "2026-06-17",
+      "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80",
+      "excerpt": "You don't need a compliance department to govern your AI responsibly. You need four documents and one habit.",
+      "author": "cristian",
+      "file": "articles/ai-governance-basics.html",
+      "related": [
+        "ai-consultancy-first-90-days",
+        "ai-strategy-failure-points",
+        "ai-implementation-checklist"
+      ]
+    },
+    {
+      "slug": "ai-implementation-checklist",
+      "title": "The AI Implementation Checklist Nobody Shows You",
+      "tags": [
+        "AI Implementation",
+        "AI Technology"
+      ],
+      "date": "2026-06-14",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80",
+      "excerpt": "Implementation is where AI projects quietly die. Here's the checklist we run before any system goes live for a client.",
+      "author": "cristian",
+      "file": "articles/ai-implementation-checklist.html",
+      "related": [
+        "ai-consultancy-first-90-days",
+        "ai-governance-basics",
+        "ai-strategy-failure-points"
+      ]
+    },
+    {
+      "slug": "ai-strategy-failure-points",
+      "title": "Why Most AI Strategies Fail Before They Start",
+      "tags": [
+        "AI Strategy",
+        "AI Consultancy"
+      ],
+      "date": "2026-06-10",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+      "excerpt": "Most AI strategy documents never survive contact with a real team. Here are the three questions that decide whether yours will.",
+      "author": "dan",
+      "file": "articles/ai-strategy-failure-points.html",
+      "related": [
+        "ai-consultancy-first-90-days",
+        "ai-governance-basics",
+        "ai-implementation-checklist"
+      ]
+    }
+  ]
+}

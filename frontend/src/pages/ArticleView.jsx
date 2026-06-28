@@ -10,6 +10,7 @@ import {
   getRelatedArticles,
   formatArticleDate,
 } from "@/lib/articles";
+import { getAuthor } from "@/lib/authors";
 
 const ArticleView = () => {
   const { slug } = useParams();
@@ -73,6 +74,30 @@ const ArticleView = () => {
         >
           ← Back to Free Resources
         </Link>
+
+        {(() => {
+          const author = getAuthor(article.author);
+          if (!author) return null;
+          return (
+            <div
+              className="flex items-start gap-4 bg-gray-50 rounded-xl p-5 mb-6"
+              data-testid="article-author"
+            >
+              <img
+                src={author.photo}
+                alt={author.name}
+                className="w-14 h-14 rounded-full object-cover flex-shrink-0"
+              />
+              <div>
+                <p className="text-xs font-semibold tracking-wide text-[#FF6B2C] mb-1">
+                  PUBLISHED BY
+                </p>
+                <p className="font-bold text-[#1a1a3d] mb-1">{author.name}</p>
+                <p className="text-sm text-gray-600">{author.bio}</p>
+              </div>
+            </div>
+          );
+        })()}
 
         <div className="flex flex-wrap gap-2 mb-4">
           {(article.tags || []).map((tag) => (
