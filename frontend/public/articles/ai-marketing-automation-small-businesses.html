@@ -5,36 +5,202 @@ date: 2026-06-28
 image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
 excerpt: Five free AI workflows that help UK small businesses publish more consistently, follow up faster, and stop wasting time on blank screens.
 -->
-Most small businesses do not need an AI transformation strategy. They need tomorrow's post written, last month's leads followed up, and a way to show up online without losing half a day to it.
 
-The real opportunity for UK SMBs with 5 to 50 employees is not replacing a marketing team. It is using free AI tools to remove the repeatable work: drafting, repurposing, scheduling, following up.
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; font-weight: 400; }
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.5rem 2rem; margin: 2rem 0; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+  .ob-label { display: block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-h2 { font-size: 1.7rem; font-weight: 800; color: #1a1a3d; margin: 2.5rem 0 1rem; line-height: 1.25; }
+  .ob-h3 { font-size: 1.05rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.6rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2.5rem 0; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+  .ob-problem { background: #f9fafb; border-radius: 16px; padding: 1.75rem 2rem; margin: 1.5rem 0 2.5rem; border: 1px solid #e5e7eb; }
+  .ob-problem-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .ob-problem-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: #374151; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; line-height: 1.5; }
+  .ob-problem-list li:last-child { border-bottom: none; }
+  .ob-problem-list li::before { content: ''; display: inline-block; width: 8px; height: 8px; min-width: 8px; background: #FF6B2C; border-radius: 50%; margin-top: 0.4rem; }
+  .ob-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 2rem 2rem 1.5rem; margin-bottom: 1.25rem; position: relative; overflow: hidden; transition: box-shadow 0.2s; }
+  .ob-card:hover { box-shadow: 0 8px 30px rgba(255,107,44,0.1); }
+  .ob-card-accent { position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-card-num { font-size: 4rem; font-weight: 900; color: #FF6B2C; line-height: 1; opacity: 0.08; position: absolute; top: 0.75rem; right: 1.25rem; }
+  .ob-card-icon { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: #fff8f5; border-radius: 10px; margin-bottom: 1rem; }
+  .ob-metric { display: inline-flex; align-items: center; gap: 0.4rem; background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; font-size: 0.78rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 20px; margin-top: 0.75rem; }
+  .ob-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2.5rem; }
+  .ob-phase { background: #f9fafb; border-radius: 14px; padding: 1.5rem; border: 1px solid #e5e7eb; }
+  .ob-phase-badge { display: inline-block; background: #1a1a3d; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 6px; margin-bottom: 0.75rem; }
+  .ob-phase-title { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin-bottom: 0.75rem; }
+  .ob-phase-list { list-style: none; padding: 0; margin: 0; }
+  .ob-phase-list li { font-size: 0.82rem; line-height: 1.6; color: #4b5563; padding: 0.2rem 0 0.2rem 1rem; position: relative; }
+  .ob-phase-list li::before { content: '→'; position: absolute; left: 0; color: #FF6B2C; font-size: 0.7rem; top: 0.25rem; }
+  .ob-dark { background: #1a1a3d; color: white; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0 2rem; }
+  .ob-dark .ob-label { color: #FF6B2C; }
+  .ob-dark .ob-h2 { color: white; margin-top: 0.5rem; }
+  .ob-dark p { color: #d1d5db; line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+  .ob-dark p:last-child { margin-bottom: 0; }
+  .ob-dark strong { color: white; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.3); padding-bottom: 1px; transition: border-color 0.15s; }
+  .ob-link:hover { border-color: #FF6B2C; }
+  .ob-divider { border: none; border-top: 1px solid #e5e7eb; margin: 2.5rem 0; }
+  @media (max-width: 580px) {
+    .ob-timeline { grid-template-columns: 1fr; }
+    .ob-stat-row { grid-template-columns: repeat(3, 1fr); }
+    .ob-card-num { font-size: 2.5rem; }
+  }
+</style>
 
-## Five workflows that cost nothing to start
+<p class="ob-lead">Most small businesses do not need an AI transformation strategy. They need tomorrow's post written, last month's leads followed up, and a way to show up online without losing half a day to it.</p>
 
-**Turn one customer question into a week of content.** Start with questions you already answer on calls — "how much does it cost?", "how long does installation take?", "what mistakes should I avoid?" — then ask a free AI tool (ChatGPT, Claude, Gemini, Copilot) to generate a 600-word blog post, three LinkedIn posts, an email newsletter and five Google Business Profile updates from a single answer. A realistic target is 12 to 20 usable assets from 4 questions per month.
+<div class="ob-callout">
+  <p>The real opportunity for UK SMBs with 5–50 employees is not replacing a marketing team — it is using <em>free</em> AI tools to remove the repeatable work: drafting, repurposing, scheduling, following up.</p>
+</div>
 
-**Build a simple AI content calendar.** A Google Sheet with columns for date, channel, topic, draft copy and status is enough. Ask AI to fill in ideas around the terms your customers search: local SEO, lead generation, email marketing, what you do and where you do it. Include terms like "AI search optimisation" — customers increasingly find answers through ChatGPT, Perplexity and Google AI Overviews, not just traditional search. A 30-day calendar takes 2 to 3 hours to build, then 60 to 90 minutes per week to run.
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">£0</div>
+    <div class="ob-stat-label">cost to start</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">5</div>
+    <div class="ob-stat-label">core workflows</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">90</div>
+    <div class="ob-stat-label">days to traction</div>
+  </div>
+</div>
 
-**Repurpose sales call notes into content.** After a call, write down the customer's problem, the objection they raised, and the explanation that helped. Feed those notes into AI and ask for a case-study outline, a follow-up email, a short FAQ answer or a landing-page section. Ten sales calls per week with notes captured from just three could generate 12 customer-led content ideas per month. Even half of those published beats generic AI posts every time.
+<hr class="ob-divider" />
 
-**Automate email follow-up templates.** Most leads go cold because follow-up is late, vague or forgotten. Create prompt templates for: new enquiry reply, quote follow-up, post-call summary, old lead reactivation and review request. Store them in Google Docs. Use AI to personalise the first draft — but always review before sending. A simple workflow like this can move lead follow-up from 40% to 70–80%.
+<span class="ob-label">The Problem</span>
+<h2 class="ob-h2">Marketing is usually nobody's full-time job</h2>
 
-**Run a weekly marketing report in five minutes.** Copy your basic numbers into AI — website visits, enquiries, email opens, LinkedIn impressions, calls booked — and ask what changed, what probably caused it, and what to test next week. This is useful marketing analytics without pretending you have a data science team.
+<div class="ob-problem">
+  <p class="ob-p" style="margin-bottom: 0.75rem; font-weight: 600; color: #1a1a3d;">In a small business, marketing often sits with the owner, office manager or "whoever knows Canva." That means it looks like this:</p>
+  <ul class="ob-problem-list">
+    <li>Three posts one week. Nothing for a month.</li>
+    <li>Email newsletters started and abandoned.</li>
+    <li>Blog ideas stuck in a notebook since January.</li>
+    <li>Google Business Profile last updated six months ago.</li>
+    <li>Follow-up emails written from scratch every single time.</li>
+  </ul>
+</div>
 
-## A 90-day plan
+<p class="ob-p">AI can help by turning one piece of business knowledge into many usable marketing assets. Not glamorous. Useful.</p>
 
-Days 1–14: set up a Google Sheet content calendar, collect 20 customer questions, create reusable prompt templates.
+<hr class="ob-divider" />
 
-Days 15–30: publish twice a week, one Google Business Profile update per week, one email newsletter. Track enquiries manually.
+<span class="ob-label">The Workflows</span>
+<h2 class="ob-h2">Five workflows that cost nothing to start</h2>
 
-Days 31–60: start capturing sales call notes. Build email follow-up templates. Review performance every Friday.
+<div class="ob-card">
+  <div class="ob-card-accent"></div>
+  <div class="ob-card-num">01</div>
+  <div class="ob-card-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+  </div>
+  <h3 class="ob-h3">Turn one customer question into a week of content</h3>
+  <p class="ob-p">Start with questions you already answer on calls — <em>"how much does it cost?", "how long does installation take?", "what mistakes should I avoid?"</em> — then ask a free AI tool to generate a 600-word blog post, three LinkedIn posts, an email newsletter and five Google Business Profile updates from that single answer.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Tools: ChatGPT, Claude, Gemini, Copilot — all free tiers.</p>
+  <div><span class="ob-metric">↑ 3×–5× content output · 12–20 assets from 4 questions/month</span></div>
+</div>
 
-Days 61–90: double down on what generated replies, clicks, calls or quote requests. Remove what feels generic. Add simple CRM tagging for lead source and follow-up status.
+<div class="ob-card">
+  <div class="ob-card-accent"></div>
+  <div class="ob-card-num">02</div>
+  <div class="ob-card-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+  </div>
+  <h3 class="ob-h3">Build a simple AI content calendar</h3>
+  <p class="ob-p">A Google Sheet with columns for date, channel, topic, draft copy and status is enough. Ask AI to fill it with ideas around the terms your customers search — local SEO, lead generation, email marketing, what you do and where.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Include "AI search optimisation" — customers increasingly find answers through ChatGPT, Perplexity and Google AI Overviews, not just traditional search.</p>
+  <div><span class="ob-metric">30-day calendar built in 2–3 hours · 60–90 min/week to run</span></div>
+</div>
 
-## The honest view
+<div class="ob-card">
+  <div class="ob-card-accent"></div>
+  <div class="ob-card-num">03</div>
+  <div class="ob-card-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.47 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 5.95 5.95l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </div>
+  <h3 class="ob-h3">Repurpose sales call notes into content</h3>
+  <p class="ob-p">Your best marketing language is already inside your sales conversations. After a call, write down: the customer's problem, the objection raised, and the explanation that helped. Feed those notes into AI and ask for a case-study outline, follow-up email, FAQ answer or landing-page section.</p>
+  <p class="ob-p" style="margin-bottom: 0;">This creates useful content without inventing anything.</p>
+  <div><span class="ob-metric">12 customer-led ideas/month · from just 3 captured calls per week</span></div>
+</div>
 
-AI will not fix a weak offer, poor service or unclear positioning.
+<div class="ob-card">
+  <div class="ob-card-accent"></div>
+  <div class="ob-card-num">04</div>
+  <div class="ob-card-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </div>
+  <h3 class="ob-h3">Automate email follow-up templates</h3>
+  <p class="ob-p">Most SMBs lose leads because follow-up is late, vague or forgotten. Create prompt templates for: new enquiry reply, quote follow-up, post-call summary, old lead reactivation and review request. Store them in Google Docs. Use AI to personalise the first draft.</p>
+  <p class="ob-p" style="margin-bottom: 0; color: #6b7280; font-size: 0.9rem;"><strong style="color: #1a1a3d;">Important:</strong> AI drafts the email. You review it. Never send without reading.</p>
+  <div><span class="ob-metric">↑ Follow-up rate from ~40% to 70–80%</span></div>
+</div>
 
-But it can help a small team become more consistent. For most SMBs the win is not "10x growth." It is simpler: publish regularly, follow up faster, waste less time staring at a blank screen, and learn which marketing activity actually brings enquiries.
+<div class="ob-card">
+  <div class="ob-card-accent"></div>
+  <div class="ob-card-num">05</div>
+  <div class="ob-card-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+  </div>
+  <h3 class="ob-h3">Run a weekly marketing report in five minutes</h3>
+  <p class="ob-p">Every Friday, copy your basic numbers into AI — website visits, enquiries, email opens, LinkedIn impressions, calls booked — and ask: what changed, what probably caused it, and what to test next week.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Marketing analytics without pretending you have a data science team.</p>
+  <div><span class="ob-metric">5 min/week → clear, actionable decisions from your own data</span></div>
+</div>
 
-That is a useful place to start. For the rigour needed once these workflows are running at scale, see the [AI implementation checklist](#/articles/ai-implementation-checklist). And if your broader strategy still feels unclear, [why most AI strategies fail before they start](#/articles/ai-strategy-failure-points) is worth reading first.
+<hr class="ob-divider" />
+
+<span class="ob-label">The Plan</span>
+<h2 class="ob-h2">A 90-day implementation plan</h2>
+
+<div class="ob-timeline">
+  <div class="ob-phase">
+    <span class="ob-phase-badge">Days 1–14</span>
+    <div class="ob-phase-title">Build the foundations</div>
+    <ul class="ob-phase-list">
+      <li>Set up Google Sheet content calendar</li>
+      <li>Collect 20 customer questions</li>
+      <li>Create reusable prompt templates</li>
+    </ul>
+  </div>
+  <div class="ob-phase">
+    <span class="ob-phase-badge">Days 15–60</span>
+    <div class="ob-phase-title">Run the system</div>
+    <ul class="ob-phase-list">
+      <li>Publish 2× per week</li>
+      <li>1 Google Business update/week</li>
+      <li>1 email newsletter/month</li>
+      <li>Capture sales call notes</li>
+      <li>Build email follow-up templates</li>
+      <li>Review every Friday</li>
+    </ul>
+  </div>
+  <div class="ob-phase">
+    <span class="ob-phase-badge">Days 61–90</span>
+    <div class="ob-phase-title">Double down</div>
+    <ul class="ob-phase-list">
+      <li>Amplify what gets replies & enquiries</li>
+      <li>Cut what feels generic</li>
+      <li>Tag leads by source in CRM</li>
+    </ul>
+  </div>
+</div>
+
+<div class="ob-dark">
+  <span class="ob-label">The honest view</span>
+  <h2 class="ob-h2">AI won't fix a weak offer. But it will fix inconsistency.</h2>
+  <p>AI will not fix a weak offer, poor service or unclear positioning. If your product isn't right, no amount of content helps.</p>
+  <p>But for a business that already works? Inconsistency is the real enemy. One week posting, three weeks silent. Leads going cold because nobody followed up. Good ideas staying in a notebook forever.</p>
+  <p>For most SMBs the win is not <strong>"10x growth."</strong> It is simpler: publish regularly, follow up faster, waste less time staring at a blank screen, and finally know which marketing activity actually brings enquiries.</p>
+  <p>That is a useful place to start.</p>
+</div>
+
+<p class="ob-p">For the rigour needed once these workflows are running at scale, see the <a class="ob-link" href="#/articles/ai-implementation-checklist">AI implementation checklist</a>. And if your broader strategy still feels unclear, <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a> is worth reading first.</p>
