@@ -236,27 +236,14 @@ const Home = () => {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
                     <span>•</span>
-                    <span>RO, Bucharest, <a href="tel:+40722465536" className="font-bold hover:text-[#FF6B2C] transition-colors">+40 722 465 536</a></span>
+                    <span>RO, Bucharest | <a href="mailto:cristian@otobrothers.com" className="font-bold hover:text-[#FF6B2C] transition-colors">cristian@otobrothers.com</a></span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span>•</span>
-                    <span>UK, Milton Keynes, <a href="tel:+447572638793" className="font-bold hover:text-[#FF6B2C] transition-colors">+44 7572 638 793</a></span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span>•</span>
-                    <span>UK, London, <a href="tel:+447577774805" className="font-bold hover:text-[#FF6B2C] transition-colors">+44 7577 774 805</a></span>
+                    <span>UK, London | <a href="mailto:dan@otobrothers.com" className="font-bold hover:text-[#FF6B2C] transition-colors">dan@otobrothers.com</a></span>
                   </li>
                 </ul>
               </div>
-              
-              {/* Email */}
-              <a 
-                href="mailto:support@otobrothers.com" 
-                className="text-[#FF6B2C] hover:underline font-medium"
-                data-testid="contact-email"
-              >
-                support@otobrothers.com
-              </a>
             </div>
             {/* Right Column - Google Calendar */}
             <div className="bg-white rounded-2xl p-2 shadow-sm" data-testid="contact-calendar">
