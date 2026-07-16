@@ -1,0 +1,238 @@
+<!--
+title: Agentic AI Governance: Managing Autonomous Systems in the Enterprise
+tags: AI Governance, AI Strategy, AI Technology
+date: 2026-07-16
+image: https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80
+excerpt: When AI systems act autonomously, traditional governance frameworks fail — here's what enterprise leaders need instead.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Risk cards ── */
+  .ob-risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-risk-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; position: relative; overflow: hidden; }
+  .ob-risk-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-risk-icon { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: #fff8f5; border-radius: 9px; margin-bottom: 0.75rem; }
+  .ob-risk-card h4 { font-size: 0.95rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.5rem; }
+  .ob-risk-card p { font-size: 0.88rem; color: #4b5563; line-height: 1.65; margin: 0; }
+
+  /* ── Reg three-col ── */
+  .ob-reg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-reg-card { background: #f9fafb; border-radius: 14px; padding: 1.4rem; border: 1px solid #e5e7eb; }
+  .ob-reg-badge { display: inline-block; background: #1a1a3d; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 6px; margin-bottom: 0.75rem; }
+  .ob-reg-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.5rem; }
+  .ob-reg-card p { font-size: 0.83rem; color: #4b5563; line-height: 1.65; margin: 0; }
+
+  /* ── Oversight tiers ── */
+  .ob-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0; }
+  .ob-tier { border-radius: 14px; padding: 1.4rem; border: 1px solid #e5e7eb; text-align: center; }
+  .ob-tier.high { background: #fef2f2; border-color: #fecaca; }
+  .ob-tier.medium { background: #fffbeb; border-color: #fde68a; }
+  .ob-tier.low { background: #f0fdf4; border-color: #bbf7d0; }
+  .ob-tier-label { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .ob-tier.high .ob-tier-label { color: #dc2626; }
+  .ob-tier.medium .ob-tier-label { color: #d97706; }
+  .ob-tier.low .ob-tier-label { color: #16a34a; }
+  .ob-tier h4 { font-size: 0.85rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.4rem; }
+  .ob-tier p { font-size: 0.82rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── Audit checklist ── */
+  .ob-checklist { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .ob-checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: #374151; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; line-height: 1.55; }
+  .ob-checklist li:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-check { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; min-width: 20px; background: #fff8f5; border: 1.5px solid #FF6B2C; border-radius: 5px; margin-top: 0.1rem; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-risk-grid, .ob-reg-grid, .ob-tiers { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">As autonomous AI systems move from pilots into production, governance frameworks built for traditional AI are failing. Agentic AI — systems that plan, reason, use tools, and execute decisions with minimal human oversight — introduces accountability gaps that existing frameworks were never designed to handle.</p>
+
+<div class="ob-callout">
+  <p>88% of organisations cannot show complete accountability trails linking autonomous transactions to human intent. That is not a technical gap. It is a governance failure waiting to become a regulatory one.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">94%</div>
+    <div class="ob-stat-label">of orgs say AI is increasing insider risk</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">52%</div>
+    <div class="ob-stat-label">are piloting agentic systems</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">20%</div>
+    <div class="ob-stat-label">have governance sufficient to intervene early</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHAT MAKES AGENTIC AI DIFFERENT ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Makes It Different</h2>
+  <p class="ob-section-sub">Agentic AI vs traditional AI vs generative AI</p>
+
+  <p class="ob-p">Traditional AI systems generate outputs — classifications, predictions, recommendations — that humans evaluate and act upon. Generative AI responds to prompts and produces content for human consumption. Neither independently accesses systems, invokes tools, or executes actions.</p>
+
+  <p class="ob-p">Agentic AI does all three. Where generative AI might draft an email, agentic AI can compose, review, revise, and <em>send</em> it — whilst learning from feedback to refine future behaviour. It pursues defined objectives with minimal continuous supervision, dynamically adjusting strategies in response to new information.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">That capability gap is precisely what breaks conventional governance. The behaviour that creates risk emerges not from any single component but from the dynamic interaction between the agent's reasoning, tool selections, data flows, and integration points — the "invisible layer of risk."</p>
+</div>
+
+<!-- ─── SECTION 2: THE RISKS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Risks</h2>
+  <p class="ob-section-sub">Four governance vulnerabilities unique to autonomous systems</p>
+
+  <div class="ob-risk-grid">
+    <div class="ob-risk-card">
+      <div class="ob-risk-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h4>Reasoning Opacity</h4>
+      <p>Autonomous decisions happen across multiple reasoning steps with no single point of accountability. The "invisible layer" — emergent behaviour from tool interactions — is not captured in standard logs.</p>
+    </div>
+    <div class="ob-risk-card">
+      <div class="ob-risk-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <h4>Excessive Agency</h4>
+      <p>The OWASP Agentic Top 10 (2026) identifies this as critical: an agent faithfully pursues its objective within authorised tools but produces unintended consequences. A design failure, not a security breach.</p>
+    </div>
+    <div class="ob-risk-card">
+      <div class="ob-risk-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h4>Accountability Fragmentation</h4>
+      <p>When agents delegate to other agents, accountability distributes across multiple decision points. "Invisible delegation" — agents acting under human credentials — erases the distinction between human and autonomous decisions.</p>
+    </div>
+    <div class="ob-risk-card">
+      <div class="ob-risk-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h4>Cascading Failures</h4>
+      <p>Multiple agents making locally rational decisions can compound into system-wide drift. A demand forecast agent over-predicts → production scales up → inventory agents adjust → procurement negotiates new contracts. Each step correct; the outcome wrong.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: THE REGULATORY PICTURE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Regulatory Picture</h2>
+  <p class="ob-section-sub">What EU, UK, and NIST require from autonomous systems</p>
+
+  <div class="ob-reg-grid">
+    <div class="ob-reg-card">
+      <span class="ob-reg-badge">EU AI Act</span>
+      <h4>Effective Human Oversight</h4>
+      <p>High-risk autonomous systems must enable humans to understand decisions, intervene before harm occurs, and maintain ultimate accountability. Compliance requires full documentation, testing, and audit trails.</p>
+    </div>
+    <div class="ob-reg-card">
+      <span class="ob-reg-badge">UK Approach</span>
+      <h4>Principles-Based Governance</h4>
+      <p>The UK's AI Safety Institute takes a pro-innovation, context-based approach rather than prescriptive rules. Organisations demonstrate proportionate governance relative to risk, sector, and deployment context.</p>
+    </div>
+    <div class="ob-reg-card">
+      <span class="ob-reg-badge">NIST (Mar 2026)</span>
+      <h4>Identity-First Security</h4>
+      <p>Autonomous agents require distinct identities separate from human users — least-privilege access, just-in-time credentials, and runtime behavioural drift monitoring. No human credential inheritance.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 4: THE FRAMEWORK ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Framework</h2>
+  <p class="ob-section-sub">Risk-proportionate oversight and immutable audit trails</p>
+
+  <p class="ob-p">Effective governance is not a blanket approval gate on everything an agent does. It is a tiered model based on the risk profile of each decision: financial impact, regulatory sensitivity, irreversibility, and potential for unintended consequences.</p>
+
+  <div class="ob-tiers">
+    <div class="ob-tier high">
+      <div class="ob-tier-label">High Risk</div>
+      <h4>Full human review</h4>
+      <p>Before execution. Novel, irreversible, or externally visible decisions.</p>
+    </div>
+    <div class="ob-tier medium">
+      <div class="ob-tier-label">Medium Risk</div>
+      <h4>Post-execution monitoring</h4>
+      <p>Execute with real-time anomaly detection and human intervention on alert.</p>
+    </div>
+    <div class="ob-tier low">
+      <div class="ob-tier-label">Low Risk</div>
+      <h4>Autonomous with audit</h4>
+      <p>Execute freely within constrained boundaries. Periodic human auditing.</p>
+    </div>
+  </div>
+
+  <p class="ob-p" style="margin-top: 1.5rem;">Organisations implementing multi-tiered guardrails report <strong>60% faster incident resolution</strong> and <strong>80% reduction in false alerts</strong>.</p>
+
+  <p class="ob-p">Every agent interaction must be logged with:</p>
+  <ul class="ob-checklist">
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Timestamp, agent identity, and the human authorisation that triggered it</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Decision rationale and reasoning steps</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tools invoked and data sources accessed</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Outcomes produced and downstream effects</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Immutable storage — append-only, no retroactive alteration</li>
+  </ul>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions enterprise leaders ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is "excessive agency" and why does it matter?</p>
+    <p class="ob-faq-a">It is when an agent faithfully pursues its objective within authorised tools but produces unintended consequences. It is a design failure — the agent did exactly what it was built to do, just not what the business intended. Governance must constrain not just which tools an agent can access, but what those tools can do in specific contexts.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the EU AI Act apply to our agentic systems?</p>
+    <p class="ob-faq-a">If your systems make autonomous decisions affecting safety, financial outcomes, or regulatory compliance, yes — they fall within the high-risk category and must comply with documentation, testing, oversight, and audit requirements.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do we balance autonomy with governance?</p>
+    <p class="ob-faq-a">Classify decisions by autonomy level. Novel, ambiguous, or high-consequence decisions remain human-owned. Routine, constrained, reversible decisions can execute autonomously. The tier model above is a practical starting point.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What infrastructure do we actually need?</p>
+    <p class="ob-faq-a">Four things: identity-first security controls for agents (distinct from human credentials), immutable audit logging, real-time anomaly detection, and documented escalation workflows that specify exactly who reviews what and when.</p>
+  </div>
+</div>
+
+<p class="ob-p" style="margin-top: 2rem;">For the foundational governance principles before you reach agentic complexity, see <a class="ob-link" href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a>. And for the implementation rigour needed before any system goes live, the <a class="ob-link" href="#/articles/ai-implementation-checklist">AI implementation checklist</a> covers the essentials.</p>
