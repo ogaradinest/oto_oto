@@ -1,9 +1,9 @@
 <!--
-title: Agentic AI Governance: Managing Autonomous Systems in the Enterprise
+title: Agentic AI Governance in 2026: Why Adoption Is Outrunning Control
 tags: AI Governance, AI Strategy, AI Technology
-date: 2026-07-16
-image: https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80
-excerpt: When AI systems act autonomously, traditional governance frameworks fail — here's what enterprise leaders need instead.
+date: 2026-07-17
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 74% of enterprises plan to scale agentic AI in two years — only 21% have governance mature enough to control it.
 author: dan
 -->
 
@@ -30,16 +30,19 @@ author: dan
   .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
   .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
 
+  /* ── Metric badges ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
   /* ── Risk cards ── */
   .ob-risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0.5rem 0; }
   .ob-risk-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; position: relative; overflow: hidden; }
   .ob-risk-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
-  .ob-risk-icon { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: #fff8f5; border-radius: 9px; margin-bottom: 0.75rem; }
   .ob-risk-card h4 { font-size: 0.95rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.5rem; }
   .ob-risk-card p { font-size: 0.88rem; color: #4b5563; line-height: 1.65; margin: 0; }
 
   /* ── Reg three-col ── */
-  .ob-reg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-reg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 0.5rem 0; }
   .ob-reg-card { background: #f9fafb; border-radius: 14px; padding: 1.4rem; border: 1px solid #e5e7eb; }
   .ob-reg-badge { display: inline-block; background: #1a1a3d; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 6px; margin-bottom: 0.75rem; }
   .ob-reg-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.5rem; }
@@ -58,12 +61,6 @@ author: dan
   .ob-tier h4 { font-size: 0.85rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.4rem; }
   .ob-tier p { font-size: 0.82rem; color: #4b5563; line-height: 1.6; margin: 0; }
 
-  /* ── Audit checklist ── */
-  .ob-checklist { list-style: none; padding: 0; margin: 1rem 0 0; }
-  .ob-checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: #374151; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; line-height: 1.55; }
-  .ob-checklist li:last-child { border-bottom: none; padding-bottom: 0; }
-  .ob-check { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; min-width: 20px; background: #fff8f5; border: 1.5px solid #FF6B2C; border-radius: 5px; margin-top: 0.1rem; }
-
   /* ── FAQ dark section ── */
   .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
   .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
@@ -74,6 +71,9 @@ author: dan
   .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
   .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
 
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+
   @media (max-width: 620px) {
     .ob-section { padding: 1.75rem 1.25rem; }
     .ob-section-title { font-size: 1.8rem; }
@@ -81,135 +81,104 @@ author: dan
   }
 </style>
 
-<p class="ob-lead">As autonomous AI systems move from pilots into production, governance frameworks built for traditional AI are failing. Agentic AI — systems that plan, reason, use tools, and execute decisions with minimal human oversight — introduces accountability gaps that existing frameworks were never designed to handle.</p>
+<p class="ob-lead">Enterprises are deploying autonomous AI agents faster than they can govern them. Three in four plan to scale agentic AI within two years, but barely one in five say their governance model is actually mature enough to manage the risk — a gap that is starting to show up as cancelled projects, shadow deployments, and accountability nobody can trace.</p>
 
 <div class="ob-callout">
-  <p>88% of organisations cannot show complete accountability trails linking autonomous transactions to human intent. That is not a technical gap. It is a governance failure waiting to become a regulatory one.</p>
+  <p>Seven in ten enterprise technology executives say their current AI governance isn't fit for purpose — while their organisations are already running, or about to run, over a thousand autonomous agents each.</p>
 </div>
 
 <div class="ob-stat-row">
   <div class="ob-stat">
-    <div class="ob-stat-num">94%</div>
-    <div class="ob-stat-label">of orgs say AI is increasing insider risk</div>
+    <div class="ob-stat-num">74%</div>
+    <div class="ob-stat-label">plan to deploy agentic AI within two years</div>
   </div>
   <div class="ob-stat">
-    <div class="ob-stat-num">52%</div>
-    <div class="ob-stat-label">are piloting agentic systems</div>
+    <div class="ob-stat-num">21%</div>
+    <div class="ob-stat-label">have a governance model mature enough to manage it</div>
   </div>
   <div class="ob-stat">
-    <div class="ob-stat-num">20%</div>
-    <div class="ob-stat-label">have governance sufficient to intervene early</div>
+    <div class="ob-stat-num">40%+</div>
+    <div class="ob-stat-label">of agentic AI projects forecast to be cancelled by end of 2027</div>
   </div>
 </div>
 
-<!-- ─── SECTION 1: WHAT MAKES AGENTIC AI DIFFERENT ─── -->
+<!-- ─── SECTION 1: ADOPTION IS OUTRUNNING CONTROL ─── -->
 <div class="ob-section">
-  <h2 class="ob-section-title">What Makes It Different</h2>
-  <p class="ob-section-sub">Agentic AI vs traditional AI vs generative AI</p>
+  <h2 class="ob-section-title">Adoption Is Outrunning Control</h2>
+  <p class="ob-section-sub">The scale problem nobody budgeted for</p>
 
-  <p class="ob-p">Traditional AI systems generate outputs — classifications, predictions, recommendations — that humans evaluate and act upon. Generative AI responds to prompts and produces content for human consumption. Neither independently accesses systems, invokes tools, or executes actions.</p>
+  <p class="ob-p">Deloitte's 2026 survey of 3,235 business and technology leaders found that 74% of organisations plan to adopt agentic AI within two years — but only 21% currently have a governance model mature enough to manage the risks that come with it. That gap is widening, not closing, because the volume of agents in production is growing far faster than the controls around them.</p>
 
-  <p class="ob-p">Agentic AI does all three. Where generative AI might draft an email, agentic AI can compose, review, revise, and <em>send</em> it — whilst learning from feedback to refine future behaviour. It pursues defined objectives with minimal continuous supervision, dynamically adjusting strategies in response to new information.</p>
+  <p class="ob-p">IBM's Institute for Business Value puts a number on the scale: by the end of 2026, most large enterprises will be running a digital workforce of more than 1,600 AI agents, rising toward an average of 1,661 by 2027 — a 38% year-on-year increase. Only 11% of the technology executives IBM surveyed said they felt fully prepared to scale at that rate.</p>
 
-  <p class="ob-p" style="margin-bottom: 0;">That capability gap is precisely what breaks conventional governance. The behaviour that creates risk emerges not from any single component but from the dynamic interaction between the agent's reasoning, tool selections, data flows, and integration points — the "invisible layer of risk."</p>
-</div>
-
-<!-- ─── SECTION 2: THE RISKS ─── -->
-<div class="ob-section">
-  <h2 class="ob-section-title">The Risks</h2>
-  <p class="ob-section-sub">Four governance vulnerabilities unique to autonomous systems</p>
-
-  <div class="ob-risk-grid">
-    <div class="ob-risk-card">
-      <div class="ob-risk-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      </div>
-      <h4>Reasoning Opacity</h4>
-      <p>Autonomous decisions happen across multiple reasoning steps with no single point of accountability. The "invisible layer" — emergent behaviour from tool interactions — is not captured in standard logs.</p>
-    </div>
-    <div class="ob-risk-card">
-      <div class="ob-risk-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      </div>
-      <h4>Excessive Agency</h4>
-      <p>The OWASP Agentic Top 10 (2026) identifies this as critical: an agent faithfully pursues its objective within authorised tools but produces unintended consequences. A design failure, not a security breach.</p>
-    </div>
-    <div class="ob-risk-card">
-      <div class="ob-risk-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-      </div>
-      <h4>Accountability Fragmentation</h4>
-      <p>When agents delegate to other agents, accountability distributes across multiple decision points. "Invisible delegation" — agents acting under human credentials — erases the distinction between human and autonomous decisions.</p>
-    </div>
-    <div class="ob-risk-card">
-      <div class="ob-risk-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      </div>
-      <h4>Cascading Failures</h4>
-      <p>Multiple agents making locally rational decisions can compound into system-wide drift. A demand forecast agent over-predicts → production scales up → inventory agents adjust → procurement negotiates new contracts. Each step correct; the outcome wrong.</p>
-    </div>
+  <div class="ob-badge-row">
+    <span class="ob-badge">82% have agents security teams didn't know existed</span>
+    <span class="ob-badge">70% say governance isn't fit for purpose</span>
+    <span class="ob-badge">40% of enterprise apps will embed agents by end of 2026</span>
   </div>
+
+  <p class="ob-p" style="margin-bottom: 0;">Gartner's forecast adds the counterweight: adoption of task-specific agents inside enterprise applications is set to jump from under 5% in 2025 to 40% by the end of 2026. Fast growth and thin governance rarely coexist for long.</p>
 </div>
 
-<!-- ─── SECTION 3: THE REGULATORY PICTURE ─── -->
+<!-- ─── SECTION 2: ONE-SIZE-FITS-ALL GOVERNANCE FAILS ─── -->
 <div class="ob-section">
-  <h2 class="ob-section-title">The Regulatory Picture</h2>
-  <p class="ob-section-sub">What EU, UK, and NIST require from autonomous systems</p>
+  <h2 class="ob-section-title">Uniform Governance Doesn't Work</h2>
+  <p class="ob-section-sub">Why the same rulebook for every agent backfires both ways</p>
 
-  <div class="ob-reg-grid">
-    <div class="ob-reg-card">
-      <span class="ob-reg-badge">EU AI Act</span>
-      <h4>Effective Human Oversight</h4>
-      <p>High-risk autonomous systems must enable humans to understand decisions, intervene before harm occurs, and maintain ultimate accountability. Compliance requires full documentation, testing, and audit trails.</p>
-    </div>
-    <div class="ob-reg-card">
-      <span class="ob-reg-badge">UK Approach</span>
-      <h4>Principles-Based Governance</h4>
-      <p>The UK's AI Safety Institute takes a pro-innovation, context-based approach rather than prescriptive rules. Organisations demonstrate proportionate governance relative to risk, sector, and deployment context.</p>
-    </div>
-    <div class="ob-reg-card">
-      <span class="ob-reg-badge">NIST (Mar 2026)</span>
-      <h4>Identity-First Security</h4>
-      <p>Autonomous agents require distinct identities separate from human users — least-privilege access, just-in-time credentials, and runtime behavioural drift monitoring. No human credential inheritance.</p>
-    </div>
-  </div>
-</div>
+  <p class="ob-p">Gartner's research, published in May 2026, is blunt about the most common governance mistake: applying identical controls to every AI agent regardless of what it actually does. Treat a low-risk scheduling agent the same as an autonomous agent with financial or customer-facing authority, and one of two things happens. Simple agents get buried in approval gates and delivery slows to a crawl. Genuinely autonomous, high-risk agents get under-restricted, and operational, security, and compliance exposure rises.</p>
 
-<!-- ─── SECTION 4: THE FRAMEWORK ─── -->
-<div class="ob-section">
-  <h2 class="ob-section-title">The Framework</h2>
-  <p class="ob-section-sub">Risk-proportionate oversight and immutable audit trails</p>
+  <p class="ob-p">Gartner's conclusion is stark: more than 40% of agentic AI projects will be cancelled by the end of 2027, driven by escalating costs, unclear business value, and — repeatedly — inadequate risk controls discovered only after deployment.</p>
 
-  <p class="ob-p">Effective governance is not a blanket approval gate on everything an agent does. It is a tiered model based on the risk profile of each decision: financial impact, regulatory sensitivity, irreversibility, and potential for unintended consequences.</p>
+  <p class="ob-p">The fix isn't more governance. It's governance sized to risk. A practical starting model:</p>
 
   <div class="ob-tiers">
     <div class="ob-tier high">
       <div class="ob-tier-label">High Risk</div>
       <h4>Full human review</h4>
-      <p>Before execution. Novel, irreversible, or externally visible decisions.</p>
+      <p>Before execution. Irreversible, financially material, or externally visible actions.</p>
     </div>
     <div class="ob-tier medium">
       <div class="ob-tier-label">Medium Risk</div>
-      <h4>Post-execution monitoring</h4>
-      <p>Execute with real-time anomaly detection and human intervention on alert.</p>
+      <h4>Monitored execution</h4>
+      <p>Agent acts, with real-time anomaly detection and a human in the loop on alert.</p>
     </div>
     <div class="ob-tier low">
       <div class="ob-tier-label">Low Risk</div>
       <h4>Autonomous with audit</h4>
-      <p>Execute freely within constrained boundaries. Periodic human auditing.</p>
+      <p>Executes freely within constrained boundaries, reviewed periodically rather than in real time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: THE ACCOUNTABILITY GAP ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Accountability Gap</h2>
+  <p class="ob-section-sub">Who is actually responsible when an agent acts?</p>
+
+  <p class="ob-p">IBM's Institute for Business Value surveyed 2,000 technology executives across 33 countries and 19 industries. Two-thirds said they are personally accountable for AI systems they don't fully control. IBM's own analysis of the accountability gap is direct about what that looks like in practice: after an incident, teams frequently cannot reconstruct what happened, why, or under whose authority — there is no audit trail showing which agent made which decision, using which data, at which point in the workflow.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">There are signs the structure is catching up. 76% of organisations now report having a Chief AI Officer, up from just 26% in 2025 — a genuine governance signal. But a title is not a control system, and most organisations are still building the audit logging, identity management, and escalation paths that would let that role actually do its job.</p>
+</div>
+
+<!-- ─── SECTION 4: WHERE REGULATION ACTUALLY STANDS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where Regulation Actually Stands</h2>
+  <p class="ob-section-sub">EU AI Act deadlines have moved. UK enforcement has started.</p>
+
+  <div class="ob-reg-grid">
+    <div class="ob-reg-card">
+      <span class="ob-reg-badge">EU · Digital Omnibus, May 2026</span>
+      <h4>High-risk deadlines pushed back</h4>
+      <p>The Council, Parliament, and Commission reached a provisional deal deferring Annex III (use-based) high-risk obligations from August 2026 to December 2027, and Annex I (product-regulated) obligations from August 2027 to August 2028. Obligations on general-purpose AI models remain in force.</p>
+    </div>
+    <div class="ob-reg-card">
+      <span class="ob-reg-badge">UK · No single AI Act</span>
+      <h4>Enforcement through existing regulators</h4>
+      <p>The UK governs AI through five existing regimes anchored by UK GDPR and the Data (Use and Access) Act 2025. In March 2026 the CMA confirmed agentic AI use must comply with existing consumer and competition law, flagging concerns on permissions, logging, and vendor lock-in.</p>
     </div>
   </div>
 
-  <p class="ob-p" style="margin-top: 1.5rem;">Organisations implementing multi-tiered guardrails report <strong>60% faster incident resolution</strong> and <strong>80% reduction in false alerts</strong>.</p>
-
-  <p class="ob-p">Every agent interaction must be logged with:</p>
-  <ul class="ob-checklist">
-    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Timestamp, agent identity, and the human authorisation that triggered it</li>
-    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Decision rationale and reasoning steps</li>
-    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tools invoked and data sources accessed</li>
-    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Outcomes produced and downstream effects</li>
-    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Immutable storage — append-only, no retroactive alteration</li>
-  </ul>
+  <p class="ob-p" style="margin-top: 1.5rem; margin-bottom: 0;">The UK's ICO, CMA, Ofcom, and FCA have jointly formed a Digital Regulation Cooperation Forum hub for emerging technology — and picked agentic AI as its first priority area. The ICO is also drafting guidance on automated decision-making under the new Articles 22A–22D. Agentic AI remains the least settled corner of UK regulation in 2026, but it is no longer an unwatched one.</p>
 </div>
 
 <!-- ─── DARK: QUICK ANSWERS ─── -->
@@ -218,21 +187,23 @@ author: dan
   <p class="ob-section-sub">The questions enterprise leaders ask most</p>
 
   <div class="ob-faq-item">
-    <p class="ob-faq-q">What is "excessive agency" and why does it matter?</p>
-    <p class="ob-faq-a">It is when an agent faithfully pursues its objective within authorised tools but produces unintended consequences. It is a design failure — the agent did exactly what it was built to do, just not what the business intended. Governance must constrain not just which tools an agent can access, but what those tools can do in specific contexts.</p>
+    <p class="ob-faq-q">How many AI agents will a large enterprise run by the end of 2026?</p>
+    <p class="ob-faq-a">Over 1,600 on average, according to IBM's Institute for Business Value — rising toward 1,661 by 2027, a 38% increase. Only 11% of technology executives say they feel fully prepared to scale at that pace.</p>
   </div>
   <div class="ob-faq-item">
-    <p class="ob-faq-q">Does the EU AI Act apply to our agentic systems?</p>
-    <p class="ob-faq-a">If your systems make autonomous decisions affecting safety, financial outcomes, or regulatory compliance, yes — they fall within the high-risk category and must comply with documentation, testing, oversight, and audit requirements.</p>
+    <p class="ob-faq-q">Why does uniform governance fail for agentic AI?</p>
+    <p class="ob-faq-a">Applying the same controls to every agent backfires in both directions — low-risk agents get over-restricted and delivery slows, while genuinely autonomous, high-risk agents get under-restricted and risk rises. Gartner links this directly to its forecast that over 40% of agentic AI projects will be cancelled by the end of 2027.</p>
   </div>
   <div class="ob-faq-item">
-    <p class="ob-faq-q">How do we balance autonomy with governance?</p>
-    <p class="ob-faq-a">Classify decisions by autonomy level. Novel, ambiguous, or high-consequence decisions remain human-owned. Routine, constrained, reversible decisions can execute autonomously. The tier model above is a practical starting point.</p>
+    <p class="ob-faq-q">What does the EU AI Act actually require right now?</p>
+    <p class="ob-faq-a">General-purpose AI model obligations are already in force. The May 2026 Digital Omnibus agreement pushed the compliance deadline for high-risk, use-based systems from August 2026 to December 2027 — real breathing room, not a cancelled requirement.</p>
   </div>
   <div class="ob-faq-item">
-    <p class="ob-faq-q">What infrastructure do we actually need?</p>
-    <p class="ob-faq-a">Four things: identity-first security controls for agents (distinct from human credentials), immutable audit logging, real-time anomaly detection, and documented escalation workflows that specify exactly who reviews what and when.</p>
+    <p class="ob-faq-q">Is there a "UK AI Act"?</p>
+    <p class="ob-faq-a">No. The UK regulates AI through five existing regimes anchored by UK GDPR and the Data (Use and Access) Act 2025, enforced by sector regulators. In 2026 the ICO, CMA, Ofcom, and FCA formed a joint hub specifically for agentic AI, and the CMA has already confirmed it falls under existing consumer and competition law.</p>
   </div>
 </div>
 
-<p class="ob-p" style="margin-top: 2rem;">For the foundational governance principles before you reach agentic complexity, see <a class="ob-link" href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a>. And for the implementation rigour needed before any system goes live, the <a class="ob-link" href="#/articles/ai-implementation-checklist">AI implementation checklist</a> covers the essentials.</p>
+<p class="ob-sources">Sources: Deloitte, <em>State of AI in the Enterprise</em> (2026, n=3,235 leaders); IBM Institute for Business Value, Think 2026 executive survey (n=2,000); Gartner press release, 26 May 2026, on agentic AI governance failure; EU AI Act Digital Omnibus provisional agreement, 7 May 2026 (Council of the EU / European Parliament / European Commission); UK Digital Regulation Cooperation Forum and Competition and Markets Authority guidance, March 2026.</p>
+
+<p class="ob-p" style="margin-top: 1.5rem;">For the foundational governance principles before you reach agentic complexity, see <a class="ob-link" href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a>. And for the implementation rigour needed before any system goes live, the <a class="ob-link" href="#/articles/ai-implementation-checklist">AI implementation checklist</a> covers the essentials.</p>
