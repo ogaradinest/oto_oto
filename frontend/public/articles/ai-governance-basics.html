@@ -1,19 +1,204 @@
 <!--
-title: AI Governance for SMBs Who Don't Have a Compliance Team
+title: AI governance for SMBs who don't have a compliance team
 tags: AI Governance, AI Strategy
 date: 2026-06-17
 image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
 excerpt: You don't need a compliance department to govern your AI responsibly. You need four documents and one habit.
-author: cristian
+author: dan
 -->
-<p>"Governance" sounds like something only enterprises need. It isn't. It's the difference between knowing why your AI made a decision and finding out the hard way.</p>
 
-<h2>The minimum that actually protects you</h2>
-<ol>
-  <li>A one-page record of what data the system can see.</li>
-  <li>A written answer to "what happens if it's wrong about a customer."</li>
-  <li>A log you can actually read, not just a log that exists.</li>
-  <li>A named owner — see the implementation checklist for why this matters operationally.</li>
-</ol>
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
 
-<p>If you're earlier in the process, start with <a href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>, then come back here before anything goes live. For the operational side, see the <a href="#/articles/ai-implementation-checklist">implementation checklist</a>.</p>
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 1.7rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-doc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-doc-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; }
+  .ob-doc-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #1a1a3d; color: white; font-weight: 800; font-size: 0.85rem; border-radius: 8px; margin-bottom: 0.75rem; }
+  .ob-doc-card h4 { font-size: 0.92rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.5rem; }
+  .ob-doc-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0; }
+  .ob-tier { border-radius: 14px; padding: 1.4rem; border: 1px solid #e5e7eb; text-align: center; }
+  .ob-tier.high { background: #fef2f2; border-color: #fecaca; }
+  .ob-tier.medium { background: #fffbeb; border-color: #fde68a; }
+  .ob-tier.low { background: #f0fdf4; border-color: #bbf7d0; }
+  .ob-tier-label { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .ob-tier.high .ob-tier-label { color: #dc2626; }
+  .ob-tier.medium .ob-tier-label { color: #d97706; }
+  .ob-tier.low .ob-tier-label { color: #16a34a; }
+  .ob-tier h4 { font-size: 0.85rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.4rem; }
+  .ob-tier p { font-size: 0.82rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-doc-grid, .ob-tiers { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Governance sounds like something only enterprises need. It isn't. It's the difference between knowing why your AI made a decision and finding out the hard way, usually from an unhappy customer rather than a regulator.</p>
+
+<div class="ob-callout">
+  <p>The ICO's new code of practice on AI and automated decision-making came into force on 12 May 2026. It applies to any business making decisions about customers with AI help, not just large enterprises with compliance departments.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">12 May 2026</div>
+    <div class="ob-stat-label">the ICO's AI code of practice came into force</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">35–39%</div>
+    <div class="ob-stat-label">of UK SMEs already use AI-powered tools</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">4</div>
+    <div class="ob-stat-label">documents cover most of what a small business actually needs</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: GOVERNANCE ALREADY APPLIES TO YOU ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Governance Already Applies to You</h2>
+  <p class="ob-section-sub">The rules didn't wait for you to have a compliance team</p>
+
+  <p class="ob-p">UKSI 2026/425, the regulation behind the ICO's new code of practice on AI and automated decision-making, came into force on 12 May 2026. The ICO's draft guidance on automated decision-making closed for consultation on 29 May 2026, with final guidance expected over summer 2026 and a full statutory code following in 2027.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">None of that requires a legal team to act on. Between 35% and 39% of UK SMEs are already using AI-powered tools, up from around 25% in 2024, and most of that use already touches customer data in some way: a chatbot answering enquiries, a tool scoring leads, software flagging which invoices to chase first. If AI is shaping a decision about a real customer, the direction of travel from regulators is clear enough to act on now.</p>
+</div>
+
+<!-- ─── SECTION 2: THE FOUR DOCUMENTS THAT ACTUALLY PROTECT YOU ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Four Documents That Protect You</h2>
+  <p class="ob-section-sub">Nothing here needs a lawyer to write</p>
+
+  <div class="ob-doc-grid">
+    <div class="ob-doc-card">
+      <div class="ob-doc-num">1</div>
+      <h4>A data record</h4>
+      <p>One page listing what data each AI tool can actually see.</p>
+    </div>
+    <div class="ob-doc-card">
+      <div class="ob-doc-num">2</div>
+      <h4>A wrong-answer plan</h4>
+      <p>A written answer to "what happens if it's wrong about a customer."</p>
+    </div>
+    <div class="ob-doc-card">
+      <div class="ob-doc-num">3</div>
+      <h4>A readable log</h4>
+      <p>A log someone actually checks, not just a log that technically exists.</p>
+    </div>
+    <div class="ob-doc-card">
+      <div class="ob-doc-num">4</div>
+      <h4>A named owner</h4>
+      <p>One person responsible for each tool. See the implementation checklist for why this matters operationally.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: A SIMPLE RISK TIER FOR SMALL BUSINESSES ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A Simple Risk Tier</h2>
+  <p class="ob-section-sub">Not every AI tool needs the same level of care</p>
+
+  <p class="ob-p">Enterprises build elaborate tiered governance models. A small business needs a lighter version of the same idea: match the level of checking to what the tool can actually do.</p>
+
+  <div class="ob-tiers">
+    <div class="ob-tier high">
+      <div class="ob-tier-label">Customer-Facing</div>
+      <h4>Review before it goes out</h4>
+      <p>Anything that quotes a price, promises a date, or replies to a complaint.</p>
+    </div>
+    <div class="ob-tier medium">
+      <div class="ob-tier-label">Drafting</div>
+      <h4>Spot check regularly</h4>
+      <p>Content, emails, and summaries a human still reads before use.</p>
+    </div>
+    <div class="ob-tier low">
+      <div class="ob-tier-label">Back Office</div>
+      <h4>Review periodically</h4>
+      <p>Internal scheduling, categorising, or sorting with no customer impact.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">What small business owners ask about AI governance</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do the new ICO rules actually apply to a small business?</p>
+    <p class="ob-faq-a">Yes. UKSI 2026/425 and the ICO's guidance on automated decision-making apply based on what the AI does, not how large the business is. If a tool influences a decision about a customer, the rules are relevant.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is UK GDPR still the main thing to worry about?</p>
+    <p class="ob-faq-a">It's the foundation. The new AI-specific code sits alongside UK GDPR and the Data (Use and Access) Act 2025 rather than replacing them. If you're already handling customer data responsibly, you're most of the way there.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does "named owner" actually mean in practice?</p>
+    <p class="ob-faq-a">One real person who knows a given AI tool exists, knows roughly what it does, and would be the first person you'd ask if it did something wrong. Not a title. An actual name.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the very first thing to do?</p>
+    <p class="ob-faq-a">List every AI tool in use across the business, who owns each one, what data goes in, what comes out, and whether it connects to any other system. That single list underpins all four documents above.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>You don't need to match an enterprise compliance function, and trying to would waste time you don't have. What you do need is enough written down that if a customer ever asks "why did your system decide that about me," someone in your business can give a real answer instead of a shrug.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Open a blank document today and list every AI tool currently used in your business, who's responsible for each one, and what customer data it can see. That single list is the starting point for all four governance documents above, and it costs nothing but half an hour.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help turning that list into the four documents that actually protect you?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're earlier in the process, start with <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>, then come back here before anything goes live. For the operational side, see the <a class="ob-link" href="#/articles/ai-implementation-checklist">AI implementation checklist</a>, and for what this looks like once AI starts acting on its own, read <a class="ob-link" href="#/articles/agentic-ai-governance-enterprise">agentic AI governance in 2026</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/05/ico-response-to-government-on-safe-ai-powered-innovation/" target="_blank" rel="noopener noreferrer">Information Commissioner's Office, response to government on safe AI-powered innovation, May 2026</a>; <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/" target="_blank" rel="noopener noreferrer">ICO guidance, explaining decisions made with artificial intelligence</a>; <a href="https://www.scaffold.digital/news/uk-ai-regulation-in-2026-whats-in-force-whats-coming-and-what-your-business-should-do" target="_blank" rel="noopener noreferrer">Scaffold Digital, UK AI regulation in 2026</a>.</p>

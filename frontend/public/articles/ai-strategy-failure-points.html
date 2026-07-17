@@ -1,22 +1,176 @@
 <!--
-title: Why Most AI Strategies Fail Before They Start
+title: Why most AI strategies fail before they start
 tags: AI Strategy, AI Consultancy
 date: 2026-06-10
 image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
 excerpt: Most AI strategy documents never survive contact with a real team. Here are the three questions that decide whether yours will.
-author: dan
+author: cristian
 -->
-<p>Most SMBs don't fail at AI because the technology doesn't work. They fail because the strategy was written for a slide, not for the team that has to live with it.</p>
 
-<h2>The three questions that actually matter</h2>
-<p>Before you write a single line about tools or vendors, answer these:</p>
-<ul>
-  <li>Which specific, repeatable task is costing us the most hours this quarter?</li>
-  <li>Who owns the outcome if the AI gets it wrong?</li>
-  <li>What does "good enough" look like, in writing, before we start?</li>
-</ul>
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
 
-<p>If you can't answer all three, you don't have a strategy yet — you have a wish list. This is where most engagements should start, and it's exactly what we walk through in our <a href="#/articles/ai-consultancy-first-90-days">first 90 days of AI consultancy</a> guide.</p>
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
 
-<h2>Strategy without implementation is theatre</h2>
-<p>A strategy document that never gets implemented is worse than no strategy at all — it creates the illusion of progress. See our piece on <a href="#/articles/ai-implementation-checklist">what implementation actually requires</a> for the unglamorous part nobody puts in the deck.</p>
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-checklist { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .ob-checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: #374151; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; line-height: 1.55; }
+  .ob-checklist li:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-check { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; min-width: 20px; background: #fff8f5; border: 1.5px solid #FF6B2C; border-radius: 5px; margin-top: 0.1rem; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Most small businesses don't fail at AI because the technology doesn't work. They fail because the strategy was written for a slide, not for the team that has to live with it. The gap between the two shows up clearly in the data: almost every company has adopted AI somewhere. Almost none of them can point to what it actually changed.</p>
+
+<div class="ob-callout">
+  <p>88% of organisations now use AI in at least one business function. Only 6% qualify as high performers seeing significant bottom-line impact, according to McKinsey. The strategy document rarely explains that gap.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">88%</div>
+    <div class="ob-stat-label">of organisations use AI in at least one function</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">6%</div>
+    <div class="ob-stat-label">qualify as high performers with real bottom-line impact</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">&lt;30%</div>
+    <div class="ob-stat-label">of companies have a CEO directly sponsoring the AI agenda</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: THE NUMBER EVERYONE QUOTES, AND THE ONE THAT MATTERS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Number That Actually Matters</h2>
+  <p class="ob-section-sub">Adoption is nearly universal. Impact isn't.</p>
+
+  <p class="ob-p">McKinsey's State of AI research found that 88% of organisations use AI in at least one business function. That number gets quoted constantly because it sounds like the argument is over. It isn't. Only 6% of those organisations qualify as high performers seeing significant bottom-line impact, and just 39% report any EBIT impact at the enterprise level at all.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">BCG's research tells the same story from a different angle: 60% of AI initiatives generate no material value despite continued investment, while only 5% create substantial value at scale. Adoption was never the hard part. Turning it into a result was.</p>
+</div>
+
+<!-- ─── SECTION 2: THE THREE QUESTIONS THAT ACTUALLY MATTER ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Three Questions That Matter</h2>
+  <p class="ob-section-sub">Answer these before you write a single line about tools or vendors</p>
+
+  <ul class="ob-checklist">
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Which specific, repeatable task is costing us the most hours this quarter?</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Who owns the outcome if the AI gets it wrong?</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>What does "good enough" look like, written down, before we start?</li>
+  </ul>
+
+  <p class="ob-p" style="margin-top: 1.5rem; margin-bottom: 0;">If you can't answer all three, you don't have a strategy yet. You have a wish list. This is where most engagements should start, and it's exactly what a proper first 90 days is built around.</p>
+</div>
+
+<!-- ─── SECTION 3: WHY LEADERSHIP OWNERSHIP CHANGES EVERYTHING ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why Ownership Changes Everything</h2>
+  <p class="ob-section-sub">The one factor McKinsey found correlates most with real impact</p>
+
+  <p class="ob-p">Fewer than 30% of companies report that their CEO directly sponsors the AI agenda, according to McKinsey. That single factor, CEO ownership of AI governance, correlates more strongly with bottom-line impact than any other variable McKinsey measured.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">&lt;30% of CEOs directly sponsor the AI agenda</span>
+    <span class="ob-badge">High performers use AI for growth, not cost-cutting first</span>
+    <span class="ob-badge">60% of initiatives generate no material value</span>
+  </div>
+
+  <p class="ob-p" style="margin-bottom: 0;">There's a second pattern worth noticing. The organisations McKinsey classifies as high performers aren't starting with cost reduction. They're using AI for growth and innovation from the outset. A strategy built purely to trim headcount tends to produce exactly the underwhelming result that headcount-focused thinking predicts.</p>
+</div>
+
+<!-- ─── SECTION 4: STRATEGY WITHOUT IMPLEMENTATION IS THEATRE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Strategy Without Implementation Is Theatre</h2>
+  <p class="ob-section-sub">A document that never gets built is worse than no strategy at all</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">A strategy document that never gets implemented creates the illusion of progress while nothing actually changes. It lets a business tell itself it has "done AI" without ever testing whether any of it holds up against real work, real data, and a real customer. The unglamorous part, the actual implementation checklist, is where the 88% either turns into the 6% or quietly joins the 60% that never delivers anything.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">What comes up before any AI strategy conversation</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">If almost everyone has adopted AI, why does strategy still matter?</p>
+    <p class="ob-faq-a">Because adoption and impact are different things. 88% of organisations use AI somewhere, but only 6% see significant bottom-line impact, according to McKinsey. Strategy is what decides which group you end up in.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does a small business really need CEO-level sponsorship?</p>
+    <p class="ob-faq-a">At small business scale, that just means the owner or managing director has to actually own the decision, not delegate it entirely and check in occasionally. McKinsey's data links direct ownership to materially better outcomes at any size.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should we lead with cost-cutting to justify the investment?</p>
+    <p class="ob-faq-a">The organisations McKinsey classifies as high performers generally don't. They lead with growth and innovation use cases. Cost-cutting framing tends to produce small, easily-cancelled projects rather than lasting change.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the actual first step?</p>
+    <p class="ob-faq-a">Answer the three questions above, in writing, before any tool or vendor conversation happens. If you can't answer them yet, that's the actual starting point, not a shortcoming to work around.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A large enterprise can afford to be part of the 60% that sees no material value this year and try again next year. A small business usually gets one real attempt before the team stops believing in the next one. Getting the strategy question right before you spend anything matters more for you, not less.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Get the owner or manager who would sponsor an AI project to write one paragraph answering all three questions above: the task, the owner if it goes wrong, and what "good enough" looks like. If that paragraph can't be written yet, that's this week's actual task, and it costs nothing but an hour of focused thinking.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help turning those three answers into a strategy your team will actually use?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This is exactly what we walk through in <a class="ob-link" href="#/articles/ai-consultancy-first-90-days">what an AI consultancy should actually do in the first 90 days</a>. For the unglamorous part nobody puts in the deck, see <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>, and for the governance side once something goes live, read <a class="ob-link" href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">McKinsey, The State of AI: Global Survey</a>; <a href="https://www.bcg.com/publications/2026/ai-at-work-why-strategy-matters-more-than-tools" target="_blank" rel="noopener noreferrer">BCG, AI at Work: Why Strategy Matters More Than Tools</a>.</p>

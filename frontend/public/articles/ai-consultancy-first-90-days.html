@@ -1,18 +1,204 @@
 <!--
-title: What an AI Consultancy Should Actually Do in the First 90 Days
+title: What an AI consultancy should actually do in the first 90 days
 tags: AI Consultancy, AI Strategy
 date: 2026-06-19
 image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
-excerpt: If a consultancy's first deliverable is a roadmap and not a working pilot, that's a signal worth noticing.
+excerpt: If a consultancy's first deliverable is a roadmap and not a working pilot, that's worth noticing.
 author: dan
 -->
-<p>The first 90 days with a good AI consultancy should produce one working thing, not thirty pages about future possibilities.</p>
 
-<h2>What good looks like</h2>
-<ul>
-  <li>Weeks 1-2: one process mapped end to end, with hours and costs attached to it.</li>
-  <li>Weeks 3-6: a working pilot on that one process, with real data.</li>
-  <li>Weeks 7-12: measured results, then a decision — scale it, fix it, or kill it.</li>
-</ul>
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
 
-<p>This only works if the underlying strategy was grounded in reality — see <a href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>. And the pilot needs the same rigour as a full rollout; nothing here skips the <a href="#/articles/ai-implementation-checklist">implementation checklist</a>.</p>
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.25rem; }
+  .ob-phase { background: #f9fafb; border-radius: 12px; padding: 1.4rem; border: 1px solid #e5e7eb; }
+  .ob-phase-badge { display: inline-block; background: #1a1a3d; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 6px; margin-bottom: 0.75rem; }
+  .ob-phase-title { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin-bottom: 0.75rem; }
+  .ob-phase-list { list-style: none; padding: 0; margin: 0; }
+  .ob-phase-list li { font-size: 0.82rem; line-height: 1.6; color: #4b5563; padding: 0.2rem 0 0.2rem 1rem; position: relative; }
+  .ob-phase-list li::before { content: '→'; position: absolute; left: 0; color: #FF6B2C; font-size: 0.7rem; top: 0.25rem; }
+
+  .ob-checklist { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .ob-checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: #374151; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; line-height: 1.55; }
+  .ob-checklist li:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-check { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; min-width: 20px; background: #fff8f5; border: 1.5px solid #FF6B2C; border-radius: 5px; margin-top: 0.1rem; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-timeline { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">The first 90 days with a good AI consultancy should produce one working thing, not thirty pages about future possibilities. If the first deliverable you receive is a roadmap rather than a working pilot, that's worth noticing, because it's exactly the pattern behind most AI projects that never go anywhere.</p>
+
+<div class="ob-callout">
+  <p>95% of generative AI pilots fail to produce a measurable financial result, according to MIT. Nearly all of the failures share one trait: nobody committed to a single metric before the work began.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">95%</div>
+    <div class="ob-stat-label">of AI pilots show no measurable financial impact</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">67%</div>
+    <div class="ob-stat-label">success rate when buying from a vendor and implementing with support</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">46%</div>
+    <div class="ob-stat-label">of AI proofs of concept get scrapped before production</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHAT WEEK ONE SHOULD PRODUCE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Week One Should Produce</h2>
+  <p class="ob-section-sub">A mapped process, not a slide deck</p>
+
+  <p class="ob-p">Gartner's research on AI project outcomes found that among teams that land at least one successful use case, success is attributed mainly to two things: integrating AI into an existing workflow, and having full support from the people who run that workflow day to day. Neither of those things comes from a strategy document.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">A proper first week looks unglamorous. One process gets mapped end to end. The hours it currently takes and what it currently costs get written down in plain numbers. That single process becomes the only thing the next phase is judged against.</p>
+</div>
+
+<!-- ─── SECTION 2: WHY MOST ENGAGEMENTS GET THIS BACKWARDS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why Most Engagements Get This Backwards</h2>
+  <p class="ob-section-sub">The roadmap-first pattern is the failure pattern</p>
+
+  <p class="ob-p">S&amp;P Global surveyed more than 1,000 enterprises and found that the average organisation scrapped 46% of its AI proofs of concept before any of them reached production, with cost and data privacy concerns cited as the top reasons. Those numbers describe what happens when a project stays a slide deck for too long: nobody discovers the real data and integration problems until budget has already been spent.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">MIT's research on the same failure pattern points to the same root cause, described as a learning gap: the tool never actually gets folded into how people work. A roadmap can describe that future state beautifully. It cannot make it true. Only a working pilot, used by real people on real work, can do that.</p>
+</div>
+
+<!-- ─── SECTION 3: THE 90-DAY SHAPE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The 90-Day Shape</h2>
+  <p class="ob-section-sub">What good actually looks like, week by week</p>
+
+  <div class="ob-timeline">
+    <div class="ob-phase">
+      <span class="ob-phase-badge">Weeks 1 to 2</span>
+      <div class="ob-phase-title">Map one process</div>
+      <ul class="ob-phase-list">
+        <li>End-to-end, with hours and cost attached</li>
+        <li>Agree the one metric that will decide success</li>
+        <li>Name the person accountable for that metric</li>
+      </ul>
+    </div>
+    <div class="ob-phase">
+      <span class="ob-phase-badge">Weeks 3 to 6</span>
+      <div class="ob-phase-title">Run a working pilot</div>
+      <ul class="ob-phase-list">
+        <li>Real data, real staff, one workflow</li>
+        <li>No parallel pilots running at the same time</li>
+        <li>Weekly check against the agreed metric</li>
+      </ul>
+    </div>
+    <div class="ob-phase">
+      <span class="ob-phase-badge">Weeks 7 to 12</span>
+      <div class="ob-phase-title">Decide, with evidence</div>
+      <ul class="ob-phase-list">
+        <li>Measured results against the original baseline</li>
+        <li>Scale it, fix it, or kill it</li>
+        <li>Document what worked before starting the next one</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 4: WHAT TO ASK BEFORE YOU SIGN ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What to Ask Before You Sign</h2>
+  <p class="ob-section-sub">Five questions that separate a working engagement from a roadmap</p>
+
+  <ul class="ob-checklist">
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>What is the one metric this engagement will be judged against, and who agreed to it?</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>What will exist as a working pilot by the end of week six?</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>How will data quality and access be checked before build starts, not after?</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Who on our team owns this day to day, and have they agreed to that?</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>What happens if the pilot doesn't move the metric? Is there an agreed exit?</li>
+  </ul>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">What business owners ask before hiring a consultancy</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Isn't a strategy document useful before committing budget?</p>
+    <p class="ob-faq-a">A short discovery write-up is fine. A lengthy roadmap with no working pilot attached is the pattern behind most of the projects that stall, according to both MIT and S&amp;P Global's research. Keep any upfront document short and tied to one process.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should we build our own tool or buy one?</p>
+    <p class="ob-faq-a">MIT's data found buying from a specialised vendor and implementing with support succeeds around 67% of the time, versus roughly a third as often for fully in-house builds. For most small and mid-size businesses, buying and integrating well beats building from scratch.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's a reasonable first pilot to run?</p>
+    <p class="ob-faq-a">One process, mapped in detail, with a single owner and a single metric. Not three pilots at once. Depth on one workflow teaches you more than breadth across several half-finished ones.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do we know if the consultancy is any good?</p>
+    <p class="ob-faq-a">Ask what exists, in working form, by week six. If the honest answer is still a document, that's your answer too.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Small businesses have the least room to absorb a wasted quarter on a project that produces a nice-looking document and nothing else. You don't have a spare team to run parallel pilots, so the discipline of picking one process and one metric matters more for you than it does for a large enterprise, not less.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next call with any AI consultancy or vendor, write down one process in your business, the hours it takes, and what it costs today. Bring that single page to the conversation. Any consultancy worth hiring will build the first 90 days around it rather than replacing it with a slide deck.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want otobrothers to map that first process with you and scope a working pilot?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This only works if the underlying strategy is grounded in reality. See <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>. And the pilot needs the same rigour as a full rollout, so nothing here skips the <a class="ob-link" href="#/articles/ai-implementation-checklist">AI implementation checklist</a>. For how to judge whether the pilot actually paid off, see <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" target="_blank" rel="noopener noreferrer">MIT NANDA, The GenAI Divide: State of AI in Business 2025</a>; <a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/10/generative-ai-shows-rapid-growth-but-yields-mixed-results" target="_blank" rel="noopener noreferrer">S&amp;P Global Market Intelligence, Generative AI Shows Rapid Growth But Yields Mixed Results</a>; <a href="https://www.gartner.com/en/newsroom/press-releases/2026-04-07-gartner-says-artificial-intelligence-projects-in-infrastructure-and-operations-stall-ahead-of-meaningful-roi-returns" target="_blank" rel="noopener noreferrer">Gartner press release, 7 April 2026</a>.</p>

@@ -1,325 +1,204 @@
 <!--
-title: AI Performance and ROI: How Otobrothers Helps Small Businesses Get Past the Pilot Phase
+title: AI performance and ROI: how otobrothers gets small businesses past the pilot phase
 tags: AI Consultancy, AI Strategy, AI Implementation
 date: 2026-06-28
-image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
-excerpt: Most small businesses don't have an AI problem — they have an ROI problem. Here's how Otobrothers fixes that.
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: 95% of AI pilots never reach production. Here's the real data, and how otobrothers gets small businesses past that point.
 author: cristian
 -->
 
 <style>
-  /* ── Base ── */
   .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
   .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
   .ob-p:last-child { margin-bottom: 0; }
   .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
 
-  /* ── Opening callout ── */
   .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
   .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
 
-  /* ── Stats bar ── */
   .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
   .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
   .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
   .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
 
-  /* ── Section containers ── */
-  .ob-section {
-    border: 1.5px solid #e5e7eb;
-    border-radius: 20px;
-    padding: 2.5rem;
-    margin: 2.5rem 0;
-    position: relative;
-  }
-  .ob-section::before {
-    content: '';
-    position: absolute;
-    top: -1.5px; left: 2rem; right: 2rem;
-    height: 4px;
-    background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent);
-    border-radius: 0 0 4px 4px;
-  }
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
 
-  /* ── Section titles ── */
-  .ob-section-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #1a1a3d;
-    line-height: 1.1;
-    margin: 0 0 0.5rem;
-    letter-spacing: -0.02em;
-  }
-  .ob-section-sub {
-    font-size: 0.95rem;
-    color: #9ca3af;
-    font-weight: 400;
-    margin: 0 0 1.75rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #f3f4f6;
-  }
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
 
-  /* ── Metric list ── */
-  .ob-metric-list { list-style: none; padding: 0; margin: 1rem 0; }
-  .ob-metric-list li {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    font-size: 0.97rem; color: #374151;
-    padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; line-height: 1.5;
-  }
-  .ob-metric-list li:last-child { border-bottom: none; padding-bottom: 0; }
-  .ob-metric-list li::before {
-    content: '';
-    display: inline-block; width: 8px; height: 8px; min-width: 8px;
-    background: #FF6B2C; border-radius: 50%; margin-top: 0.42rem;
-  }
+  .ob-step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-step-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; }
+  .ob-step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #1a1a3d; color: white; font-weight: 800; font-size: 0.85rem; border-radius: 8px; margin-bottom: 0.75rem; }
+  .ob-step-card h4 { font-size: 0.92rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.5rem; }
+  .ob-step-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
 
-  /* ── Timeline targets ── */
-  .ob-targets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
-  .ob-target { background: #f9fafb; border-radius: 14px; padding: 1.25rem; border: 1px solid #e5e7eb; text-align: center; }
-  .ob-target-day { display: inline-block; background: #1a1a3d; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 6px; margin-bottom: 0.6rem; }
-  .ob-target p { font-size: 0.85rem; color: #374151; line-height: 1.5; margin: 0; }
+  .ob-checklist { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .ob-checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: #374151; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; line-height: 1.55; }
+  .ob-checklist li:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-check { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; min-width: 20px; background: #fff8f5; border: 1.5px solid #FF6B2C; border-radius: 5px; margin-top: 0.1rem; }
 
-  /* ── Two-column grid ── */
-  .ob-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.25rem 0; }
-  .ob-col-card { background: #f9fafb; border-radius: 14px; padding: 1.4rem; border: 1px solid #e5e7eb; }
-  .ob-col-card h4 { font-size: 0.85rem; font-weight: 700; color: #FF6B2C; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem; }
-  .ob-col-card ul { list-style: none; padding: 0; margin: 0; }
-  .ob-col-card li { font-size: 0.85rem; line-height: 1.6; color: #4b5563; padding: 0.15rem 0 0.15rem 1rem; position: relative; }
-  .ob-col-card li::before { content: '→'; position: absolute; left: 0; color: #FF6B2C; font-size: 0.7rem; top: 0.25rem; }
-
-  /* ── Rules grid ── */
-  .ob-rules { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
-  .ob-rule { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.25rem; position: relative; }
-  .ob-rule-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; opacity: 0.1; position: absolute; top: 0.5rem; right: 1rem; line-height: 1; }
-  .ob-rule h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0 0 0.4rem; }
-  .ob-rule p { font-size: 0.85rem; color: #6b7280; line-height: 1.6; margin: 0; }
-
-  /* ── Rollout timeline ── */
-  .ob-rollout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.25rem 0; }
-  .ob-rollout-step { background: #f9fafb; border-radius: 12px; padding: 1.1rem; border: 1px solid #e5e7eb; text-align: center; }
-  .ob-rollout-badge { display: inline-block; background: #FF6B2C; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 6px; margin-bottom: 0.6rem; }
-  .ob-rollout-step p { font-size: 0.82rem; color: #374151; line-height: 1.5; margin: 0; }
-
-  /* ── ROI checklist ── */
-  .ob-roi-list { list-style: none; padding: 0; margin: 1rem 0 0; }
-  .ob-roi-list li {
-    display: flex; align-items: flex-start; gap: 0.9rem;
-    padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.97rem; line-height: 1.5;
-  }
-  .ob-roi-list li:last-child { border-bottom: none; padding-bottom: 0; }
-  .ob-roi-check {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px; min-width: 22px;
-    background: rgba(255,107,44,0.2); border: 1.5px solid #FF6B2C;
-    border-radius: 6px; margin-top: 0.1rem;
-  }
-  .ob-roi-check svg { display: block; }
-
-  /* ── Dark section ── */
   .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
   .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
   .ob-section.ob-dark-section .ob-section-title { color: white; }
   .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
-  .ob-section.ob-dark-section .ob-p { color: #d1d5db; }
-  .ob-section.ob-dark-section strong { color: white; }
-  .ob-section.ob-dark-section .ob-roi-list li { color: #d1d5db; }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
 
   @media (max-width: 620px) {
     .ob-section { padding: 1.75rem 1.25rem; }
     .ob-section-title { font-size: 1.8rem; }
-    .ob-targets, .ob-rollout { grid-template-columns: 1fr 1fr; }
-    .ob-two-col, .ob-rules { grid-template-columns: 1fr; }
+    .ob-step-grid { grid-template-columns: 1fr; }
   }
 </style>
 
-<!-- Opening -->
-<p class="ob-lead">Most small businesses do not have an AI problem. They have an ROI problem.</p>
+<p class="ob-lead">Most AI pilots never turn into anything a business can point to on a spreadsheet. That is not a small business problem alone. It shows up at every size of company, for the same reason: teams pick a tool before they pick a number to move. otobrothers works with small businesses specifically because fixing that order is a lot easier when there are three people making the decision, not thirty.</p>
 
 <div class="ob-callout">
-  <p>They've seen the demos. Tested the tools. Maybe someone used ChatGPT or Copilot for content or admin. But then momentum fades — because the owner is left with one hard question: <em>Is this actually making us money, saving us time, or both?</em></p>
+  <p>95% of generative AI pilots deliver no measurable financial impact, according to MIT. The 5% that do all share one thing in common: they started with a business metric, not a tool.</p>
 </div>
-
-<p class="ob-p">That is the question Otobrothers starts with. We do not lead with hype. We do not sell "AI transformation" as a vague promise. We work with small businesses that have limited time, lean teams, and no appetite for expensive experiments.</p>
 
 <div class="ob-stat-row">
   <div class="ob-stat">
-    <div class="ob-stat-num">30</div>
-    <div class="ob-stat-label">days to first win</div>
+    <div class="ob-stat-num">95%</div>
+    <div class="ob-stat-label">of AI pilots show no measurable P&amp;L impact</div>
   </div>
   <div class="ob-stat">
-    <div class="ob-stat-num">90</div>
-    <div class="ob-stat-label">days to proven ROI</div>
+    <div class="ob-stat-num">42%</div>
+    <div class="ob-stat-label">of companies abandoned most AI initiatives in 2025</div>
   </div>
   <div class="ob-stat">
-    <div class="ob-stat-num">1</div>
-    <div class="ob-stat-label">workflow at a time</div>
+    <div class="ob-stat-num">59%</div>
+    <div class="ob-stat-label">of UK small business AI adopters report a productivity gain</div>
   </div>
 </div>
 
-<!-- ─── SECTION 1: THE STARTING POINT ─── -->
+<!-- ─── SECTION 1: WHY MOST PILOTS NEVER PAY OFF ─── -->
 <div class="ob-section">
-  <h2 class="ob-section-title">The Starting Point</h2>
-  <p class="ob-section-sub">Performance, not AI theatre</p>
+  <h2 class="ob-section-title">Why Most Pilots Never Pay Off</h2>
+  <p class="ob-section-sub">MIT's research on the "GenAI Divide"</p>
 
-  <p class="ob-p">Most AI projects fail because they begin with the tool. Otobrothers starts with a business metric — one number that already matters to the owner:</p>
+  <p class="ob-p">MIT's 2025 study of AI deployments across 300 public rollouts, 350 employees, and 150 leadership interviews found that 95% of generative AI pilots fail to move a company's profit and loss in any measurable way. Only around 5% achieve real, rapid impact.</p>
 
-  <ul class="ob-metric-list">
-    <li>Cost per lead</li>
-    <li>Quote turnaround time</li>
-    <li>Customer response time</li>
-    <li>Admin hours per week</li>
-    <li>Repeat purchase rate</li>
-  </ul>
+  <p class="ob-p">The cause MIT identifies is organisational, not technical: what the researchers call a learning gap, where companies never actually fold the tool into how people work day to day. It stays a side project. It never becomes part of the job.</p>
 
-  <p class="ob-p" style="margin-top: 1.25rem;">Then we look at where AI can remove friction inside a real workflow. For most businesses with 5 to 50 employees, that first workflow is not glamorous — inbox triage, proposal drafting, CRM updates, meeting summaries, social media repurposing, lead follow-up, first-pass customer service replies.</p>
-
-  <p class="ob-p">This is where Otobrothers customers usually get their first win. A sensible target looks like this:</p>
-
-  <div class="ob-targets">
-    <div class="ob-target">
-      <span class="ob-target-day">30 days</span>
-      <p>Save 3–5 hours a week for one team member</p>
-    </div>
-    <div class="ob-target">
-      <span class="ob-target-day">60 days</span>
-      <p>Reduce turnaround time in one workflow by 20–30%</p>
-    </div>
-    <div class="ob-target">
-      <span class="ob-target-day">90 days</span>
-      <p>Create capacity to support more sales or reduce admin drag</p>
-    </div>
-  </div>
-
-  <p class="ob-p" style="margin-bottom: 0;">These are working targets, not fantasy numbers. The point is to measure AI performance in practical terms.</p>
+  <p class="ob-p" style="margin-bottom: 0;">One detail matters for smaller businesses in particular: buying a tool from a specialised vendor and working with a partner to implement it succeeds roughly 67% of the time. Building the same thing entirely in-house succeeds about a third as often. Small teams rarely have the spare capacity to build well, so this is good news, not bad news, for businesses without an in-house data team.</p>
 </div>
 
-<!-- ─── SECTION 2: THE APPROACH ─── -->
+<!-- ─── SECTION 2: THE SMALL BUSINESS VERSION OF THE SAME PROBLEM ─── -->
 <div class="ob-section">
-  <h2 class="ob-section-title">The Approach</h2>
-  <p class="ob-section-sub">Efficiency first — then growth</p>
+  <h2 class="ob-section-title">The Same Problem, Smaller Scale</h2>
+  <p class="ob-section-sub">What S&amp;P Global found across 1,000+ enterprises applies just as much to a five-person team</p>
 
-  <p class="ob-p">The first stage is always productivity. It is the fastest way to prove value. Otobrothers helps customers use generative AI for work that is repetitive, slow, and expensive in hidden ways.</p>
+  <p class="ob-p">S&amp;P Global surveyed more than 1,000 enterprises across North America and Europe and found that 42% of them abandoned most of their AI initiatives in 2025, up sharply from 17% the year before. On average, organisations scrapped 46% of their AI proofs of concept before anything reached production. The top reasons given were cost, and concerns over data privacy and security.</p>
 
-  <div class="ob-two-col">
-    <div class="ob-col-card">
-      <h4>Phase 1 — Efficiency</h4>
-      <ul>
-        <li>Drafting email sequences</li>
-        <li>Turning call notes into proposals</li>
-        <li>Summarising customer feedback</li>
-        <li>Creating SEO blog outlines</li>
-        <li>Automating reminders and follow-ups</li>
-        <li>Repurposing one article into LinkedIn posts, newsletters, and short-form content</li>
-      </ul>
-    </div>
-    <div class="ob-col-card">
-      <h4>Phase 2 — Growth</h4>
-      <ul>
-        <li>Packaging services into clearer, productised offers</li>
-        <li>Identifying the most profitable customer segments</li>
-        <li>Building faster lead nurture sequences</li>
-        <li>Turning internal know-how into a searchable knowledge base</li>
-        <li>Improving marketing consistency without hiring a larger team</li>
-      </ul>
-    </div>
+  <div class="ob-badge-row">
+    <span class="ob-badge">42% abandoned most AI initiatives in 2025</span>
+    <span class="ob-badge">46% of AI proofs of concept scrapped before production</span>
+    <span class="ob-badge">Cost and data risk are the top two reasons cited</span>
   </div>
 
-  <p class="ob-p" style="margin-bottom: 0;">That is where AI ROI becomes more valuable. Not just hours saved. <strong>Better commercial output.</strong></p>
+  <p class="ob-p" style="margin-bottom: 0;">For a small business, this looks like signing up for two or three AI tools, using them inconsistently for a few weeks, and quietly letting the subscriptions lapse without ever writing down what they were supposed to achieve. The scale is smaller. The pattern is identical.</p>
 </div>
 
-<!-- ─── SECTION 3: THE STRUCTURE ─── -->
+<!-- ─── SECTION 3: WHAT THE UK DATA ACTUALLY SHOWS ─── -->
 <div class="ob-section">
-  <h2 class="ob-section-title">The Structure</h2>
-  <p class="ob-section-sub">Four practical rules that make results stick</p>
+  <h2 class="ob-section-title">What the UK Data Shows</h2>
+  <p class="ob-section-sub">The Federation of Small Businesses surveyed 904 owners in late 2025</p>
 
-  <p class="ob-p">Small businesses do not need a giant AI strategy document. They do need enough structure to trust the output.</p>
+  <p class="ob-p">The FSB's most recent survey found AI adoption among UK small businesses has reached around 54 to 55%, up from roughly 20% in 2023. Among those using it, 59% report a productivity gain, 24% report higher revenue, and 22% report business growth, with an average revenue uplift of about 3%.</p>
 
-  <div class="ob-rules">
-    <div class="ob-rule">
-      <div class="ob-rule-num">1</div>
-      <h4>Use approved tools only</h4>
-      <p>Sensitive client data should not end up in random apps. Set the boundary early.</p>
-    </div>
-    <div class="ob-rule">
-      <div class="ob-rule-num">2</div>
-      <h4>Create repeatable prompts</h4>
-      <p>Reuse improves quality and speed. Build a prompt library from day one.</p>
-    </div>
-    <div class="ob-rule">
-      <div class="ob-rule-num">3</div>
-      <h4>Clean up key data sources</h4>
-      <p>A messy CRM leads to poor AI outputs. Garbage in, garbage out.</p>
-    </div>
-    <div class="ob-rule">
-      <div class="ob-rule-num">4</div>
-      <h4>Give ownership to one person</h4>
-      <p>Every workflow needs someone responsible for quality and performance.</p>
-    </div>
-  </div>
-
-  <p class="ob-p" style="margin-top: 1.25rem; margin-bottom: 0;">That is usually enough to avoid the most common mistakes — and to ensure the workflow becomes part of how the company operates, not a side experiment.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The results are real, and so is the discomfort. 92% of small business owners say they are worried about AI-related risks, up from 73% two years ago, with concerns centred on inaccurate outputs, data security, and unclear liability. Adoption and anxiety are rising together, which is exactly what happens when a business starts using a tool before it has a way to check whether that tool is actually working.</p>
 </div>
 
-<!-- ─── SECTION 4: THE ROLLOUT ─── -->
+<!-- ─── SECTION 4: THE ONE-METRIC METHOD ─── -->
 <div class="ob-section">
-  <h2 class="ob-section-title">The Rollout</h2>
-  <p class="ob-section-sub">Scale what works before adding more tools</p>
+  <h2 class="ob-section-title">The One-Metric Method</h2>
+  <p class="ob-section-sub">How otobrothers structures an engagement to avoid the 95% outcome</p>
 
-  <p class="ob-p">A common mistake in AI adoption is doing too much too early. Otobrothers takes the opposite approach — prove one workflow first, then document it, improve it, and scale it carefully.</p>
+  <p class="ob-p">Before recommending any tool, otobrothers starts with a single business metric the owner already tracks or cares about: hours spent on a task, response time to a customer enquiry, quote turnaround, or cost per job. Everything that follows is built to move that one number.</p>
 
-  <div class="ob-rollout">
-    <div class="ob-rollout-step">
-      <span class="ob-rollout-badge">Month 1</span>
-      <p>Test one workflow with real data and real people</p>
+  <div class="ob-step-grid">
+    <div class="ob-step-card">
+      <div class="ob-step-num">1</div>
+      <h4>Pick the metric first</h4>
+      <p>One number that already matters to the business, agreed before any tool is chosen.</p>
     </div>
-    <div class="ob-rollout-step">
-      <span class="ob-rollout-badge">Month 2</span>
-      <p>Refine it and train 2–3 team members to own it</p>
+    <div class="ob-step-card">
+      <div class="ob-step-num">2</div>
+      <h4>Prove one workflow</h4>
+      <p>Apply AI to a single repetitive, well-understood task rather than several at once.</p>
     </div>
-    <div class="ob-rollout-step">
-      <span class="ob-rollout-badge">Month 3</span>
-      <p>Connect it to CRM, email, or project management tools</p>
+    <div class="ob-step-card">
+      <div class="ob-step-num">3</div>
+      <h4>Measure for a fixed window</h4>
+      <p>Two to four weeks, comparing the metric before and after, with a named owner checking it.</p>
     </div>
-    <div class="ob-rollout-step">
-      <span class="ob-rollout-badge">Quarter 2</span>
-      <p>Apply the same approach to a second workflow</p>
+    <div class="ob-step-card">
+      <div class="ob-step-num">4</div>
+      <h4>Scale only what proves out</h4>
+      <p>Expand the workflows that moved the number. Drop or redesign the ones that didn't.</p>
     </div>
   </div>
-
-  <p class="ob-p" style="margin-bottom: 0;">This is how small businesses build AI capability without creating confusion — and how they turn AI from a side experiment into an operating advantage.</p>
 </div>
 
-<!-- ─── SECTION 5: THE ROI TEST (dark) ─── -->
+<!-- ─── DARK: QUICK ANSWERS ─── -->
 <div class="ob-section ob-dark-section">
-  <h2 class="ob-section-title">The ROI Test</h2>
-  <p class="ob-section-sub">If a workflow isn't doing one of these within 90 days, it needs reworking</p>
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">What small business owners ask us most</p>
 
-  <ul class="ob-roi-list">
-    <li>
-      <span class="ob-roi-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      Save measurable team time
-    </li>
-    <li>
-      <span class="ob-roi-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      Speed up customer response
-    </li>
-    <li>
-      <span class="ob-roi-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      Improve lead-to-sale conversion
-    </li>
-    <li>
-      <span class="ob-roi-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      Increase marketing output without extra headcount
-    </li>
-    <li>
-      <span class="ob-roi-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      Support a new revenue opportunity
-    </li>
-  </ul>
-
-  <p class="ob-p" style="margin-top: 1.75rem;">That is how Otobrothers thinks about AI performance. Not as a trend. Not as a vanity project. And not as a promise that software will magically fix a weak business model.</p>
-  <p class="ob-p">For small businesses, AI works best when it is attached to real workflows, clear metrics, and practical commercial outcomes.</p>
-  <p class="ob-p" style="color: #9ca3af; margin-bottom: 0;">That is the standard. And that is how Otobrothers helps customers move from <strong>"we're trying AI"</strong> to <strong>"this is paying off."</strong></p>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is a 95% pilot failure rate really relevant to a small business?</p>
+    <p class="ob-faq-a">The MIT research covers enterprises, but the root cause, tools that never get folded into daily work, applies at any size. A small business just has fewer people for the habit to spread through, which can make it easier to fix once it's named.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long before we should expect to see a return?</p>
+    <p class="ob-faq-a">For a single, well-scoped workflow, two to four weeks is usually enough to see whether your chosen metric has moved. If it hasn't moved by then, the workflow or the tool needs changing, not more patience.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should we build something custom or buy an existing tool?</p>
+    <p class="ob-faq-a">For most small businesses, buying from a specialised vendor and getting help implementing it well outperforms building in-house, by a wide margin according to MIT's data. Custom builds make sense once you know exactly what you need, not before.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should we measure first?</p>
+    <p class="ob-faq-a">Something you already track: hours on a task, response time, cost per job, or a similar operational number. Revenue and growth metrics matter, but they move too slowly and are affected by too many other things to prove a single workflow works.</p>
+  </div>
 </div>
 
-<p class="ob-p" style="margin-top: 2rem;">If you're still figuring out where to start, the <a class="ob-link" href="#/articles/ai-marketing-automation-small-businesses">AI marketing automation workflows</a> are a practical first move. And for thinking about what comes next, <a class="ob-link" href="#/articles/ai-implementation-checklist">the implementation checklist</a> covers the rigour needed before you scale.</p>
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>If you're running a small business, you don't have a data science team to catch a failing AI pilot before it costs you six months and a subscription budget. That means the one-metric discipline above isn't optional polish, it's the entire safety net. Small businesses that skip it are the ones most likely to end up in next year's abandonment statistics.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before you buy or renew any AI tool this month, write down the one number you would need to see move to call it a win, and check that number in 30 days. No new software, no budget required, just a note on your phone and a date to revisit it.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help picking the right metric and workflow before you spend anything?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For the national picture behind these numbers, see <a class="ob-link" href="#/articles/ai-adoption-uk-benchmark-2026">UK AI adoption 2026</a>. For a practical starting checklist, read the <a class="ob-link" href="#/articles/ai-implementation-checklist">AI implementation checklist</a>, and for low-cost workflows to try first, see <a class="ob-link" href="#/articles/ai-marketing-automation-small-businesses">AI marketing automation for small businesses</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" target="_blank" rel="noopener noreferrer">MIT NANDA, The GenAI Divide: State of AI in Business 2025</a>; <a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/10/generative-ai-shows-rapid-growth-but-yields-mixed-results" target="_blank" rel="noopener noreferrer">S&amp;P Global Market Intelligence, Generative AI Shows Rapid Growth But Yields Mixed Results</a>; <a href="https://www.fsb.org.uk/media-centre/press-release/pace-of-ai-adoption-means-government-and-education-system-have-to-catch-up-fast-MCWW5ZRBPHABA3LAKK5YONCSC7TM" target="_blank" rel="noopener noreferrer">Federation of Small Businesses, UK AI adoption survey (November 2025, n=904)</a>.</p>

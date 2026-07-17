@@ -1,21 +1,201 @@
 <!--
-title: The AI Implementation Checklist Nobody Shows You
+title: The AI implementation checklist nobody shows you
 tags: AI Implementation, AI Technology
 date: 2026-06-14
 image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
 excerpt: Implementation is where AI projects quietly die. Here's the checklist we run before any system goes live for a client.
 author: cristian
 -->
-<p>Everyone wants to talk about the model. Almost nobody wants to talk about the unglamorous list of things that determine whether it actually works in production.</p>
 
-<h2>Before go-live</h2>
-<ul>
-  <li>Data access tested with the same permissions the live system will have — not your admin account.</li>
-  <li>A fallback path for when the AI is wrong, confused, or down.</li>
-  <li>One person, by name, who is told "if this breaks, it's your problem first."</li>
-</ul>
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
 
-<p>This list only matters if the strategy behind it was sound to begin with — read <a href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a> if you haven't nailed that down yet.</p>
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
 
-<h2>Governance isn't a phase two</h2>
-<p>Teams treat governance as something to "add later." By the time later arrives, the system is already making decisions nobody can fully explain. Our take on this is in <a href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a>.</p>
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-checklist { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .ob-checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: #374151; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; line-height: 1.55; }
+  .ob-checklist li:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-check { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; min-width: 20px; background: #fff8f5; border: 1.5px solid #FF6B2C; border-radius: 5px; margin-top: 0.1rem; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-num { font-size: 1.5rem; font-weight: 900; color: #1a1a3d; }
+  .ob-barrier-card h4 { font-size: 0.88rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.82rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Everyone wants to talk about the model. Almost nobody wants to talk about the unglamorous list of things that determine whether it actually works once it's live. That list is where most AI projects quietly die, and it's the same list every time.</p>
+
+<div class="ob-callout">
+  <p>Only 28% of AI use cases in infrastructure and operations fully succeed and meet their expected return, according to Gartner. 20% fail outright. The difference between the two groups is rarely the model.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">28%</div>
+    <div class="ob-stat-label">of AI use cases fully succeed and meet ROI expectations</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">60%</div>
+    <div class="ob-stat-label">of AI projects predicted to be abandoned through 2026 over data readiness</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">77%</div>
+    <div class="ob-stat-label">of successes credit workflow integration and executive support</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: BEFORE GO-LIVE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Before Go-Live</h2>
+  <p class="ob-section-sub">The checklist we run before any system goes live for a client</p>
+
+  <ul class="ob-checklist">
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Data access tested with the same permissions the live system will have, not your admin account</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A fallback path for when the AI is wrong, confused, or down</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One person, by name, told plainly that if this breaks, it's their problem first</li>
+    <li><span class="ob-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF6B2C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A defined success metric, agreed before go-live, not invented afterward to justify the spend</li>
+  </ul>
+</div>
+
+<!-- ─── SECTION 2: WHY MOST IMPLEMENTATIONS STALL ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why Most Implementations Stall</h2>
+  <p class="ob-section-sub">Gartner's breakdown of what leaders blame after a failure</p>
+
+  <p class="ob-p">Gartner surveyed infrastructure and operations leaders and asked what actually went wrong when an AI initiative failed. The answers cluster around three things, and none of them are about model quality.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <div class="ob-barrier-num">57%</div>
+      <h4>Unrealistic expectations</h4>
+      <p>Leaders who blamed a failure said they expected too much, too fast.</p>
+    </div>
+    <div class="ob-barrier-card">
+      <div class="ob-barrier-num">38%</div>
+      <h4>Poor data quality</h4>
+      <p>Limited or unreliable data was a direct cause of the project failing.</p>
+    </div>
+    <div class="ob-barrier-card">
+      <div class="ob-barrier-num">38%</div>
+      <h4>Skill gaps</h4>
+      <p>Persistent gaps in the team's skills kept getting in the way.</p>
+    </div>
+  </div>
+
+  <p class="ob-p" style="margin-top: 1.5rem; margin-bottom: 0;">Gartner predicts that through 2026, 60% of AI projects will be abandoned specifically because the underlying data was never made ready for AI use in the first place. That's a data problem discovered during implementation, not a model problem.</p>
+</div>
+
+<!-- ─── SECTION 3: WHAT THE 28% DO DIFFERENTLY ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What the 28% Do Differently</h2>
+  <p class="ob-section-sub">Integration and trust, not a better model</p>
+
+  <p class="ob-p">Among the leaders who did deliver at least one successful AI use case, 77% credited two things above all else: integrating the tool into an existing workflow rather than bolting it on the side, and having full support from the business executives who own that workflow.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">77% credit workflow integration and exec support</span>
+    <span class="ob-badge">57% of high-maturity orgs report business units trust the AI</span>
+    <span class="ob-badge">Only 14% report the same trust at low-maturity orgs</span>
+  </div>
+
+  <p class="ob-p" style="margin-bottom: 0;">That trust gap compounds. In organisations with high AI maturity, 57% say business units trust and are ready to use new AI tools. In low-maturity organisations, only 14% say the same. Trust doesn't happen after go-live. It's built during it, through exactly the checklist above.</p>
+</div>
+
+<!-- ─── SECTION 4: GOVERNANCE ISN'T A PHASE TWO ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Governance Isn't a Phase Two</h2>
+  <p class="ob-section-sub">By the time "later" arrives, it's already too late</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">Teams often treat governance as something to add later, once the system is proven. By the time later arrives, the system is already making decisions nobody can fully explain, and retrofitting a log or an owner onto a live system is far harder than building it in from day one. Our full take on this is in the governance basics guide linked below.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">What comes up before every go-live</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the single biggest reason AI implementations fail?</p>
+    <p class="ob-faq-a">Unrealistic expectations, cited by 57% of leaders who reported a failure, according to Gartner. Poor data quality and skill gaps follow closely, each cited by 38%.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does data quality actually matter?</p>
+    <p class="ob-faq-a">Enough that Gartner predicts 60% of AI projects will be abandoned through 2026 specifically because the data behind them was never made AI-ready. Test data access with real, restricted permissions before go-live, not your admin account.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do we need executive support for a small AI project?</p>
+    <p class="ob-faq-a">Yes. It's one of the two factors that 77% of successful projects credit, alongside integrating the tool into an existing workflow rather than running it as a side project.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">When should governance start?</p>
+    <p class="ob-faq-a">Before go-live, not after. A named owner, a readable log, and a fallback path all need to exist on day one, not once something has already gone wrong.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business can't absorb a failed implementation the way a large enterprise can shrug one off and try again next quarter. You likely have one shot at this workflow, one budget, and one team's patience. The checklist above exists to make sure that shot counts.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next AI tool goes live, write down the answer to one question: if it breaks tomorrow, whose name is on fixing it? If you can't answer that in one sentence, that's the gap to close first, and it costs nothing but a conversation.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a second pair of eyes on your go-live checklist before you launch?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This list only matters if the strategy behind it was sound to begin with. Read <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a> if you haven't nailed that down yet, and see <a class="ob-link" href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a> for what comes right after go-live. For what a good first 90 days looks like end to end, read <a class="ob-link" href="#/articles/ai-consultancy-first-90-days">what an AI consultancy should actually do</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2026-04-07-gartner-says-artificial-intelligence-projects-in-infrastructure-and-operations-stall-ahead-of-meaningful-roi-returns" target="_blank" rel="noopener noreferrer">Gartner press release, 7 April 2026, on AI projects in infrastructure and operations</a>; <a href="https://www.gartner.com/en/articles/genai-project-failure" target="_blank" rel="noopener noreferrer">Gartner, Why Half of GenAI Projects Fail</a>.</p>
