@@ -1,0 +1,194 @@
+<!--
+title: 76% of marketing teams spend three-plus hours a week fixing AI content. that hidden cost now has a name: the revision tax
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-07-19
+image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
+excerpt: AI drafts faster, but someone still has to fact-check, rewrite, and align it with brand voice before it goes out. That checking time is real, measured, and worth planning for.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">A 2026 global study from Optimizely, conducted by Savanta and covering 2,003 marketing leaders across the UK and six other countries, found that 76% of marketers spend at least three hours a week editing, fact-checking, or correcting AI-generated output. Optimizely calls this the revision tax: the hidden time cost of turning a fast AI draft into something safe to publish. 48% named fact-checking and hallucination review as the single biggest source of that extra work, and 40% said they lose time moving content between disconnected tools. None of this means AI content is not worth using. It means the time it saves on drafting and the time it costs on checking are two separate numbers, and a business that only plans for the first one will feel like AI is not saving anything at all.</p>
+
+<div class="ob-callout">
+  <p>54% of marketers in the same study said leadership underestimates the human effort actually needed to make AI-generated work usable. In a small business, the owner is often both the leader with that expectation and the person doing the checking, which makes the gap easy to miss until the time is already gone.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">76%</div>
+    <div class="ob-stat-label">of marketers spend at least three hours a week editing, fact-checking, or correcting AI-generated output (Optimizely/Savanta global study, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">48%</div>
+    <div class="ob-stat-label">cite fact-checking and hallucination review as the single biggest source of that extra work (Optimizely/Savanta, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">only 19%</div>
+    <div class="ob-stat-label">of marketers work from one integrated AI platform, most are switching between several disconnected tools, which is where a lot of the wasted time comes from (Optimizely/Savanta, 2026)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: THE COST NOBODY BUDGETS FOR ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The cost nobody budgets for</h2>
+  <p class="ob-section-sub">Faster drafting does not automatically mean faster publishing</p>
+
+  <p class="ob-p">AI genuinely does cut the time it takes to produce a first draft of a social post, an email, or a web page. What Optimizely's research shows is that this saved time frequently reappears somewhere else in the process, as checking, rewriting, and fixing before the content is fit to publish. 76% of marketers report spending three or more hours a week on exactly this kind of correction work, and fact-checking accounts for the largest share of it. The total time a piece of content takes has not necessarily gone down. It has moved from the writing stage to the review stage.</p>
+
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">Where the revision tax shows up</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Spend 3+ hours weekly fixing AI output</span><span class="ob-compare-num">76%</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Cite fact-checking as the biggest extra cost</span><span class="ob-compare-num">48%</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Lose time moving content between tools</span><span class="ob-compare-num">40%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: OWNERS VS STAFF ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why owners and staff experience this differently</h2>
+  <p class="ob-section-sub">The expectation gap is measured, not imagined</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">The same research found a sizeable gap between how senior leadership and delivery-level staff see AI's impact. 54% of marketers said leadership underestimates the real human effort needed to make AI output usable, and separately, 69% of C-suite respondents said AI adoption felt fully aligned across their organisation, against just 27% of analysts closer to the actual work. In a small business this split usually happens inside one person rather than between two teams. The part of you setting the expectation that AI will save hours is not always talking to the part of you doing the fact-checking at 9pm, and naming that gap is the first step to planning around it honestly.</p>
+</div>
+
+<!-- ─── SECTION 3: CUTTING THE REVISION TAX ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Three ways to cut the revision tax without spending anything</h2>
+  <p class="ob-section-sub">Small changes to the process, not new software</p>
+
+  <p class="ob-p">Give the AI tool real detail before it drafts, not a one-line prompt: the actual audience, the specific claim being made, and one or two past examples of writing the business is happy with. A more specific starting point produces fewer wrong facts and less generic tone to fix afterward. Keep a short, fixed checklist for every AI-assisted piece rather than re-reading the whole thing from scratch each time: is every factual claim checked, does it sound like the business rather than like anyone, and does it say one thing worth saying. Finally, do the drafting and the review in the same place rather than passing content between a chat tool, a document, and a publishing platform, since 40% of the wasted time in the Optimizely study came specifically from moving content between disconnected systems.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Prompt with real detail</h4>
+      <p>Specific audience, specific claim, real examples, not a one-liner</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Use a fixed short checklist</h4>
+      <p>Facts checked, sounds like us, says something real</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Draft and review in one place</h4>
+      <p>Fewer handoffs between tools means less lost time</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the 'revision tax' in AI marketing content?</p>
+    <p class="ob-faq-a">It is the hidden time cost of checking, fact-checking, and rewriting AI-generated content before it is safe to publish. Optimizely's 2026 global study found 76% of marketers spend at least three hours a week on this kind of correction work.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does this mean AI content tools are not actually saving time?</p>
+    <p class="ob-faq-a">Not necessarily. AI usually does cut drafting time. The research shows that saved time is often spent instead on review and fact-checking, so the total time per piece of content may not fall unless the review process itself is also made more efficient.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do business owners and staff sometimes see AI's impact so differently?</p>
+    <p class="ob-faq-a">Optimizely found 54% of marketers say leadership underestimates the real effort needed to make AI output usable, and a large gap between how aligned C-suite respondents and analysts felt AI adoption actually was. In a small business, that gap can exist within one person wearing both hats.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the cheapest way to reduce time spent fixing AI content?</p>
+    <p class="ob-faq-a">Give the AI more specific detail upfront rather than a vague prompt, use one short fixed checklist instead of a full re-read each time, and keep drafting and review in the same tool rather than moving content between several disconnected systems.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business rarely has a separate team to absorb the checking time AI content actually requires, so the revision tax lands directly on the owner or the one person managing marketing. Planning for that time honestly, rather than expecting AI to remove it, is what keeps AI content genuinely useful instead of quietly exhausting.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, track the actual time spent on your next three pieces of AI-assisted content from prompt to publish, including every fact-check and rewrite. Compare that honestly against the time the same content would have taken without AI, then adjust your prompts or process based on where the extra time actually went.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out where your AI content process is actually losing time?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If marketing is where AI is doing the most work for you, <a class="ob-link" href="#/articles/ai-marketing-automation-small-businesses">AI marketing automation for small businesses</a> covers the practical setup, and <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">how to measure AI performance and ROI</a> shows how to check whether the time really comes back.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.themarketingblog.co.uk/2026/07/ai-in-marketing-optimizely-study-finds-marketers-are-paying-a-growing-revision-tax/" target="_blank" rel="noopener noreferrer">TheMarketingblog, AI in Marketing: Optimizely Study Finds Marketers Are Paying a Growing 'Revision Tax'</a>; <a href="https://www.optimizely.com/company/press/2026-global-data-study" target="_blank" rel="noopener noreferrer">Optimizely, press release on 2026 global AI marketing data study</a>; <a href="https://www.prnewswire.com/news-releases/new-optimizely-research-reveals-growing-gap-between-ais-efficiency-promises-and-marketing-reality-302814574.html" target="_blank" rel="noopener noreferrer">PR Newswire, New Optimizely Research Reveals Growing Gap Between AI's Efficiency Promises and Marketing Reality</a>.</p>
