@@ -1,0 +1,199 @@
+<!--
+title: The resolution rate trap: what AI customer service stats really mean
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-07-20
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: 76% resolution rate sounds impressive until you ask what counts as resolved. Here's how to read the numbers properly.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Badge cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Vendor pages for AI customer service tools love a big resolution-rate number. What they rarely explain is what counts as a resolution in the first place, and that distinction is exactly where realistic expectations and disappointed budgets part ways.</p>
+
+<div class="ob-callout">
+  <p>Only 14% of customer service issues currently get resolved through pure self-service, even though average resolution rates are quoted at 76%. The gap between those two numbers is where AI agents either earn their keep or quietly get switched off.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">76%</div>
+    <div class="ob-stat-label">average resolution rate for AI customer service agents</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$0.99&#8211;$2</div>
+    <div class="ob-stat-label">typical cost per AI-handled conversation, versus $6&#8211;$12 for a human agent</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">20&#8211;35%</div>
+    <div class="ob-stat-label">realistic net cost reduction in year one, not the 60&#8211;80% some vendors advertise</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: RESOLUTION VS DEFLECTION ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Resolution Rate Is Not Deflection Rate</h2>
+  <p class="ob-section-sub">Two different numbers, often confused on purpose</p>
+
+  <p class="ob-p">Industry benchmarking puts the average AI resolution rate at 76%, with top performers reaching 80 to 84%. That sounds close to fully automated support. But separate research from Lorikeet found that only 14% of customer issues are currently resolved through genuine self-service, meaning a large share of what gets counted as 'resolved' still involves a human somewhere in the loop, reviewing, approving, or finishing the job.</p>
+
+  <p class="ob-p">Before trusting any resolution-rate figure a vendor quotes you, ask them to define it. A conversation that ends because the customer gave up is not the same as one that ended because the problem was actually solved.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>76%</h4>
+      <p>average resolution rate</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>14%</h4>
+      <p>true self-service resolution</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>80&#8211;84%</h4>
+      <p>for top performers</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: THE REAL COST COMPARISON ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Real Cost Comparison</h2>
+  <p class="ob-section-sub">Per-conversation economics, not headline percentages</p>
+
+  <p class="ob-p">The clearest, most defensible number in this space is cost per conversation. Human-handled conversations typically run $6 to $12 each, largely driven by agent time. AI-handled conversations run $0.99 to $2.00. That gap, multiplied across thousands of monthly conversations, is where the genuine business case sits, not in vague productivity claims.</p>
+
+  <p class="ob-p">Realistic net cost reduction in the first year lands around 20 to 35%, once you account for the conversations that still need human review, the cost of the platform itself, and the time spent training and correcting the system early on. Vendor claims of 60 to 80% reduction usually describe a mature, fully tuned deployment, not what a business sees in month one.</p>
+
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">Cost per conversation</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Human agent</span><span class="ob-compare-num">$6&#8211;$12</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">AI agent</span><span class="ob-compare-num">$0.99&#8211;$2</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: THE ROI TIMELINE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The ROI Timeline</h2>
+  <p class="ob-section-sub">What businesses that get this right actually see</p>
+
+  <p class="ob-p">Across surveyed businesses that deployed AI customer service tools, 74% report achieving positive ROI within six months. First-year average returns sit around 41%, rising past 124% by year three as the system improves and the team learns to configure it properly. Leading organisations, generally those with clean data and a well-scoped starting use case, report returns up to 8x their investment.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">The pattern across almost every case worth reading about is the same: return improves sharply after the first few months, once the obvious edge cases have been fixed and staff trust the system enough to stop double-checking every response.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is a 76% resolution rate realistic for a small business?</p>
+    <p class="ob-faq-a">It's realistic for a narrow, well-defined use case, such as order status or booking changes. Resolution rates drop sharply for broad, open-ended queries, so scope matters more than the headline percentage.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How is 'resolved' actually being measured?</p>
+    <p class="ob-faq-a">Always ask. Some vendors count a conversation as resolved if the customer doesn't reply again within a set window, which isn't the same as the problem actually being fixed.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">When should we expect to see a return?</p>
+    <p class="ob-faq-a">Most businesses that see success report positive ROI within six months, with returns improving substantially by year three as the system and the team both get better at using it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does cheaper per-conversation cost mean lower quality?</p>
+    <p class="ob-faq-a">Not inherently, but it does mean the easy, repetitive queries get automated first. Complex or emotionally sensitive conversations should stay routed to a human regardless of what the cost comparison suggests.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Small businesses don't have the conversation volume to absorb a vague, poorly scoped AI deployment the way a call centre with thousands of daily tickets can. If you're fielding a few hundred customer enquiries a month, the per-conversation cost comparison above is the number that actually matters to you, not the headline resolution-rate percentage. Start with your single most repetitive enquiry type and measure it properly before expanding.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Pull your last month of customer service enquiries and count how many fall into just one repetitive category (order status, opening hours, booking changes). If that category is more than 20% of your total volume, it's a strong candidate for a narrow AI agent pilot. No new tool required for this step, just your existing inbox or helpdesk log.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help scoping an AI customer service pilot that measures the numbers that actually matter?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're weighing up where AI fits in your customer-facing work, <a class="ob-link" href="#/articles/ai-marketing-automation-small-businesses">AI marketing automation for small businesses</a> covers the adjacent use cases, <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a> shows how to measure whether it's working, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> walks through the rollout itself.</p>
+
+<p class="ob-sources">Sources: <a href="https://fin.ai/learn/roi-ai-customer-service-agents-benchmarks" target="_blank" rel="noopener noreferrer">Fin.ai, ROI of AI Customer Service: 2026 Benchmarks and Data</a>; <a href="https://www.lorikeetcx.ai/articles/ai-customer-service-statistics" target="_blank" rel="noopener noreferrer">Lorikeet, 30 AI Customer Service Statistics for 2026</a>.</p>
