@@ -1,0 +1,182 @@
+<!--
+title: Why your custom software quote might be two years out of date
+tags: AI Technology, AI Implementation
+date: 2026-07-21
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Developers using AI tools finish tasks 55% faster. Here's what that speed actually changes about commissioning custom software.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">If you've commissioned custom software before, you probably have a mental price tag and timeline based on how long that took last time. Both numbers need revisiting. AI-assisted coding has changed how fast development teams actually move, and the shift is large enough to change what a reasonable quote looks like.</p>
+
+<div class="ob-callout">
+  <p>A joint study by GitHub and Accenture, covering 4,800 developers, found task completion 55% faster and pull request turnaround dropping from 9.6 days to 2.4 days. That's not a marginal efficiency gain. That's a different delivery timeline.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">55%</div>
+    <div class="ob-stat-label">faster task completion for developers using AI coding tools</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">9.4 hrs</div>
+    <div class="ob-stat-label">average hours saved per developer, per week, across major AI coding tools</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">84%</div>
+    <div class="ob-stat-label">of developers now use or plan to use AI coding tools</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: THE NUMBERS ARE REAL ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The productivity numbers are real, and verified</h2>
+  <p class="ob-section-sub">Not vendor marketing, independent measurement</p>
+
+  <p class="ob-p">The GitHub and Accenture study is one of the more rigorous pieces of evidence in this space: 4,800 developers, measured task completion, and a clear before-and-after comparison. The 55% faster completion time and the drop in pull request turnaround from 9.6 to 2.4 days both come from that measurement, not from marketing copy.</p>
+  <p class="ob-p">Gartner's own research corroborates the direction, if not the exact number: 90% of engineering leaders report productivity improvements from AI coding tools, with a net average gain of 19.3% once you account for the time spent reviewing and correcting AI-generated code. Across a composite of major tools, the average developer saves roughly 9.4 hours a week.</p>
+
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">The measured gains</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Pull request turnaround</span><span class="ob-compare-num">9.6 → 2.4 days</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Net productivity gain (Gartner)</span><span class="ob-compare-num">19.3%</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Faster on measured coding tasks</span><span class="ob-compare-num">26–40%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: WHERE THE MONEY IS GOING ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where the money is actually going</h2>
+  <p class="ob-section-sub">A fast-growing slice of enterprise software spend</p>
+
+  <p class="ob-p">AI-assisted coding is now one of the fastest-growing categories of enterprise software spend. Coding agents and copilots represent roughly $4 billion of the broader $19 billion 2025 application-layer spend, around 55% of departmental AI budgets going toward coding tools specifically. Three products, GitHub Copilot, Claude Code, and Cursor, have each independently crossed $1 billion in annualised revenue, which tells you this isn't a niche experiment anymore.</p>
+  <p class="ob-p">Developer adoption backs this up. Stack Overflow's 2025 survey of more than 49,000 developers found 84% now use or plan to use AI coding tools, with 51% using them daily. If your development partner isn't using these tools yet, that's worth asking about directly.</p>
+</div>
+
+<!-- ─── SECTION 3: WHAT THIS MEANS FOR YOU ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What this means when you commission custom software</h2>
+  <p class="ob-section-sub">Faster delivery, but the same scoping discipline matters more, not less</p>
+
+  <p class="ob-p">Faster coding does not mean faster scoping, faster design decisions, or faster testing, and those remain the parts of a project most likely to slip. If anything, AI-accelerated development raises the stakes on getting requirements right upfront, because a team that can write code 55% faster can also build the wrong thing 55% faster.</p>
+  <p class="ob-p">A reasonable question to ask any development partner in 2026 is not whether they use AI tools, most competent ones do, but how they've adjusted their scoping and review process to match the new speed. A team still running an old-style review process on AI-accelerated code is likely to ship faster and worse.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should this change what I expect to pay for custom software?</p>
+    <p class="ob-faq-a">It's reasonable to expect faster delivery on well-scoped work, though hourly or day rates haven't necessarily dropped in proportion to the speed gain. Ask any quote to reflect the new delivery speed, not just the old one.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Are AI coding tools actually reliable, or just fast?</p>
+    <p class="ob-faq-a">Both, within limits. Gartner's 19.3% net productivity figure already accounts for review and correction time, meaning the gains are real even after quality checks, not before them.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does this apply to small, simple projects too?</p>
+    <p class="ob-faq-a">Yes, arguably more so. Smaller, well-defined builds are exactly where AI coding tools perform most reliably, since there's less ambiguous legacy context to get wrong.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should I ask a development agency about their AI tool use?</p>
+    <p class="ob-faq-a">Ask which tools they use, and more importantly, what their review process looks like for AI-generated code. A confident, specific answer is a good sign. A vague one is worth probing further.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>If you've been quoted a development timeline that feels like it's from a few years ago, it might genuinely be out of date. Development teams using current AI coding tools are measurably faster, which should show up in your quote and your delivery date. It doesn't mean cutting corners on scoping, if anything, clear requirements matter more when the build phase moves this quickly.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next development conversation, ask directly what AI coding tools the team uses and what percentage of their code review process has changed to account for AI-generated output. Their answer will tell you more about delivery reliability than any portfolio page will.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a second opinion on a development quote or timeline?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're planning a build, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> covers the groundwork that keeps fast development pointed in the right direction, and <a class="ob-link" href="#/articles/ai-consultancy-first-90-days">what an AI consultancy should actually do in the first 90 days</a> shows what a well-run engagement looks like from the start.</p>
+
+<p class="ob-sources">Sources: <a href="https://devlabs.angelhack.com/blog/ai-enterprise-2026/" target="_blank" rel="noopener noreferrer">GitHub and Accenture developer productivity study, referenced via AngelHack DevLabs, AI Trends Reshaping Enterprise Software Development in 2026</a>; <a href="https://www.gartner.com/en/articles/enterprise-ai-coding-agent-market" target="_blank" rel="noopener noreferrer">Gartner, Enterprise AI Coding Agents: 2026 Market Guide and Trends</a>; <a href="https://blogs.nvidia.com/blog/state-of-ai-report-2026/" target="_blank" rel="noopener noreferrer">Stack Overflow 2025 Developer Survey, referenced via NVIDIA, State of AI Report 2026</a>.</p>
