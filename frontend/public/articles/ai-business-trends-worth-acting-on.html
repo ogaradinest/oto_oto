@@ -1,0 +1,171 @@
+<!--
+title: The AI shifts worth acting on this year — and the noise you can skip
+tags: AI Strategy, AI Technology
+date: 2026-07-22
+excerpt: Four real shifts in how AI affects business right now, each with one clear implication, no hype required.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Most AI trend roundups are a list of things that happened, with no filter for whether any of it changes what you should actually do. Here are four developments from this year backed by real research, each with a plain answer to the only question that matters: does this change anything for my business.</p>
+
+<div class="ob-callout">
+  <p>The real AI story in 2026 is a widening gap: businesses are adopting AI faster than they're building the discipline to prove it's actually working.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">88%</div>
+    <div class="ob-stat-label">of organisations now use AI in at least one business function</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">74%</div>
+    <div class="ob-stat-label">plan to deploy autonomous AI agents within two years</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">21%</div>
+    <div class="ob-stat-label">say their governance is actually mature enough to manage that</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: AGENTS VS OVERSIGHT ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Trend One: Agents Are Moving Faster Than Oversight</h2>
+  <p class="ob-section-sub">Adoption is outrunning the controls meant to manage it</p>
+
+  <p class="ob-p">Deloitte's 2026 enterprise survey found 74% of organisations plan to deploy agentic AI within two years, but only 21% currently have governance mature enough to manage it. IBM's research puts a number on the scale: large enterprises are running over 1,600 AI agents each by the end of 2026.</p>
+  <p class="ob-p">What this means for you: if you're adopting any tool described as agentic, meaning it takes actions rather than just generating text, treat governance as part of the setup, not an afterthought. A simple list of what the tool can do without asking first is the small-business version of the same discipline. For the fuller picture of how larger organisations are handling this, see <a class="ob-link" href="#/articles/agentic-ai-governance-enterprise">agentic AI governance in 2026</a>.</p>
+</div>
+
+<!-- ─── SECTION 2: ADOPTION VS PROOF ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Trend Two: Adoption and Proof Have Split Apart</h2>
+  <p class="ob-section-sub">Nearly everyone has adopted AI. Few can prove it worked</p>
+
+  <p class="ob-p">McKinsey's State of AI research found 88% of organisations use AI in at least one function, yet only 6% qualify as high performers with real bottom-line impact. KPMG's UK-specific data shows the same pattern locally: only 7% of UK leaders report established, measurable ROI from AI. We dug into the UK numbers in detail in <a class="ob-link" href="#/articles/ai-adoption-uk-benchmark-2026">UK AI adoption 2026: the real data behind the ROI gap</a>.</p>
+  <p class="ob-p">What this means for you: adoption is no longer the differentiator. Measurement is. If you can't name the one metric your current AI tool is supposed to be moving, that's the actual gap to close, not a new tool to buy.</p>
+</div>
+
+<!-- ─── SECTION 3: REGULATION ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Trend Three: Regulation Moved, Just Not the Way Headlines Suggested</h2>
+  <p class="ob-section-sub">Deadlines shifted, obligations didn't disappear</p>
+
+  <p class="ob-p">In May 2026, EU negotiators agreed to push the compliance deadline for high-risk AI systems from August 2026 to December 2027 under the Digital Omnibus package, while general-purpose AI obligations stayed in force. In the UK, the ICO's new code of practice on AI and automated decision-making came into force on 12 May 2026, and the CMA confirmed in March 2026 that agentic AI use already falls under existing consumer and competition law.</p>
+  <p class="ob-p">What this means for you: nobody got a free pass. The deadlines moved, the underlying expectation that you can explain and control what your AI does did not.</p>
+</div>
+
+<!-- ─── SECTION 4: BUILD VS BUY ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Trend Four: The Build-vs-Buy Answer Got Clearer</h2>
+  <p class="ob-section-sub">Buying and integrating is beating building from scratch</p>
+
+  <p class="ob-p">MIT's 2025 research on AI pilots found that buying a tool from a specialised vendor and implementing it with support succeeds roughly 67% of the time, versus about a third as often for projects built entirely in-house. At the same time, AI coding tools have gotten dramatically more capable, GitHub and Accenture measured a 55% increase in developer task speed, which is narrowing the gap for businesses that do need custom work.</p>
+  <p class="ob-p">What this means for you: for most small businesses, buying an existing tool and getting help implementing it well remains the safer default. Custom builds make more sense once you know precisely what an off-the-shelf tool can't do for you.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Which of these trends matters most for a small business?</p>
+    <p class="ob-faq-a">Trend two, the split between adoption and proof, tends to matter most immediately. It's the difference between a tool that quietly earns its subscription fee and one that gets cancelled after three months with nothing to show for it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do the EU AI Act changes affect a UK small business?</p>
+    <p class="ob-faq-a">Indirectly, if you sell into the EU or use AI tools built by EU-based vendors. Directly, UK businesses are more affected by the ICO's new code of practice and the CMA's stance on agentic AI, both already active.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is agentic AI actually relevant to a small business yet?</p>
+    <p class="ob-faq-a">Increasingly, yes, often without you choosing it directly. Many everyday tools, CRMs, help desks, scheduling software, are adding agentic features by default, which is exactly why the governance point in trend one applies broadly, not just to large enterprises building custom agents.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How often should I revisit trends like these?</p>
+    <p class="ob-faq-a">Quarterly is reasonable for a small business. Anything that changes faster than that in a way that actually affects you will usually reach you through a vendor update or a client conversation anyway.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>None of these four trends require a strategy offsite or a six-figure budget to act on. Each one reduces to a specific, small habit: write down what your AI tools can do unsupervised, name the one metric each tool is supposed to move, keep half an eye on your sector regulator, and default to buying over building unless you have a clear reason not to.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Pick the one trend above that applies most directly to a tool you're already using or considering, and spend fifteen minutes writing down what it means specifically for that tool. That's a more useful exercise than reading another general AI trends roundup, including this one.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out which of these shifts actually applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-sources">Sources: <a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noopener noreferrer">Deloitte, State of AI in the Enterprise (2026)</a>; <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">McKinsey, The State of AI: Global Survey</a>; <a href="https://kpmg.com/uk/en/media/press-releases/2026/07/ai-adoption-accelerates-in-uk.html" target="_blank" rel="noopener noreferrer">KPMG Global AI Pulse Survey, UK results (mid-2026)</a>; <a href="https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/" target="_blank" rel="noopener noreferrer">Gibson Dunn, EU AI Act Omnibus Agreement, postponed high-risk deadlines</a>; <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" target="_blank" rel="noopener noreferrer">MIT NANDA, The GenAI Divide: State of AI in Business 2025</a>.</p>
