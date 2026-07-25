@@ -1,0 +1,189 @@
+<!--
+title: The hidden 40%: what UK AI consultancy quotes leave out
+tags: AI Consultancy
+date: 2026-07-25
+excerpt: Day rates from £500 to £3,000, and a hidden cost that can add 60% to your budget. Here's how to read a quote properly.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">AI consultancy pricing in the UK spans a wider range than almost any other professional service, from a £500 day rate freelancer to a £3,000 day rate Big Four partner. That range isn't a pricing error. It reflects genuinely different things being sold under the same label, and knowing which one you're being quoted matters more than the number itself.</p>
+
+<div class="ob-callout">
+  <p>Quoted costs typically cover consultant time only. Data preparation, cloud infrastructure, staff training, and change management routinely add 40 to 60% on top. A quote without those line items isn't a good deal, it's an incomplete one.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">£500-£3,000</div>
+    <div class="ob-stat-label">day rate range, freelancer to Big Four</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£25k-£150k</div>
+    <div class="ob-stat-label">typical total cost for an SME project, PoC through deployment</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">40-60%</div>
+    <div class="ob-stat-label">typical hidden-cost addition for data prep and infrastructure</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHAT DAY RATES ACTUALLY BUY YOU ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Day Rates Actually Buy You</h2>
+  <p class="ob-section-sub">Freelancer, boutique, or Big Four, in plain terms</p>
+
+  <p class="ob-p">Freelance and independent consultants typically charge £500 to £750 a day, and are usually a good fit for focused advisory work or an initial assessment. Boutique specialist firms run £600 to £900 a day for general work, rising to £1,200 to £2,500 for genuinely niche implementation expertise. Large consultancies and Big Four firms charge £1,000 to £1,500 a day as a baseline, with premium engagements reaching £1,500 to £3,000 or more.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">London and the South East typically run 10 to 20% above these ranges, reflecting both higher operating costs and a concentration of clients willing to pay for it.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Freelancer</h4>
+      <p>£500-£750/day</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Boutique specialist</h4>
+      <p>£600-£2,500/day</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Big Four / large consultancy</h4>
+      <p>£1,000-£3,000+/day</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: WHAT A FULL SME PROJECT ACTUALLY COSTS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What a Full SME Project Actually Costs</h2>
+  <p class="ob-section-sub">Broken down by phase, not just a single number</p>
+
+  <p class="ob-p">A typical SME AI project runs £25,000 to £150,000 in total, but that figure hides three distinct phases that are usually priced separately. A strategy and diagnostic workshop, the phase that maps your process and defines the metric you're aiming to move, runs £12,000 to £35,000 over two to four weeks. A proof of concept for a single use case runs £25,000 to £85,000 over six to twelve weeks. A full production implementation runs £75,000 to £250,000 over twelve to twenty-six weeks.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Diagnostic: £12k-£35k</span>
+    <span class="ob-badge">Proof of concept: £25k-£85k</span>
+    <span class="ob-badge">Full deployment: £75k-£250k</span>
+  </div>
+
+  <p class="ob-p" style="margin-bottom: 0;">Ask any consultancy which of these three phases their quote actually covers. A quote that skips straight to a production number without a diagnostic phase is skipping the step most likely to determine whether the project succeeds at all.</p>
+</div>
+
+<!-- ─── SECTION 3: THE 40-60% NOBODY PUTS ON THE FIRST PAGE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The 40-60% Nobody Puts on the First Page</h2>
+  <p class="ob-section-sub">Hidden costs that determine your real total</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">The single most common budgeting mistake in AI consultancy engagements is treating the quoted consultant-time figure as the whole cost. Data preparation, cloud infrastructure, staff training time, and change management typically add 40 to 60% on top of that headline number. None of these costs are hidden maliciously, they're simply outside the scope of what a day-rate quote usually covers, so they need to be asked about directly.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">What business owners ask before signing an AI consultancy quote</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is a cheaper day rate always a worse deal?</p>
+    <p class="ob-faq-a">Not necessarily, but it does mean checking scope carefully. A £500 a day freelancer with the right specific experience can outperform a £2,000 a day generalist, but freelancers rarely have the delivery team to absorb a project that grows in scope.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the minimum realistic budget for a small business AI project?</p>
+    <p class="ob-faq-a">A focused diagnostic and proof of concept, rather than a full production build, is a realistic starting point for most SMEs, generally in the £35,000 to £100,000 range once hidden costs are included.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do hidden costs add so much?</p>
+    <p class="ob-faq-a">Because most businesses underestimate how much of their own data isn't ready for AI use. Cleaning it, structuring it, and connecting it to the right systems is genuine work that a day-rate quote for strategy or build time doesn't automatically include.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should I negotiate the day rate or the total project cost?</p>
+    <p class="ob-faq-a">The total project cost, including phases and hidden costs, tells you far more than the day rate alone. Two consultancies quoting the same day rate can produce very different total bills depending on how many days they scope.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, the gap between a £25,000 project and a £150,000 one usually isn't ambition, it's scope discipline. You very rarely need the full production phase on day one. A properly scoped diagnostic and proof of concept, at the lower end of these ranges, is enough to prove whether a use case is worth the larger investment, and it gives you real evidence before you commit to the bigger number.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before accepting any AI consultancy quote, ask for it broken into the three phases above (diagnostic, proof of concept, deployment) and ask explicitly what percentage on top covers data preparation and infrastructure. If a consultancy can't answer that second question specifically, treat their total figure as provisional, not final.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help scoping a diagnostic that won't need a hidden 40% added on later?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once you're past pricing, <a class="ob-link" href="#/articles/ai-consultancy-first-90-days">what an AI consultancy should actually do in the first 90 days</a> covers what a properly scoped diagnostic phase should produce.</p>
+
+<p class="ob-sources">Sources: <a href="https://nrbconsulting.co.uk/how-much-does-ai-consulting-cost-uk" target="_blank" rel="noopener noreferrer">NRB Consulting, How Much Do AI Consultants Charge? UK Day Rates and Costs (2026)</a>; <a href="https://nicolalazzari.ai/guides/ai-consultant-pricing-guide-uk" target="_blank" rel="noopener noreferrer">Nicola Lazzari, AI Consultant Hourly Rate UK 2026</a>.</p>
