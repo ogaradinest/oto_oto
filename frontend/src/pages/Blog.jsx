@@ -127,7 +127,7 @@ const Blog = () => {
       {/* Hero */}
       <section className="py-16 px-6 text-center max-w-3xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          The otobrothers blog
+          otoBlog
         </h1>
         <p className="text-lg text-gray-500">
           Practical AI insights for business leaders — strategy, implementation,
