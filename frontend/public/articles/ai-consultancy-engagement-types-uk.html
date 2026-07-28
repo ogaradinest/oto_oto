@@ -1,0 +1,198 @@
+<!--
+title: What you're actually buying when you hire an AI consultancy
+tags: AI Consultancy, AI Strategy
+date: 2026-07-28
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: Nearly 6,000 UK firms now sell AI services. Here's what you're actually buying at each stage of an engagement.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-grid.ob-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid, .ob-barrier-grid.ob-grid-4 { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">The UK's AI sector has grown fast enough that the word 'consultancy' now covers a genuinely wide range of services, from a single strategy workshop to a fully managed ongoing operation. Knowing which phase you actually need, rather than buying whatever's being sold hardest, is the difference between a useful engagement and an expensive one.</p>
+
+<div class="ob-callout">
+  <p>The UK now has nearly 6,000 AI-related firms, up 58% in a single year, according to the government's own sector study. That growth means more genuine expertise, but also more businesses selling 'AI consultancy' with wildly different scopes hiding behind the same term.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">5,862</div>
+    <div class="ob-stat-label">AI-related firms identified in the UK's 2024 sector study</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">+34%</div>
+    <div class="ob-stat-label">year-on-year revenue growth across the UK AI sector</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">4</div>
+    <div class="ob-stat-label">distinct phases a full AI consultancy engagement usually covers</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: DIAGNOSTIC AND STRATEGY ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Phase One: Diagnostic and Strategy</h2>
+  <p class="ob-section-sub">What gets delivered before any technology is chosen</p>
+
+  <p class="ob-p">A proper diagnostic phase produces a mapped process with real hours and costs attached, a defined success metric, and a named owner on your side. It should not produce a generic AI strategy deck with no reference to your actual operations. If a diagnostic engagement doesn't touch your real workflows and real data, it hasn't actually diagnosed anything.</p>
+</div>
+
+<!-- ─── SECTION 2: PROOF OF CONCEPT ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Phase Two: Proof of Concept</h2>
+  <p class="ob-section-sub">A working pilot, not a demo</p>
+
+  <p class="ob-p">This phase should produce something that runs on your real data, used by real staff, measured against the metric set in the diagnostic phase. A proof of concept that only works on cleaned sample data, or that nobody on your team actually touches, tells you very little about whether the approach will hold up in production.</p>
+</div>
+
+<!-- ─── SECTION 3: FULL IMPLEMENTATION ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Phase Three: Full Implementation</h2>
+  <p class="ob-section-sub">Where integration work usually dominates the timeline</p>
+
+  <p class="ob-p">Full deployment connects the proven pilot to your actual systems, CRM, finance software, or whatever else the workflow touches, at production scale. This is typically the longest and most expensive phase, and it's where hidden costs, data preparation and change management especially, tend to surface if they weren't planned for during the diagnostic phase.</p>
+</div>
+
+<!-- ─── SECTION 4: ONGOING SUPPORT ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Phase Four: Ongoing Support</h2>
+  <p class="ob-section-sub">The phase most businesses forget to budget for</p>
+
+  <p class="ob-p">AI systems drift. Data changes, business processes change, and models need retraining or adjustment. A consultancy that disappears after deployment, with no defined support arrangement, is leaving you to handle that drift alone. Ask what ongoing support looks like, and what triggers an update, before signing anything, not after something breaks.</p>
+
+  <div class="ob-barrier-grid ob-grid-4">
+    <div class="ob-barrier-card">
+      <h4>1. Diagnostic</h4>
+      <p>Mapped process, one metric</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>2. Proof of concept</h4>
+      <p>Working pilot, real data</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>3. Full implementation</h4>
+      <p>Production integration</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>4. Ongoing support</h4>
+      <p>Monitoring and retraining</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need to buy all four phases from the same consultancy?</p>
+    <p class="ob-faq-a">No, and sometimes it's better not to. Using one consultancy for diagnostic work and another for implementation adds a handover cost, but it also adds an independent check on whether the diagnosis actually held up.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the most commonly skipped phase?</p>
+    <p class="ob-faq-a">Ongoing support. Businesses often budget for build but not for the retraining and monitoring that keeps a system accurate as their data and processes evolve.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How big is the UK AI consultancy market really?</p>
+    <p class="ob-faq-a">Substantial and growing quickly. The government's most recent sector study identified 5,862 AI-related firms in the UK, up 58% year on year, with over 90% of that growth coming from additional SMEs entering the market.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is a smaller UK AI consultancy less capable than a large one?</p>
+    <p class="ob-faq-a">Not necessarily. With over 90% of recent sector growth coming from SMEs, many smaller firms carry genuine specialist expertise. Capability tracks track record and process discipline more than headcount.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business rarely needs all four phases purchased upfront, and paying for them that way is one of the more common ways an AI budget gets wasted. Understanding the phases means you can commission just the diagnostic and proof of concept first, see real evidence of whether the approach works, and only then commit to the larger implementation and support budget.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next AI consultancy conversation, ask which of the four phases above their proposal actually covers, and get that in writing. If a single proposal jumps straight from a sales conversation to a full implementation quote with no diagnostic or proof of concept phase, ask why, and treat the answer as a genuine test of the relationship.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out which phase your business actually needs first?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're weighing up an engagement, <a class="ob-link" href="#/articles/ai-consultancy-pricing-uk">AI consultancy pricing in the UK</a> covers what each phase typically costs, <a class="ob-link" href="#/articles/ai-consultancy-how-to-choose-uk">how to choose an AI consultancy in the UK</a> helps you compare firms properly, and <a class="ob-link" href="#/articles/ai-consultancy-first-90-days">what an AI consultancy should actually do in the first 90 days</a> shows what a well-run start looks like in practice.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gov.uk/government/publications/artificial-intelligence-sector-study-2024/artificial-intelligence-sector-study-2024" target="_blank" rel="noopener noreferrer">GOV.UK, Artificial Intelligence Sector Study 2024 (Department for Science, Innovation and Technology)</a>; <a href="https://www.burges-salmon.com/articles/102jmrc/what-does-the-ai-sector-in-the-uk-look-like-dsits-study-published/" target="_blank" rel="noopener noreferrer">Burges Salmon, What does the AI Sector in the UK look like? DSIT's study published</a>.</p>
