@@ -1,0 +1,172 @@
+<!--
+title: Your AI governance problem starts with your data, not your model
+tags: AI Governance, AI Technology
+date: 2026-07-30
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: Risk professionals now rank bad AI data above cybersecurity as their top concern. Here's the framework that actually addresses it.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">AI governance conversations tend to focus on the model: is it biased, is it explainable, is it compliant. Less attention goes to the data feeding that model, even though data quality is where most AI failures actually start. That's starting to change, and the numbers behind the shift are worth understanding before your business becomes a data point in next year's version of this research.</p>
+
+<div class="ob-callout">
+  <p>Information integrity risk, AI-enabled decisions made on untrustworthy or opaque data, is now the number-one concern among risk professionals, ranking above cybersecurity, regulatory risk, and geopolitical uncertainty, according to Gartner's Q1 2026 research.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">#1</div>
+    <div class="ob-stat-label">concern among risk professionals: information integrity, above cybersecurity</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">3.4x</div>
+    <div class="ob-stat-label">more effective AI governance among organisations using a dedicated governance platform</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$1bn+</div>
+    <div class="ob-stat-label">projected AI governance platform spend by 2030, up from $492m in 2026</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHY DATA GOVERNANCE OVERTOOK CYBERSECURITY ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why Data Governance Overtook Cybersecurity as a Worry</h2>
+  <p class="ob-section-sub">The risk moved upstream, from the model to what feeds it</p>
+
+  <p class="ob-p">Gartner's research tracking risk professional sentiment through early 2026 found information integrity risk, the risk of AI systems making decisions on data that's untrustworthy or opaque, has become the single top concern, overtaking cybersecurity, regulatory risk, and geopolitical uncertainty. That ranking reflects a real shift: as AI systems make more decisions with less direct human review, the quality of the data behind those decisions matters more than almost anything else.</p>
+</div>
+
+<!-- ─── SECTION 2: THE GOVERNANCE PLATFORM GAP ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Governance Platform Gap</h2>
+  <p class="ob-section-sub">A measurable difference between structured and unstructured approaches</p>
+
+  <p class="ob-p">A Gartner survey of 360 organisations found that those using a dedicated AI governance platform are 3.4 times more likely to achieve high effectiveness in AI governance than those relying on informal or ad hoc processes. That's not a marginal improvement. It's the difference between governance that actually catches problems and governance that exists mainly on paper.</p>
+  <p class="ob-p">The market has responded accordingly: AI governance spending is projected to reach $492 million in 2026 and surpass $1 billion by 2030, as more organisations move from informal policy documents to structured platforms and processes.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Information integrity: top risk concern</span>
+    <span class="ob-badge">3.4x more effective with a governance platform</span>
+    <span class="ob-badge">$492m spend in 2026, rising past $1bn by 2030</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: THE REGULATORY BACKDROP ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Regulatory Backdrop Isn't Slowing Down</h2>
+  <p class="ob-section-sub">Fragmented rules, real penalties</p>
+
+  <p class="ob-p">Gartner predicts that by 2030, fragmented AI regulation will extend to 75% of the world's economies, driving roughly $1 billion in total compliance spend globally. In the EU specifically, penalties under the AI Act can reach €35 million or 7% of global annual revenue, whichever is higher, for the most serious breaches. Whatever your view on the pace of regulation, the direction is consistent: more jurisdictions, more specific requirements, and higher stakes for getting data handling wrong.</p>
+</div>
+
+<!-- ─── SECTION 4: A FRAMEWORK THAT DOESN'T REQUIRE AN ENTERPRISE BUDGET ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A Framework That Doesn't Require an Enterprise Budget</h2>
+  <p class="ob-section-sub">Four things worth doing regardless of company size</p>
+
+  <p class="ob-p">You don't need a $492 million market's worth of tooling to apply the same principles at a smaller scale. Know what data feeds each AI system you use. Know where that data came from and whether it's current. Know who's responsible for checking it. And review that list on a schedule, not only when something goes wrong. That's the same structure the enterprise platforms formalise, just without the price tag.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does 'information integrity risk' actually mean in practice?</p>
+    <p class="ob-faq-a">It means an AI system is making a decision, a recommendation, a categorisation, a response, based on data that's outdated, incomplete, or simply wrong, without anyone catching it before the decision reaches a customer or a report.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do we need a dedicated governance platform as a small business?</p>
+    <p class="ob-faq-a">Not necessarily a paid platform, but the discipline it represents, knowing your data sources, their owners, and their freshness, applies at any size, even if you track it in a spreadsheet rather than dedicated software.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the EU AI Act apply if we're a UK-only business?</p>
+    <p class="ob-faq-a">Only if you sell into the EU or your AI tools are provided by an EU-based vendor subject to the Act. UK-only businesses are more directly affected by the ICO's own code of practice and existing UK data protection law.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the fastest way to check our own data governance gap?</p>
+    <p class="ob-faq-a">List every AI tool you use, and for each one, write down where its data comes from and who last checked that it's accurate. Gaps in that list are your actual governance gap, not a hypothetical one.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>The $1 billion figures in this research describe enterprise spending, but the underlying risk, AI decisions built on bad data, applies just as much to a small business using a single AI-powered tool. If a lead-scoring tool works from an outdated customer list, or a scheduling assistant works from a calendar nobody's cleaned up in months, the AI isn't wrong, your data was. That's a fixable problem, and fixing it costs nothing but attention.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Pick the one AI tool your business relies on most, and check where its data actually comes from. If that data hasn't been reviewed or cleaned in the last three months, do that first, before evaluating whether the tool itself is working properly. Most 'AI isn't accurate enough' complaints trace back to this exact gap.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a straightforward second opinion on your AI data governance?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For the wider picture, <a class="ob-link" href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a> covers the fundamentals, <a class="ob-link" href="#/articles/agentic-ai-governance-enterprise">agentic AI governance in 2026</a> looks at what changes once AI starts acting on its own, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> shows where data checks fit into a rollout.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2026-02-17-gartner-global-ai-regulations-fuel-billion-dollar-market-for-ai-governance-platforms" target="_blank" rel="noopener noreferrer">Gartner, Global AI Regulations Fuel Billion-Dollar Market for AI Governance Platforms (17 February 2026)</a>; <a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-11-gartner-announces-top-predictions-for-data-and-analytics-in-2026" target="_blank" rel="noopener noreferrer">Gartner, Top Predictions for Data and Analytics in 2026 (11 March 2026)</a>.</p>
