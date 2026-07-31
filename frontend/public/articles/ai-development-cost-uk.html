@@ -1,0 +1,191 @@
+<!--
+title: Subscribe or build: where the AI cost curves cross
+tags: AI Implementation, AI Strategy
+date: 2026-07-31
+image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
+excerpt: Off-the-shelf AI is cheap to start and expensive forever. Custom builds are the opposite. Here's where the two costs actually cross.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">The question isn't really "how much does AI cost". It's "cost over what period". A subscription tool and a custom build can serve the exact same workflow, and still have completely different cost curves, one cheap now and expensive later, the other the reverse. Knowing which shape your spending is about to take matters more than any single price tag.</p>
+
+<div class="ob-callout">
+  <p>The true total cost of off-the-shelf AI tools runs 2.5 to 4 times the advertised subscription price once you count seat surcharges, usage tiers, and the AI-specific fee that's now standard. That gap is where budgets quietly blow past plan.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">2.5x-4x</div>
+    <div class="ob-stat-label">true total cost of off-the-shelf AI tools versus the advertised price</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">12-24 mo</div>
+    <div class="ob-stat-label">typical break-even point between subscribing and building custom</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">15-25%</div>
+    <div class="ob-stat-label">annual maintenance cost for a custom build, as a share of the original price</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: OFF-THE-SHELF ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Off-the-shelf: cheap to start, expensive forever</h2>
+  <p class="ob-section-sub">The subscription model has a hidden multiplier</p>
+
+  <p class="ob-p">Off-the-shelf tools with AI features typically run £40 to £400 per user, per month, and the AI-enabled tiers are almost never on the cheapest plan. Most small businesses can get an AI tool running for under £4,000 in setup, or £16 to £80 a month per user, on the surface.</p>
+  <p class="ob-p">The catch is that AI feature surcharges have risen an average of 34% since 2024, and once you add usage-based overage charges and per-seat scaling, actual total cost of ownership runs 2.5 to 4 times the number on the pricing page. A tool that looked like £50 a month at signup can genuinely cost £150 to £200 a month once your team and usage grow into it.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">£40-£400/user/month advertised</span>
+    <span class="ob-badge">34% AI surcharge rise since 2024</span>
+    <span class="ob-badge">2.5x-4x real TCO vs sticker price</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: CUSTOM BUILDS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Custom builds: expensive to start, cheap forever</h2>
+  <p class="ob-section-sub">The inverse cost curve</p>
+
+  <p class="ob-p">Custom AI development runs roughly £3,000 to £13,500 for a focused single-task tool, £6,500 to £33,000 for a multi-system workflow automation, and £20,000 to £120,000 for a full platform build. A simple single-workflow agent typically lands at £12,000 to £32,000, broadly consistent with the reactive and intermediate tiers covered in our AI agent development cost guide.</p>
+  <p class="ob-p">The median cost of a custom AI project for a mid-market business sits around £69,000, with ongoing annual maintenance running 15 to 25% of that original build cost. Unlike a subscription, that maintenance cost stays relatively flat as your usage grows, which is exactly why the two cost curves eventually cross.</p>
+
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">Custom build cost by scope</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Focused single-task tool</span><span class="ob-compare-num">£3,000-£13,500</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Multi-system workflow automation</span><span class="ob-compare-num">£6,500-£33,000</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Full platform build</span><span class="ob-compare-num">£20,000-£120,000</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: THE CROSSOVER ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where the two curves actually cross</h2>
+  <p class="ob-section-sub">A concrete break-even point, not a vague "it depends"</p>
+
+  <p class="ob-p">For a small team, break-even between subscribing and building typically lands at 12 to 24 months. A more precise rule of thumb: a £120,000 custom build tends to pay for itself in around 15 months once your combined SaaS and API spend passes roughly £8,000 a month. Below that spend level, subscribing almost always wins on cost. Above it, sustained for more than a year, building starts to make financial sense.</p>
+</div>
+
+<!-- ─── SECTION 4: THE DECISION RULE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The decision rule worth actually using</h2>
+  <p class="ob-section-sub">One question that resolves most build-vs-buy debates</p>
+
+  <p class="ob-p">If an off-the-shelf tool covers 80% or more of your workflow as it stands, buy it. The remaining 20% is rarely worth a custom build on its own. If your combined subscription and usage-based AI spend is already above roughly £4,000 a month and climbing, that's the signal to run the build-versus-buy maths properly, rather than continuing to add subscriptions by default.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is custom AI development ever worth it for a small business?</p>
+    <p class="ob-faq-a">Yes, once subscription and usage costs for the equivalent off-the-shelf tools are consistently high and growing. Below that threshold, subscribing remains the lower-risk, lower-cost option for most small businesses.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do subscription AI tools get so much more expensive than advertised?</p>
+    <p class="ob-faq-a">Usage-based pricing tiers, per-seat charges that scale with your team, and AI-specific feature surcharges that sit on top of the base subscription. All three tend to be underweighted when comparing the advertised price to a custom build quote.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the maintenance cost on a custom build ever go away?</p>
+    <p class="ob-faq-a">No, budget for it as a permanent line item, typically 15 to 25% of the original build cost every year, covering monitoring, retraining, and adjustments as your data and processes change.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the simplest first step if I'm unsure which path fits?</p>
+    <p class="ob-faq-a">Add up your actual current spend on AI-enabled subscriptions across your business, including every seat and every usage overage. That real number, not the advertised one, is what any build-versus-buy comparison should start from.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Most small businesses default to subscriptions because the upfront number is smaller, without ever tracking whether that number is quietly growing past the point where a custom build would have been cheaper. The break-even math above isn't an argument for building custom software, it's a way to notice when your subscription stack has grown enough to be worth checking.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Add up everything you currently pay for AI-enabled tools across your business this month, including every user seat and usage overage, not just the base subscription price. If that total is climbing and already above a few thousand pounds a month, it's worth a proper cost comparison before renewing anything automatically.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out whether subscribing or building is the cheaper path for your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're comparing what outside help costs alongside this decision, <a class="ob-link" href="#/articles/ai-consultancy-pricing-uk">AI consultancy pricing in the UK</a> breaks down typical rates, and <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">measuring AI performance and ROI for small businesses</a> covers how to check whether either path is actually paying off.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.designrush.com/agency/ai-companies/trends/how-much-does-ai-cost" target="_blank" rel="noopener noreferrer">DesignRush, How Much Does AI Cost in 2026? Full Pricing Breakdown</a>; <a href="https://www.digitalapplied.com/blog/build-vs-buy-ai-custom-tools-vs-branded-saas-2026" target="_blank" rel="noopener noreferrer">Digital Applied, Build vs Buy: The 2026 Case for Custom AI Tools</a>; <a href="https://smarterflo.com/blog/build-vs-buy-ai-small-business" target="_blank" rel="noopener noreferrer">Smarterflo, Build vs Buy AI for Small Business: How to Decide</a>.</p>
