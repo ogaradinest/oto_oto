@@ -1,0 +1,188 @@
+<!--
+title: The four-question filter for AI news that actually matters
+tags: AI Strategy, AI Implementation
+date: 2026-08-03
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Not every AI headline is worth a strategy meeting. Here's a four-question filter that tells you which ones actually are.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">New AI announcements arrive daily, and most business owners have neither the time nor the need to evaluate each one. The useful skill isn't keeping up with everything, it's having a quick, repeatable way to sort what's actually worth ten minutes of thought from what isn't.</p>
+
+<div class="ob-callout">
+  <p>Gartner predicts more than 40% of agentic AI projects will be cancelled by the end of 2027, driven largely by businesses chasing capability that sounded exciting rather than a use case they'd actually scoped properly. Chasing every development is how that number gets built.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">4</div>
+    <div class="ob-stat-label">questions in the filter below</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">40%+</div>
+    <div class="ob-stat-label">of agentic AI projects forecast to be cancelled by 2027, often from unfiltered adoption</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">82%</div>
+    <div class="ob-stat-label">of enterprises already run AI agents their own security team didn't know existed</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: QUESTION ONE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Question One: Does This Change a Tool You Already Use?</h2>
+  <p class="ob-section-sub">Existing tools quietly gain new capabilities constantly</p>
+
+  <p class="ob-p">Most AI developments that genuinely affect a small business arrive through a tool you're already paying for, not through a new product you need to evaluate from scratch. A CRM adding an agentic follow-up feature, a scheduling tool adding autonomous rebooking, these matter because they change what something in your stack can already do without asking first. IBM's research found 82% of enterprises are already running AI agents or workflows their own security teams didn't know existed, almost always because a feature update quietly turned something on.</p>
+</div>
+
+<!-- ─── SECTION 2: QUESTION TWO ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Question Two: Does This Create a New Obligation?</h2>
+  <p class="ob-section-sub">Regulatory and compliance developments are rarely optional</p>
+
+  <p class="ob-p">If a development changes a legal or compliance requirement that applies to your sector, it goes to the top of the list regardless of how technically interesting it is. Everything else on this filter is about opportunity. This question is about obligation, and it's the one category where ignoring the news genuinely carries risk.</p>
+</div>
+
+<!-- ─── SECTION 3: QUESTION THREE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Question Three: Does This Change a Decision You're Already Making?</h2>
+  <p class="ob-section-sub">Relevance beats novelty</p>
+
+  <p class="ob-p">A genuinely useful AI development changes the answer to a decision you already have in front of you, whether to renew a subscription, whether to commission a custom build, whether to trust a tool with more autonomy. If a headline doesn't touch any live decision on your desk, it's interesting reading, not something requiring action this quarter.</p>
+</div>
+
+<!-- ─── SECTION 4: QUESTION FOUR ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Question Four: Is It Backed By More Than One Source?</h2>
+  <p class="ob-section-sub">Single-vendor announcements are marketing, not evidence</p>
+
+  <p class="ob-p">A capability claim from the company selling that capability is marketing until it's corroborated elsewhere, in independent testing, analyst research, or a competitor matching the claim. That's not cynicism, it's just an accurate description of how product announcements work. Reserve genuine attention for developments confirmed by more than one credible, independent source.</p>
+
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">The four-question filter, at a glance</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Does it touch a tool you already use?</span><span class="ob-compare-num">Q1</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Does it create a new obligation?</span><span class="ob-compare-num">Q2</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Does it change a live decision?</span><span class="ob-compare-num">Q3</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Is it confirmed by more than one source?</span><span class="ob-compare-num">Q4</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How often should I actually run this filter?</p>
+    <p class="ob-faq-a">Whenever a specific AI headline crosses your desk, rather than on a schedule. The filter is meant to be quick, under a minute per development, not a recurring research task.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What if a development passes all four questions?</p>
+    <p class="ob-faq-a">That's genuinely rare, and when it happens, it deserves a proper look, ideally with someone who can translate the development into a specific action for your business rather than general awareness.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Isn't ignoring most AI news risky?</p>
+    <p class="ob-faq-a">The risk runs the other way for most small businesses. Chasing every development without a filter is what leads to the scattered, unmeasured tool sprawl behind most of the failed AI pilots covered elsewhere on this site.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the most common mistake business owners make with AI news?</p>
+    <p class="ob-faq-a">Treating novelty as urgency. A genuinely new capability from a major lab is interesting. It rarely requires same-week action unless it clears all four questions above.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>You don't have a research team dedicated to tracking AI developments, and you shouldn't need one. This filter exists specifically so that a business owner with fifteen spare minutes a week can stay genuinely informed about what matters, without drowning in announcements that were never going to change anything about how they run their business.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Next time an AI headline catches your attention, run it through the four questions above before doing anything else, in writing if that helps. If it fails all four, close the tab with a clear conscience. If it passes two or more, that's worth a proper ten-minute think, or a conversation with someone who can help translate it into an actual decision.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a second opinion on whether an AI development is actually worth acting on?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more on which side of this filter deserves your attention, <a class="ob-link" href="#/articles/ai-business-trends-worth-acting-on">the AI business trends worth acting on in 2026</a> looks at what's actually spreading, <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a> covers the adoption side of the same discipline, and <a class="ob-link" href="#/articles/agentic-ai-governance-enterprise">agentic AI governance in 2026</a> covers the governance end of the same problem.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure" target="_blank" rel="noopener noreferrer">Gartner press release, 26 May 2026, on agentic AI governance failure</a>; <a href="https://www.ibm.com/think/insights/accountability-gap-autonomous-ai" target="_blank" rel="noopener noreferrer">IBM, The Accountability Gap in Autonomous AI</a>.</p>
