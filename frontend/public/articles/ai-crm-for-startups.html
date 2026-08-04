@@ -1,0 +1,166 @@
+<!--
+title: The CRM every startup needs before its first customer call
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-08-04
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: Call a lead back within five minutes and you're 100 times more likely to actually reach them than if you wait half an hour — here's how to build that speed into your business with a free AI CRM before you've even opened.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (step-by-step visual) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.3); color: #1a1a3d; font-size: 0.85rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've got the idea, maybe the logo, business cards on order — but where are you tracking the people who've said they're interested? If it's "my inbox" or a notes app you keep meaning to sort out, you're not alone, and you're building a leak into your business before it's even open. Every enquiry that goes cold in a messy inbox is a customer you already found, then quietly lost. Fixing that takes one afternoon and a free AI-powered CRM, not a six-week rollout.</p>
+
+<div class="ob-callout">
+  <p>Call a lead back within five minutes and you're 100 times more likely to actually reach them than if you wait half an hour, according to the original MIT Sloan lead-response research.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">100x</div>
+    <div class="ob-stat-label">more likely to connect with a lead when you respond within 5 minutes vs. 30 minutes, per the MIT Sloan/InsideSales.com Lead Response Management study</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$128bn</div>
+    <div class="ob-stat-label">size of the global CRM software market in 2024, up 13.4% year-on-year according to Gartner — CRM plus AI is now standard kit, not an enterprise luxury</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">38.4%</div>
+    <div class="ob-stat-label">share of new UK businesses that survive to their fifth year, per ONS — the ones that stay organised early are usually the ones still standing</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHY THIS TRIPS UP FOUNDERS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why this trips up founders especially</h2>
+  <p class="ob-section-sub">Spreadsheets work fine, until they suddenly don't</p>
+
+  <p class="ob-p">In the excitement of launching, leads land everywhere at once: a DM, a contact-form email, a number scribbled after a networking event. At five contacts that's manageable from memory. At thirty, it isn't — and nobody notices the system has failed until a good lead has already gone cold.</p>
+  <p class="ob-p">Take a freelance graphic designer setting up her own studio. In her first two months she picks up 40 enquiries from Instagram DMs, her website's contact form, and word of mouth. By month three she can't remember who she quoted, who ghosted, and who's still waiting on a reply — and loses three warm leads worth roughly £4,200 in potential work, simply because nobody followed up in time.</p>
+</div>
+
+<!-- ─── SECTION 2: SETTING ONE UP ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Setting one up takes an afternoon, not a sprint</h2>
+  <p class="ob-section-sub">Five steps, and none of them need code</p>
+
+  <p class="ob-p">Pick a free AI-native CRM — HubSpot's free tier, Notion with a CRM template, or Attio all suit a pre-revenue business. Import your existing contacts from email or your phone. Set three or four pipeline stages: enquired, quoted, followed up, won or lost. Turn on the AI features — most free tiers now draft follow-ups, summarise calls, and flag contacts who've gone quiet. Then set one rule for yourself: every enquiry gets a reply within the hour, even if it's just "got this, more details by Friday."</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Pick a free AI-CRM</span>
+    <span class="ob-badge">Import your contacts</span>
+    <span class="ob-badge">Set 3-4 pipeline stages</span>
+    <span class="ob-badge">Turn on AI follow-ups</span>
+    <span class="ob-badge">Reply within the hour</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: WHAT THE AI PART IS DOING ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What the AI part is actually doing</h2>
+  <p class="ob-section-sub">It's not just storage — it nudges you before you drop the ball</p>
+
+  <p class="ob-p">The database part of a CRM is the boring bit computers have handled for decades. What's changed is the AI layer on top: it drafts a follow-up in your voice, scores which leads are likeliest to convert, and flags anyone who's gone quiet for a week. None of that replaces judgement, but it replaces the mental load of remembering everyone yourself — the part that actually breaks past a handful of contacts.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions founders ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need to pay for a CRM before I have any revenue?</p>
+    <p class="ob-faq-a">No. Most AI-native CRM tools — HubSpot's free tier, Notion, Attio's free plan — cover everything a pre-revenue founder needs. Upgrade once you outgrow the free contact limit.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Isn't a spreadsheet good enough when I'm just starting out?</p>
+    <p class="ob-faq-a">It's fine for a handful of contacts, but it won't remind you to follow up or flag who's gone quiet — that gap is what an AI-native CRM closes.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Which CRM should I actually pick?</p>
+    <p class="ob-faq-a">For most first-time founders, HubSpot's free CRM or a Notion CRM template are the easiest starting points — both have AI built in and cost nothing at your stage.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long does this really take to set up?</p>
+    <p class="ob-faq-a">Realistically, an afternoon: import your contacts, set three or four pipeline stages, and turn on AI follow-up prompts.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a business that doesn't officially exist yet, the enquiries you're gathering now are your entire pipeline — there's no existing client base to cushion a dropped lead. Getting organised before day one, rather than after a missed follow-up costs you your first client, is cheap insurance for a new founder.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, sign up for one free AI-CRM — HubSpot's free tier or a Notion template are easiest — import every contact scattered across your email and phone, and turn on its AI follow-up reminders before your next enquiry.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more insights like this?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once your CRM is catching every lead, <a class="ob-link" href="#/articles/ai-marketing-automation-small-businesses">AI marketing automation for small businesses</a> covers how to keep filling the top of that pipeline, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> is worth a look before you add your next tool.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.leadresponsemanagement.org/lrm_study/" target="_blank" rel="noopener noreferrer">MIT Sloan / InsideSales.com — Lead Response Management Study</a>; <a href="https://www.gartner.com/en/documents/6791434" target="_blank" rel="noopener noreferrer">Gartner — Market Share Analysis: CRM Sales, Worldwide, 2024</a>; <a href="https://www.ons.gov.uk/explore-local-statistics/indicators/business-survival-five-year" target="_blank" rel="noopener noreferrer">ONS — Five-year business survival rate</a>.</p>
