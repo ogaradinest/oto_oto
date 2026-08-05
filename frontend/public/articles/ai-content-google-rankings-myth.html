@@ -1,0 +1,181 @@
+<!--
+title: AI content won't tank your SEO, Google's AI Overviews might
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-08-05
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 17.31% of today's top Google results are already AI-generated content — Google itself says it only checks whether a page is genuinely useful, not how it was written.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Badge row (checklist visual) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.3); color: #1a1a3d; font-size: 0.85rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've finally got a rhythm with AI-drafted blog posts — faster than a blank page, good enough that a customer asked if you'd hired a copywriter. Then someone says Google is "cracking down" on AI content and you freeze, wondering if your traffic is about to vanish. Before you panic, it's worth knowing exactly what Google has said on the record — because it isn't what the warnings imply.</p>
+
+<div class="ob-callout">
+  <p>Google has said plainly it doesn't check how a page was written, only whether it's genuinely useful — and 17.31% of today's top 20 search results are already AI-generated content ranking just fine.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">17.31%</div>
+    <div class="ob-stat-label">of the top 20 Google results already contain AI-generated content as of September 2025, per Originality.ai's ongoing tracking study</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">1 condition</div>
+    <div class="ob-stat-label">triggers Google's "Lowest" quality rating for AI content: lacking human oversight and review, not AI authorship itself, per its 2025 Quality Rater Guidelines update</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">58%</div>
+    <div class="ob-stat-label">lower average click-through rate for the #1 result when an AI Overview appears above it, per Ahrefs — the real 2026 risk, not AI-written pages losing rankings</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHERE THE FEAR ACTUALLY COMES FROM ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where the fear actually comes from</h2>
+  <p class="ob-section-sub">A pile of horror stories, not a documented policy</p>
+
+  <p class="ob-p">The panic usually traces back to real traffic drops after a Google update — but those hit content mills publishing hundreds of thin, unedited pages a month, not AI use itself. A two-person accountancy firm that published forty AI-drafted posts in a month, with nobody reading them first, saw traffic fall within eight weeks. A similar firm publishing eight AI-drafted posts a month, each with twenty minutes of real editing and one specific client example added, saw organic traffic grow by roughly 30% over the same stretch. Same tool — the difference was whether a human touched the draft first.</p>
+
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">Same AI tool, opposite outcome</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">40 unedited AI posts/month → traffic fell within 8 weeks</span><span class="ob-compare-num">✗</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">8 edited AI posts/month, one real example each → organic growth</span><span class="ob-compare-num">+30%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: WHAT GOOGLE ACTUALLY CHECKS FOR ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Google actually checks for</h2>
+  <p class="ob-section-sub">Quality and oversight, not who typed it</p>
+
+  <p class="ob-p">Google's own guidance says appropriate use of AI isn't against its rules, so long as content isn't produced primarily to manipulate rankings. Its 2025 Quality Rater Guidelines go further: AI content is rated "Lowest" quality only when it lacks human oversight and review, not because AI wrote the first draft. What actually separates a page that ranks are details no AI can invent alone — your real prices, your actual turnaround times, a judgment call from a job you did last month. That editing gap, not the tool, is what most small businesses skip.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Real prices, not placeholders</span>
+    <span class="ob-badge">Actual turnaround times</span>
+    <span class="ob-badge">A judgment call from a real job</span>
+    <span class="ob-badge">Human review before publish</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: THE REAL RISK WORTH WATCHING IN 2026 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The real risk worth watching in 2026</h2>
+  <p class="ob-section-sub">AI Overviews, not AI penalties</p>
+
+  <p class="ob-p">The real 2026 shift isn't a penalty on AI-written pages — it's Google's own AI Overviews sitting above results and quietly taking the click. Ahrefs found an AI Overview correlates with a 58% lower click-through rate for whoever ranks first, regardless of who wrote that page. The fix isn't writing less with AI or more without it — it's making sure whatever you publish is specific enough to your business to earn the click or citation, instead of getting summarised and skipped.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will Google penalise my site for using AI to write blog posts?</p>
+    <p class="ob-faq-a">No — Google says it doesn't check how content was made, only whether it's genuinely useful. It penalises content published purely to manipulate rankings, AI-written or not.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">So I can publish AI drafts without reading them first?</p>
+    <p class="ob-faq-a">No. Google's Quality Rater Guidelines rate AI content "Lowest" specifically when it lacks human oversight — a quick edit and a real example is what matters.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should I actually worry about in 2026 SEO?</p>
+    <p class="ob-faq-a">AI Overviews above the results, which cut click-through for the top result by around 58% regardless of who wrote it. Write specifically enough to still earn the click.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much editing does an AI draft really need?</p>
+    <p class="ob-faq-a">Enough that a customer would recognise it as coming from your business — one real example, checked facts, and cutting anything generic enough to be any competitor's.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Most small businesses have no in-house content team, so AI drafting is often the only realistic way to publish consistently. Treating every AI post as radioactive means falling behind; treating it as a free pass to publish unedited means genuinely earning the traffic drop people fear. The middle ground — draft with AI, edit with a person, add one thing only your business could say — costs minutes.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, before your next AI-drafted post goes live, spend fifteen minutes adding one real number, example, or judgment call unique to your business, then read it once the way a genuine customer would.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more insights like this?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If the checking step is where your AI content process actually loses time, <a class="ob-link" href="#/articles/ai-content-revision-tax-hidden-cost-smb">the hidden revision tax of AI content</a> breaks that cost down, and <a class="ob-link" href="#/articles/ai-marketing-automation-small-businesses">AI marketing automation for small businesses</a> covers the wider setup once your content process is solid.</p>
+
+<p class="ob-sources">Sources: <a href="https://developers.google.com/search/blog/2023/02/google-search-and-ai-content" target="_blank" rel="noopener noreferrer">Google Search Central — Google Search's guidance about AI-generated content</a>; <a href="https://originality.ai/ai-content-in-google-search-results" target="_blank" rel="noopener noreferrer">Originality.ai — Amount of AI Content in Google Search Results (ongoing study)</a>; <a href="https://searchengineland.com/google-quality-raters-content-ai-generated-454161" target="_blank" rel="noopener noreferrer">Search Engine Land — Google quality raters now assess whether content is AI-generated</a>; <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/" target="_blank" rel="noopener noreferrer">Ahrefs — Update: AI Overviews Reduce Clicks by 58%</a>.</p>
