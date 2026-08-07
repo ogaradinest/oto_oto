@@ -1,0 +1,156 @@
+<!--
+title: Your first pitch deck, drafted before your coffee gets cold
+tags: AI Technology, AI Strategy
+date: 2026-08-06
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: Investors spend just 1 minute 56 seconds looking at the average pitch deck — Gamma's AI can build you a full first draft in under a minute, for free.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (step-by-step visual) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.3); color: #1a1a3d; font-size: 0.85rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've validated the idea and written the business plan. Then someone says "send over your deck" and you freeze — you've never built one and you're not a designer. The old options were a £2,000+ agency brief or a weekend lost in PowerPoint templates that all look like 2015. Gamma closes that gap: describe your business in plain English, and its AI drafts a full, presentable pitch deck in about the time it takes to make a coffee.</p>
+
+<div class="ob-callout">
+  <p>Investors give the average seed-stage pitch deck just 1 minute 56 seconds of total attention before deciding whether it earns a reply — Gamma's AI can hand you a first draft in under 60 seconds, so you spend your time on the story, not the slide layout.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">1:56</div>
+    <div class="ob-stat-label">the average total time an investor spends looking at a seed-stage pitch deck before deciding whether it earns a reply, per DocSend's investor behaviour data — down 24% since 2021</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£1.2k-£8k</div>
+    <div class="ob-stat-label">the typical range professional pitch deck design agencies quote for a bespoke investor deck</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">&lt;60 sec</div>
+    <div class="ob-stat-label">the time Gamma's AI takes to generate a full first-draft deck from a written prompt or business plan</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHY THE DECK STILL DECIDES SO MUCH, SO FAST ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the deck still decides so much, so fast</h2>
+  <p class="ob-section-sub">You don't get a second chance to make the first two minutes count</p>
+
+  <p class="ob-p">Investors don't read decks start to finish. They scan for a handful of signals — team, problem, numbers — and stop the moment something doesn't add up, which is exactly why that 1 minute 56 second average matters so much. A deck that looks amateurish loses the room before the founder even opens their mouth. That pressure pushes first-time founders toward agencies they can't afford yet, or toward a week lost tinkering in PowerPoint.</p>
+  <p class="ob-p">Picture a two-person healthtech startup pre-seed, just outside Milton Keynes, three days from their first angel meeting. A freelance designer quoted £2,400 and a two-week turnaround they didn't have. Instead, one founder spent an evening in Gamma pasting in the business plan and a few notes on traction and the ask. The AI produced a 12-slide draft with a sensible structure; they spent the next day tightening the numbers and rewriting two slides in their own words.</p>
+</div>
+
+<!-- ─── SECTION 2: WHAT GAMMA ACTUALLY DOES ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Gamma actually does, and where you still have to do the work</h2>
+  <p class="ob-section-sub">A fast first draft, not a finished argument</p>
+
+  <p class="ob-p">Give Gamma a prompt, an outline, or a pasted business plan, and it generates a structured deck — problem, solution, market, traction, ask — with basic charts and a consistent theme, editable afterwards in a normal slide editor. The free tier covers enough AI credits to draft and revise one deck; paid plans start around £8-£15 a month if you're building decks for several audiences.</p>
+  <p class="ob-p">What it won't do is know your business. The AI can misjudge market size or default to generic phrasing that could describe any startup. Treat the first draft as scaffolding: check every number against your own research, and rewrite the team and traction slides in your own words rather than the AI's.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Prompt or business plan in</span>
+    <span class="ob-badge">Full deck in &lt;60 seconds</span>
+    <span class="ob-badge">Free tier for one deck</span>
+    <span class="ob-badge">Paid plans from ~£8/month</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is a Gamma-made deck actually good enough to raise money with?</p>
+    <p class="ob-faq-a">As a first draft, yes — investors care more about clear thinking and honest numbers than slide design. Treat it as scaffolding you fact-check and rewrite in your own voice, not the finished pitch.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do investors mind if a deck was built with AI?</p>
+    <p class="ob-faq-a">Most don't, and many assume it now. What they mind is generic content, unverified numbers, or a founder who doesn't understand their own slides.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can I import my existing business plan?</p>
+    <p class="ob-faq-a">Yes — paste in your written plan or notes and Gamma's AI restructures it into a slide-by-slide deck instead of a blank page.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does Gamma actually cost?</p>
+    <p class="ob-faq-a">A free tier covers a handful of decks a month, enough for most first-time founders. Paid plans sit roughly in the £8-£15 range if you need more credits.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Before you've made a sale, every pound and hour matters more than it ever will again. A founder with no design budget can't justify a £2,000+ agency brief, but can't walk in with a deck that undersells a genuinely good idea either. Getting a credible first draft built in an evening rather than a fortnight means the scarce time before the meeting goes into sharpening numbers, not fighting slide software.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next investor, bank, or big-client meeting, go to gamma.app, paste in your business plan or a rough outline of the problem, solution, and traction, and generate a first draft on the free tier. Spend an hour rewriting the team and traction slides in your own words and checking every number before you send it anywhere.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI tools and playbooks for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-sources">Sources: <a href="https://natlawreview.com/press-releases/investors-spend-under-2-minutes-pitch-decks-spotlight-startups-reveals" target="_blank" rel="noopener noreferrer">National Law Review, Investors Spend Under 2 Minutes on Pitch Decks — DocSend investor behaviour data, via Spotlight on Startups</a>; <a href="https://www.spectup.com/resource-hub/how-much-does-a-pitch-deck-cost" target="_blank" rel="noopener noreferrer">Spectup, How Much Does a Pitch Deck Cost?</a>; <a href="https://theplanettools.ai/tools/gamma" target="_blank" rel="noopener noreferrer">ThePlanetTools.ai, Gamma Review 2026</a>.</p>
