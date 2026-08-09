@@ -1,0 +1,166 @@
+<!--
+title: The 11pm customer question you don't have to answer yourself
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-08-08
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: Salesforce's own research shows AI agents cut service costs and resolution times by 20% on average — here's how to have one running before you've taken your first order.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (checklist visual) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.3); color: #1a1a3d; font-size: 0.85rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Say you're three weeks from launch. The website's live, the products are photographed, and customers are already messaging you at 11pm on a Sunday asking about shipping times and whether the thing comes in blue. You don't have a support team yet. You are the support team, along with being the founder, the bookkeeper, and the person who still needs to sleep. Here's the fix: an AI chatbot that answers the repetitive questions before you've taken your first order, set up in an afternoon, no developer required.</p>
+
+<div class="ob-callout">
+  <p>Companies now expect AI agents to cut service costs and case resolution times by 20% on average — numbers a solo founder can't match with a pinned FAQ and good intentions.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">20%</div>
+    <div class="ob-stat-label">average cut to service costs and case resolution time that AI agents deliver, per Salesforce's State of Service report</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">86%</div>
+    <div class="ob-stat-label">of consumers say how fast and accurately a business responds shapes whether they buy, per Zendesk's 2026 CX Trends report</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">39%</div>
+    <div class="ob-stat-label">of UK businesses already use AI in some way, per Moneypenny's 2025 survey of 750 UK decision-makers</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: START WITH YOUR REAL QUESTIONS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Start with your real questions, not a generic bot</h2>
+  <p class="ob-section-sub">The bot is only as good as what you feed it</p>
+
+  <p class="ob-p">Before touching any software, write down the 10 to 15 questions you already know you'll get: delivery times, returns, sizing, whether you ship to Ireland. Most founders skip this and dump their whole website into a chatbot on day one, which is how you end up with a bot that sounds confident and answers wrong.</p>
+  <p class="ob-p">Picture a new candle subscription business, Wick & Co. Before launch, the founder listed 12 likely questions — scent strength, allergy info, shipping windows, cancellation policy — and used only those as the bot's knowledge base. In its first week live, it handled roughly 35 of 50 customer messages without any human input.</p>
+</div>
+
+<!-- ─── SECTION 2: PICK A NO-CODE PLATFORM ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Pick a no-code platform and connect it</h2>
+  <p class="ob-section-sub">You don't need to write a line of code</p>
+
+  <p class="ob-p">No-code platforms such as Tidio, Chatbase, and Crisp let you paste in a document or FAQ page and go live the same day, usually for £20 to £30 a month. Sign up, upload your question list as a knowledge base, embed the widget with a copy-paste snippet, and set a welcome message that matches how you actually talk to customers.</p>
+  <p class="ob-p">Then test it yourself, as a stranger would. Ask it three trick questions. If it guesses instead of admitting it doesn't know, tighten the knowledge base before you go live, not after.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">No developer needed</span>
+    <span class="ob-badge">£20–£30/month typical</span>
+    <span class="ob-badge">Live same day</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: SET THE HANDOFF RULE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Set the handoff rule before you go live</h2>
+  <p class="ob-section-sub">Decide upfront when the bot says "let me get a human"</p>
+
+  <p class="ob-p">Zendesk's research found 85% of CX leaders say one unresolved issue is enough to lose a customer, so the handoff matters more than the bot's cleverness. Set a clear rule: after two failed attempts, or for anything about refunds or an order gone wrong, the bot hands off to your email or WhatsApp immediately, rather than looping.</p>
+  <p class="ob-p">In the UK, it's also good practice to tell customers upfront they're chatting with AI. A one-line disclosure in the welcome message costs nothing and avoids the trust hit of someone finding out later.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does an AI chatbot cost for a brand-new business?</p>
+    <p class="ob-faq-a">Most no-code platforms have a small-business tier around £20–£30 a month, with free trials to test first. Usually cheaper than a few hours of your own time answering the same questions.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will customers know they're talking to a bot?</p>
+    <p class="ob-faq-a">They should. A short line in the welcome message stating it's an AI assistant, with an easy route to a human, is both good practice and increasingly what UK customers expect.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What if the bot gets something wrong?</p>
+    <p class="ob-faq-a">Ground it only in the FAQ and policy documents you upload, not open web answers, and check its transcript weekly for the first month. Most errors trace back to a thin knowledge base, not the AI itself.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need this before I even have customers?</p>
+    <p class="ob-faq-a">Yes, if you're taking pre-orders, building a waitlist, or running paid ads — those all generate questions before launch day. Setting it up early means it's tested by the time real customers arrive.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a business of one or two people, every hour spent typing "yes, we ship to Northern Ireland" for the fifth time is an hour not spent on product, suppliers, or the next sale. A chatbot doesn't replace the judgement calls only you can make, but it absorbs the repetitive ones automatically, at a cost that's a rounding error next to hiring help — and makes the business look responsive from day one.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write out your 12–15 most likely customer questions in a shared doc, then start a free trial with a no-code platform like Tidio, Chatbase, or Crisp and upload that doc as your chatbot's first knowledge base. You'll have a working, tested bot before the trial period ends.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI tools and playbooks for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once the bot's fielding the easy questions, <a class="ob-link" href="#/articles/ai-crm-for-startups">pairing it with an AI CRM built for startups</a> keeps every conversation and lead in one place instead of scattered across inboxes.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.salesforce.com/blog/state-of-service/" target="_blank" rel="noopener noreferrer">Salesforce — State of Service Report (7th Edition)</a>; <a href="https://www.zendesk.com/newsroom/articles/ai-ushers-in-era-of-contextual-intelligence-redefining-customer-experience-in-2026/" target="_blank" rel="noopener noreferrer">Zendesk — CX Trends Report 2026</a>; <a href="https://www.moneypenny.com/uk/resources/blog/the-state-of-ai-adoption-in-uk-businesses/" target="_blank" rel="noopener noreferrer">Moneypenny — The State of AI Adoption in UK Businesses (2025)</a>.</p>
