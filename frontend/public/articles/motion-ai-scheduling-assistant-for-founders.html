@@ -1,0 +1,179 @@
+<!--
+title: The AI planner that rebuilds your calendar the moment plans change
+tags: AI Technology, AI Strategy
+date: 2026-08-15
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Entrepreneurs lose 36% of their working week to admin tasks like scheduling — Motion's AI planner rebuilds your calendar automatically around real deadlines, from $19 a month.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">You've got a product to build, customers to email, and a calendar that turns into a losing battle by 10am — one urgent call gets booked and the day's task list slides sideways. Nobody warns you that starting a company means becoming your own PA too, with no one to absorb the rearranging or the twenty minutes lost each morning working out what actually has to happen today. Motion is built for that gap: an AI planner that builds your schedule from your tasks and deadlines, then rebuilds it the moment something changes.</p>
+
+<div class="ob-callout">
+  <p>Entrepreneurs spend 36% of their working week on admin tasks like scheduling — Motion's AI rebuilds your calendar around real deadlines automatically, so that time goes back into the business.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">36%</div>
+    <div class="ob-stat-label">of an entrepreneur's working week goes to admin tasks like scheduling and data entry, per a Time etc/Censuswide survey of 251 business owners</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£19,000</div>
+    <div class="ob-stat-label">the estimated annual cost of the 7.3 hours a week UK business owners spend on admin and operational tasks, per NerdWallet UK's 2025 survey of 500 SME owners</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">156 hrs</div>
+    <div class="ob-stat-label">lost a year to manually organising meetings by email at just six meetings a week, per Doodle's State of Meetings research</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Motion Actually Does</h2>
+  <p class="ob-section-sub">An AI planner, not just a shared calendar</p>
+
+  <p class="ob-p">Motion isn't a to-do list with reminders bolted on. Give it your tasks, deadlines, and meetings, and its AI decides what happens when, blocking focus time around calls automatically instead of you slotting everything in by hand. When a meeting lands or a deadline shifts, it replans the rest of the day itself.</p>
+  <p class="ob-p">Take a solo SaaS founder pre-launch. Most mornings she lost 20 minutes moving tasks by hand after an investor call got added overnight. She loaded her task list into Motion one afternoon; it now blocks two hours of coding time before lunch by default and reslots everything else whenever a call appears, saving her close to five hours a week she used to spend just rearranging her own day.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Auto-builds your day</h4>
+      <p>From your tasks and deadlines, not manual slotting</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Replans automatically</h4>
+      <p>The moment a meeting lands or a deadline shifts</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>From $19/month</h4>
+      <p>Solo plan, no assistant required</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Worth It Before You've Hired Anyone?</h2>
+  <p class="ob-section-sub">The gap between doing everything yourself and affording an assistant</p>
+
+  <p class="ob-p">Motion starts around $19 a month for a single user — roughly the value of one hour of the admin time NerdWallet UK's survey suggests owners lose each week. Reclaim, cheaper from about $8 a month, takes a lighter approach: it protects focus time and habits inside a calendar you still largely manage, rather than building the whole day. For a founder juggling competing priorities with no one to delegate to, Motion's fuller auto-scheduling tends to save more time; for someone who mainly needs protected deep-work blocks, Reclaim is the cheaper fit.</p>
+  <p class="ob-p">Neither tool replaces judgement. Motion still needs an honest task list and real deadlines — feed it a vague list and it schedules vague work. And it won't answer client emails or sit in on a call for you. What it removes is the daily admin of managing the plan itself, which Doodle's research puts at over 150 hours a year in manual meeting organising alone.</p>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions founders ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is an AI planner worth it before I've even hired anyone?</p>
+    <p class="ob-faq-a">Often yes — solo founders juggling product, sales, and admin lose the most time to manual rescheduling, and Motion starts from about $19 a month, far below what an assistant costs.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the actual difference between Motion and Reclaim?</p>
+    <p class="ob-faq-a">Motion actively builds and rebuilds your schedule around tasks and deadlines. Reclaim, from about $8 a month, mainly protects existing focus time and habits within a calendar you still manage.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does it replace needing a virtual assistant?</p>
+    <p class="ob-faq-a">No — it won't answer emails or handle calls. It removes the daily admin of replanning your own calendar, narrowing the gap until you can afford to delegate more.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much manual admin does this actually save?</p>
+    <p class="ob-faq-a">Entrepreneurs report spending 36% of their working week on admin including scheduling; an AI planner that auto-replans your day targets a meaningful slice of that directly.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a business of one or two people, there's no admin team to absorb a double-booked afternoon — every minute spent moving your own tasks around is a minute not spent on the product or the next customer. UK owners already lose an estimated £19,000 a year to admin and operational tasks, scheduling included. An AI planner won't close all of that gap, but it's one of the cheapest ways to claw back real hours before month one is even over.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pick one AI scheduling tool — Motion or Reclaim both offer free trials — and load in your real tasks and deadlines for the next two weeks. Let it auto-schedule for five working days before manually adjusting anything.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out which AI tools are actually worth your time?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Pair your AI-managed calendar with <a class="ob-link" href="#/articles/ai-crm-for-startups">a free AI CRM</a>, and see <a class="ob-link" href="#/articles/ai-meeting-notes-sme-5-hours-a-week">an AI notetaker that saves even more hours on client calls</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.timeetc.com/resources/how-to-achieve-more/the-big-price-of-small-tasks-how-entrepreneurs-may-be-unwittingly-keeping-their-businesses-small" target="_blank" rel="noopener noreferrer">Time etc / Censuswide, The Big Price of Small Tasks survey (2026)</a>; <a href="https://www.nerdwallet.com/uk/business/survey-how-uk-business-owners-are-prioritising-time-and-money-in-2025/" target="_blank" rel="noopener noreferrer">NerdWallet UK, Survey on UK Business Owners' Time and Money (2025)</a>; <a href="https://doodle.com/en/resources/research-and-reports-/the-state-of-meetings-2019/" target="_blank" rel="noopener noreferrer">Doodle, The State of Meetings Report</a>.</p>
