@@ -1,0 +1,179 @@
+<!--
+title: Calendarul care se rescrie singur când planurile se schimbă
+tags: AI Technology, AI Strategy
+date: 2026-08-16
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Antreprenorii pierd 36% din săptămâna de lucru cu admin de genul programărilor. Motion, AI-ul ăsta, îți reface calendarul singur în jurul termenelor reale, de la 19 dolari pe lună.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Ai un produs de construit, clienți de scris pe mail și un calendar care devine balamuc pe la ora 10. Pac, îți bagă cineva un call urgent și toată lista de azi se duce naibii. Nimeni nu-ți spune, când pornești o firmă, că devii propriul tău asistent personal pe lângă tot restul, fără pe nimeni care să-ți recupereze cele douăzeci de minute pierdute în fiecare dimineață doar ca să-ți dai seama ce trebuie făcut azi. Motion e făcut fix pentru dracia asta: un AI care îți construiește programul din task-uri și termene, și-l reface singur de fiecare dată când ceva se schimbă.</p>
+
+<div class="ob-callout">
+  <p>Antreprenorii pierd 36% din săptămâna de lucru cu admin, programări incluse. Motion îți reface calendarul automat în jurul termenelor reale, ca timpul ăla să se-ntoarcă la firmă.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">36%</div>
+    <div class="ob-stat-label">din săptămâna de lucru a unui antreprenor se duce pe admin, programări și data entry, potrivit unui sondaj Time etc/Censuswide pe 251 de proprietari de afaceri</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£19.000</div>
+    <div class="ob-stat-label">costul anual estimat al celor 7,3 ore pe săptămână pe care proprietarii de firme din UK le pierd cu admin și operațiuni, potrivit sondajului NerdWallet UK din 2025 pe 500 de proprietari SME</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">156 ore</div>
+    <div class="ob-stat-label">pierdute anual doar organizând meeting-uri prin mail, la un ritm de șase meeting-uri pe săptămână, potrivit cercetării Doodle State of Meetings</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce face Motion, de fapt</h2>
+  <p class="ob-section-sub">Un planificator cu AI, nu doar un calendar comun</p>
+
+  <p class="ob-p">Motion nu-i o listă de task-uri cu remindere lipite pe ea. Îi dai task-urile, termenele și meeting-urile, iar AI-ul decide ce se-ntâmplă și când, blocând timp de focus în jurul call-urilor automat, în loc să bagi tu totul manual. Când apare un meeting nou sau se mută un termen, își reface singur restul zilei.</p>
+  <p class="ob-p">Ia o fondatoare solo la un SaaS, înainte de lansare. Aproape în fiecare dimineață pierdea 20 de minute mutând task-uri manual după ce-i pica un call cu un investitor peste noapte. A băgat lista de task-uri în Motion într-o după-amiază. Acum îi blochează automat două ore de coding înainte de prânz și-și rearanjează singur restul de fiecare dată când apare un call, așa că economisește aproape cinci ore pe săptămână pe care le pierdea doar rearanjându-și ziua.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Îți construiește ziua</h4>
+      <p>Din task-uri și termene, nu manual, slot cu slot</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Se reface automat</h4>
+      <p>De fiecare dată când apare un meeting sau se mută un termen</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>De la 19 dolari/lună</h4>
+      <p>Plan solo, fără să ai nevoie de asistent</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Merită înainte să angajezi pe cineva?</h2>
+  <p class="ob-section-sub">Diferența dintre să faci totul singur și să-ți permiți un asistent</p>
+
+  <p class="ob-p">Motion pornește de la vreo 19 dolari pe lună pentru un singur user, cam cât o oră din adminul pe care sondajul NerdWallet UK zice că-l pierd proprietarii din UK în fiecare săptămână. Reclaim, o alternativă mai ieftină de la 8 dolari pe lună, merge pe o variantă mai light: îți protejează timpul de focus și obiceiurile într-un calendar pe care tot tu îl gestionezi, în loc să-ți construiască toată ziua. Pentru un fondator cu priorități care chiar se bat între ele și n-are cui să delege, auto-programarea completă a lui Motion economisește mai mult timp. Pentru cineva care are nevoie doar de blocuri protejate de deep-work, Reclaim e varianta mai ieftină.</p>
+  <p class="ob-p">Niciunul din tool-uri nu-ți ține locul judecății. Motion tot are nevoie de o listă de task-uri onestă și termene reale. Îi dai o listă vagă, îți programează treabă vagă. Și nu-ți răspunde la mailuri de la clienți, nici nu stă el în locul tău la un call. Ce-ți ia de pe cap e adminul zilnic de gestionat programul, care, potrivit cercetării Doodle, poate mânca peste 150 de ore pe an doar organizând meeting-uri manual.</p>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Ce întreabă cel mai des fondatorii</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Merită un planificator cu AI înainte să angajez pe cineva?</p>
+    <p class="ob-faq-a">Da, de multe ori. Fondatorii solo care jonglează cu produs, vânzări și admin pierd cel mai mult timp cu reprogramări manuale, iar Motion pornește de la 19 dolari pe lună, mult sub costul unui asistent.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Care-i diferența reală dintre Motion și Reclaim?</p>
+    <p class="ob-faq-a">Motion îți construiește și-ți reface activ tot programul în jurul task-urilor și termenelor. Reclaim, de la 8 dolari pe lună, mai degrabă îți protejează timpul de focus și obiceiurile într-un calendar pe care tot tu îl gestionezi.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi ține locul unui asistent virtual?</p>
+    <p class="ob-faq-a">Nu. Nu-ți răspunde la mailuri, nu preia call-uri. Îți ia de pe cap adminul zilnic de reprogramare, ceea ce micșorează diferența până când îți permiți să delegi mai mult.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât admin manual economisești de fapt?</p>
+    <p class="ob-faq-a">Antreprenorii raportează că pierd 36% din săptămâna de lucru cu admin, programări incluse. Un planificator cu AI care-ți reface ziua automat prinde o parte importantă din treaba asta.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Pentru o firmă de una sau două persoane, nu există o echipă de admin care să absoarbă o după-amiază cu programări suprapuse. Fiecare minut în care-ți muți singur task-urile e un minut nepetrecut pe produs sau pe următorul client. Proprietarii din UK pierd deja vreo £19.000 pe an cu admin și operațiuni, programări incluse. Un planificator cu AI n-o să-ți închidă toată gaura asta, dar e una din cele mai ieftine metode să recuperezi ore reale înainte să se termine prima lună.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta</div>
+  <p>Săptămâna asta, alege un tool de programare cu AI, Motion sau Reclaim au amândouă trial gratuit, și bagă-ți task-urile și termenele reale pentru următoarele două săptămâni. Lasă-l să-ți facă singur programul timp de cinci zile lucrătoare înainte să umbli manual la ceva.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai mult conținut ca ăsta despre AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Combină calendarul gestionat de AI cu <a class="ob-link" href="#/articles/ai-crm-for-startups">un CRM AI gratuit</a>, și vezi <a class="ob-link" href="#/articles/notele-de-meeting-cu-ai-5-ore-recuperate">un notetaker AI care-ți economisește și mai multe ore la call-urile cu clienții</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.timeetc.com/resources/how-to-achieve-more/the-big-price-of-small-tasks-how-entrepreneurs-may-be-unwittingly-keeping-their-businesses-small" target="_blank" rel="noopener noreferrer">Time etc / Censuswide, The Big Price of Small Tasks survey (2026)</a>; <a href="https://www.nerdwallet.com/uk/business/survey-how-uk-business-owners-are-prioritising-time-and-money-in-2025/" target="_blank" rel="noopener noreferrer">NerdWallet UK, Survey on UK Business Owners' Time and Money (2025)</a>; <a href="https://doodle.com/en/resources/research-and-reports-/the-state-of-meetings-2019/" target="_blank" rel="noopener noreferrer">Doodle, The State of Meetings Report</a>.</p>
