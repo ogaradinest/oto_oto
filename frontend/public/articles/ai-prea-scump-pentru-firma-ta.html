@@ -1,0 +1,188 @@
+<!--
+title: De ce firmele mici amână AI-ul, dar nu din cauza banilor
+tags: AI Strategy, AI Implementation
+date: 2026-08-14
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Firmele mici zic mai des că le lipsește know-how-ul (27%) decât că AI-ul e prea scump (22%), și aproape o treime din firmele din UK deja îl folosesc fără buget mare.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Întreabă orice patron de firmă mică ce-l oprește să încerce AI și "nu-mi permit" e sus pe listă. Imaginează-ți un brutar care dă scroll peste un titlu cu o bancă ce bagă milioane într-un upgrade de AI, și zice, păi ăla e alt calibru de firmă. Numai că titlul ăla n-are nicio treabă cu ce costă AI-ul pentru o firmă de cinci oameni. Bariera reală pentru firmele mici nu e prețul. E că nu știi de unde să pornești.</p>
+
+<div class="ob-callout">
+  <p>Firmele mici zic mai des că le lipsește know-how-ul (27%) decât că-i scump (22%) când vine vorba de AI. Nota de plată nu-i chiar problema.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">59%</div>
+    <div class="ob-stat-label">dintre firmele mici care deja folosesc AI raportează câștiguri de productivitate, potrivit raportului FSB (Federation of Small Businesses) Confidence Code din 2026</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">27%</div>
+    <div class="ob-stat-label">dintre firmele mici zic că lipsa de know-how e principala barieră pentru AI, înaintea costului la 22%, potrivit unui sondaj ANS/YouGov publicat via techUK</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">29%</div>
+    <div class="ob-stat-label">dintre firmele din UK foloseau cel puțin o tehnologie AI până în iunie 2026, potrivit sondajului ONS Business Insights and Conditions Survey</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">De unde vine mitul cu "e prea scump"</h2>
+  <p class="ob-section-sub">Titlurile din enterprise dau un reper greșit</p>
+
+  <p class="ob-p">Firmele mari chiar bagă bani serioși în AI: rollout-uri cu șapte cifre, echipe dedicate de date, luni întregi de integrare. Poveștile astea prind titlurile, deci pare normal să crezi că asta costă AI-ul, punct. Numai că banii ăia cumpără infrastructură custom pentru mii de angajați, nu ceva de care are nevoie o firmă de cinci oameni.</p>
+  <p class="ob-p">Datele despre bariere zic altceva. Într-un sondaj pe peste 1.000 de decision-makeri IT din UK, firmele mici au pus lipsa de know-how (27%) înaintea costurilor mari (22%) ca cel mai mare obstacol pentru AI. Problema nu-i nota de plată. E că nu știi ce tool rezolvă ce.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce cheltuie de fapt firmele mici</h2>
+  <p class="ob-section-sub">Trial-uri gratuite, tool-uri incluse deja și abonamente de 20-30 de lire pe lună</p>
+
+  <p class="ob-p">Ia o firmă de tâmplărie cu șase oameni de lângă Milton Keynes. Patroana credea că AI înseamnă un developer plătit lunar. În loc de asta, a pornit cu Copilot, deja inclus în abonamentul Microsoft 365 pe care oricum îl plătea, plus un trial gratuit de două săptămâni la un tool de AI pentru oferte. Cheltuială nouă în prima lună: zero.</p>
+  <p class="ob-p">În șase săptămâni, timpul de răspuns la o ofertă a scăzut de la trei zile la aceeași zi, și a mai prins două lucrări pe lună pe care le pierdea în fața concurenței mai rapide. Majoritatea tool-urilor de AI dedicate firmelor mici ajung la 20-30 de lire pe lună după ce se termină trial-ul gratuit, cam cât o oră facturabilă.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Deseori deja gratuit</h4>
+      <p>În tool-uri pe care le ai deja, ca Microsoft 365 sau Google Workspace</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>20-30 lire/lună tipic</h4>
+      <p>Tier de intrare după ce se termină trial-ul gratuit</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Fără developer</h4>
+      <p>Majoritatea tool-urilor sunt gata de folosit în aceeași zi</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Cei care pornesc mic sunt cei care văd rezultate</h2>
+  <p class="ob-section-sub">Nu mărimea firmei decide, ci faptul că începi</p>
+
+  <p class="ob-p">Aproape trei din zece firme din UK foloseau cel puțin o tehnologie AI până în iunie 2026, potrivit ONS. Nu mai e un experiment doar pentru enterprise. Iar dintre firmele mici care au adoptat AI, 59% raportează câștiguri de productivitate și 24% raportează venituri mai mari, potrivit FSB.</p>
+  <p class="ob-p">Nimic din toate astea n-a cerut o firmă de mărimea unei bănci. A cerut să alegi o singură sarcină repetitivă, oferte, programări, notițe de la meeting, și să încerci varianta cea mai ieftină de tool care o rezolvă, înainte să decizi dacă bagi mai mulți bani.</p>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Ce întreabă cel mai des proprietarii de firme mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi trebuie un buget mare ca să încep cu AI în firma mea?</p>
+    <p class="ob-faq-a">Nu. Multe tool-uri utile sunt gratuite sau deja incluse în softuri pe care le plătești oricum, ca Microsoft 365 sau Google Workspace. Tool-urile de AI dedicate firmelor mici pornesc de obicei de la 20-30 de lire pe lună.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Dacă nu-i costul, ce oprește de fapt firmele mici de la AI?</p>
+    <p class="ob-faq-a">Potrivit unui sondaj ANS/YouGov via techUK, firmele mici zic că lipsa de know-how (27%) e înaintea costului (22%). Blocajul real e că nu știi de unde pornești, nu nota de plată.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Merită AI pentru o firmă la fel de mică ca a mea?</p>
+    <p class="ob-faq-a">Datele FSB arată că majoritatea firmelor mici care deja folosesc AI, 59%, raportează câștiguri de productivitate. Mărimea firmei nu decide.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cum încerc AI fără să dau prea mulți bani?</p>
+    <p class="ob-faq-a">Verifică ce funcții AI ai deja pornite în tool-uri pe care le plătești, apoi încearcă un tool gratuit sau ieftin pentru o singură sarcină repetitivă.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Pentru o firmă fără departament IT și cu buget strâns, mitul "AI-ul e scump" chiar merită spulberat, pentru că exact ăsta e lucrul care te oprește să te mai uiți vreodată la el. Datele zic că obstacolul real e direcția, nu costul: alegi o sarcină care merită automatizată prima și încerci varianta cea mai ieftină de tool care o face. E un pas mult mai mic decât proiectele cu șapte cifre din titluri.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta</div>
+  <p>Săptămâna asta, verifică dacă funcțiile de AI sunt deja pornite într-un tool pe care-l plătești oricum, Microsoft 365 Copilot, Gemini din Google Workspace, sau soft-ul tău de contabilitate, înainte să dai un ban pe ceva nou.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai mult conținut ca ăsta despre AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Pornește cu <a class="ob-link" href="#/articles/ai-crm-for-startups">un CRM cu AI gratuit</a> înainte să dai bani pe altceva, sau citește <a class="ob-link" href="#/articles/is-ai-too-expensive-for-small-business">varianta în engleză a acestui articol</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.fsb.org.uk/media-centre/press-release/burnham-government-s-ai-reset-must-build-trust-in-ai-among-small-firms-says-fsb-MC7QXDI45J2ZAN5NFH2YMY6FQJPM" target="_blank" rel="noopener noreferrer">Federation of Small Businesses, The Confidence Code (2026)</a>; <a href="https://www.techuk.org/resource/major-barriers-to-ai-adoption-remain-for-uk-businesses-despite-growing-demand-new-report-reveals.html" target="_blank" rel="noopener noreferrer">techUK / ANS-YouGov, Major barriers to AI adoption remain for UK businesses</a>; <a href="https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026" target="_blank" rel="noopener noreferrer">ONS, Artificial intelligence in UK businesses, 2023 to 2026</a>.</p>
