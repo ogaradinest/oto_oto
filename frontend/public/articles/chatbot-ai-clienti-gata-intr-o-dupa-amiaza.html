@@ -1,0 +1,188 @@
+<!--
+title: Suport pentru clienți pe pilot automat, înainte de prima comandă
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-08-11
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: Salesforce zice că firmele cu AI agents taie costurile de suport și timpul de rezolvare cu 20% în medie, iată cum îți pui unul pe picioare înainte să iei prima comandă.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Ești la trei săptămâni de lansare. Site-ul e gata, pozele la produse sunt făcute, și clienții deja îți scriu duminică la 11 noaptea să te-ntrebe cât durează livrarea și dacă vine și-n albastru. N-ai echipă de suport. Tu ești echipa de suport, pe lângă faptul că ești fondator, contabil și omul care ar trebui să mai și doarmă umpic. Soluția: un chatbot cu AI care preia întrebările repetitive înainte să iei prima comandă. Gata într-o după-amiază, fără developer.</p>
+
+<div class="ob-callout">
+  <p>Firmele cu AI agents taie costurile de suport și timpul de rezolvare cu 20% în medie, cifre pe care un fondator singur nu le prinde din urmă cu un FAQ pinned și multă bunăvoință.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">20%</div>
+    <div class="ob-stat-label">cât taie în medie AI agents din costurile de suport și din timpul de rezolvare, potrivit raportului Salesforce State of Service</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">86%</div>
+    <div class="ob-stat-label">dintre consumatori zic că viteza și acuratețea răspunsului decid dacă cumpără sau nu, potrivit Zendesk CX Trends 2026</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">39%</div>
+    <div class="ob-stat-label">dintre firmele din UK deja folosesc AI într-o formă sau alta, potrivit sondajului Moneypenny din 2025, pe 750 de decision-makeri din UK</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Pornește de la întrebările tale reale, nu de la un bot generic</h2>
+  <p class="ob-section-sub">Bot-ul e doar atât de bun cât ce-i bagi în el</p>
+
+  <p class="ob-p">Înainte să te apuci de vreun soft, scrie pe-o foaie 10-15 întrebări pe care știi sigur că le primești: termene de livrare, retururi, mărimi, dacă livrezi și-n Irlanda. Majoritatea fondatorilor sar peste pasul ăsta și bagă tot site-ul în chatbot din prima zi. Așa ajungi cu un bot care sună sigur pe el și răspunde greșit.</p>
+  <p class="ob-p">Imaginează-ți o firmă nouă de lumânări pe abonament, Wick & Co. Înainte de lansare, fondatoarea a notat 12 întrebări probabile, intensitatea mirosului, alergeni, ferestre de livrare, politica de anulare, și a folosit doar pe-astea ca knowledge base pentru bot. În prima săptămână live, a rezolvat singur vreo 35 din 50 de mesaje de la clienți, fără nicio intervenție umană.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Alege o platformă no-code și conecteaz-o</h2>
+  <p class="ob-section-sub">Nu-ți trebuie nicio linie de cod</p>
+
+  <p class="ob-p">Platforme no-code ca Tidio, Chatbase sau Crisp te lasă să lipești un document sau o pagină de FAQ și ești live în aceeași zi, de obicei pentru 20-30 de lire pe lună. Te înregistrezi, urci lista de întrebări ca knowledge base, bagi widget-ul pe site cu un snippet de copy-paste, și setezi un mesaj de bun venit care sună fix cum vorbești tu cu clienții, nu ca un robot de call center.</p>
+  <p class="ob-p">Apoi testează-l tu, ca un străin. Pune-i trei întrebări cu năbădăi. Dacă ghicește în loc să recunoască că nu știe, strânge-i knowledge base-ul înainte să-l lansezi, nu după.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Fără developer</h4>
+      <p>Doar lipești un document sau o pagină de FAQ</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>20-30 lire/lună de obicei</h4>
+      <p>Mai ieftin decât câteva ore din timpul tău răspunzând</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Live în aceeași zi</h4>
+      <p>Cont, knowledge base, widget pe site, gata</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Stabilește regula de handoff înainte să-l lansezi</h2>
+  <p class="ob-section-sub">Decide dinainte când bot-ul zice "te dau la un om"</p>
+
+  <p class="ob-p">Zendesk a găsit că 85% dintre CX leaders zic că o singură problemă nerezolvată e suficientă să pierzi un client, deci handoff-ul contează mai mult decât cât de deștept pare bot-ul. Pune o regulă clară: după două încercări eșuate, sau pentru orice ține de rambursări sau o comandă dată peste cap, bot-ul te trimite direct pe mail sau WhatsApp, nu te ține în buclă.</p>
+  <p class="ob-p">În UK e și bună practică, tot mai așteptată de fapt, să le zici clar clienților din start că vorbesc cu un AI. O linie în mesajul de bun venit nu te costă nimic și te scutește de belea când află mai târziu.</p>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Ce întreabă cel mai des fondatorii înainte de lansare</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât costă un chatbot cu AI pentru o firmă abia pornită?</p>
+    <p class="ob-faq-a">Majoritatea platformelor no-code au un tier pentru firme mici, cam 20-30 de lire pe lună, cu trial gratuit să testezi întâi. De obicei iese mai ieftin decât câteva ore din timpul tău răspunzând la aceleași întrebări.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Clienții știu că vorbesc cu un bot?</p>
+    <p class="ob-faq-a">Ar trebui să știe. O linie scurtă în mesajul de bun venit care spune că e un AI assistant, cu o cale ușoară spre un om, e și bună practică și exact ce așteaptă clienții din UK acum.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Ce fac dacă bot-ul greșește?</p>
+    <p class="ob-faq-a">Pune-l să răspundă doar din documentele de FAQ și politici pe care le urci tu, nu din tot internetul, și verifică transcriptul săptămânal în prima lună. Majoritatea greșelilor vin dintr-un knowledge base sărac, nu din AI-ul în sine.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi trebuie asta înainte să am și clienți?</p>
+    <p class="ob-faq-a">Da, dacă iei pre-orders, construiești o listă de așteptare sau rulezi reclame plătite, toate astea generează întrebări înainte de ziua lansării. Dacă-l pui la punct din timp, e testat și corect până ajung clienții reali.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Pentru o firmă de unul sau doi oameni, fiecare oră petrecută scriind "da, livrăm și în Irlanda de Nord" a cincea oară e o oră nepusă pe produs, pe furnizori sau pe următoarea vânzare. Un chatbot nu te scutește de deciziile pe care doar tu le poți lua, dar preia automat pe cele repetitive, la un cost care e doar o rotunjire pe lângă angajarea cuiva. Și făcut cum trebuie, îți face firma să pară gata de treabă din prima zi, înainte să apuci s-o dovedești altfel.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta</div>
+  <p>Săptămâna asta, scrie cele 12-15 întrebări cele mai probabile de la clienți într-un doc, apoi pornește un trial gratuit pe o platformă no-code ca Tidio, Chatbase sau Crisp și urcă doc-ul ăla ca prim knowledge base pentru chatbot. Ai un bot funcțional și testat înainte să se termine trial-ul.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai mult conținut ca ăsta despre AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Pentru pasul următor, vezi <a class="ob-link" href="#/articles/ai-crm-for-startups">AI CRM for startups</a>, ca să ții evidența conversațiilor pe care bot-ul nu le rezolvă singur.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.salesforce.com/blog/state-of-service/" target="_blank" rel="noopener noreferrer">Salesforce, State of Service Report (7th Edition)</a>; <a href="https://www.zendesk.com/newsroom/articles/ai-ushers-in-era-of-contextual-intelligence-redefining-customer-experience-in-2026/" target="_blank" rel="noopener noreferrer">Zendesk, CX Trends Report 2026</a>; <a href="https://www.moneypenny.com/uk/resources/blog/the-state-of-ai-adoption-in-uk-businesses/" target="_blank" rel="noopener noreferrer">Moneypenny, The State of AI Adoption in UK Businesses (2025)</a>.</p>
