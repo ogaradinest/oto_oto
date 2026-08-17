@@ -1,0 +1,212 @@
+<!--
+title: AI ethics without the committee: a one-page framework that works
+tags: AI Governance, AI Strategy
+date: 2026-08-13
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: Only 22% of UK firms have trained staff on AI governance. Here's the lightweight version that works without a compliance department.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Most guidance on AI ethics reads like it was written for a bank. Ethics committees, quarterly board reviews, a named AI ethics lead on a six-figure salary. If you run a business with twenty people and no legal department, that advice is not wrong, it is just aimed at someone else. Only 22% of UK businesses have given staff any AI-specific governance training, and the businesses skipping this step are not all careless. Many simply have not seen a version of ethical AI sized for them.</p>
+
+<div class="ob-callout">
+  <p>You do not need a committee to avoid the two things that actually get businesses into trouble: an AI system that treats people unfairly, and no record of having checked. Everything else is optional. Get those two right first.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">22%</div>
+    <div class="ob-stat-label">of UK businesses have given staff AI-specific governance training (gov.uk AI Adoption Research, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">2 Aug 2026</div>
+    <div class="ob-stat-label">when EU AI Act transparency duties apply, even for UK firms serving EU customers</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">750 staff</div>
+    <div class="ob-stat-label">the size threshold below which firms get simplified AI Act compliance and lower fines</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What ethics, compliance and governance actually mean for you</h2>
+  <p class="ob-section-sub">Three words, one small business version</p>
+
+  <p class="ob-p">Ethics is the standard you hold yourself to even when nobody is checking. For a small business, this usually comes down to one plain question: would you be comfortable explaining this AI decision to the customer it affected? Compliance is the legal minimum. Under UK GDPR and the EU AI Act, this means proper consent for data use and, for a narrow band of high-risk applications, documented testing. Governance is the habit that ties the two together: writing down what you use AI for, checking it periodically, and having one person who owns that list.</p>
+  <p class="ob-p">You do not need all three to be perfect from day one. You need governance running, even in a simple form, because it is the part that catches problems in ethics or compliance before a regulator or a customer does.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The EU AI Act does apply to small firms, just not how people expect</h2>
+  <p class="ob-section-sub">What changed in 2026</p>
+
+  <p class="ob-p">The Act's transparency obligations, telling people when they are dealing with AI and labelling AI-generated content, take effect on 2 August 2026 regardless of company size. The stricter documentation and testing rules for high-risk systems, originally due the same date, were pushed back to December 2027 after EU negotiators agreed more time was needed. Firms with up to 750 staff and €150 million in revenue also get a simplified compliance track: standard templates, sandbox access, and fines calculated in proportion to company size rather than a flat cap.</p>
+  <p class="ob-p">In practice, a fifteen-person business using AI to draft marketing copy or triage support tickets has almost nothing to do under the Act right now beyond being upfront that AI is involved. A business using AI to screen job applicants or assess credit risk sits in a different category and should get advice before scaling that use.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Transparency duties: 2 Aug 2026</h4>
+      <p>Applies regardless of company size</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>High-risk rules: pushed to Dec 2027</h4>
+      <p>Documentation and testing for high-risk systems delayed</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>SME threshold: up to 750 staff</h4>
+      <p>Simplified track, up to €150m revenue</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why bias testing is not only a big-company problem</h2>
+  <p class="ob-section-sub">What happens when nobody checks</p>
+
+  <p class="ob-p">The Mobley v. Workday case, certified as a nationwide collective action in May 2025, shows what happens when a screening tool nobody audited quietly filters out older applicants for years before anyone notices. The tool was not built by the businesses using it. They were still named as defendants. Under both UK and EU frameworks, using someone else's AI product does not move responsibility for its outcomes away from you.</p>
+  <p class="ob-p">The fix costs far less than the lawsuit. Before using any AI tool that scores, ranks or filters people, whether that is job applicants, loan applicants or customer complaints, run it against a handful of real historical cases where you already know the fair outcome. If the tool's answer does not match your own judgement, raise it with the vendor before relying on it further.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A one-page governance habit that actually gets used</h2>
+  <p class="ob-section-sub">What to write down</p>
+
+  <p class="ob-p">The ICO's guidance is clear that broad, one-line consent statements are no longer good enough. Fixing that does not require a legal team, just specificity. For each AI tool in use, note what it does, what data it touches, who owns the relationship, and when it was last checked. Four columns, one spreadsheet, reviewed quarterly.</p>
+  <p class="ob-p">This single document does three things a full governance committee would otherwise do. It gives you an answer when a customer asks how a decision was made. It gives you a paper trail if a regulator asks. And it forces someone in the business to actually look at each tool periodically, rather than assuming it still works as intended.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>One owner per tool</h4>
+      <p>Someone is accountable for each AI tool in use</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Reviewed quarterly</h4>
+      <p>A standing habit, not a one-off audit</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Four columns</h4>
+      <p>What, data, owner, last check</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do UK small businesses actually have to comply with the EU AI Act?</p>
+    <p class="ob-faq-a">Only if you serve EU customers or operate in the EU. The transparency rules, telling people when AI is involved, apply from 2 August 2026 regardless of size. The heavier documentation rules for high-risk systems now apply from December 2027.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What counts as a high-risk AI use that needs extra care?</p>
+    <p class="ob-faq-a">Anything that screens job applicants, assesses credit or insurance risk, or otherwise makes decisions with a real legal or financial effect on a person. Marketing copy, scheduling and support ticket triage do not fall into this category.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do we need an ethics committee?</p>
+    <p class="ob-faq-a">No. A single spreadsheet listing every AI tool in use, what it touches, who owns it, and when it was last checked covers most of what a committee would do for a business under roughly fifty people.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does getting this wrong actually cost?</p>
+    <p class="ob-faq-a">The Mobley v. Workday case and similar hiring-bias claims show legal exposure attaches to the business using the tool, not only the vendor who built it. Checking a tool against known-good outcomes before relying on it costs an afternoon. The alternative costs considerably more.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Ethics frameworks are almost always written with a bank's compliance department in mind: committees, named roles, five and six-figure budgets. A business with twenty staff does not need that structure to avoid the two failures that actually cause damage, an AI tool that treats people unfairly and no record of having checked. A one-page tool log and a habit of testing anything that screens or ranks people closes most of the real risk without new hires.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, list every AI tool currently in use across the business, even the free ones like a chatbot plugin or an email assistant. Against each one, write a line: what it touches, who owns it, and whether it ever screens, ranks or filters people. That list is the entire governance framework most small businesses need to start with.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help putting a lightweight AI governance habit in place?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For the fuller picture, see <a class="ob-link" href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a>, <a class="ob-link" href="#/articles/ai-data-governance-framework">the practical framework behind AI data governance</a>, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>. If your business is scaling past this lightweight stage, <a class="ob-link" href="#/articles/agentic-ai-governance-enterprise">agentic AI governance in 2026</a> covers what comes next.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gov.uk/government/publications/ai-adoption-research/ai-adoption-research" target="_blank" rel="noopener noreferrer">gov.uk, AI Adoption Research</a>; <a href="https://www.hklaw.com/en/insights/publications/2026/04/us-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline" target="_blank" rel="noopener noreferrer">Holland & Knight, U.S. Companies Face EU AI Act's Possible August 2026 Compliance Deadline</a>; <a href="https://www.legalnodes.com/article/eu-ai-act-2026-updates-compliance-requirements-and-business-risks" target="_blank" rel="noopener noreferrer">Legal Nodes, EU AI Act 2026 Updates</a>; <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" target="_blank" rel="noopener noreferrer">ICO, Guidance on AI and data protection</a>; <a href="https://www.hklaw.com/en/insights/publications/2025/05/federal-court-allows-collective-action-lawsuit-over-alleged" target="_blank" rel="noopener noreferrer">Holland & Knight, Federal Court Allows Collective Action Lawsuit Over Alleged AI Hiring Bias</a>.</p>
