@@ -1,0 +1,179 @@
+<!--
+title: Notițele de meeting care se scriu singure, cu AI
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-08-10
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: Proprietarii de firme mici din UK pierd 11 ore pe săptămână cu adminul, iată cum o agenție de marketing a recuperat 5 din ele lăsând un AI să stea la fiecare call cu clienții.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Priya are o agenție mică de marketing în Milton Keynes, cinci oameni, și de doi ani martea ei arăta la fel: calluri cu clienți de dimineață până seara, apoi încă două ore acasă să scrie ce s-a discutat. Nu era dezorganizată. Doar că o discuție bună cu un client generează mult de vorbă, și cineva trebuie să transforme vorba aia în pași concreți. Până apuca să scrie notele de luni, uita deja jumătate din ce s-a stabilit, iar odată a fost cât pe ce să piardă un contract fix din cauza asta.</p>
+
+<div class="ob-callout">
+  <p>62% din oamenii care folosesc un AI meeting assistant zic că economisesc minim patru ore pe săptămână la notițe și follow-up. Cam cât pierdea Priya doar tastând.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">11 ore/săpt.</div>
+    <div class="ob-stat-label">atât petrec proprietarii de firme mici din UK pe admin și financiar, aproape dublu față de timpul pus pe vânzări și creștere, potrivit Amex SME Business Barometer</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">62%</div>
+    <div class="ob-stat-label">dintre cei care folosesc un AI meeting assistant zic că economisesc minim 4 ore pe săptămână la notițe și follow-up, potrivit raportului Laxis, State of Meeting Note-Taking 2026</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">58%</div>
+    <div class="ob-stat-label">dintre utilizatorii de AI zic că acum produc muncă pe care n-ar fi putut s-o facă acum un an, potrivit Microsoft Work Trend Index 2026</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Adminul care îți mănâncă săptămâna</h2>
+  <p class="ob-section-sub">Pe unde se duceau orele Priyei</p>
+
+  <p class="ob-p">Priya nu e un caz izolat. Proprietarii de firme mici din UK petrec în medie 11 ore pe săptămână pe admin și financiar, aproape șase zile lucrătoare pe lună, față de doar 3.6 zile pe vânzări și creștere, arată Amex SME Business Barometer. La o firmă de servicii, o parte mare din adminul ăsta sunt meetingurile: callul în sine, apoi scrisul, apoi alergatul după toată lumea să confirme ce s-a decis de fapt.</p>
+  <p class="ob-p">Pentru Priya, asta însemna cam cinci ore pe săptămână duse pe apa sâmbetei, înainte să apuce să facă ceva facturabil. Și mai rău, notele ei erau inconsistente: câteodată o listă ordonată, câteodată doar ce-și amintea peste trei zile. Așa că doi clienți din aceeași lună au primit versiuni diferite ale aceluiași lucru stabilit. Unul credea că redesignul site-ului începe în martie, notele Priyei ziceau aprilie. Confuzia aia a fost cât pe ce să-i coste un contract de 1.800 de lire pe lună.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Cum devine callul un brief gata făcut</h2>
+  <p class="ob-section-sub">Ce s-a schimbat din momentul în care AI-ul a intrat în meeting</p>
+
+  <p class="ob-p">În ianuarie, Priya și-a băgat un AI meeting assistant, folosește Fireflies.ai, deși Otter și Fathom fac cam același lucru, care intră automat în fiecare call video, transcrie live și-ți trimite pe mail un rezumat cu action items la câteva minute după ce închizi. Nu mai tastează nimic în timpul callului. Doar vorbește cu clientul și lasă unealta să prindă detaliile.</p>
+  <p class="ob-p">Obiceiul care i-a schimbat efectiv săptămâna: citește rezumatul o dată, corectează ce a auzit greșit AI-ul (numele clienților și cifrele tot cer un ochi uman), și-l trimite clientului chiar în după-amiaza aia, nu peste trei zile. Clienții au început să răspundă cu "da, exact asta" în loc să adauge corecturi, pentru că își vedeau propriile cuvinte înapoi, nu memoria Priyei despre ele.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Intră automat în call</h4>
+      <p>Fără instalat, fără tastat în timpul discuției</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Rezumat + action items în minute</h4>
+      <p>Transcript live, gata de trimis la câteva minute după</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Follow-up trimis în aceeași zi</h4>
+      <p>Nu peste trei zile, cât încă își amintește clientul discuția</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Ce întreabă cel mai des proprietarii de firme mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">E legal să înregistrezi meetingurile cu clienții printr-un AI notetaker în UK?</p>
+    <p class="ob-faq-a">Da, dar doar cu acordul lor. GDPR-ul din UK te obligă să anunți pe toată lumea din call înainte să pornești înregistrarea. Un "hei, înregistrez cu AI" la începutul callului te acoperă.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Înțelege accentele britanice și jargonul din domeniu?</p>
+    <p class="ob-faq-a">Majoritatea uneltelor se descurcă bine cu accentele din UK în 2026, dar acuratețea tot variază de la un provider la altul și scade la termeni tehnici de nișă. Testează pe un call real înainte să-ți schimbi tot workflow-ul.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât costă un AI meeting notetaker pentru o echipă mică?</p>
+    <p class="ob-faq-a">Majoritatea au un tier gratuit decent pentru un singur user. Planurile de echipă cu transcriere nelimitată merg cam între 10 și 20 de lire pe user, pe lună.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi mai trebuie să-mi verific propriile notițe?</p>
+    <p class="ob-faq-a">Da. Tratează rezumatul AI ca pe un draft bun, nu ca pe adevărul absolut. Tot mai încurcă din când în când un nume, o cifră sau o dată, așa că un minut de citit înainte să trimiți rămâne obligatoriu.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Asta contează mai mult pentru o agenție de cinci oameni decât pentru o firmă de 500, pentru că Priya n-are un asistent sau un ops manager care să-i absoarbă adminul. Fiecare oră pierdută cu scrisul notelor e o oră în care nu facturează și nu face pitch. Cercetarea Laxis din 2026 arată că uneltele AI pentru meetinguri îmbunătățesc capturarea action items-urilor cu 38%, ceea ce sună abstract până realizezi că e diferența dintre o relație cu clientul care merge lin și una în care lucrurile stabilite se pierd pe drum. Pentru o firmă mică, nu e un moft de productivitate. E diferența dintre păstrarea unui contract și pierderea lui.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta</div>
+  <p>Săptămâna asta, pornește tierul gratuit al unui AI meeting assistant (Fireflies, Otter și Fathom au toate unul) la următoarele trei calluri cu clienți. Anunță-i că înregistrezi înainte să începi, GDPR-ul o cere, apoi vezi cât timp îți ia efectiv mailul de follow-up după.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai mult conținut ca ăsta despre AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Pentru un CRM cu AI care preia direct action items-urile din call, vezi <a class="ob-link" href="#/articles/ai-crm-for-startups">AI CRM for startups</a>, iar dacă tot verifici ce scrie AI-ul, <a class="ob-link" href="#/articles/ai-content-revision-tax-hidden-cost-smb">taxa de revizuire a conținutului AI</a> explică de ce timpul ăla de verificare tot contează.</p>
+
+<p class="ob-sources">Surse: <a href="https://startupsmagazine.co.uk/small-businesses-spend-more-time-on-admin-than-growing-their-business" target="_blank" rel="noopener noreferrer">Startups Magazine, via Amex SME Business Barometer</a>; <a href="https://www.laxis.com/blog/state-of-meeting-note-taking-2026/" target="_blank" rel="noopener noreferrer">Laxis, The State of Meeting Note-Taking 2026</a>; <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener noreferrer">Microsoft WorkLab, 2026 Work Trend Index</a>.</p>
