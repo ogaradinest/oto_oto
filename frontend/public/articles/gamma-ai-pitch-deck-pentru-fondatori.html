@@ -1,0 +1,177 @@
+<!--
+title: Pitch deck-ul cu AI: gata înainte să-ți răcească cafeaua
+tags: AI Technology, AI Strategy
+date: 2026-08-09
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Investitorii se uită la un pitch deck doar 1 minut și 56 de secunde în total, iar Gamma îți scoate un prim draft în sub un minut, gratis.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Ți-ai validat ideea, ai scris business plan-ul, poate chiar ai și site-ul live. Și pac, cineva îți zice "trimite-mi deck-ul". Și tu îngheți, că n-ai făcut niciodată unul și nu ești designer. Variantele vechi erau o agenție de la 2.000 de lire în sus sau un weekend pierdut cu template-uri PowerPoint care arată toate ca-n 2015. Gamma rezolvă exact asta: îi descrii afacerea în cuvinte simple, iar AI-ul îți scoate un pitch deck întreg, prezentabil, cât faci o cafea.</p>
+
+<div class="ob-callout">
+  <p>Investitorii se uită la un pitch deck de la seed doar 1 minut și 56 de secunde în total înainte să decidă. Gamma îți dă un prim draft în sub 60 de secunde, ca să-ți investești timpul în poveste, nu în aranjat sloturi.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">1:56</div>
+    <div class="ob-stat-label">timpul mediu total pe care un investitor îl petrece uitându-se la un pitch deck de la seed înainte să decidă dacă merită un răspuns, conform datelor DocSend despre comportamentul investitorilor, în scădere cu 24% față de 2021</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£1.200-£8.000</div>
+    <div class="ob-stat-label">cât cer de obicei agențiile specializate pentru un pitch deck făcut la comandă pentru investitori</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">&lt;60 sec</div>
+    <div class="ob-stat-label">timpul în care AI-ul Gamma scoate un prim draft de deck complet dintr-un prompt scris sau dintr-un plan de afaceri</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">De ce deck-ul tot decide atât de mult, atât de repede</h2>
+  <p class="ob-section-sub">N-ai a doua șansă să faci primele două minute să conteze</p>
+
+  <p class="ob-p">Investitorii nu citesc deck-urile de la un capăt la altul. Se uită după câteva semnale, echipă, problemă, cifre, și se opresc în clipa în care ceva nu se leagă. De-asta contează atât de mult media aia de 1:56. Un deck care arată amator pierde sala înainte ca fondatorul să apuce să vorbească. Presiunea asta împinge fondatorii la prima afacere spre agenții pe care nu și le permit încă, sau spre o săptămână pierdută în PowerPoint.</p>
+  <p class="ob-p">Imaginează-ți un startup de healthtech, doi fondatori, pre-seed, undeva lângă Milton Keynes, la trei zile de prima întâlnire cu un angel investor. Un designer freelance le-a cerut 2.400 de lire și două săptămâni pe care nu le aveau. În loc de asta, unul dintre fondatori a stat o seară în Gamma, a pus acolo business plan-ul și câteva notițe despre traction și cât cer. AI-ul a scos un draft de 12 slide-uri, structurat cu cap. A doua zi au strâns cifrele și au rescris două slide-uri cu vocea lor, nu a AI-ului.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce face Gamma mai exact, și unde tot tu trebuie să pui mâna</h2>
+  <p class="ob-section-sub">Un prim draft rapid, nu un argument gata făcut</p>
+
+  <p class="ob-p">Îi dai lui Gamma un prompt, un outline, sau chiar business plan-ul copiat direct, și-ți scoate un deck structurat: problemă, soluție, piață, traction, cerere, cu grafice de bază și un stil vizual unitar, editabil după aia într-un editor normal de slide-uri. Varianta gratuită acoperă destule credite AI cât să faci și să refaci un deck; planurile plătite pornesc de la vreo £8-£15 pe lună dacă faci deck-uri pentru mai multe audiențe.</p>
+  <p class="ob-p">Ce nu face e să-ți cunoască afacerea. AI-ul poate să dea cu presupusul la mărimea pieței sau să bage o formulare generică care s-ar potrivi la orice startup. Tratează primul draft ca pe o schelă: verifică fiecare cifră cu propria ta cercetare, și rescrie slide-urile de echipă și traction cu cuvintele tale, nu ale AI-ului.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Prompt sau business plan la intrare</h4>
+      <p>Copiezi planul sau notițele, AI-ul le structurează slide cu slide</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Deck complet în &lt;60 sec</h4>
+      <p>Un prim draft prezentabil cât faci o cafea</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Gratis, apoi de la ~£8/lună</h4>
+      <p>Variantă gratuită pentru un deck, planuri plătite dacă faci mai multe</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Ce întreabă cel mai des fondatorii</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Chiar e bun de-ajuns un deck făcut cu Gamma ca să strângi bani?</p>
+    <p class="ob-faq-a">Ca prim draft, da. Investitorilor le pasă mai mult de gândire clară și cifre corecte decât de design. Tratează-l ca pe o schelă pe care o verifici și o rescrii cu vocea ta, nu ca pe pitch-ul final.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Investitorilor le pasă dacă deck-ul e făcut cu AI?</p>
+    <p class="ob-faq-a">Majorității nu, și mulți deja presupun asta. Ce-i deranjează e conținutul generic, cifrele neverificate sau un fondator care nu-și înțelege propriile slide-uri.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Pot să-mi bag business plan-ul deja scris?</p>
+    <p class="ob-faq-a">Da, copiezi planul sau notițele, iar AI-ul lui Gamma le restructurează într-un deck slide cu slide, în loc să pornești de la o pagină goală.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât costă de fapt Gamma?</p>
+    <p class="ob-faq-a">Există o variantă gratuită care acoperă câteva deck-uri pe lună, suficient pentru majoritatea fondatorilor la prima afacere. Planurile plătite stau cam între £8 și £15 pe lună dacă ai nevoie de mai multe credite.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Înainte să faci prima vânzare, fiecare liră și fiecare oră contează mai mult decât o să conteze vreodată. Un fondator fără buget de design nu-și permite o agenție la peste £2.000, dar nici nu-și permite să intre în sală cu un deck care subestimează o idee chiar bună. Dacă faci un prim draft credibil într-o seară, nu într-o săptămână, timpul rar dinainte de întâlnire se duce pe strâns cifre, nu pe luptat cu un program de slide-uri.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta</div>
+  <p>Înainte de următoarea întâlnire cu un investitor, o bancă sau un client mare, intră pe gamma.app, pune-ți business plan-ul sau un outline rapid al problemei, soluției și traction-ului, și scoate un prim draft pe varianta gratuită. Apoi ia-ți o oră, rescrie slide-urile de echipă și traction cu cuvintele tale și verifică fiecare cifră înainte să trimiți deck-ul cuiva.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai mult conținut ca ăsta despre AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers</a>
+</div>
+
+<p class="ob-sources">Surse: <a href="https://natlawreview.com/press-releases/investors-spend-under-2-minutes-pitch-decks-spotlight-startups-reveals" target="_blank" rel="noopener noreferrer">National Law Review, Investors Spend Under 2 Minutes on Pitch Decks</a>; <a href="https://www.spectup.com/resource-hub/how-much-does-a-pitch-deck-cost" target="_blank" rel="noopener noreferrer">Spectup, How Much Does a Pitch Deck Cost?</a>; <a href="https://theplanettools.ai/tools/gamma" target="_blank" rel="noopener noreferrer">ThePlanetTools.ai, Gamma Review 2026</a>.</p>
