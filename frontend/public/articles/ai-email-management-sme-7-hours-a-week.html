@@ -1,0 +1,179 @@
+<!--
+title: How one recruitment agency stopped losing candidates to a slow inbox
+tags: AI Implementation, AI Technology
+date: 2026-08-17
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Knowledge workers lose 28% of their week to email, per McKinsey — here's how one small recruitment agency clawed back 7 hours by letting AI draft and sort its inbox.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Marcus runs a six-person recruitment agency in Milton Keynes, and for three years his inbox has basically run him. Candidate replies at 9am, client updates at noon, a compliance query at 4pm, then another hour after dinner just trying to get back to zero — except zero never arrived. He wasn't ignoring anyone; there simply wasn't enough day. Twice last year a strong candidate went quiet because Marcus's reply landed two days after a rival agency's did, and one of those was a placement worth roughly £4,200 in fees. The inbox wasn't just eating his evenings — it was costing him money.</p>
+
+<div class="ob-callout">
+  <p>Knowledge workers lose 28% of the working week to email, per McKinsey Global Institute research — for a small agency without a dedicated ops person, that time comes straight out of billable hours.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">28%</div>
+    <div class="ob-stat-label">of the average knowledge worker's week goes to reading and answering email — roughly 2.6 hours a day — per McKinsey Global Institute research</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">81%</div>
+    <div class="ob-stat-label">of users of the AI email tool Fyxer report saving at least one hour a day on inbox management, with heavier users saving up to a day and a half in busy weeks</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">7 hrs/week</div>
+    <div class="ob-stat-label">the upper end of time small teams can save weekly by handing email drafting and sorting to an AI assistant, per Gmelius's 2026 analysis of AI email tools</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Inbox That Ran the Agency</h2>
+  <p class="ob-section-sub">Where Marcus's hours were actually going</p>
+
+  <p class="ob-p">Marcus isn't unusual for a small agency owner. Recruitment runs on email — candidate screening, client updates, compliance paperwork — and none of it waits politely for a quiet afternoon. He was spending close to two hours a day just triaging: deciding what was urgent, drafting near-identical replies to candidates asking about the same role, and re-reading client threads to remember what had already been promised.</p>
+  <p class="ob-p">The real cost showed up in what didn't get answered. A candidate who'd interviewed well but hadn't heard back in 48 hours accepted an offer elsewhere — a placement that would have been worth roughly £4,200 in fee income. It wasn't a one-off. Over a year, Marcus reckons slow replies cost the agency two or three placements it should have won.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Changed When AI Took the First Pass</h2>
+  <p class="ob-section-sub">Handing drafting and sorting to an AI assistant</p>
+
+  <p class="ob-p">In the spring, Marcus connected an AI email assistant — he uses Fyxer, though Superhuman and Gmail's own Gemini features do similar jobs — to the agency's shared inbox. It sorts out spam and low-priority newsletters automatically, and drafts a reply in Marcus's tone for anything that looks like a candidate or client email. He just reviews, edits if needed, and sends.</p>
+  <p class="ob-p">The habit that stuck: Marcus now clears his real inbox in under 30 minutes most mornings instead of ninety, because the AI has already drafted the boring 80% — 'thanks for applying, here's the next step' style replies — and flagged the handful that actually need his judgement. He estimates the agency now saves around 7 hours a week across the team, and no candidate has gone more than a day without a reply since.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Sorts automatically</h4>
+      <p>Spam and low-priority mail filtered out on its own</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Drafts in your tone</h4>
+      <p>You review and send, not write from scratch</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>~7 hours/week saved</h4>
+      <p>Across a six-person team, per Marcus's estimate</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it safe to let an AI draft replies to candidates and clients?</p>
+    <p class="ob-faq-a">Yes, as long as a human reviews before sending — most AI email tools draft rather than auto-send, so you keep control over anything sensitive like an offer or a rejection.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does an AI email assistant cost for a small team?</p>
+    <p class="ob-faq-a">Tools like Fyxer typically start around £20-£25 a month per user — modest next to the cost of a missed placement or client.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will it work with Gmail or Outlook, or do we need to switch?</p>
+    <p class="ob-faq-a">Most AI email assistants plug directly into Gmail or Outlook as an add-on, so there's no need to migrate your inbox or contacts.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does it replace hiring an office admin?</p>
+    <p class="ob-faq-a">Not entirely — it handles drafting and sorting, not judgement calls like negotiating terms. For a very small team it can delay that hire, though, rather than replace it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a business Marcus's size, there's no ops manager to absorb an overflowing inbox — every hour spent triaging email is an hour not spent placing candidates or managing client relationships, and every slow reply is a live risk of losing business to a faster competitor. McKinsey's research suggests that 28% of the working week disappearing into email isn't unusual, but for a six-person agency that's roughly a full extra working day, every week, that nobody budgeted for. Recovering even half of that through AI-assisted drafting is the difference between chasing admin and chasing revenue.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, connect an AI email assistant (Fyxer, Superhuman, or Gmail's built-in Gemini features all offer a free trial or tier) to just one shared or busy inbox. Let it sort and draft for five working days before deciding whether to roll it out further — and keep reviewing every draft before it sends.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help finding the AI tools that would actually save your team time?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Pair an AI-managed inbox with <a class="ob-link" href="#/articles/motion-ai-scheduling-assistant-for-founders">an AI-managed calendar</a>, or see <a class="ob-link" href="#/articles/ai-meeting-notes-sme-5-hours-a-week">an AI notetaker that saves even more hours on client calls</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy" target="_blank" rel="noopener noreferrer">McKinsey Global Institute, The social economy: Unlocking value and productivity through social technologies</a>; <a href="https://www.fyxer.com/blog/best-ai-email-assistant" target="_blank" rel="noopener noreferrer">Fyxer, 7 best email assistants in 2026 for your inbox</a>; <a href="https://gmelius.com/blog/best-ai-assistants-for-email" target="_blank" rel="noopener noreferrer">Gmelius, 15 Best AI Email Assistants for Productivity in 2026</a>.</p>
