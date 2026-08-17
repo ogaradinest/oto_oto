@@ -1,0 +1,188 @@
+<!--
+title: The real reason small businesses put off AI isn't the price
+tags: AI Strategy, AI Implementation
+date: 2026-08-12
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Small businesses rank a skills gap (27%) above cost (22%) as their real AI barrier — and nearly a third of UK firms are already using it without a big budget.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Ask most small business owners what's stopping them from trying AI and "I can't afford it" is usually near the top. Picture a bakery owner scrolling past a headline about a bank spending millions on an AI overhaul, and quietly deciding that's a different league of business. Here's the thing: that headline has nothing to do with what AI costs a five-person company. The real barrier for small firms isn't the price tag. It's not knowing where to start.</p>
+
+<div class="ob-callout">
+  <p>Small businesses are more likely to name a skills gap (27%) than cost (22%) as their biggest AI barrier — the invoice isn't actually the problem.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">59%</div>
+    <div class="ob-stat-label">of small firms already using AI report productivity gains, per the Federation of Small Businesses' 2026 Confidence Code report</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">27%</div>
+    <div class="ob-stat-label">of small businesses cite lack of expertise as their top AI barrier, ahead of cost at 22%, per an ANS/YouGov survey published via techUK</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">29%</div>
+    <div class="ob-stat-label">of UK businesses were using at least one AI technology by June 2026, per the ONS Business Insights and Conditions Survey</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where the 'too expensive' myth comes from</h2>
+  <p class="ob-section-sub">Enterprise headlines set the wrong benchmark</p>
+
+  <p class="ob-p">Big companies do spend big on AI: seven-figure rollouts, dedicated data teams, months of integration work. Those stories get the headlines, so it's easy to assume that's just what AI costs. But that spend buys custom infrastructure built for thousands of employees — not something a five-person business needs.</p>
+  <p class="ob-p">The barrier data tells a different story. In a survey of over 1,000 UK IT decision-makers, small businesses ranked lack of expertise (27%) above high costs (22%) as their biggest obstacle to AI adoption. The problem isn't the invoice. It's not knowing which tool solves which problem.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What small businesses are actually spending</h2>
+  <p class="ob-section-sub">Free trials, bundled tools, and £20–£30-a-month subscriptions</p>
+
+  <p class="ob-p">Take a six-person joinery firm outside Milton Keynes. The owner assumed AI meant a developer on retainer. Instead, she started with Copilot, already bundled into the Microsoft 365 subscription she was paying for anyway, plus a two-week free trial of an AI quoting tool. New spend in month one: zero.</p>
+  <p class="ob-p">Within six weeks, quote turnaround dropped from three days to same-day, and she picked up two extra jobs a month she'd previously lost to faster-quoting rivals. Most dedicated small-business AI tools settle into the £20–£30 a month range once a free trial ends — roughly one billable hour.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Often already free</h4>
+      <p>Inside tools you already pay for, like Microsoft 365 or Google Workspace</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>£20–£30/month typical</h4>
+      <p>Entry tier once a free trial ends, for most dedicated tools</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>No developer required</h4>
+      <p>Most tools are set up and running the same day</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The ones who start small are the ones seeing gains</h2>
+  <p class="ob-section-sub">Scale isn't the deciding factor — starting is</p>
+
+  <p class="ob-p">Nearly three in ten UK businesses were using at least one AI technology by June 2026, per the ONS — this is no longer an enterprise-only experiment. Among small firms that have adopted AI, 59% report productivity gains and 24% report higher revenue, per the FSB.</p>
+  <p class="ob-p">None of that required a business the size of a bank. It required picking one repetitive task — quoting, scheduling, note-taking — and trying the cheapest tool that handles it, before deciding whether to spend more.</p>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a big budget to start using AI in my small business?</p>
+    <p class="ob-faq-a">No. Many useful tools are free or already included in software you're paying for, like Microsoft 365 or Google Workspace. Dedicated small-business AI tools typically start around £20–£30 a month.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">If it's not cost, what's actually stopping small businesses from adopting AI?</p>
+    <p class="ob-faq-a">Per an ANS/YouGov survey via techUK, small firms cite lack of expertise (27%) ahead of cost (22%) — the real blocker is knowing where to start, not the invoice.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is AI worth it for a business as small as mine?</p>
+    <p class="ob-faq-a">FSB data shows the majority of small firms already using AI — 59% — report productivity gains, so business size isn't the deciding factor.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do I try AI without overspending?</p>
+    <p class="ob-faq-a">Check what's already switched on inside tools you already pay for, then trial one free or low-cost tool for a single repetitive task.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a business with no IT department and a tight budget, the 'AI is expensive' myth is worth busting, because it's what quietly stops owners from even looking. The data says the real obstacle is direction, not cost: picking the one task worth automating first, and trying the cheapest version of a tool that does it. That's a far smaller ask than the seven-figure projects the headlines suggest.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, check whether AI features are already switched on inside a tool you already pay for — Microsoft 365 Copilot, Google Workspace's Gemini, or your accounting software — before spending a penny on anything new.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out where AI could save your business real time?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If pipeline and follow-ups are your next bottleneck, <a class="ob-link" href="#/articles/ai-crm-for-startups">start with a free AI CRM</a> before spending on anything bigger.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.fsb.org.uk/media-centre/press-release/burnham-government-s-ai-reset-must-build-trust-in-ai-among-small-firms-says-fsb-MC7QXDI45J2ZAN5NFH2YMY6FQJPM" target="_blank" rel="noopener noreferrer">Federation of Small Businesses, The Confidence Code (2026)</a>; <a href="https://www.techuk.org/resource/major-barriers-to-ai-adoption-remain-for-uk-businesses-despite-growing-demand-new-report-reveals.html" target="_blank" rel="noopener noreferrer">techUK / ANS-YouGov, Major barriers to AI adoption remain for UK businesses</a>; <a href="https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026" target="_blank" rel="noopener noreferrer">ONS, Artificial intelligence in UK businesses, 2023 to 2026</a>.</p>
