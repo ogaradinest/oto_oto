@@ -1,0 +1,179 @@
+<!--
+title: Recrutorul care a lăsat un AI să-i citească inboxul
+tags: AI Implementation, AI Technology
+date: 2026-08-18
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Un angajat obișnuit pierde 28% din săptămâna de lucru pe email, arată McKinsey. Iată cum o agenție mică de recrutare a recuperat 7 ore lăsând un AI să-i sorteze și să-i redacteze inboxul.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Marcus are o agenție de recrutare cu șase oameni în Milton Keynes, și de trei ani inboxul lui e cel care conduce, nu el. Răspunsuri către candidați la 9 dimineața, update-uri pentru clienți la prânz, o întrebare de compliance la 4, apoi încă o oră după cină doar ca să ajungă la zero. Numai că zero nu venea niciodată. Nu ignora pe nimeni intenționat, pur și simplu nu-i ajungea ziua. De două ori anul trecut un candidat bun a tăcut pentru că răspunsul lui Marcus a ajuns cu două zile mai târziu decât al unei agenții rivale, și unul dintre cazuri era un plasament de vreo 4.200 de lire în comision. Inboxul nu-i mânca doar serile. Îi lua bani direct din buzunar.</p>
+
+<div class="ob-callout">
+  <p>Un angajat obișnuit pierde 28% din săptămâna de lucru pe email, arată cercetarea McKinsey Global Institute. Pentru o agenție mică fără un om dedicat pe operațiuni, timpul ăla vine direct din orele facturabile.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">28%</div>
+    <div class="ob-stat-label">din săptămâna unui angajat mediu se duce pe citit și răspuns la email-uri, cam 2,6 ore pe zi, potrivit cercetării McKinsey Global Institute</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">81%</div>
+    <div class="ob-stat-label">dintre utilizatorii Fyxer, un tool AI de email, spun că economisesc măcar o oră pe zi la gestionarea inboxului, iar cei cu volum mare ajung și la o zi și jumătate în săptămânile aglomerate</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">7 ore/săptămână</div>
+    <div class="ob-stat-label">cam atât pot economisi săptămânal echipele mici când lasă un AI să sorteze și să redacteze email-urile, potrivit analizei Gmelius din 2026 despre tool-uri AI de email</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Inboxul care conducea agenția</h2>
+  <p class="ob-section-sub">Unde se duceau de fapt orele lui Marcus</p>
+
+  <p class="ob-p">Marcus nu e o excepție printre proprietarii de agenții mici. Recrutarea trăiește din email: screening de candidați, update-uri pentru clienți, hârtii de compliance, și nimic din toate astea nu așteaptă politicos o după-amiază liberă. Pierdea aproape două ore pe zi doar triind: ce e urgent, ce răspuns aproape identic trebuie trimis la zece candidați care întreabă de același job, ce s-a promis deja într-un thread cu un client.</p>
+  <p class="ob-p">Costul real se vedea la ce rămânea fără răspuns. Un candidat bun la interviu, care n-a auzit nimic timp de 48 de ore, a acceptat o ofertă în altă parte. Un plasament care ar fi valorat vreo 4.200 de lire în comision. Și n-a fost singura dată. Peste un an, Marcus zice că răspunsurile întârziate l-au costat două sau trei plasamente pe care ar fi trebuit să le câștige.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce s-a schimbat când AI-ul a preluat prima trecere</h2>
+  <p class="ob-section-sub">Cum a predat sortarea și redactarea unui AI</p>
+
+  <p class="ob-p">Primăvara trecută, Marcus a conectat un AI email assistant, Fyxer în cazul lui, deși Superhuman și funcțiile Gemini din Gmail fac cam același lucru, la inboxul comun al agenției. Sortează automat spam-ul și newsletterele de mâna a doua, și redactează un răspuns pe tonul lui pentru orice pare a fi email de la un candidat sau client. El doar citește, corectează dacă e cazul, și trimite.</p>
+  <p class="ob-p">Obiceiul care i-a rămas: acum își curăță inboxul real în sub 30 de minute în majoritatea dimineților, față de nouăzeci înainte, pentru că AI-ul deja a redactat cei 80% plictisitori, gen „mulțumim că ai aplicat, iată următorul pas", și a marcat mânuța de cazuri care chiar au nevoie de judecata lui. Estimează că agenția economisește acum vreo 7 ore pe săptămână la nivel de echipă, și niciun candidat n-a mai stat mai mult de o zi fără răspuns de atunci.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Sortează automat</h4>
+      <p>Spam și newslettere de mâna a doua filtrate singure</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Redactează pe tonul tău</h4>
+      <p>Tu citești și trimiți, nu scrii de la zero</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>~7 ore/săptămână economisite</h4>
+      <p>La nivelul unei echipe de șase oameni, potrivit estimării lui Marcus</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cel mai des proprietarii de firme mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">E sigur să lași un AI să redacteze răspunsuri către candidați și clienți?</p>
+    <p class="ob-faq-a">Da, atâta timp cât un om citește înainte de trimitere. Majoritatea tool-urilor AI de email redactează, nu trimit automat, deci rămâi cu controlul pe orice e sensibil, gen o ofertă sau un refuz.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât costă un AI email assistant pentru o echipă mică?</p>
+    <p class="ob-faq-a">Tool-uri ca Fyxer pornesc de obicei de la 20-25 de lire pe lună de utilizator. Modest pe lângă costul unui plasament sau client pierdut.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Merge cu Gmail sau Outlook, sau trebuie să schimbăm tot?</p>
+    <p class="ob-faq-a">Majoritatea AI email assistants se conectează direct la Gmail sau Outlook ca add-on, deci nu trebuie să-ți muți inboxul sau contactele nicăieri.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Înlocuiește angajarea unui admin de birou?</p>
+    <p class="ob-faq-a">Nu chiar. Se ocupă de redactare și sortare, nu de decizii care cer judecată, gen negocierea unor termeni. Pentru o echipă foarte mică poate amâna angajarea aia, dar n-o înlocuiește.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Pentru o firmă de mărimea lui Marcus nu există un ops manager care să absoarbă un inbox debordant. Fiecare oră petrecută triind email e o oră în care nu plasezi candidați și nu gestionezi relații cu clienții, și fiecare răspuns întârziat e un risc real să pierzi afacerea în fața unui competitor mai rapid. Cercetarea McKinsey arată că 28% din săptămâna de lucru dispărută în email nu e ceva neobișnuit, dar pentru o agenție de șase oameni asta înseamnă cam o zi de lucru întreagă în plus, în fiecare săptămână, pe care nimeni n-a bugetat-o. Recuperarea a măcar jumătate din timpul ăla prin redactare asistată de AI e diferența dintre a alerga după admin și a alerga după venituri.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta săptămâna asta</div>
+  <p>Săptămâna asta, conectează un AI email assistant (Fyxer, Superhuman sau funcțiile Gemini din Gmail au toate un trial gratuit sau un tier gratuit) la un singur inbox comun sau aglomerat. Lasă-l să sorteze și să redacteze timp de cinci zile lucrătoare înainte să decizi dacă îl extinzi mai departe, și citește fiecare draft înainte să plece.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei ajutor să găsești tool-urile AI care chiar ar economisi timp echipei tale?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Vezi și <a class="ob-link" href="#/articles/notele-de-meeting-cu-ai-5-ore-recuperate">un notetaker AI care-ți economisește și mai multe ore la call-urile cu clienții</a>, sau <a class="ob-link" href="#/articles/motion-asistent-ai-programare-fondatori">cum combini un inbox gestionat de AI cu un calendar gestionat de AI</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy" target="_blank" rel="noopener noreferrer">McKinsey Global Institute, The social economy: Unlocking value and productivity through social technologies</a>; <a href="https://www.fyxer.com/blog/best-ai-email-assistant" target="_blank" rel="noopener noreferrer">Fyxer, 7 best email assistants in 2026 for your inbox</a>; <a href="https://gmelius.com/blog/best-ai-assistants-for-email" target="_blank" rel="noopener noreferrer">Gmelius, 15 Best AI Email Assistants for Productivity in 2026</a>.</p>
