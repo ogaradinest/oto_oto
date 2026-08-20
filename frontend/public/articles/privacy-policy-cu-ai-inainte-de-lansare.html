@@ -1,0 +1,167 @@
+<!--
+title: Firma ta are nevoie de privacy policy înainte să aibă clienți
+tags: AI Governance, AI Implementation
+date: 2026-08-20
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 54% dintre siteurile firmelor mici din UK n-au privacy policy, deși GDPR îl cere din prima vizită. Iată cum îl scrii cu AI înainte să lansezi, nu după.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #b8480f; font-size: 0.82rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Hai să zicem că mai ai două săptămâni până lansezi. Logo-ul e gata, contul de Stripe e conectat, pozele la produse arată ok sub lumina din bucătărie. Și pac, un prieten din compliance te întreabă exact întrebarea care-ți strică seara: "Ce zice privacy policy-ul tău?" N-ai unul. Ziceai că n-ai nevoie încă, n-ai clienți, n-ai date, nu? Doar că site-ul tău are deja un formular de signup și Google Analytics care rulează în fundal, și amândouă colectează date personale din prima secundă în care intră cineva. Conform GDPR din UK, îți trebuia privacy policy de la ziua unu, nu de la prima vânzare.</p>
+
+<div class="ob-callout">
+  <p>Mai mult de jumătate dintre siteurile firmelor mici din UK, 54% într-un audit pe peste 1.000 de site-uri, calcă deja regula asta fără să știe.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">dintre cele 1.006 site-uri de firme mici din UK auditate n-aveau deloc privacy policy, deși GDPR îl cere pentru orice site care colectează date personale, potrivit UK Business List, 2026</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">52%</div>
+    <div class="ob-stat-label">dintre aceleași site-uri n-aveau niciun mecanism de cookie consent, o altă cerință GDPR pentru orice site cu analytics sau tracking</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£150–£280/oră</div>
+    <div class="ob-stat-label">atât cere de obicei un avocat din UK în afara Londrei pentru genul ăsta de redactare, ruta clasică și mai scumpă spre același document</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: AUDIT DATE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Fă-ți întâi un audit sincer al datelor</h2>
+  <p class="ob-section-sub">Nu poți scrie policy-ul până nu știi ce colectezi de fapt</p>
+
+  <p class="ob-p">Înainte să deschizi vreun tool de AI, fă o listă cu tot ce atinge date personale în afacerea ta: formularul de signup, Google Analytics, procesatorul de plăți, orice chatbot sau CRM pe care-l testezi. Majoritatea fondatorilor la prima lansare subestimează lista asta. Un magazin simplu pe Shopify sau Squarespace atinge deja cinci-șase tool-uri diferite înainte de prima vânzare.</p>
+  <p class="ob-p">Scrie-o pe limba ta: ce colectezi, de ce, unde se ține, și dacă vreo terță parte (Stripe, Mailchimp, Google) vede vreodată datele alea. Lista asta e input-ul real pentru pasul cu AI. Un prompt vag scoate un policy vag, necompliant, oricât de bun ar fi tool-ul.</p>
+</div>
+
+<!-- ─── SECTION 2: SCRIE CU AI ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Scrie-l cu AI, apoi verifică-l cu GDPR</h2>
+  <p class="ob-section-sub">Generatoarele și AI-urile generaliste merg amândouă, dacă verifici rezultatul</p>
+
+  <p class="ob-p">Bagă lista ta de date într-un generator dedicat (Termly și altele au template-uri gratuite sau ieftine pentru UK GDPR) sau în ChatGPT sau Claude, cu un prompt structurat care numește fiecare element din auditul tău. Oricare din rute îți scoate un draft funcțional în minute, nu în zilele cât durează de obicei coada unui avocat.</p>
+  <p class="ob-p">Apoi verifică draft-ul cu ghidul ICO: numește o bază legală pentru fiecare tip de date, spune cât timp le ții, și dă o cale clară de contact? Tool-urile de AI se pricep la structură și engleză simplă, dar nu știu perioada ta reală de retenție sau dacă te-ai înregistrat la ICO. Detaliile alea le completezi tu.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Fă lista cu toate tool-urile care colectează date</span>
+    <span class="ob-badge">Scrie draft-ul cu AI în minute</span>
+    <span class="ob-badge">Verifică cu ghidul ICO</span>
+    <span class="ob-badge">Adaugă orice ține de AI</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: CLAUZA UITATĂ ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Clauza pe care majoritatea fondatorilor o uită: propriul lor AI</h2>
+  <p class="ob-section-sub">Un exemplu mic: un magazin online de o singură persoană</p>
+
+  <p class="ob-p">Priya era la trei săptămâni de lansarea unui magazin de bijuterii handmade. A folosit un generator și a scris privacy policy-ul în vreo 40 de minute, plecând de la o listă exactă cu ce colecta site-ul ei: date de checkout din Shopify, date de email din Klaviyo, și un chatbot Tidio care citea mesajele clienților. Template-ul default al generatorului nu pomenea nimic de furnizorul AI al chatbot-ului, așa că a adăugat un paragraf care-l numea, exact ce așteaptă ICO pentru orice folosește procesare automată a datelor personale.</p>
+  <p class="ob-p">Asta e gaura pe care policy-urile scrise cu AI o lasă cel mai des: construite din ce e comun, nu din ce rulează chiar pe site-ul tău. Să verifici lista ta de tool-uri cu draft-ul, linie cu linie, sunt zece minute care fac diferența dintre un document corect și unul doar plauzibil.</p>
+</div>
+
+<!-- ─── DARK: ÎNTREBĂRI RAPIDE ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Cele mai frecvente întrebări ale proprietarilor de afaceri mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Am nevoie de privacy policy înainte să am vreun client?</p>
+    <p class="ob-faq-a">Da. Dacă site-ul tău colectează orice fel de date personale, inclusiv printr-un formular de signup sau cookie-uri de analytics, GDPR din UK cere un policy din momentul în care site-ul e live, nu de la prima vânzare.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Un privacy policy generat cu AI e chiar legal compliant?</p>
+    <p class="ob-faq-a">Poate fi o bază solidă și compliantă dacă îi dai o listă corectă cu ce colectezi și-l verifici cu ghidul ICO. Dar nu ține loc de sfat juridic dacă afacerea ta atinge ceva neobișnuit, gen date medicale sau minori.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Care e diferența reală dintre privacy policy și termeni și condiții?</p>
+    <p class="ob-faq-a">Privacy policy explică ce date personale colectezi și de ce. Termenii și condițiile stabilesc regulile de folosire a produsului sau site-ului tău, gen plată, retururi, răspundere. Majoritatea afacerilor noi au nevoie de amândouă, ca documente separate.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Trebuie să menționez tool-urile AI, gen un chatbot, în policy?</p>
+    <p class="ob-faq-a">Da, dacă tool-ul ăla procesează date de clienți. ICO se așteaptă la asta menționat, și pregătește ghiduri noi despre decizii automate în 2026, așa că ține secțiunea asta ușor de actualizat.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Pentru un fondator care lansează pe bani puțini, £150-£280 pe oră pentru un avocat nu-i un rest de buget, e runway adevărat. Dar nici să sari peste policy nu-i gratis: ICO merge și după firme mici, nu doar după corporații mari, și un client care vede că lipsește privacy policy-ul de pe un site nou pierde încrederea rapid. Un draft făcut cu AI, plecând de la un audit sincer al tool-urilor tale, îți dă un document compliant la costul unei după-amiezi, nu al facturii unui avocat.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta săptămâna asta</div>
+  <p>Săptămâna asta, înainte să deschizi vreun generator: fă lista cu tot ce atinge date de clienți pe site (formulare de signup, analytics, procesator de plăți, orice chatbot sau CRM), bagă lista într-un generator de privacy policy pentru UK GDPR sau într-un prompt structurat de AI, verifică draft-ul cu ghidul ICO, și publică-l în footer înainte să iei primul signup.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe sfaturi practice de AI pentru afacerea ta?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers pentru mai mult</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Dacă îți pui la punct și restul stack-ului de date despre clienți în aceeași perioadă, <a class="ob-link" href="#/articles/ai-crm-for-startups">un CRM cu AI pentru startup-uri</a> are nevoie de același tip de audit de date.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.ukbusinesslist.co.uk/one-thousand-uk-website-audit-results/" target="_blank" rel="noopener noreferrer">UK Business List, We Audited Over 1,000 UK Small Business Websites (2026)</a>; <a href="https://www.accountsforlawyers.co.uk/blog/practice-accounting/how-much-do-uk-solicitors-charge-per-hour" target="_blank" rel="noopener noreferrer">Accounts for Lawyers, UK Solicitor Hourly Rates by Firm Type and Seniority</a>; <a href="https://termly.io/resources/articles/ai-privacy-policy/" target="_blank" rel="noopener noreferrer">Termly, AI Privacy Policy: Informational Guide for Businesses</a>.</p>
