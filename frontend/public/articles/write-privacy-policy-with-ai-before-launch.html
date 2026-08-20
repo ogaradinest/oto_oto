@@ -1,0 +1,167 @@
+<!--
+title: Your website needs a privacy policy before it needs customers
+tags: AI Governance, AI Implementation
+date: 2026-08-19
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 54% of UK small business websites are missing the privacy policy GDPR requires — here's how to draft yours with AI before you launch, not after.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #b8480f; font-size: 0.82rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Say you're two weeks out from launch. The logo's done, the Stripe account's connected, the product photos look decent under your kitchen light. Then a friend in compliance asks the question that ruins your evening: "What does your privacy policy say?" You don't have one — no customers yet, no data, right? Except your site already has an email signup box and Google Analytics running quietly, both collecting personal data the moment someone visits. Under UK GDPR, you needed a privacy policy from day one, not from your first sale.</p>
+
+<div class="ob-callout">
+  <p>More than half of UK small business websites — 54% in one audit of over 1,000 sites — are already breaking this rule without realising it.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">of 1,006 UK small business websites audited had no privacy policy at all, despite GDPR requiring one for any site that collects personal data — UK Business List, 2026</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">52%</div>
+    <div class="ob-stat-label">of the same sites had no cookie consent mechanism, another GDPR requirement for any site using analytics or tracking tools</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£150–£280/hr</div>
+    <div class="ob-stat-label">the typical range UK high-street solicitors charge outside London for this kind of drafting — the traditional, pricier route to the same document</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: DATA AUDIT ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Start With an Honest Data Audit</h2>
+  <p class="ob-section-sub">You can't write the policy until you know what you're actually collecting</p>
+
+  <p class="ob-p">Before opening any AI tool, list every place personal data touches your business: the email signup form, Google Analytics, your payment processor, any chatbot or CRM you're testing. Most first-time founders underestimate this — a basic Shopify or Squarespace store easily touches five or six different tools before a single sale happens.</p>
+  <p class="ob-p">Write it in plain language: what you collect, why, where it's stored, and whether a third party (Stripe, Mailchimp, Google) ever sees it. That list is the real input for the AI step — a vague prompt produces a vague, non-compliant policy, no matter how good the tool is.</p>
+</div>
+
+<!-- ─── SECTION 2: DRAFT WITH AI ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Draft It With AI, Then Check It Against GDPR</h2>
+  <p class="ob-section-sub">Generators and general AI tools both work, if you check the output</p>
+
+  <p class="ob-p">Feed your data list into a dedicated generator (Termly and similar tools offer free or low-cost UK-GDPR templates) or into ChatGPT or Claude with a structured prompt naming every item from your audit. Either route produces a workable first draft in minutes rather than the days a solicitor's queue usually takes.</p>
+  <p class="ob-p">Then check the draft against the ICO's own guidance: does it name a lawful basis for each type of data, explain how long you keep it, and give a clear way to contact you about it? AI tools are good at structure and plain English, but they don't know your actual retention period or whether you've registered with the ICO — you still fill in those specifics.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">List every data-collecting tool first</span>
+    <span class="ob-badge">Draft with AI in minutes</span>
+    <span class="ob-badge">Check against ICO guidance</span>
+    <span class="ob-badge">Add anything AI-specific</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: THE FORGOTTEN CLAUSE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Clause Most Founders Forget: Disclosing Your Own AI Use</h2>
+  <p class="ob-section-sub">A mini example: a one-person online store</p>
+
+  <p class="ob-p">Priya was three weeks from launching a handmade jewellery store. She used a generator to draft her policy in about 40 minutes, working from a list of what her site actually collected: Shopify checkout data, Klaviyo email data, and a Tidio chatbot reading customer messages. The generator's default template didn't mention the chatbot's AI provider — so she added one paragraph naming it, which is what the ICO expects for anything using automated processing of personal data.</p>
+  <p class="ob-p">That's the gap AI-generated policies most often leave: built from what's common, not what's actually running on your site. Cross-checking your own tool list against the draft, line by line, is the ten minutes that makes it accurate instead of just plausible.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a privacy policy before I have any customers?</p>
+    <p class="ob-faq-a">Yes — if your site collects any personal data at all, including through an email signup form or analytics cookies, UK GDPR requires a policy from the moment the site goes live, not from your first sale.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is an AI-generated privacy policy actually legally compliant?</p>
+    <p class="ob-faq-a">It can be a solid, compliant baseline if you feed it an accurate list of what you collect and check it against ICO guidance — but it isn't a substitute for legal advice if your business handles anything unusual, like health data or under-18s.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the real difference between a privacy policy and terms & conditions?</p>
+    <p class="ob-faq-a">A privacy policy explains what personal data you collect and why; terms & conditions cover the rules of using your product or site, like payment, returns, and liability. Most new businesses need both, and they're separate documents.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I have to mention AI tools, like a chatbot, in my policy?</p>
+    <p class="ob-faq-a">Yes, if that tool processes customer data — the ICO expects this disclosed, and is publishing further guidance on automated decision-making in 2026, so keep this section easy to update.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a founder bootstrapping a launch, £150-£280 an hour for a solicitor isn't a rounding error — it's real runway. But skipping the policy isn't free either: the ICO pursues small businesses, not just large corporates, and a customer who spots a missing privacy policy loses trust in a new site fast. An AI-assisted draft, built from an honest audit of your own tools, gets you a compliant document for the cost of an afternoon instead of a solicitor's invoice.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, before touching a generator: list every tool on your site that touches customer data (signup forms, analytics, payment processor, any chatbot or CRM), feed that list into a UK-GDPR privacy policy generator or a structured AI prompt, check the draft against ICO guidance, and publish it in your site footer before you accept your first sign-up.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI guidance for your business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're setting up the rest of your customer data stack at the same time, <a class="ob-link" href="#/articles/ai-crm-for-startups">an AI CRM for startups</a> needs the same kind of data audit before you switch it on.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.ukbusinesslist.co.uk/one-thousand-uk-website-audit-results/" target="_blank" rel="noopener noreferrer">UK Business List, We Audited Over 1,000 UK Small Business Websites (2026)</a>; <a href="https://www.accountsforlawyers.co.uk/blog/practice-accounting/how-much-do-uk-solicitors-charge-per-hour" target="_blank" rel="noopener noreferrer">Accounts for Lawyers, UK Solicitor Hourly Rates by Firm Type and Seniority</a>; <a href="https://termly.io/resources/articles/ai-privacy-policy/" target="_blank" rel="noopener noreferrer">Termly, AI Privacy Policy: Informational Guide for Businesses</a>.</p>
