@@ -1,0 +1,187 @@
+<!--
+title: Mitul cu AI-ul doar pentru corporații nu mai rezistă cifrelor din UK
+tags: AI Strategy, AI Implementation
+date: 2026-08-22
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: 54% dintre IMM-urile din UK folosesc deja AI activ, față de doar 23% acum trei ani. Mitul cu "AI-ul e pentru marile companii" a expirat.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Ai avut și tu gândul ăsta măcar o dată: AI-ul e chestie de corporație. E pentru depozitele Amazon, pentru Google, pentru vreun departament de inovație cu buget cu șase zerouri. Tu ai cinci angajați și un to-do list care nu se termină niciodată, deci treci mai departe. Ei bine, gândul ăsta nu mai stă în picioare, și o spun cifrele din UK, nu eu.</p>
+
+<div class="ob-callout">
+  <p>54% dintre IMM-urile din UK adoptă activ AI în 2026, față de 23% acum trei ani.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">55%</div>
+    <div class="ob-stat-label">dintre firmele mici din UK folosesc deja tehnologie AI, față de doar 20% în 2023 (Federation of Small Businesses)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">dintre IMM-urile din UK adoptă activ AI în 2026, conform British Chambers of Commerce și Atos, față de 35% în 2025 și 23% în 2023</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">~35%</div>
+    <div class="ob-stat-label">dintre firmele din UK cu peste 10 angajați raportează că folosesc AI, aproape triplu față de ~12% la finalul lui 2023 (ONS)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">De unde vine mitul ăsta cu "AI-ul e pentru cei mari"</h2>
+  <p class="ob-section-sub">Primele titluri erau toate despre Big Tech</p>
+
+  <p class="ob-p">E ușor de înțeles de ce am ajuns aici. Primii ani de AI au fost numai despre logistica Amazon, motorul de căutare al Google și consultanțe care vindeau programe de "transformare AI" de sute de mii de lire firmelor mari. Nimic din toate astea nu părea să aibă legătură cu un magazin de cinci oameni. Dar uneltele care chiar au contat pentru firmele mici n-au fost sistemele alea enterprise. Au fost aplicații gratuite sau ieftine, deschise într-un tab de browser, fără niciun departament IT în spate.</p>
+  <p class="ob-p">Fix de-asta cifrele au luat pe toată lumea prin surprindere. Federation of Small Businesses pune acum adopția AI la firmele mici la 55%, aproape triplu față de 2023. Nu-i vorba de câțiva startup-iști tech care umflă media. E vorba de instalatori, brutării, contabili.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce fac de fapt firmele mici cu AI</h2>
+  <p class="ob-section-sub">Scris, programări și răspunsuri la clienți, în frunte</p>
+
+  <p class="ob-p">Ia o brutărie mică, patru oameni la echipă. Proprietara a început să folosească un tool AI gratuit ca să scrie captions pentru social media și să răspundă la emailurile cu furnizorii. Nimic sofisticat, doar un tab deschis între loturile de la cuptor. În câteva săptămâni economisea cam trei ore pe săptămână, timp pus înapoi la tejghea. Fără developer, fără proces de achiziții, fără buget cu șase zerouri. Doar a ales o sarcină enervantă și a lăsat AI-ul să facă prima variantă.</p>
+  <p class="ob-p">Tiparul ăsta se repetă peste tot: content și copywriting sunt cel mai folosit caz printre firmele mici care adoptă AI, urmate de chatbot-uri pentru clienți și administrare de programări. Nimic din toate astea nu cere infrastructura pe care o crede lumea necesară pentru "AI adevărat".</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Content și copywriting</h4>
+      <p>Captions, emailuri, descrieri de produse, direct din browser</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Chatbot-uri pentru clienți</h4>
+      <p>Răspunsuri rapide fără să angajezi pe cineva la suport</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Administrare de programări</h4>
+      <p>Calendar și reminders puse pe pilot automat</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">De ce firma mică se mișcă mai repede decât cea mare</h2>
+  <p class="ob-section-sub">Fără comitet de guvernanță, fără balamuc de aprobări</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">Aici e răsturnarea: a fi mic e adesea avantaj, nu piedică. O organizație mare care adoptă AI trebuie să treacă prin legal, achiziții, aprobare de securitate IT și change management înainte ca cineva să atingă un tool nou. Un proprietar de firmă mică poate să încerce ceva azi după-amiază și să renunțe vineri dacă nu merge. Viteza asta e exact motivul pentru care IMM-urile mai agile recuperează din diferența de adopție față de firmele mari, în loc să rămână tot mai în urmă.</p>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Ce întreabă cel mai des proprietarii de firme mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Am nevoie de developer ca să încep să folosesc AI în firmă?</p>
+    <p class="ob-faq-a">Nu. Majoritatea firmelor mici pornesc cu tooluri gata făcute, un asistent de scris, un chatbot builder, o aplicație de programări, care merg direct din browser. Fără cod, fără echipă IT.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Nu-i prea scump AI-ul pentru o firmă de dimensiunea mea?</p>
+    <p class="ob-faq-a">Majoritatea uneltelor care duc adopția în firmele mici sunt gratuite sau costă mai puțin decât un abonament de cafea pe lună. Povestea cu "proiect AI de sute de mii de lire" e una enterprise, nu una de IMM.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Dacă adopția e atât de mare, ce oprește totuși firmele mici?</p>
+    <p class="ob-faq-a">Cunoștințele, nu accesul. O treime dintre firmele mici spun că ar începe să folosească AI dacă ar avea un ghid mai clar de implementare. Uneltele există, încrederea de a porni e adevăratul gol.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">De unde încep dacă n-am mai folosit niciodată AI în firmă?</p>
+    <p class="ob-faq-a">Alege o sarcină pe care o repeți deja în fiecare săptămână, captions, răspunsuri la email, notițe de meeting, și testează un tool AI gratuit pe sarcina aia timp de șapte zile înainte să decizi dacă merită păstrat.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Pentru o firmă mică, mitul cu "AI-ul e pentru marile companii" chiar te costă timp pe care nu-l ai. Fiecare săptămână în care presupui că nu-i pentru tine e încă o săptămână în care faci manual ceva ce un tool gratuit ar face în secunde. Spre deosebire de o organizație mare, nu ai nevoie de aprobare de la cinci departamente ca să încerci ceva. Poți testa un tool pe o singură sarcină săptămâna asta și știi vineri dacă merită păstrat. Firmele care ies în față în cifrele din 2026 nu-s cele cu bugetele cele mai mari. Sunt cele care au încetat să mai presupună că AI-ul nu-i construit pentru ele.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta</div>
+  <p>Alege o sarcină repetitivă, captions pentru social media, răspunsuri la emailuri de rutină sau notițe de meeting, și testează un tool AI gratuit pe sarcina aia săptămâna asta. Fără departament IT necesar.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai mult conținut ca ăsta despre AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Dacă tot crezi că AI-ul nu-i pentru bugetul tău, <a class="ob-link" href="#/articles/is-ai-too-expensive-for-small-business">AI-ul e mai ieftin decât crezi pentru o firmă mică</a> îți arată cifrele reale.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.fsb.org.uk/media-centre/press-release/pace-of-ai-adoption-means-government-and-education-system-have-to-catch-up-fast-MCWW5ZRBPHABA3LAKK5YONCSC7TM" target="_blank" rel="noopener noreferrer">Federation of Small Businesses — Pace of AI adoption press release</a>; <a href="https://www.britishchambers.org.uk/news/2026/03/half-of-smes-using-ai-with-limited-headcount-impact-so-far/" target="_blank" rel="noopener noreferrer">British Chambers of Commerce — Half of SMEs Using AI, With Limited Headcount Impact So Far</a>; <a href="https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026" target="_blank" rel="noopener noreferrer">Office for National Statistics — Artificial intelligence in UK businesses: 2023 to 2026</a>.</p>
