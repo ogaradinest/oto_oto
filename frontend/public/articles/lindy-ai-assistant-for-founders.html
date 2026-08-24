@@ -1,0 +1,158 @@
+<!--
+title: The AI assistant that gives founders their week back
+tags: AI Technology, AI Implementation
+date: 2026-08-23
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: Harvard research found CEOs spend most of their time on reactive admin, not strategy — Lindy is an AI agent that triages your inbox, runs your calendar, and takes meeting notes so you don't have to.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #b8501f; font-size: 0.82rem; font-weight: 600; padding: 0.5rem 0.9rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You start a company to build something, and somehow half your day still disappears into clearing your inbox, shuffling your calendar, and writing up notes from a call nobody else was on. There's no ops team to hand that to yet — it's just you, and it eats hours you meant to spend on the product or the next customer. Lindy sits in that gap: an AI agent you train once, then it triages email, books and reshuffles meetings, joins calls to take notes, and updates your CRM on its own.</p>
+
+<div class="ob-callout">
+  <p>Knowledge workers using a production AI agent recover a median 6.4 hours a week per seat — for a solo founder, that's most of a working day handed back.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">43%</div>
+    <div class="ob-stat-label">of a CEO's time actually goes toward advancing their strategic agenda — the rest is reactive email and meetings, per a 12-year Harvard Business School study (Porter & Nohria, 2018)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">of UK SMEs now use AI in some form, up from 35% a year earlier, per British Chambers of Commerce and Atos (March 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">6.4 hrs</div>
+    <div class="ob-stat-label">the median weekly time knowledge workers recover per seat using a production AI agent, per McKinsey and Slack's 2026 research</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Lindy actually does</h2>
+  <p class="ob-section-sub">An AI teammate for your inbox and calendar, not another chatbot</p>
+
+  <p class="ob-p">Lindy connects to your email and calendar and builds no-code AI agents that triage and draft messages, schedule and reschedule meetings, sit in on calls to write up notes and action items, and update your CRM afterwards — across more than 100 connected apps, triggered automatically or on demand.</p>
+  <p class="ob-p">Take a two-person founding team pre-seed: one of them lost an hour most mornings sorting overnight email and moving calls after a late investor reply. They set Lindy to triage the inbox into three folders and auto-reschedule anything clashing with deep-work blocks. Within a week that hour had shrunk to ten minutes of checking Lindy's summary.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Triages and drafts email automatically</span>
+    <span class="ob-badge">Joins calls, writes notes and action items</span>
+    <span class="ob-badge">Updates your CRM without being asked</span>
+    <span class="ob-badge">From $49.99/month, no free tier</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Worth it before you've hired anyone?</h2>
+  <p class="ob-section-sub">Weighing $50-100 a month against doing it all yourself</p>
+
+  <p class="ob-p">Lindy's Plus plan runs $49.99 a month for two inboxes; Pro adds browser automation and three inboxes for $99.99. There's no free tier, just a seven-day trial. Compared with a part-time human assistant — typically £2,000-3,000 a month in the UK — it's a fraction of the cost, though it's also narrower: Lindy handles structured, repeatable admin well, but a founder still has to make the judgement calls it can't.</p>
+  <p class="ob-p" style="margin-bottom: 0;">It's also not the only option — Motion focuses on auto-building your daily schedule around tasks and deadlines, while Lindy covers more ground across email, notetaking, and CRM updates. For a founder with a genuinely messy inbox and no support staff, that broader coverage tends to pay off fastest.</p>
+</div>
+
+<!-- ─── DARK: FAQ ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick questions</h2>
+  <p class="ob-section-sub">What founders ask before connecting an AI agent to their inbox</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is Lindy worth paying for before I've hired any staff?</p>
+    <p class="ob-faq-a">Often yes for a founder buried in email and rescheduling — at $49.99 a month it's far cheaper than part-time human support, though it won't make judgement calls for you.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the difference between Lindy and an AI scheduling tool like Motion?</p>
+    <p class="ob-faq-a">Motion focuses on auto-building your daily schedule from tasks and deadlines. Lindy covers more ground — email triage, meeting notes, and CRM updates — as a broader admin agent.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is my data safe with an AI agent reading my inbox?</p>
+    <p class="ob-faq-a">Lindy states it adheres to GDPR, SOC 2, HIPAA and PIPEDA standards, but any founder connecting an AI tool to email or a CRM should check the vendor's specific data-handling terms first.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much admin time can I realistically expect back?</p>
+    <p class="ob-faq-a">Knowledge workers using production AI agents recover a median 6.4 hours a week per seat, per McKinsey and Slack's 2026 research — expect a meaningful chunk of your admin time, not all of it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why it matters for you</div>
+  <p>A solo founder or two-person team has no assistant to absorb a chaotic inbox or a double-booked afternoon — every hour spent on admin is an hour not spent talking to customers or building the product. With UK SME AI adoption now past the halfway mark, tools like Lindy are becoming a normal part of how small teams stay lean instead of hiring too early just to keep the calendar under control.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this</div>
+  <p>This week, connect one inbox to Lindy's seven-day trial and set up a single automation — email triage or auto-scheduling — before adding anything else, so you can judge the time saved against the $49.99 monthly cost.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more content like this about AI for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If your schedule needs the bigger fix, <a class="ob-link" href="#/articles/motion-ai-scheduling-assistant-for-founders">an AI planner that focuses specifically on rebuilding your daily schedule</a> is worth a look. Or see <a class="ob-link" href="#/articles/ai-email-management-sme-7-hours-a-week">how another small business reclaimed hours with AI inbox management</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://hbr.org/2018/07/how-ceos-manage-time" target="_blank" rel="noopener noreferrer">Harvard Business Review — How CEOs Manage Time (Porter & Nohria, 2018)</a>; <a href="https://www.britishchambers.org.uk/news/2026/03/half-of-smes-using-ai-with-limited-headcount-impact-so-far/" target="_blank" rel="noopener noreferrer">British Chambers of Commerce & Atos — Future of Work: AI in the Workplace (March 2026)</a>; <a href="https://www.glean.com/work-ai-institute/reports/work-ai-index" target="_blank" rel="noopener noreferrer">McKinsey Global AI Survey 2026 / Slack Workforce Index Q1 2026</a>.</p>
