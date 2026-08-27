@@ -1,0 +1,177 @@
+<!--
+title: AI-ul care-ți curăță inboxul cât tu bei cafeaua
+tags: AI Implementation, AI Technology
+date: 2026-08-25
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Un studiu de la Harvard a găsit că CEO-ii își petrec cea mai mare parte din timp pe admin reactiv, nu pe strategie. Lindy e un AI agent care-ți triază inboxul, îți gestionează calendarul și-ți scrie notițele de la meeting-uri.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (feature list) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Pornești o firmă ca să construiești ceva, și cumva jumate din zi tot dispare pe curățat inboxul, mutat calendarul și scris notițe de la un call la care n-a fost nimeni altcineva. Nu ai o echipă de ops căreia să-i dai dracia asta, ești doar tu, și-ți mănâncă orele pe care voiai să le pui pe produs sau pe următorul client. Lindy vine fix pentru golul ăsta: un AI agent pe care-l antrenezi o dată, și de-atunci îți triază mailul, îți face și reface meeting-urile, se bagă la call-uri să scrie notițe și-ți actualizează singur CRM-ul.</p>
+
+<div class="ob-callout">
+  <p>Angajații care folosesc un AI agent în producție recuperează în medie 6,4 ore pe săptămână per persoană. Pentru un fondator solo, asta-i aproape o zi de muncă întreagă înapoi.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">43%</div>
+    <div class="ob-stat-label">din timpul unui CEO chiar merge pe agenda strategică, restul pe treabă reactivă, mail și meeting-uri (studiu de 12 ani, Harvard Business School, Porter &amp; Nohria, HBR 2018)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">din SME-urile din UK folosesc deja AI într-o formă sau alta, față de 35% cu un an în urmă (British Chambers of Commerce &amp; Atos, martie 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">6,4 ore</div>
+    <div class="ob-stat-label">timpul mediu recuperat pe săptămână per persoană de angajații care folosesc un AI agent în producție (McKinsey Global AI Survey 2026 / Slack Workforce Index Q1 2026)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: CE FACE LINDY ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce face Lindy, de fapt</h2>
+  <p class="ob-section-sub">Un coleg de echipă cu AI pentru inbox și calendar, nu încă un chatbot</p>
+
+  <p class="ob-p">Lindy se conectează la mailul și calendarul tău și construiește AI agents fără cod care-ți triază și scriu draft-uri de mail, îți programează și reprogramează meeting-uri, se bagă la call-uri să scrie notițe și action items, apoi îți actualizează CRM-ul. Toate astea peste 100 de aplicații conectate, declanșate automat sau la cerere.</p>
+  <p class="ob-p">Ia o echipă de doi fondatori, pre-seed. Unul dintre ei pierdea aproape o oră în fiecare dimineață doar sortând mailurile de peste noapte și mutând call-uri după ce venea un răspuns întârziat de la un investitor. Au pus Lindy să-i triaze inboxul în trei foldere și să reprogrameze automat orice se ciocnea cu blocurile de deep-work. Într-o săptămână, ora aia de dimineață s-a redus la zece minute de citit rezumatul lui Lindy.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Triază și scrie draft-uri de mail singur</span>
+    <span class="ob-badge">Se bagă la call-uri, scrie notițe și action items</span>
+    <span class="ob-badge">Îți actualizează CRM-ul fără să-i ceri</span>
+    <span class="ob-badge">De la 49,99 $/lună, fără plan gratuit</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: MERITĂ? ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Merită înainte să angajezi pe cineva?</h2>
+  <p class="ob-section-sub">50 până la 100 de dolari pe lună versus să faci totul singur</p>
+
+  <p class="ob-p">Planul Plus de la Lindy costă 49,99 dolari pe lună pentru două inboxuri, Pro adaugă browser automation și trei inboxuri pentru 99,99 dolari. Nu există plan gratuit, doar un trial de șapte zile. Comparat cu un asistent uman part-time, de obicei £2.000 până la £3.000 pe lună în UK, e o fracțiune din cost. Dar e și mai îngust: Lindy se descurcă bine pe admin structurat și repetitiv, dar tot fondatorul trebuie să ia deciziile pe care AI-ul nu le poate lua.</p>
+
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">Cum se compară cu alternativele</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Lindy — mail, notițe, CRM, admin general</span><span class="ob-compare-num">49,99 $/lună</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Asistent uman part-time (UK)</span><span class="ob-compare-num">£2.000–£3.000/lună</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Motion — doar programare zilnică</span><span class="ob-compare-num">acoperire mai îngustă</span></div>
+    </div>
+  </div>
+
+  <p class="ob-p" style="margin-top: 1.25rem;">Nici nu-i singura opțiune. Motion se concentrează strict pe reconstruit programul zilnic în jurul task-urilor și termenelor, în timp ce Lindy acoperă mai mult teren, mail, notițe, CRM. Pentru un fondator cu un inbox chiar dezastruos și fără nimeni care să-l ajute, acoperirea mai largă a lui Lindy se plătește singură cel mai repede.</p>
+</div>
+
+<!-- ─── DARK: ÎNTREBĂRI RAPIDE ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Ce întreabă cel mai des fondatorii de firme mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Merită Lindy înainte să am orice angajat?</p>
+    <p class="ob-faq-a">De multe ori da, dacă ești un fondator îngropat în mail și reprogramări. La 49,99 dolari pe lună e mult mai ieftin decât suport uman part-time, deși nu-ți ia deciziile în locul tău.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Care-i diferența dintre Lindy și un tool de programare cu AI ca Motion?</p>
+    <p class="ob-faq-a">Motion se concentrează pe reconstruit programul zilnic din task-uri și termene. Lindy acoperă mai mult: triaj de mail, notițe de meeting și actualizări de CRM, ca un agent de admin mai general.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi sunt datele în siguranță dacă un AI îmi citește inboxul?</p>
+    <p class="ob-faq-a">Lindy spune că respectă standardele GDPR, SOC 2, HIPAA și PIPEDA, dar orice fondator care conectează un tool AI la mail sau CRM ar trebui să verifice întâi termenii exacți de procesare a datelor.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât timp de admin recuperez, realist?</p>
+    <p class="ob-faq-a">Angajații care folosesc AI agents în producție recuperează în medie 6,4 ore pe săptămână per persoană, potrivit cercetării McKinsey și Slack din 2026. Așteaptă-te la o parte importantă din timpul de admin, nu la tot.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Un fondator solo sau o echipă de doi nu are asistent care să absoarbă un inbox plin sau o după-amiază cu programări suprapuse. Fiecare oră pe admin e o oră nepetrecută cu clienții sau cu construitul produsului. Cu adoption-ul de AI la SME-urile din UK trecut deja de jumătate, tool-uri ca Lindy devin normale pentru echipele mici care vor să rămână slabe, nu să angajeze prea devreme doar ca să țină calendarul sub control.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta săptămâna asta</div>
+  <p>Conectează un inbox la trial-ul de șapte zile al lui Lindy și pune-i o singură automatizare, triaj de mail sau auto-programare, înainte să adaugi altceva. Așa poți judeca timpul economisit față de costul de 49,99 dolari pe lună.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe ghiduri ca ăsta despre AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Dacă vrei <a class="ob-link" href="#/articles/motion-asistent-ai-programare-fondatori">un planificator AI concentrat strict pe reconstruit programul tău zilnic</a>, sau vrei să vezi <a class="ob-link" href="#/articles/email-cu-ai-7-ore-recuperate-pe-saptamana">cum a recuperat o altă firmă mică ore cu gestionarea AI a mailului</a>, ambele completează ce face Lindy.</p>
+
+<p class="ob-sources">Surse: <a href="https://hbr.org/2018/07/how-ceos-manage-time" target="_blank" rel="noopener noreferrer">Harvard Business Review, How CEOs Manage Time (Porter &amp; Nohria, 2018)</a>; <a href="https://www.britishchambers.org.uk/news/2026/03/half-of-smes-using-ai-with-limited-headcount-impact-so-far/" target="_blank" rel="noopener noreferrer">British Chambers of Commerce &amp; Atos, Future of Work — AI in the Workplace Report (martie 2026)</a>; <a href="https://www.glean.com/work-ai-institute/reports/work-ai-index" target="_blank" rel="noopener noreferrer">McKinsey Global AI Survey 2026 / Slack Workforce Index Q1 2026 (via Work AI Index 2026)</a>.</p>
