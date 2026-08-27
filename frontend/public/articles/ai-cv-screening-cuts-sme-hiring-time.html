@@ -1,0 +1,156 @@
+<!--
+title: The CV pile that AI turned into a ten-minute shortlist
+tags: AI Implementation, AI Governance
+date: 2026-08-26
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Just 20% of UK SMEs use software to screen CVs, versus 70% of large firms — here's what changed when one nine-person company finally tried it.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Picture a nine-person marketing agency owner with 74 CVs open across three browser tabs for one account manager role, forty minutes in and two-thirds of the pile still unread. This is how most small businesses still hire — one PDF at a time, usually after hours. It's also exactly the gap AI screening tools were built to close, and most SME owners haven't tried one yet.</p>
+
+<div class="ob-callout">
+  <p>Only 1 in 5 UK small businesses use software to screen CVs, compared with 7 in 10 large companies — the tools exist, most SMEs just haven't switched on yet.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">20%</div>
+    <div class="ob-stat-label">of UK SMEs use ATS/screening software, versus 70% of large businesses (standout-cv.com, AI in Recruitment Statistics UK 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">75%</div>
+    <div class="ob-stat-label">cut in time-to-screen reported where businesses use AI to filter resumes (Truffle, 100 AI Recruiting Statistics for 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">57%</div>
+    <div class="ob-stat-label">of small businesses now use AI somewhere in hiring, up from 36% in 2023 (Paychex small business survey, via Forbes)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHAT CHANGED ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What actually changed for the agency</h2>
+  <p class="ob-section-sub">The same role, filled in half the time</p>
+
+  <p class="ob-p">Two weeks later, for the next open role, she ran the same size stack through a CV screening tool that ranked candidates against the job spec and flagged the ten strongest matches with a one-line reason each. Reading time dropped from roughly three hours to under forty minutes, and first-round calls went out the same day instead of the following week. Time-to-hire for that role came in at just under three weeks — well under the roughly eight-week average UK employers reported in 2025.</p>
+  <p class="ob-p">Nothing about the decision changed hands to a machine. The tool sorted and surfaced; she still read every shortlisted CV and made every call herself. Screening is the repetitive part; judgment is the part that still needs a person.</p>
+</div>
+
+<!-- ─── SECTION 2: WHY MOST SMES DON'T ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why most SMEs are still doing this by hand</h2>
+  <p class="ob-section-sub">It's not resistance, it's bandwidth</p>
+
+  <p class="ob-p">The 20%-versus-70% gap isn't really about AI scepticism — enterprise HR teams have dedicated recruiters to configure a system, and a nine-person agency doesn't. Most SME-friendly screening tools now set up in under an hour: upload the job spec, connect your inbox or job board, and ranking starts on the next batch of applications. No IT department required.</p>
+  <p class="ob-p">The bigger shift worth planning for is regulatory. From August 2026, AI tools used in recruiting and screening face formal requirements around bias testing, transparency, and human oversight. In practice, that mostly means: keep a human making the final call, and be ready to explain in plain English how the tool ranks candidates.</p>
+
+  <div class="ob-compare-grid" style="display:grid;grid-template-columns:1fr;gap:1rem;margin:1.5rem 0 0;">
+    <div class="ob-compare-card" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:1.5rem;">
+      <div class="ob-compare-label" style="font-size:0.7rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#9ca3af;margin-bottom:0.6rem;">Before vs. after screening software</div>
+      <div class="ob-compare-row" style="display:flex;justify-content:space-between;align-items:baseline;padding:0.5rem 0;border-bottom:1px solid #e5e7eb;gap:1rem;"><span class="ob-compare-name" style="font-size:0.88rem;color:#374151;font-weight:600;">Reading time for 74 CVs</span><span class="ob-compare-num" style="font-size:1.1rem;color:#FF6B2C;font-weight:900;white-space:nowrap;">~3 hrs → under 40 min</span></div>
+      <div class="ob-compare-row" style="display:flex;justify-content:space-between;align-items:baseline;padding:0.5rem 0;border-bottom:1px solid #e5e7eb;gap:1rem;"><span class="ob-compare-name" style="font-size:0.88rem;color:#374151;font-weight:600;">First-round calls sent</span><span class="ob-compare-num" style="font-size:1.1rem;color:#FF6B2C;font-weight:900;white-space:nowrap;">next week → same day</span></div>
+      <div class="ob-compare-row" style="display:flex;justify-content:space-between;align-items:baseline;padding:0.5rem 0;border-bottom:none;gap:1rem;"><span class="ob-compare-name" style="font-size:0.88rem;color:#374151;font-weight:600;">Time-to-hire vs. UK 2025 average</span><span class="ob-compare-num" style="font-size:1.1rem;color:#FF6B2C;font-weight:900;white-space:nowrap;">~3 wks vs. ~8 wks</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will an AI screening tool reject good candidates I'd have picked myself?</p>
+    <p class="ob-faq-a">It ranks and flags rather than rejects — you still see every application if you choose to, so nothing is hidden from you, just prioritised.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a big applicant volume for this to be worth it?</p>
+    <p class="ob-faq-a">It pays off from as few as 15-20 applications per role; below that, manual screening is usually still faster.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does an SME-grade tool cost?</p>
+    <p class="ob-faq-a">Most start free for a handful of roles a month, with paid tiers typically £30-£100/month once you're hiring regularly.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does using AI here create legal risk?</p>
+    <p class="ob-faq-a">Only if it replaces human judgement entirely. Keep a person making the final decision and you're on the right side of both good practice and incoming UK rules.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a business this size, the owner or office manager is usually also the recruiter, and every hour reading CVs is an hour not spent on client work or sales. Screening software doesn't remove that job, it removes the part that was never a good use of a founder's time — reading CVs that were never going to be a fit. Three hours saved on one role is small alone, but across five or six hires a year it adds up to a working week most small businesses don't have spare.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next job posting goes live, trial one free-tier AI screening tool (Manatal, Breezy HR, or your ATS's built-in filter all offer free starter plans) on your current open role and compare its top ten picks against your own gut read — the gap, or lack of one, will tell you fast whether it earns a permanent spot in your hiring process.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more guides like this on AI for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If your inbox is the bigger bottleneck right now, <a class="ob-link" href="#/articles/ai-email-management-sme-7-hours-a-week">here's how another small business clawed back hours from its inbox with AI</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://standout-cv.com/stats/ai-in-recruitment-statistics-uk" target="_blank" rel="noopener noreferrer">standout-cv.com, AI in Recruitment Statistics UK 2026</a>; <a href="https://www.hiretruffle.com/blog/best-ai-recruitment-statistics" target="_blank" rel="noopener noreferrer">Truffle, 100 AI Recruiting Statistics for 2026</a>; <a href="https://www.forbes.com/sites/terdawn-deboe/2026/01/29/what-small-businesses-need-to-know-about-ai-hiring-in-2026/" target="_blank" rel="noopener noreferrer">Forbes, What Small Businesses Need To Know About AI Hiring In 2026 (citing Paychex survey)</a>.</p>
