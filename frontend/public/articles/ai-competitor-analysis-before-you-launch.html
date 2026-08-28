@@ -1,0 +1,157 @@
+<!--
+title: Know your competitors before you set your prices
+tags: AI Strategy, AI Implementation
+date: 2026-08-28
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: 49% of new founders never review their competition before launching — here's how AI turns that into a one-afternoon job instead of a week of tab-hopping.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1.1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've got the idea, maybe even the name. What you probably haven't done is sat down and worked out exactly who else is already doing this, what they charge, and why a customer would pick you instead. It's not that founders don't care — it's that proper competitor research used to mean hours of tab-hopping between websites, App Store reviews, and pricing pages, and it always felt like something to do "later." AI collapses that into an afternoon, and because it won't get bored halfway through, it actually finishes the job.</p>
+
+<div class="ob-callout">
+  <p>Almost half of early-stage founders in a 2025 survey hadn't reviewed their competition at all before launching.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">49%</div>
+    <div class="ob-stat-label">of early-stage founders hadn't reviewed their competition before launching, a 2025 survey of 800 entrepreneurs found</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">46%</div>
+    <div class="ob-stat-label">launched without doing any market research at all, according to the same survey</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">20%</div>
+    <div class="ob-stat-label">of failed startups analysed by CB Insights point to being outcompeted as a direct cause of failure</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: ASK FOR A MAP, NOT A LIST ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ask for a map, not a list</h2>
+  <p class="ob-section-sub">The prompt matters more than the tool</p>
+
+  <p class="ob-p">The lazy prompt — "who are my competitors?" — gets you a shallow list of names. A better one gets you a structured comparison: "Identify the likely top five competitors for a [type of business] in [your area/market]. Compare their pricing, positioning, and what customers complain about in reviews, then suggest where I could position differently." Ask it to cite where it's getting each claim from, so you know what to double-check yourself.</p>
+  <p class="ob-p">A founder planning a mobile car-valeting round in Milton Keynes did exactly this. The AI surfaced four local competitors she hadn't found by searching alone, including one running an app-based booking system at £35 a wash against her planned £45. That one output changed her pricing and pushed her to lead with a loyalty scheme instead of competing on price alone — a repositioning she made before spending a penny on kit.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Who are they?</span>
+    <span class="ob-badge">What do they charge?</span>
+    <span class="ob-badge">What do reviews complain about?</span>
+    <span class="ob-badge">Where's the gap?</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: VERIFY WHAT AI CAN'T SEE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Verify what AI can't see</h2>
+  <p class="ob-section-sub">It doesn't know today's prices or who's actually still trading</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">AI models are confident even when their information is stale or invented, and they can't see live pricing pages, current Google reviews, or whether a competitor has quietly shut down. After the AI gives you a starting map, spend thirty minutes checking it: search each competitor on Google and Companies House, read their most recent reviews, and check their actual current prices. Free tools like Similarweb's traffic estimates or a quick look at their social media posting frequency tell you who's actually active versus who just has a website.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Which AI tool should I use for this?</p>
+    <p class="ob-faq-a">ChatGPT, Claude, or Perplexity all work. Perplexity is useful because it searches the live web and shows sources, which matters for a task built on checking facts.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long should a first pass actually take?</p>
+    <p class="ob-faq-a">Budget ninety minutes: about an hour for the AI-assisted map and prompting, then thirty minutes verifying the key claims yourself before you trust any of it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can AI tell me if a gap in the market is real?</p>
+    <p class="ob-faq-a">It can spot a gap in what's being said or priced, but it can't confirm real demand. Treat any gap it finds as a hypothesis to test with a handful of real conversations, not a fact.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need to pay for a research tool?</p>
+    <p class="ob-faq-a">No. A free ChatGPT or Claude account plus thirty minutes of manual checking on Google, Companies House, and review sites covers a solid first pass for most small local businesses.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small, local, or first-time business, competitor research isn't a nice-to-have slide in a pitch deck — it's the difference between guessing a price and knowing one. Skipping it doesn't make the competition disappear; it just means you find out about it from a customer who chose someone cheaper, instead of from a spreadsheet you built in an afternoon for free.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, spend ninety minutes: ask ChatGPT, Claude, or Perplexity to map your top five competitors' pricing and positioning, then manually verify each one's current prices and latest reviews before you finalise your own pricing.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Follow otobrothers for more</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once you've mapped the competition, <a class="ob-link" href="#/articles/ai-crm-for-startups">get your customer pipeline organised with an AI CRM</a>, or if you're heading into investor conversations next, <a class="ob-link" href="#/articles/gamma-ai-pitch-deck-tool-for-founders">turn your findings into a pitch deck with AI</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.londonandpartners.com/newsroom/news-and-communications/hundreds-of-london-small-businesses-start-without-a-plan-new-data-reveals" target="_blank" rel="noopener noreferrer">London & Partners / Grow London Local — Hundreds of London Small Businesses Start Without a Plan</a>; <a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top/" target="_blank" rel="noopener noreferrer">CB Insights — Why Startups Fail: Top Reasons</a>.</p>
