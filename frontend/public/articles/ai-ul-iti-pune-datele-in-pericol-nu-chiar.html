@@ -1,0 +1,161 @@
+<!--
+title: Frica de AI cu datele clienților țintește greșit
+tags: AI Governance, AI Implementation
+date: 2026-08-31
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 49% dintre firmele mici din UK care n-au adoptat AI zic că motivul e siguranța datelor. Doar că problema e aproape mereu contul gratuit, nu AI-ul în sine.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-size: 0.85rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Probabil ai scris numele unui client în ChatGPT la un moment dat și te-ai panicat puțin. Unde s-a dus asta? Cine o vede? E cel mai mare motiv pentru care patronii de firme mici nu folosesc AI cum trebuie. Nu costul, nu complexitatea. Doar senzația că bagi date reale acolo și faci o prostie. Frica e legitimă. Doar că de obicei țintește greșit.</p>
+
+<div class="ob-callout">
+  <p>49% dintre firmele mici din UK care n-au adoptat AI spun că motivul e privacy-ul și siguranța datelor. Numai că varianta de cont pe care ai pus-o, nu AI-ul, e de obicei variabila care contează.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">49%</div>
+    <div class="ob-stat-label">dintre firmele mici din UK care nu folosesc AI dau vina pe privacy și securitatea datelor, conform programului DSIT AI Adoption Research</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">14%</div>
+    <div class="ob-stat-label">dintre micro-firmele din UK folosesc AI, față de 36% la firmele mari. Tot DSIT, cu încrederea drept motiv principal al diferenței</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">0</div>
+    <div class="ob-stat-label">câte planuri de business AI (ChatGPT Business/Enterprise, Microsoft 365 Copilot) antrenează modelul pe promptul tău by default, conform documentației fiecărui provider</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Unde stă riscul real</h2>
+  <p class="ob-section-sub">Contul personal gratuit, nu tehnologia</p>
+
+  <p class="ob-p">Versiunea gratuită, personală a ChatGPT poate folosi conversațiile tale ca să antreneze modelul, dacă nu oprești manual asta din setări. Aia e varianta pe care o încearcă toată lumea prima dată, și cea pe care angajații o țin din obișnuință, uneori cu detalii de contract lipite direct în prompt.</p>
+
+  <p class="ob-p">Planurile de business stau altfel. ChatGPT Business/Enterprise, Microsoft 365 Copilot și Claude for Work zic clar, în propria documentație, că promptul clientului tău e exclus din antrenare by default. Datele tale nu ajung să îmbunătățească produsul altcuiva decât dacă tu bagi opt-in manual.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">O agenție de marketing cu 12 oameni de lângă Milton Keynes a nimerit exact în asta anul trecut. Un account manager folosea un login personal de ChatGPT pentru brief-uri de campanie, cu bugete și contacte reale incluse. Au mutat toată echipa pe un plan Team plătit, cam 22 lire de user pe lună, și gata, toate brief-urile alea au ieșit dintr-un cont gratuit care antrenează modelul.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce chiar merită o regulă scrisă</h2>
+  <p class="ob-section-sub">Trei chestii acoperă aproape tot riscul</p>
+
+  <p class="ob-p">Nu ai nevoie de un comitet de guvernanță ca să închizi gaura asta. Trei lucruri fac toată treaba: folosești conturi de business plătite, nu login-uri personale, pentru orice atinge date de client sau financiare; oprești antrenarea modelului din setări, chiar și pe plan plătit, ca a doua plasă de siguranță; și scrii o pagină care spune clar ce unelte sunt aprobate și ce date (dosare medicale, detalii de plată) nu intră niciodată acolo.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">Ghidul ICO despre AI și protecția datelor merge în aceeași direcție. Pentru majoritatea firmelor mici, e vorba de control proporțional, nu de un departament juridic. Toolkit-ul lor de risc pentru AI e făcut exact pentru cineva fără studii de specialitate.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Cont de business, nu personal</span>
+    <span class="ob-badge">Oprești antrenarea din setări</span>
+    <span class="ob-badge">O pagină cu regulile de folosire</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cel mai des patronii de firme mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">E ilegal să pun date de client în ChatGPT?</p>
+    <p class="ob-faq-a">Nu automat, dar poate încălca GDPR fără temei legal, sau dacă unealta reține sau antrenează pe datele alea fără să știi. Planurile de business cu antrenarea oprită scot majoritatea riscului din ecuație.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Care-i diferența reală dintre un cont gratuit și unul de business?</p>
+    <p class="ob-faq-a">Contul personal gratuit antrenează pe promptul tău by default. Planul de business exclude datele tale din antrenare și îți dă control de admin și setări de retenție.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Am nevoie de avocat ca să scriu o politică de folosire AI?</p>
+    <p class="ob-faq-a">Nu. O pagină cu uneltele aprobate și categoriile de date interzise acoperă majoritatea riscului.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Dacă folosesc AI, îmi trebuie neapărat un Data Protection Officer?</p>
+    <p class="ob-faq-a">Pentru majoritatea firmelor mici, nu. Ai nevoie de temei legal și un mic istoric al ce faci cu datele, dar un DPO dedicat intră în discuție doar peste un anumit prag de mărime.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Firmele mici gestionează exact genul de date care dau fiori: contacte de clienți, facturi, dosare de HR, dar fără echipa de securitate IT pe care o are o firmă mare să prindă greșeala din timp. Fix de-asta soluția trebuie să fie simplă. Nu-ți trebuie un departament de guvernanță AI, doar să muți toată lumea de pe login personal pe un cont de business cu antrenarea oprită, într-o după-amiază.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta acum</div>
+  <p>Săptămâna asta, fă o listă cu toate uneltele AI pe care le folosește echipa ta, verifică pentru fiecare dacă e login personal gratuit sau cont de business plătit, și mută tot ce atinge date de client sau financiare pe planul plătit cu antrenarea oprită.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei o mână de ajutor ca să vezi ce unelte AI sunt chiar sigure de folosit?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers pentru mai mult</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Înainte să lansezi ceva care ajunge la clienți, <a class="ob-link" href="#/articles/privacy-policy-cu-ai-inainte-de-lansare">scrie o privacy policy cu AI</a>, iar dacă tot cântărești dacă AI-ul merită riscul la mărimea ta, <a class="ob-link" href="#/articles/ai-ul-e-doar-pentru-corporatii-cifrele-uk">cifrele de adopție AI pentru firmele mici din UK</a> merită văzute.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.gov.uk/government/publications/ai-adoption-research/ai-adoption-research" target="_blank" rel="noopener noreferrer">DSIT AI Adoption Research (GOV.UK)</a>; <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/enterprise-data-protection" target="_blank" rel="noopener noreferrer">Microsoft 365 Copilot enterprise data protection</a>; <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" target="_blank" rel="noopener noreferrer">ICO Guidance on AI and data protection</a>.</p>
