@@ -1,0 +1,149 @@
+<!--
+title: How one trade firm cut its quoting time from 25 minutes to 5
+tags: AI Implementation
+date: 2026-09-03
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: UK trades owners lose 10 working weeks a year to admin like quoting. Here's what changed when one small firm let AI write the first draft.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">If you run a small trades business, you already know where quotes get written: at the kitchen table, after the kids are in bed, with the site photos still on your phone. It's not that you don't want to send them faster. It's that a proper quote takes concentration you don't have left at 9pm, so it waits until tomorrow, and tomorrow it waits again.</p>
+
+<div class="ob-callout">
+  <p>More than a third of UK small business owners spend over 20 minutes writing a single quote from scratch. For a trades firm sending 6 to 10 a week, that's up to 3 hours of unpaid admin before a single job is won.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">55%</div>
+    <div class="ob-stat-label">of UK small businesses now use AI in some form, up from just 20% in 2023, per the Federation of Small Businesses</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">10 weeks</div>
+    <div class="ob-stat-label">the working time a year UK small business owners lose to repetitive admin like quoting and invoicing, per a 2026 survey of 167 UK owner-operators</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">20+ min</div>
+    <div class="ob-stat-label">the average time to write one quote from scratch, with invoicing and quoting the single task owners most want to automate</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The kitchen-table quote backlog</h2>
+  <p class="ob-section-sub">Why the slowest part of the job isn't the job</p>
+
+  <p class="ob-p">Take a small heating and plumbing outfit, three people, call it Dave's firm. Dave and his team see four or five jobs a day. Each one needs a quote: parts, labour, a buffer for whatever's behind the wall. Written properly, that's 20 to 30 minutes per quote, done from memory after hours because there's no time during the day.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">The maths catches up fast: five site visits means two hours of evening admin most nights, on top of the actual plumbing. Some quotes slip a day. A few slip further. And the customer who gets a quote back within the hour, even from a pricier competitor, often books before Dave's version lands in their inbox.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What changed when the quote took five minutes</h2>
+  <p class="ob-section-sub">Same information, a different starting point</p>
+
+  <p class="ob-p">The fix wasn't a new pricing model, it was a different first draft. Instead of writing from a blank page, Dave now dictates a voice note on site — parts, hours, complications — and an AI quoting tool turns it into a formatted quote with his standard rates already applied. He still checks every line and adjusts price before it goes out. What took 25 minutes now takes closer to 5.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">Over a month, that's roughly 6 hours a week back, mostly evening time. The bigger shift was speed to the customer: quotes that used to go out the next day now go out within the hour, while the job is still fresh in the customer's mind. Win rate isn't something you can pin on one change, but faster quotes consistently mean more of them get accepted, simply because Dave's firm is first in the inbox.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Doesn't AI-written quoting risk sending out wrong prices?</p>
+    <p class="ob-faq-a">Only if nobody checks it. Treat the output as a first draft: it pulls in your rates and structure, you still confirm every price before it's sent.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What kind of tool does this?</p>
+    <p class="ob-faq-a">Voice-to-quote apps built for trades, or a general AI assistant set up with your rate card and template. Trades-specific tools need less setup.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this only useful for trades businesses?</p>
+    <p class="ob-faq-a">No. Any small business that writes repeat documents — quotes, estimates, proposals — benefits from the same pattern: dictate the details, let AI draft it, you check and send.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does something like this cost?</p>
+    <p class="ob-faq-a">Most trades-focused quoting tools run £20 to £50 a month, well inside what one extra job a month would cover.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, the value isn't the time saved on any one quote, it's what stacks up over a month: fewer evenings lost to paperwork, fewer quotes that slip and never get sent, and a faster response than competitors still writing theirs from scratch. None of that needs a big budget or an IT team, just one document you already write often and a tool that drafts it faster than you can from memory.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pick the document you write most often — quote, estimate, or proposal — and time yourself writing the next one from scratch. Then dictate the same details into an AI tool and see how much of the draft it gets right. That gap is roughly what you'd get back every week.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a hand finding the right AI quoting setup for your trade?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If the cost of adding another tool is what's holding you back, <a class="ob-link" href="#/articles/is-ai-too-expensive-for-small-business">here's what AI tools actually cost a small business</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://startups.co.uk/news/sme-ai-trust-gap/" target="_blank" rel="noopener noreferrer">Federation of Small Businesses, via Startups.co.uk — "Trust gap threatens small business AI opportunities, FSB warns"</a>; <a href="https://www.electricaltimes.co.uk/uk-tradespeople-losing-ten-working-weeks-a-year-to-admin-they-could-automate-survey-finds/" target="_blank" rel="noopener noreferrer">UK Admin Drain Report 2026 (HeyBRB), via Electrical Times — "UK tradespeople losing ten working weeks a year to admin they could automate"</a>.</p>
