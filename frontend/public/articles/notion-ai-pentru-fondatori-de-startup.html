@@ -1,0 +1,160 @@
+<!--
+title: Un singur workspace, nu cinci taburi: Notion AI pentru fondatori solo
+tags: AI Technology, AI Implementation
+date: 2026-09-02
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Un proprietar de SME din UK pierde 11 ore pe săptămână doar cu admin. Notion AI adună notele, task-urile și documentele într-un singur workspace, nu în cinci.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-size: 0.85rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Ai o idee de firmă, poate un co-fondator, și cam patru taburi deschise chiar acum: unul pentru notițe, unul pentru task-uri, unul pentru draftul planului de afaceri, unul pentru emailul către client pe care trebuia să-l trimiți ieri. Notion AI vine exact să strângă tot pilaful ăsta într-un singur workspace. Și când faci totul singur, nu e un moft, e o gaură mai puțin în ziua ta.</p>
+
+<div class="ob-callout">
+  <p>Un proprietar de SME din UK pierde în medie 11 ore pe săptămână doar cu admin și finanțe. Aproape șase zile lucrătoare pe lună, înainte să iei vreo decizie reală despre produs.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">dintre proprietarii de small business din UK au folosit un tool AI cel puțin o dată în ultimele 90 de zile (Federation of Small Businesses, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">11 ore</div>
+    <div class="ob-stat-label">media săptămânală pe care un owner de SME din UK o pierde doar cu admin și finanțe (SME Business Barometer)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">71%</div>
+    <div class="ob-stat-label">dintre small business-urile care folosesc AI îl folosesc mai ales pentru scris și content, fix ce face Notion AI, dar direct în documentele tale</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce face, mai exact, pentru un fondator</h2>
+  <p class="ob-section-sub">Un singur workspace în loc de cinci login-uri</p>
+
+  <p class="ob-p">Notion AI lucrează direct în documentele tale, nu într-o fereastră de chat separată de unde copy-paste-uiești ca disperatul. Îți poate scrie o pagină dintr-un prompt, îți rezumă un document lung într-un update gata de trimis clientului, și caută prin tot workspace-ul (plus prin app-uri conectate, gen Slack sau Google Drive) în loc să scrolezi tu ca prostul. Notion Agent, adăugat în 2026, poate chiar să ducă singur task-uri mici cu mai mulți pași, gen să adune notițe din trei pagini într-un singur raport de status.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">Zi că ești fondator solo și îți pornești o agenție de marketing de doi oameni. În prima săptămână poți transforma o notă vocală haotică într-un draft de propunere pentru client, poți construi un checklist de onboarding dintr-un template, și poți rezuma un call de discovery de 40 de minute în cinci puncte de acțiune, toate în același workspace unde ai deja facturile și project tracker-ul. Nu-ți ține locul judecății tale, dar îți taie din retipărit.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Cum îl pornești săptămâna asta</h2>
+  <p class="ob-section-sub">Cât costă și unde stă, de fapt, AI-ul</p>
+
+  <p class="ob-p">Planurile Free și Plus îți dau doar un trial limitat de AI. Suita completă din 2026, cu Notion Agent, AI Meeting Notes și căutare pe tot workspace-ul, stă pe planul Business, la 20 de dolari pe loc, pe lună, facturat anual. Pentru un fondator solo e un singur loc; pentru o echipă de doi-trei oameni suma crește mai repede decât crezi, așa că merită să testezi trialul cum trebuie înainte să bagi cardul.</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">Custom Agents, feature-ul nou de automatizare al lui Notion, rulează pe credite separate, 10 dolari la 1.000 de credite pe lună, peste costul locului. La început poți să-l ignori liniștit. Merită urmărit din momentul în care automatizezi workflow-uri care se repetă, nu doar drafturi ocazionale.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Documente scrise de AI</span>
+    <span class="ob-badge">Căutare pe tot workspace-ul</span>
+    <span class="ob-badge">Notițe de meeting cu AI</span>
+    <span class="ob-badge">Custom Agents</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cel mai des patronii de firme mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Notion AI e gratis?</p>
+    <p class="ob-faq-a">Planurile Free și Plus includ doar un trial limitat. Toate funcțiile AI stau pe planul Business, la 20 de dolari pe loc, pe lună, facturat anual. Nu mai e add-on separat, cum era înainte.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cu ce e diferit față de ChatGPT, pur și simplu?</p>
+    <p class="ob-faq-a">ChatGPT stă într-o fereastră separată și nu are memoria fișierelor tale reale. Notion AI citește și scrie direct în documentele și workspace-ul tău, deci un rezumat sau un draft pornește de la ce ai scris deja, nu de la o ghicitoare nouă.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi ține locul unui tool serios de project management?</p>
+    <p class="ob-faq-a">Se descurcă bine cu task-uri simple pentru un fondator sau o echipă mică. Din momentul în care coordonezi mai multe echipe cu dependențe și raportare, tot mai ai nevoie de un tool dedicat pe lângă el.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Care-i șpilul pentru un fondator solo?</p>
+    <p class="ob-faq-a">Suita de AI cere planul Business, iar Custom Agents rulează pe credite plătite separat, peste asta. E chiar util, dar nu-i cel mai ieftin tool dacă ai nevoie doar de o singură funcție, gen notițe de meeting.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>O echipă mică nu pierde timp dintr-o inficiență mare, îl pierde din cinci mici: sări între app-uri, reexplici contextul, retipărești același update în două locuri. Să aduni notițele, documentele și task-urile ușoare într-un singur workspace cu AI nu-ți repară un model de business stricat, dar îți recuperează ore reale din cele 11 pe săptămână pe care proprietarii din UK deja spun că le pierd cu admin, și o face fără să mai adaugi încă un abonament de urmărit.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta acum</div>
+  <p>Fă-ți cont gratuit pe Notion săptămâna asta, mută un proiect activ sau draftul planului de afaceri acolo, și încearcă să scrii un email pentru client sau un SOP simplu cu AI-ul din interior înainte să decizi dacă merită să treci pe planul Business pentru toată suita.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei o mână de ajutor ca să vezi ce tool-uri AI chiar merită bani?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers pentru mai mult</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Odată ce ți-ai pus workspace-ul la punct, <a class="ob-link" href="#/articles/motion-asistent-ai-programare-fondatori">combină-l cu un asistent AI de programare</a>, iar când vine vremea să strângi finanțare, <a class="ob-link" href="#/articles/gamma-ai-pitch-deck-pentru-fondatori">fă-ți pitch deck-ul pentru investitori cu AI</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.lilachbullock.com/ai-adoption-statistics-small-business/" target="_blank" rel="noopener noreferrer">Date de adopție AI de la Federation of Small Businesses, via Lilach Bullock</a>; <a href="https://startupsmagazine.co.uk/small-businesses-spend-more-time-on-admin-than-growing-their-business" target="_blank" rel="noopener noreferrer">SME Business Barometer, via Startups Magazine</a>; <a href="https://www.usecarly.com/blog/notion-pricing/" target="_blank" rel="noopener noreferrer">Notion Pricing 2026, via usecarly.com</a>.</p>
