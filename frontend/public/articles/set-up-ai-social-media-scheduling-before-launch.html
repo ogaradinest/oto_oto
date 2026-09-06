@@ -1,0 +1,159 @@
+<!--
+title: Set your social content on autopilot before you launch
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-09-06
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 76% of UK small business owners now spend time every week writing social posts, most with zero training. Here's how to get AI doing that work before you've even opened your doors.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Everyone preparing to launch a business gets the same advice: be consistent on social media. Nobody explains how, exactly, you're meant to fit that in between building the product, sorting supplier contracts and figuring out your pricing. So it becomes the thing you'll start properly "once things settle down". They don't. The account stays quiet until launch day, and then it stays quiet after that too.</p>
+
+<div class="ob-callout">
+  <p>76% of UK small business owners already spend time every week creating social content, and 65% of them have never had any training to do it well.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">76%</div>
+    <div class="ob-stat-label">of UK small business owners and tradespeople spend time every week creating or editing social media content for their business (Markel Direct research, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">65%</div>
+    <div class="ob-stat-label">have never received any social media training, despite feeling pressure to stay visible online (Markel Direct research, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">6.1 hrs</div>
+    <div class="ob-stat-label">the average time marketers save each week by using AI tools for tasks like content drafting and scheduling (HubSpot State of Marketing report, 2026)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Build the calendar before you build the habit</h2>
+  <p class="ob-section-sub">Batch a month of posts in one sitting, not one post a day</p>
+
+  <p class="ob-p">The mistake most first-time founders make isn't the platform they choose, it's writing each post fresh, on the day, from a blank screen. That works for about a week. Then a supplier call runs long, the post doesn't happen, and the account goes quiet exactly when people are first checking it out.</p>
+  <p class="ob-p">Take Priya, three weeks from opening a mobile dog-grooming business. Instead of dreading an empty Instagram grid on opening day, she spent 90 minutes with an AI writing tool: fed it her services, prices and the story of why she started, and got back 20 draft captions covering prep tips, pricing and before-and-after posts. She edited them into her own voice, queued them in a free scheduler, and hasn't opened Instagram to "think of something to post" since.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The five-step setup</h2>
+  <p class="ob-section-sub">From blank page to a month scheduled, in one afternoon</p>
+
+  <p class="ob-p">Start by picking three or four content pillars specific to your business, not generic ones. A dog groomer might use: prep tips, pricing transparency, client transformations, and the founder story. Feed those pillars plus your actual offer details into an AI writing tool and ask for 15 to 20 draft posts. Read every one and rewrite anything that sounds like nobody you know would say it, AI drafts are a starting point, not a finished voice.</p>
+  <p class="ob-p">Next, batch your visuals, a phone and decent light cover most of it. Load the finished posts into a scheduler's free tier, most cover 5 to 10 posts a month at no cost, then block 20 minutes every Sunday to review the coming week before it goes out. That weekly check is what keeps AI-assisted posts sounding like you instead of a template.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Pick 3-4 content pillars</span>
+    <span class="ob-badge">Draft with AI</span>
+    <span class="ob-badge">Batch your visuals</span>
+    <span class="ob-badge">Schedule in a free tool</span>
+    <span class="ob-badge">Review weekly before it posts</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a paid tool to start?</p>
+    <p class="ob-faq-a">No. Free tiers on schedulers like Buffer or Later cover 5-10 posts a month, plenty for a pre-launch business.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Won't AI-written posts sound generic?</p>
+    <p class="ob-faq-a">Only if you post the first draft. Feed it real prices, a real customer story, your reason for starting, and edit before it goes out.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How far ahead should I schedule?</p>
+    <p class="ob-faq-a">Two to four weeks. Far enough that you're never scrambling, close enough to still react to something timely.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">I don't have a product yet, just an idea. Too early?</p>
+    <p class="ob-faq-a">It's the ideal time. Posting the build-in-public story builds an audience before you need one to convert.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A new business doesn't lose credibility from one bad post, it loses it from silence. Showing up requires a plan you can run in low-energy weeks, not just the ones where you feel inspired. AI removes the bottleneck that actually kills consistency, the blank page, so a solo founder with no marketing background can hold the same posting rhythm as a business with a part-time social media hire, without adding headcount before there's revenue to support it.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, block 90 minutes: write down your three content pillars, feed them to a free AI writing tool along with your actual offer details, and get a first draft of two weeks' worth of posts. Edit them into your own voice, load them into a free scheduler, and set a recurring 20-minute Sunday slot to review what's queued.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI setups for your business, before or after launch?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're setting up more of your pre-launch admin, <a class="ob-link" href="#/articles/notion-ai-for-startup-founders">keep the rest of your admin in one place too</a>, or <a class="ob-link" href="#/articles/gamma-ai-pitch-deck-tool-for-founders">build your investor pitch deck the same way</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://professionalbeauty.co.uk/uk-small-business-owners-social-media-content-research" target="_blank" rel="noopener noreferrer">Markel Direct research on UK small businesses and social media, via Professional Beauty</a>; <a href="https://blog.hubspot.com/marketing/hubspot-blog-marketing-industry-trends-report" target="_blank" rel="noopener noreferrer">HubSpot 2026 State of Marketing report</a>.</p>
