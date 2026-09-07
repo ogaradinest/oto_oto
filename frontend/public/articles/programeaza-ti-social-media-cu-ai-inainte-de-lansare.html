@@ -1,0 +1,159 @@
+<!--
+title: Social media pe pilot automat, înainte să-ți deschizi ușile
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-09-07
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 76% dintre proprietarii de small business din UK pierd timp în fiecare săptămână cu content pentru social media, majoritatea fără niciun training. Iată cum pui AI-ul să facă treaba asta înainte să-ți deschizi ușile.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Toată lumea care se pregătește să lanseze o firmă primește același sfat: fii consistent pe social media. Nimeni nu-ți explică cum, mai exact, faci asta în timp ce construiești produsul, semnezi cu furnizorii și-ți calculezi prețurile. Așa că devine chestia pe care "o faci cum trebuie" după ce se așază lucrurile. Nu se așază. Contul rămâne mut până în ziua de lansare, și rămâne mut și după.</p>
+
+<div class="ob-callout">
+  <p>76% dintre proprietarii de small business din UK deja pierd timp în fiecare săptămână cu content pentru social media, și 65% dintre ei n-au avut niciodată vreun training ca să-l facă bine.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">76%</div>
+    <div class="ob-stat-label">dintre proprietarii de small business și meseriași din UK petrec timp în fiecare săptămână creând sau editând content pentru social media (cercetare Markel Direct, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">65%</div>
+    <div class="ob-stat-label">n-au primit niciodată training pentru social media, deși simt presiunea să rămână vizibili online (cercetare Markel Direct, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">6.1 ore</div>
+    <div class="ob-stat-label">timpul mediu pe săptămână pe care marketerii îl recuperează folosind AI pentru scris și programat content (raportul HubSpot State of Marketing, 2026)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Fă-ți calendarul înainte să-ți faci obiceiul</h2>
+  <p class="ob-section-sub">Bagi o lună de postări într-o singură sesiune, nu una pe zi</p>
+
+  <p class="ob-p">Greșeala pe care o fac majoritatea fondatorilor la prima lansare nu-i platforma aleasă, e că scriu fiecare postare pe loc, în ziua aia, de pe ecran gol. Merge cam o săptămână. Apoi un call cu un furnizor se lungește, postarea nu se mai întâmplă, și contul rămâne mut fix când lumea începe să te verifice.</p>
+  <p class="ob-p">Zi că ești Priya, la trei săptămâni de deschiderea unui business mobil de grooming pentru câini. În loc să se sperie de un grid gol pe Instagram în ziua deschiderii, a stat 90 de minute cu un tool AI de scris: i-a dat serviciile, prețurile și povestea de ce a pornit afacerea, și a primit înapoi 20 de caption-uri draft, de la prep tips la explicații de preț și postări before-and-after. Le-a editat în vocea ei, le-a băgat într-un scheduler gratuit, și de atunci n-a mai deschis Instagram să "se gândească ce postează".</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Setup-ul în cinci pași</h2>
+  <p class="ob-section-sub">De la pagină goală la o lună programată, într-o după-amiază</p>
+
+  <p class="ob-p">Începe alegând trei-patru content pillars specifice firmei tale, nu generice. Un groomer de câini poate avea: prep tips, transparență la preț, transformări de clienți și povestea fondatorului. Bagă pillarii ăștia plus detaliile reale despre oferta ta într-un tool AI de scris și cere 15-20 de postări draft. Citește-le pe toate și rescrie orice sună a ceva ce n-ai zice tu, dracia aia e doar un punct de plecare, nu vocea finală.</p>
+  <p class="ob-p">Apoi bagi vizualurile la pachet, un telefon și lumină decentă acoperă majoritatea. Încarci postările gata în tier-ul gratuit al unui scheduler, majoritatea acoperă 5-10 postări pe lună gratis, apoi blochezi 20 de minute în fiecare duminică să verifici săptămâna care vine înainte să iasă. Verificarea aia săptămânală e ce ține postările făcute cu AI să sune ca tine, nu ca un șablon.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Alege 3-4 content pillars</span>
+    <span class="ob-badge">Draft cu AI</span>
+    <span class="ob-badge">Bagi vizualurile la pachet</span>
+    <span class="ob-badge">Programezi într-un tool gratuit</span>
+    <span class="ob-badge">Verifici săptămânal înainte să iasă</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cel mai des patronii de firme mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Am nevoie de un tool plătit ca să încep?</p>
+    <p class="ob-faq-a">Nu. Planurile gratuite de la scheduler-e gen Buffer sau Later acoperă 5-10 postări pe lună, suficient pentru o firmă înainte de lansare.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Nu sună generic ce scrie AI-ul?</p>
+    <p class="ob-faq-a">Doar dacă postezi primul draft direct. Dă-i prețuri reale, o poveste reală de client, motivul pentru care ai pornit, și editează înainte să iasă.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cu cât timp înainte ar trebui să programez?</p>
+    <p class="ob-faq-a">Două-patru săptămâni. Suficient cât să nu te grăbești niciodată, suficient de aproape cât să mai poți reacționa la ceva actual.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">N-am produsul gata, doar o idee. E prea devreme?</p>
+    <p class="ob-faq-a">E momentul ideal. Postezi povestea build-in-public, ce faci și de ce, și îți construiești audiența înainte să ai nevoie s-o convertești.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>O firmă nouă nu-și pierde credibilitatea dintr-o postare proastă, o pierde din tăcere. Să apari constant cere un plan pe care să-l rulezi și în săptămânile fără energie, nu doar în cele cu inspirație. AI-ul taie exact blocajul care omoară consistența, pagina goală, așa că un fondator solo fără background de marketing poate ține același ritm de postare ca o firmă cu cineva part-time pe social media, fără să adauge un salariu înainte să existe venit care să-l acopere.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta acum</div>
+  <p>Săptămâna asta, blochează 90 de minute: scrie-ți cei trei content pillars, dă-i-i unui tool AI gratuit împreună cu detaliile reale despre oferta ta, și cere un prim draft pentru două săptămâni de postări. Editează-le în vocea ta, bagă-le într-un scheduler gratuit, și fixează un slot recurent de 20 de minute duminica să verifici ce-i programat.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe setup-uri practice de AI pentru firma ta, înainte sau după lansare?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Urmărește otobrothers pentru mai mult</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Dacă mai pui la punct și restul admin-ului dinainte de lansare, <a class="ob-link" href="#/articles/notion-ai-pentru-fondatori-de-startup">ține tot restul de admin într-un singur loc</a>, sau <a class="ob-link" href="#/articles/gamma-ai-pitch-deck-pentru-fondatori">fă-ți pitch deck-ul pentru investitori la fel</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://professionalbeauty.co.uk/uk-small-business-owners-social-media-content-research" target="_blank" rel="noopener noreferrer">Cercetare Markel Direct despre small business-urile din UK și social media, via Professional Beauty</a>; <a href="https://blog.hubspot.com/marketing/hubspot-blog-marketing-industry-trends-report" target="_blank" rel="noopener noreferrer">Raportul HubSpot State of Marketing 2026</a>.</p>
