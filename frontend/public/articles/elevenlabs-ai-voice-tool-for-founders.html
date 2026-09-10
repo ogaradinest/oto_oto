@@ -1,0 +1,158 @@
+<!--
+title: Your explainer video doesn't need a £250 voice actor anymore
+tags: AI Technology, AI Implementation
+date: 2026-09-10
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: A professional UK voiceover session costs around £250 an hour — ElevenLabs gets you a broadcast-quality voice for a fraction of that, in minutes.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Picture this: you've built the product, written the landing page, and now you need a voice for the explainer video, the onboarding walkthrough, or the on-hold message customers hear when they call. Hiring a voice actor feels like overkill for a business that hasn't even launched yet, but recording it yourself on your laptop mic isn't going to convince anyone you're the professional outfit you're building. This is exactly the gap ElevenLabs was built to fill.</p>
+
+<div class="ob-callout">
+  <p>A single professional voiceover session in the UK costs around £250 an hour — before you've recorded a second version of the script.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">29%</div>
+    <div class="ob-stat-label">of UK businesses used at least one AI technology in June 2026, up 8 points on the year (ONS Business Insights and Conditions Survey)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$80bn</div>
+    <div class="ob-stat-label">in contact-centre agent labour costs Gartner predicts conversational AI will save globally in 2026</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£250</div>
+    <div class="ob-stat-label">the typical basic studio fee UK voiceover artists charge per hour, even for short scripts</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What ElevenLabs Actually Does</h2>
+  <p class="ob-section-sub">Four tools in one: text-to-speech, voice cloning, dubbing, and voice agents</p>
+
+  <p class="ob-p">ElevenLabs turns typed text into natural-sounding speech in dozens of voices and accents, lets you clone a consistent brand voice so every video sounds the same, dubs existing video into more than 70 languages while keeping the original tone, and can power a conversational voice agent that actually answers your phone.</p>
+  <p class="ob-p">Take a founder launching a subscription box service: instead of booking a studio for the launch video, a returns-policy explainer, and a Welsh-language version for a regional partner, she typed all three scripts into ElevenLabs on a Sunday evening and had broadcast-quality audio back in under twenty minutes, for less than the cost of one hour with a human voice artist.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where It Fits Before You've Even Launched</h2>
+  <p class="ob-section-sub">Marketing, onboarding, and the phone call you haven't set up yet</p>
+
+  <p class="ob-p">The obvious use is marketing: ad narration, product demo voiceovers, and social clips that need a consistent voice across every platform. Less obvious is onboarding: a new customer hearing a clear, warm voice walk them through your app in the first five minutes changes how professional you feel, and it costs nothing to update when the product changes next month.</p>
+  <p class="ob-p">The conversational agent side is worth a look too. Gartner's forecast on contact-centre savings is an enterprise number, but the underlying shift — customers increasingly expecting an AI voice to handle simple queries before a human steps in — applies just as much to a two-person startup fielding its first support calls.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Text-to-speech</span>
+    <span class="ob-badge">Voice cloning</span>
+    <span class="ob-badge">AI dubbing (70+ languages)</span>
+    <span class="ob-badge">Conversational voice agents</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions founders ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is ElevenLabs expensive for a pre-revenue startup?</p>
+    <p class="ob-faq-a">There's a free tier with limited monthly characters, and paid plans start in the low tens of pounds a month — still far cheaper than a single studio booking with a human voice actor.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can I clone my own voice to use consistently?</p>
+    <p class="ob-faq-a">Yes — with your consent recorded through their verification process, you can create a cloned voice profile and reuse it across every video, ad, and update without re-booking anyone.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will customers know it's an AI voice?</p>
+    <p class="ob-faq-a">Often not for scripted content like ads or explainers, but UK guidance increasingly expects disclosure when an AI voice is used in live customer-facing calls, so check current rules before deploying a voice agent on your support line.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need any technical skill to use it?</p>
+    <p class="ob-faq-a">No. It's a text box and a voice picker for the core text-to-speech tool; the conversational agent builder takes a bit more setup but has no-code templates to start from.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a founder building a business from scratch, every polish point matters before you have a reputation to lean on. A confident, consistent voice across your website, videos, and phone line signals you're further along than you actually are, and it does that for a fraction of what a single voiceover booking used to cost. It also means you're not stuck re-booking a studio every time you tweak a script.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Sign up for ElevenLabs' free tier this week and record one thing you'd otherwise skip, like a 30-second voiceover for your homepage video or your first on-hold message, and see how it compares to doing nothing at all.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more AI tools built for founders who are still pre-launch?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Already sorted your voice? See how the rest of the launch stack comes together with <a class="ob-link" href="#/articles/gamma-ai-pitch-deck-tool-for-founders">an AI tool for building your investor pitch deck</a>, or get ahead of day-one support requests by <a class="ob-link" href="#/articles/build-ai-customer-support-chatbot-one-afternoon">setting up an AI chatbot for customer support in one afternoon</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026" target="_blank" rel="noopener noreferrer">ONS: Artificial intelligence in UK businesses, 2023 to 2026</a>; <a href="https://www.gartner.com/en/newsroom/press-releases/2022-08-31-gartner-predicts-conversational-ai-will-reduce-contac" target="_blank" rel="noopener noreferrer">Gartner: Conversational AI Will Reduce Contact Center Agent Labor Costs by $80 Billion in 2026</a>; <a href="https://www.martinwhiskin.co.uk/voice-over-rates" target="_blank" rel="noopener noreferrer">Voice Over Rates: Professional Voiceover Pricing in the UK</a>.</p>
