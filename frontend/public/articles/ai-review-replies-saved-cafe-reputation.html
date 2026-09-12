@@ -1,0 +1,157 @@
+<!--
+title: How answering reviews late was quietly costing this café customers
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-09-12
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 97% of consumers say reviews shape what they buy, but the average small business takes 3.2 days to reply. Here's what changed when one café let AI draft the first response.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You know the reviews are there. You just don't always get to them. A three-star review lands on a Tuesday, you mean to reply that evening, and by Thursday there are two more sitting underneath it, unanswered. Nobody decided to ignore customers, the till queue just came first, every single day.</p>
+
+<div class="ob-callout">
+  <p>97% of consumers say online reviews influence their purchase decisions, yet the average small business takes 3.2 days to reply to one, and most never reply at all.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">97%</div>
+    <div class="ob-stat-label">of consumers lean on reviews to guide their purchase decisions, per BrightLocal's 2026 Local Consumer Review Survey</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">3.2 days</div>
+    <div class="ob-stat-label">the average time a small business takes to reply to a review, even though most customers expect an answer within a week</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">18%</div>
+    <div class="ob-stat-label">the higher revenue seen by businesses that respond to every review, compared with those that respond to none</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The reviews were piling up faster than the replies</h2>
+  <p class="ob-section-sub">Why "I'll get to it tonight" turns into a two-week backlog</p>
+
+  <p class="ob-p">Take a small independent café, two staff, no marketing budget, call it Nora's. Nora checked her Google listing maybe once a fortnight. Most reviews were fine, a few needed a proper answer: a cold flat white, a mixed-up order, a genuinely lovely comment worth thanking properly. She meant to reply to all of them. In practice she replied to about one in ten, because the tricky ones took longest and got put off first.</p>
+  <p class="ob-p">That gap matters more than it looks. A customer complaining about a cold coffee isn't really writing to Nora, they're writing to everyone reading that page before deciding whether to come in. Left unanswered for two weeks, it reads like nobody's listening. Answered within the hour, the same complaint reads like a business that cares.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What changed when AI drafted the first reply</h2>
+  <p class="ob-section-sub">Same voice, five minutes instead of an evening</p>
+
+  <p class="ob-p">Nora didn't hire anyone or buy a big reputation-management contract. She connected an AI review tool to her Google Business Profile that reads new reviews and drafts a reply in her tone, thanking regulars for the details they mentioned, apologising properly and offering a fix for complaints, never a generic "thanks for your feedback." She still reads and edits every reply before it posts, but a reply that took ten minutes of thinking now takes about ninety seconds.</p>
+  <p class="ob-p">Three months in, every review gets a reply within a day, most within hours. Her average rating moved from 4.1 to 4.6. She can't prove the rating alone drove it, but bookings through her Google listing are visibly up, and two customers have said in person that her replies were what convinced them to try the place. Half of UK consumers say they can spot a templated AI reply instantly, which is exactly why she still checks every draft first.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Connects to Google, Facebook, Tripadvisor</span>
+    <span class="ob-badge">Drafts in your tone</span>
+    <span class="ob-badge">You edit before posting</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Won't AI replies sound obviously robotic?</p>
+    <p class="ob-faq-a">Only if you post them unedited. Treat the draft as a starting point, then adjust the wording and hit send yourself.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What kind of tool actually does this?</p>
+    <p class="ob-faq-a">Reputation-management platforms built for small businesses connect to your Google, Facebook or Tripadvisor listings and draft replies automatically. A general AI assistant works too if you copy reviews across manually.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it worth replying to negative reviews at all?</p>
+    <p class="ob-faq-a">Yes. Over half of consumers say a business's response changed their opinion of it, so a thoughtful reply to a bad review often does more for you than another five-star one.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much time does this realistically save?</p>
+    <p class="ob-faq-a">For a business getting a handful of reviews a week, it turns an evening task into a five-minute one done over coffee.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business without a marketing team relies on its reviews as free advertising, whether it wants to or not. Every reply is public and every gap is visible too. AI doesn't change what you'd want to say, it removes the excuse of not having time to say it, usually the only reason replies were slipping in the first place.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pull up every unanswered review from the last three months across Google and any other listing you use, draft a reply for the five oldest with an AI tool, edit each one in your own words, and post them today.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI moves for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Still <a class="ob-link" href="#/articles/is-ai-too-expensive-for-small-business">worried a reputation tool is another cost you can't justify</a>? Or <a class="ob-link" href="#/articles/you-dont-need-new-software-for-ai">you may not even need a new tool to get started</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener noreferrer">BrightLocal - "Local Consumer Review Survey 2026"</a>; <a href="https://www.replyonthefly.com/blog/google-review-response-time-study" target="_blank" rel="noopener noreferrer">ReplyOnTheFly - "Google Review Response Time Study: How Fast Do Businesses Reply? (2026)"</a>.</p>
