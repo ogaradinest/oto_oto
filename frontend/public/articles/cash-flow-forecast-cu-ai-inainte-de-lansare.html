@@ -1,0 +1,158 @@
+<!--
+title: Afli când rămâi fără bani înainte să rămâi fără bani
+tags: AI Strategy, AI Implementation
+date: 2026-09-17
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: 57% dintre firmele mici din UK zic că se luptă cu cash flow-ul chiar acum, și AI-ul te ajută să-ți faci un forecast funcțional înainte să deschizi ușile.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Ai logo-ul. Pitch deck-ul e strâns. Poate ai validat deja ideea cu un tool de market research. Dar întreabă orice fondator la prima firmă cum arată cash-ul lui în săptămâna nouă de activitate, primești o ridicare din umeri. Golul ăla, dintre un plan de afaceri care arată bine pe hârtie și un spreadsheet care-ți zice exact când rămâi fără bani, e locul unde mor tăcut multe firme noi. Un cash flow forecast ca lumea însemna cândva un contabil plătit sau o luptă cu formule. Acum scoți un prim draft dintr-un AI într-o după-amiază.</p>
+
+<div class="ob-callout">
+  <p>57% dintre firmele mici din UK zic că au probleme cu cash flow-ul chiar acum, și majoritatea au aflat abia când le-a zis banca, direct.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">29%</div>
+    <div class="ob-stat-label">dintre startup-urile eșuate spun că motivul de bază a fost rămasul fără bani, conform CB Insights</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">57%</div>
+    <div class="ob-stat-label">dintre firmele mici din UK raportează probleme constante de cash flow, conform QuickBooks UK</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">4+ luni</div>
+    <div class="ob-stat-label">durata medie de cash flow negativ pe an la o firmă mică din UK, conform Xero Small Business Insights</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Forecast-ul din pitch deck nu e cel care te salvează</h2>
+  <p class="ob-section-sub">Investitorii vor poveste, contul tău vrea adevărul</p>
+
+  <p class="ob-p">Cifrele din pitch deck sunt făcute să vândă o poveste: venit care urcă, costuri plate, toată lumea plătește la timp. Un cash flow forecast face ceva mai puțin fain, dar mult mai util, îți zice în ce săptămână rămâi fără bani. Cele două pot coexista, dar doar unul din ele trebuie updatat în fiecare vineri.</p>
+  <p class="ob-p">Ia un exemplu plauzibil: un fondator deschide o brutărie mică, livrează la trei cafenele locale pe termen de 30 de zile. Vânzările arată bine din prima zi, cam 4.200 de lire pe lună. Doar că făina, salariile și chiria se plătesc săptămânal sau lunar, în avans, iar cafenelele plătesc abia după 30, 45 de zile. Fără să mapeze golul ăsta, fondatorul rămâne fără capital de lucru în săptămâna șapte. Nu pentru că afacerea nu merge, ci pentru că nimeni n-a modelat lag-ul dintre muncă și încasare.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Cum îți faci forecast-ul cu AI, pas cu pas</h2>
+  <p class="ob-section-sub">Nu-ți trebuie magie de Excel, îți trebuie întrebările puse în ordinea corectă</p>
+
+  <p class="ob-p">Începe cu tot ce știi deja că te costă: chirie, softuri, salarii, stoc, asigurare, rate. Bagă lista într-un AI, ChatGPT sau Claude, și cere-i un template simplu de cash flow pe 13 săptămâni, cu coloane pentru încasări așteptate, plăți așteptate și sold curent. Fii specific la termenii de plată, ăsta e detaliul pe care template-urile generice îl ratează.</p>
+  <p class="ob-p">Odată ce firma rulează și ai un soft de contabilitate conectat, tool-urile făcute exact pentru asta preiau treaba grea. Funcțiile de forecasting din Xero și add-on-uri ca Fathom generează acum comentarii AI direct din cifrele tale live, semnalând un gol de bani cu săptămâni înainte să apară, nu după ce sare direct debit-ul.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Fă lista costurilor fixe întâi</span>
+    <span class="ob-badge">Mapează termenii de plată, nu doar vânzările</span>
+    <span class="ob-badge">Construiește o vedere rolling pe 13 săptămâni</span>
+    <span class="ob-badge">Actualizeaz-o în fiecare săptămână</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cei mai mulți antreprenori</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi trebuie soft de contabilitate ca să-mi fac un cash flow forecast?</p>
+    <p class="ob-faq-a">Nu. Un spreadsheet și un AI gratuit, tip ChatGPT sau Claude, îți construiesc primul forecast pe 13 săptămâni chiar înainte să înregistrezi firma.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât de departe ar trebui să prognozeze o firmă nouă?</p>
+    <p class="ob-faq-a">O vedere rolling pe 13 săptămâni pentru deciziile de zi cu zi, plus o variantă pe 12 luni, împărțită lunar, pentru primul an.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Chiar poate AI-ul să-mi prezică cash flow-ul cu precizie?</p>
+    <p class="ob-faq-a">Nu de unul singur. Lucrează doar cu cifrele pe care i le dai, așa că tratează-l ca pe un mod rapid de-a construi și actualiza modelul, nu ca pe o bilă de cristal.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Care-i cea mai mare greșeală a fondatorilor la cash flow forecast?</p>
+    <p class="ob-faq-a">Prognozează vânzările și uită de timing-ul plăților. O vânzare nu-i bani până nu ajunge chiar în cont.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>La o firmă mică, buffer-ul de cash e subțire prin definiție. Un singur client care plătește târziu sau o factură de taxe neașteptat de mare poate transforma o firmă profitabilă pe bune într-o criză reală. Un forecast nu rezolvă fragilitatea asta, dar transformă o surpriză în ceva ce ai văzut venind de acum trei săptămâni și pentru care aveai deja un plan.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta săptămâna asta</div>
+  <p>Săptămâna asta, scoate toate costurile care vin în următoarele 90 de zile, cere-i unui AI să le transforme într-un spreadsheet simplu de cash flow săptămânal, și bagă-ți 10 minute în fiecare vineri să-l actualizezi cu ce s-a întâmplat de fapt.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe idei practice de AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Merită citit și <a class="ob-link" href="#/articles/analiza-concurentei-cu-ai-inainte-de-lansare">analiza concurenței cu AI, tot înainte de lansare</a>, plus, dacă te sperie costurile, <a class="ob-link" href="#/articles/ai-prea-scump-pentru-firma-ta">de ce AI-ul nu e chiar prea scump pentru firma ta</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top/" target="_blank" rel="noopener noreferrer">CB Insights - "Why Startups Fail"</a>; <a href="https://quickbooks.intuit.com/uk/press/small-business-cash-flow-issues/" target="_blank" rel="noopener noreferrer">QuickBooks UK - "57% of UK's small businesses have cash flow issues"</a>; <a href="https://www.xero.com/uk/media-releases/cash-flow-crunch-continues-to-hamper-uk-small-businesses/" target="_blank" rel="noopener noreferrer">Xero - "Cash flow crunch continues to hamper UK small businesses"</a>.</p>
