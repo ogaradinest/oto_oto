@@ -1,0 +1,157 @@
+<!--
+title: Recenziile fără răspuns îi costau clienți unei cafenele mici
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-09-14
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 97% dintre oameni zic că recenziile le influențează decizia de cumpărare, dar o firmă mică răspunde în medie în 3,2 zile. Uite ce s-a schimbat când o cafenea a lăsat AI-ul să scrie primul draft.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Știi că recenziile alea sunt acolo. Doar că nu ajungi mereu la ele. Pică o recenzie de trei stele într-o marți, îți zici c-o rezolvi seara, și până joi mai sunt două dedesubt, fără răspuns. Nimeni n-a decis să ignore clienții. Pur și simplu coada de la casă a venit prima, în fiecare zi.</p>
+
+<div class="ob-callout">
+  <p>97% dintre oameni zic că recenziile online le influențează decizia de cumpărare, dar o firmă mică ia în medie 3,2 zile să răspundă la una, și de cele mai multe ori nici nu răspunde deloc.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">97%</div>
+    <div class="ob-stat-label">dintre consumatori se bazează pe recenzii când decid ce cumpără, conform Local Consumer Review Survey 2026 de la BrightLocal</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">3,2 zile</div>
+    <div class="ob-stat-label">durează în medie până când o firmă mică răspunde la o recenzie, deși majoritatea clienților se așteaptă la un răspuns într-o săptămână</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">18%</div>
+    <div class="ob-stat-label">venit în plus au firmele care răspund la fiecare recenzie, față de cele care nu răspund deloc</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Recenziile se adunau mai repede decât răspunsurile</h2>
+  <p class="ob-section-sub">De ce "rezolv diseară" devine, pac, o restanță de două săptămâni</p>
+
+  <p class="ob-p">Ia o cafenea mică, doi oameni, fără buget de marketing, hai să-i zicem a Norei. Nora se uita pe profilul de Google cam o dată la două săptămâni. Majoritatea recenziilor erau ok, dar câteva chiar cereau un răspuns ca lumea: o cafea rece, o comandă încurcată, un comentariu chiar frumos care merita mulțumire pe bune. Voia să răspundă la toate. În practică răspundea la una din zece, pentru că cele complicate le tot amâna primele.</p>
+  <p class="ob-p">Și golul ăsta contează mai mult decât pare. Un client care se plânge de cafeaua rece nu-i scrie de fapt Norei, îi scrie oricui citește pagina aia înainte să decidă dacă intră sau nu. Lăsat fără răspuns două săptămâni, sună de parcă nu-i ascultă nimeni. Rezolvat într-o oră, aceeași plângere sună ca o firmă căreia îi pasă.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce s-a schimbat când AI-ul a scris primul răspuns</h2>
+  <p class="ob-section-sub">Aceeași voce, dar cinci minute în loc de o seară</p>
+
+  <p class="ob-p">Nora n-a angajat pe nimeni și n-a cumpărat vreun contract mare de reputation management. Și-a conectat un tool de AI la Google Business Profile, care citește recenziile noi și scrie un draft de răspuns pe vocea ei: mulțumește clienților fideli pentru exact ce au menționat, își cere scuze cum trebuie și oferă o soluție la reclamații, niciodată un "mulțumim pentru feedback" generic. Tot ea citește și editează fiecare răspuns înainte să-l posteze, dar ce dura zece minute de gândit acum ia vreo nouăzeci de secunde.</p>
+  <p class="ob-p">După trei luni, fiecare recenzie primește răspuns într-o zi, majoritatea în câteva ore. Rating-ul ei mediu a urcat de la 4,1 la 4,6. Nu poate dovedi că rating-ul singur a adus asta, dar rezervările prin listarea de Google sunt vizibil în creștere, și doi clienți i-au zis direct că răspunsurile ei i-au convins să încerce locul. Jumătate dintre consumatorii din UK zic că recunosc pe loc un răspuns AI de tip șablon, exact de-asta Nora tot verifică fiecare draft înainte să iasă.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Se conectează la Google, Facebook, Tripadvisor</span>
+    <span class="ob-badge">Scrie în tonul tău</span>
+    <span class="ob-badge">Tu editezi înainte de postare</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cei mai mulți antreprenori</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Nu sună răspunsurile AI evident robotic?</p>
+    <p class="ob-faq-a">Doar dacă le postezi needitate. Tratează draftul ca punct de plecare, apoi ajustezi cuvintele și trimiți tu.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Ce fel de tool face treaba asta, mai exact?</p>
+    <p class="ob-faq-a">Platformele de reputation management pentru firme mici se conectează la Google, Facebook sau Tripadvisor și scriu draft-uri automat. Merge și un AI general dacă muți recenziile manual.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Chiar merită să răspunzi la recenziile negative?</p>
+    <p class="ob-faq-a">Da. Peste jumătate dintre oameni zic că răspunsul unei firme le-a schimbat părerea, bună sau rea, deci un răspuns gândit la o recenzie proastă îți aduce de multe ori mai mult decât încă una de cinci stele.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât timp economisești, realist?</p>
+    <p class="ob-faq-a">Pentru o firmă cu câteva recenzii pe săptămână, e diferența dintre un task de-o seară și unul de cinci minute, făcut la o cafea.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>O firmă mică fără departament de marketing se bazează pe recenzii ca reclamă gratuită, vrea nu vrea. Fiecare răspuns e public, dar și fiecare gol se vede la fel de bine. AI-ul nu schimbă ce ai vrea să spui, doar îți taie scuza că n-ai avut timp s-o spui, care era oricum singurul motiv real pentru care răspunsurile tot alunecau.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta săptămâna asta</div>
+  <p>Săptămâna asta, scoate toate recenziile fără răspuns din ultimele trei luni de pe Google și orice altă listare folosești, fă un draft cu AI pentru cele mai vechi cinci, editează-le pe fiecare cu vorbele tale și postează-le azi.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe idei practice de AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Tot te sperie <a class="ob-link" href="#/articles/is-ai-too-expensive-for-small-business">costul unui tool de reputation management</a>? Poate <a class="ob-link" href="#/articles/you-dont-need-new-software-for-ai">nici nu ai nevoie de un tool nou ca să începi</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener noreferrer">BrightLocal - "Local Consumer Review Survey 2026"</a>; <a href="https://www.replyonthefly.com/blog/google-review-response-time-study" target="_blank" rel="noopener noreferrer">ReplyOnTheFly - "Google Review Response Time Study: How Fast Do Businesses Reply? (2026)"</a>.</p>
