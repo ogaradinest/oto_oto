@@ -1,0 +1,151 @@
+<!--
+title: Cut your own product video without touching a timeline
+tags: AI Technology, AI for Marketing & Sales
+date: 2026-09-20
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: 63% of video marketers now use AI to edit their videos, and Descript lets a founder with zero editing skills do the same on their phone.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You know you should be posting video. Everyone tells you: investors want a founder-led pitch clip, customers trust a face over a stock photo, the algorithm rewards it. But you don't have an editor, you don't have £5,000 for an agency, and the last time you opened a timeline-based editor you closed it again within ten minutes. Descript exists for exactly that moment.</p>
+
+<div class="ob-callout">
+  <p>63% of video marketers used AI tools to create or edit their videos in 2026, up from 51% the year before.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">63%</div>
+    <div class="ob-stat-label">of video marketers used AI tools to create or edit marketing videos in 2026, up from 51% a year earlier (Wyzowl, State of Video Marketing 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">82%</div>
+    <div class="ob-stat-label">of video marketers say video delivers a good return on investment (Wyzowl, State of Video Marketing 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£500-£2,000</div>
+    <div class="ob-stat-label">typical cost of an AI-assisted budget video, against £5,000-£15,000 for a professionally produced one</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">It edits video like a Word document</h2>
+  <p class="ob-section-sub">Delete the text, delete the clip</p>
+
+  <p class="ob-p">Descript transcribes whatever you film or record, then lets you edit the transcript instead of a timeline. Cut a sentence out of the text and the matching video or audio disappears with it. Say "um" four times in a row? Highlight it, hit delete, gone. There's no scrubbing back and forth trying to find the exact frame.</p>
+  <p class="ob-p">It also has a filler-word remover that strips out most of the "um", "uh" and dead air automatically, an AI voice tool (Overdub) that can clone your own voice from a short recording so you can fix a flubbed line without re-filming, and a screen-recorder built in for product walkthroughs. None of it requires knowing what a keyframe is.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What it costs, and where it actually fits</h2>
+  <p class="ob-section-sub">Free to start, cheap to stay</p>
+
+  <p class="ob-p">There's a free plan for short clips, and paid tiers start around $16 a month for a solo founder doing this regularly. Compare that to the £5,000-£15,000 a small production agency charges for a single professionally shot video, and the maths for a pre-revenue business isn't close.</p>
+  <p class="ob-p">Take Priya, six weeks from launching a subscription skincare box. Every Sunday she films a two-minute product story on her phone: no script, just talking to camera. She used to spend close to four hours cutting it down herself in a free editor she barely understood. In Descript she deletes the bad takes from the text, runs the filler-word remover once, and has a clean clip ready in under 40 minutes, most weeks with enough left over to cut a second, shorter version for Instagram.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick answers</h2>
+  <p class="ob-section-sub">The questions most founders ask first</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need any video editing experience to use Descript?</p>
+    <p class="ob-faq-a">No. If you can delete text in a document, you can cut a video in Descript. The interface is built around the transcript, not a timeline.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is the AI voice clone (Overdub) actually usable for real marketing videos?</p>
+    <p class="ob-faq-a">It's good enough for fixing a single flubbed line or a name you mispronounced, not for narrating a whole video from a script. You train it on your own voice with your consent, and most founders use it sparingly rather than as the primary voice.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the cheapest way to try it before committing?</p>
+    <p class="ob-faq-a">Start on the free plan. It caps you on transcription minutes and export quality, but it's enough to edit two or three short founder-update or product clips and see whether the workflow actually saves you time.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will using AI-edited video make my brand look less genuine?</p>
+    <p class="ob-faq-a">The data says no: 74% of consumers said in 2026 they were open to receiving AI-assisted video from brands, up from 65% the year before. The editing is AI-assisted, but it's still your face and your words, which is what audiences actually respond to.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business can't justify a full-time video editor, and most can't justify an agency retainer either. But video is no longer optional: it's the format investors, customers and job candidates expect to see before they trust you. A tool that turns a phone recording into something postable in under an hour closes that gap without adding headcount or a line item you'll have to defend at month end.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this this week</div>
+  <p>This week, film one two-minute video on your phone answering the single question customers ask you most often. Upload it to Descript's free plan, cut it down using the transcript, and publish it to one channel before Friday.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI ideas for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Pair this with <a class="ob-link" href="#/articles/notion-ai-for-startup-founders">keeping your startup's documents and workflow in one AI workspace</a> and <a class="ob-link" href="#/articles/set-up-ai-social-media-scheduling-before-launch">scheduling your content calendar before you launch</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://wyzowl.com/ai-video-marketing/" target="_blank" rel="noopener noreferrer">Wyzowl, State of Video Marketing 2026</a>; <a href="https://gobeunicorn.com/startup-ai-tools/descript-v2/" target="_blank" rel="noopener noreferrer">Descript for Startups: AI Video Editor Review & Pricing 2026</a>; <a href="https://adwave.com/resources/ai-video-statistics-2026" target="_blank" rel="noopener noreferrer">AI Video Statistics 2026</a>.</p>
