@@ -1,0 +1,151 @@
+<!--
+title: Montezi singur clipul de produs, fără să atingi un timeline
+tags: AI Technology, AI for Marketing & Sales
+date: 2026-09-21
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: 63% dintre marketerii video folosesc deja AI ca să-și editeze clipurile, iar cu Descript poți face la fel de pe telefon, fără nicio experiență de montaj.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Știi că ar trebui să postezi video. Toată lumea îți zice: investitorii vor un clip de pitch cu fața ta, clienții au încredere mai mult într-o față decât într-o poză de stock, iar algoritmul te ține minte dacă ai video. Doar că n-ai editor, n-ai 5.000 de lire pentru o agenție, și ultima dată când ai deschis un editor cu timeline l-ai închis după zece minute. Pentru exact momentul ăsta există Descript.</p>
+
+<div class="ob-callout">
+  <p>63% dintre marketerii video au folosit AI ca să-și editeze clipurile în 2026, față de 51% cu un an înainte.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">63%</div>
+    <div class="ob-stat-label">dintre marketerii video au folosit AI ca să creeze sau să editeze clipuri de marketing în 2026, față de 51% cu un an înainte (Wyzowl, State of Video Marketing 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">82%</div>
+    <div class="ob-stat-label">dintre marketerii video spun că video le aduce un ROI bun (Wyzowl, State of Video Marketing 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">500-2.000 £</div>
+    <div class="ob-stat-label">costul tipic al unui video făcut cu ajutorul AI, față de 5.000-15.000 £ pentru unul produs profesionist</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Montezi video ca într-un document Word</h2>
+  <p class="ob-section-sub">Ștergi textul, dispare clipul</p>
+
+  <p class="ob-p">Descript îți transcrie tot ce filmezi sau înregistrezi, apoi tu editezi transcriptul, nu un timeline. Tai o propoziție din text și dispare și partea de video sau audio care-i corespunde. Ai zis "ăăă" de patru ori la rând? Selectezi, ștergi, gata. Nu mai stai să cauți cadrul exact înainte și înapoi.</p>
+  <p class="ob-p">Are și un filler-word remover care taie automat majoritatea pauzelor moarte, un tool de voce AI (Overdub) care-ți clonează vocea dintr-o înregistrare scurtă ca să repari o replică ratată fără să filmezi din nou, și un screen-recorder pentru demo-uri de produs. Nu trebuie să știi ce e un keyframe ca să te descurci.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Cât costă, și unde chiar își are locul</h2>
+  <p class="ob-section-sub">Gratis la început, ieftin după</p>
+
+  <p class="ob-p">Are un plan gratuit pentru clipuri scurte, iar planurile plătite pornesc de la vreo 16 dolari pe lună pentru un fondator singur care face asta constant. Pui asta lângă 5.000-15.000 £ cât cere o agenție mică pentru un singur video filmat profesionist, și calculul pentru un business fără venituri încă nici nu se pune.</p>
+  <p class="ob-p">Ia-o pe Priya, la șase săptămâni de lansarea cutiei ei de abonament cu produse de skincare. În fiecare duminică filmează pe telefon un clip de două minute despre produs: fără scenariu, doar vorbește la cameră. Înainte pierdea aproape patru ore tăind singură clipul într-un editor gratuit pe care abia îl înțelegea. În Descript șterge dublurile proaste direct din text, dă un pas de filler-word remover, și are un clip curat gata în sub 40 de minute, de multe ori cu timp rămas să taie și o variantă mai scurtă pentru Instagram.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cei mai mulți antreprenori</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Trebuie să știu să montez video ca să folosesc Descript?</p>
+    <p class="ob-faq-a">Nu. Dacă știi să ștergi text dintr-un document, știi să tai un video în Descript. Interfața e construită în jurul transcriptului, nu al unui timeline.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Vocea AI (Overdub) chiar se poate folosi în videoclipuri reale de marketing?</p>
+    <p class="ob-faq-a">E bună să repari o replică ratată sau un nume pronunțat greșit, nu să narezi tot clipul dintr-un scenariu. O antrenezi pe vocea ta, cu acordul tău, și majoritatea fondatorilor o folosesc rar, nu ca voce principală.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Care e cel mai ieftin mod să-l testez înainte să plătesc?</p>
+    <p class="ob-faq-a">Pornești pe planul gratuit. Te limitează la minute de transcriere și calitatea exportului, dar ajunge să editezi două-trei clipuri scurte de update sau de produs și să vezi dacă workflow-ul chiar îți economisește timp.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Un video montat cu AI mă face să par mai puțin autentic în fața clienților?</p>
+    <p class="ob-faq-a">Cifrele zic nu: 74% dintre consumatori au spus în 2026 că sunt deschiși să primească video asistat de AI de la branduri, față de 65% cu un an înainte. Montajul e asistat de AI, dar fața și vorbele tale rămân ale tale, și la asta reacționează de fapt publicul.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Un business mic nu poate justifica un editor video full-time, și majoritatea nici un contract cu o agenție. Dar video-ul nu mai e opțional: e formatul pe care investitorii, clienții și candidații la angajare se așteaptă să-l vadă înainte să aibă încredere în tine. Un tool care transformă o înregistrare de pe telefon în ceva postabil în sub o oră închide gaura asta fără să adaugi un om în echipă sau o linie de cheltuieli pe care s-o justifici la finalul lunii.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta săptămâna asta</div>
+  <p>Săptămâna asta, filmează pe telefon un clip de două minute în care răspunzi la întrebarea pe care ți-o pun cel mai des clienții. Urcă-l pe planul gratuit din Descript, taie-l din transcript, și publică-l pe un singur canal până vineri.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe idei practice de AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Merge bine cu <a class="ob-link" href="#/articles/notion-ai-pentru-fondatori-de-startup">ținerea documentelor și workflow-ului startup-ului tău într-un singur AI workspace</a> și cu <a class="ob-link" href="#/articles/programeaza-ti-social-media-cu-ai-inainte-de-lansare">programarea conținutului înainte să lansezi</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://wyzowl.com/ai-video-marketing/" target="_blank" rel="noopener noreferrer">Wyzowl, State of Video Marketing 2026</a>; <a href="https://gobeunicorn.com/startup-ai-tools/descript-v2/" target="_blank" rel="noopener noreferrer">Descript for Startups: AI Video Editor Review & Pricing 2026</a>; <a href="https://adwave.com/resources/ai-video-statistics-2026" target="_blank" rel="noopener noreferrer">AI Video Statistics 2026</a>.</p>
