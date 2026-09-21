@@ -1,0 +1,175 @@
+<!--
+title: Proving your controls work without hiring an audit team
+tags: AI Governance, AI Implementation
+date: 2026-09-16
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: From 1 January 2026, UK boards must declare their internal controls are actually working. Here's the lightweight version for a business with no internal audit function at all.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Full internal audit functions, quarterly committees, dedicated staff, six-figure platform contracts, are built for organisations well beyond most small businesses. Yet the pressure to show that controls actually work is not only an enterprise problem any more. The FRC's UK Corporate Governance Code now requires listed company boards to declare, from 1 January 2026, that their material internal controls are effective, and that expectation is filtering down through supply chains, lenders and insurers who increasingly ask smaller suppliers a similar question informally.</p>
+
+<div class="ob-callout">
+  <p>You do not need a continuous audit platform costing tens of thousands of pounds. You need to know which handful of processes actually carry risk, and a cheap, consistent way to check them more than once a year.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">1 Jan 2026</div>
+    <div class="ob-stat-label">when UK boards must start declaring their material internal controls are effective (FRC)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£3k-£5k</div>
+    <div class="ob-stat-label">typical annual cost of outsourcing internal audit to a specialist firm, versus a full-time hire</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">285%+</div>
+    <div class="ob-stat-label">three-year ROI reported for continuous compliance monitoring versus periodic audits</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why checking once a year is no longer good enough</h2>
+  <p class="ob-section-sub">What changed with the 2024 Governance Code</p>
+
+  <p class="ob-p">Provision 29 of the FRC's 2024 UK Corporate Governance Code asks boards to declare the effectiveness of their material internal controls, not just describe having them. This applies directly only to listed companies, but the practical effect reaches further. Banks assessing lending risk, private equity owners, and larger customers running supplier due diligence increasingly expect the same standard of evidence, even from businesses the Code does not technically cover.</p>
+  <p class="ob-p">The old model, an annual spot check of a small sample of transactions, was designed for a slower, simpler business. It cannot realistically demonstrate that controls work continuously, because it only looks at a handful of moments a year.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What continuous monitoring actually looks like without a team</h2>
+  <p class="ob-section-sub">You are checking patterns, not hiring auditors</p>
+
+  <p class="ob-p">Continuous monitoring tools do not require a dedicated audit department to run. Modern platforms connect to your accounting system, HR system or CRM and check every transaction against expected patterns automatically, flagging duplicate invoices, payments to newly-added bank accounts, or approvals that skip a step. A finance manager or owner reviews the flagged exceptions, typically a handful a week rather than hundreds of transactions.</p>
+  <p class="ob-p">Reported returns from moving to this model are significant: three-year ROI above 285% against traditional periodic audits, with payback typically inside 8 to 18 months once earlier fraud detection and labour hours saved are counted together.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where outsourcing beats building</h2>
+  <p class="ob-section-sub">The £3,000-£5,000 comparison that matters</p>
+
+  <p class="ob-p">Hiring even a single internal audit specialist costs a small business a full salary plus overhead for a function that, at this scale, does not need daily attention. Outsourcing the function to a specialist firm typically runs £3,000 to £5,000 a year and also solves the independence problem: an outsourced reviewer is not checking their own manager's work.</p>
+  <p class="ob-p">Small businesses carry a structural disadvantage worth naming plainly: proportional compliance costs run roughly three times higher than for larger firms, because the fixed cost of understanding a framework does not shrink with headcount. Outsourcing spreads that fixed cost across a specialist firm's whole client base instead of carrying it alone.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Outsourced audit: £3k-£5k/year</span>
+    <span class="ob-badge">In-house hire: full salary + overhead</span>
+    <span class="ob-badge">Independence solved either way</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">If you are FCA-regulated, the bar is already higher</h2>
+  <p class="ob-section-sub">What the FCA actually wants to see</p>
+
+  <p class="ob-p">Businesses regulated by the FCA, including many providing consumer credit, insurance mediation or investment advice, already face a specific evidence standard for AI-assisted decisions under Consumer Duty. Current guidance points to five things: a risk assessment carried out before deployment, a named senior manager accountable for the system, real-time monitoring with a documented threshold for stepping in, an audit trail at the level of individual interactions, and evidence covering any third-party tools relied on.</p>
+  <p class="ob-p">None of this requires an audit department. It requires writing down, once, who owns each AI-assisted process and reviewing the flagged exceptions on a fixed schedule, then keeping that record somewhere a regulator or lender could actually find it.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick answers</h2>
+  <p class="ob-section-sub">The questions most founders ask first</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the FRC Governance Code apply to our small business?</p>
+    <p class="ob-faq-a">Directly, only if you are a listed company. In practice, banks, larger customers and private equity owners are increasingly asking smaller suppliers similar questions about control effectiveness, so it is worth having an answer ready regardless.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the cheapest way to start continuous monitoring?</p>
+    <p class="ob-faq-a">Identify the two or three processes that actually carry financial or regulatory risk, usually supplier payments and payroll, and connect a monitoring tool or outsourced reviewer to just those first, rather than attempting company-wide coverage on day one.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is outsourcing internal audit actually cheaper than hiring?</p>
+    <p class="ob-faq-a">Usually, at small business scale. Typical outsourcing costs of £3,000 to £5,000 a year compare favourably to a full salary and overhead for a role that does not need daily attention below a certain size.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does the FCA expect from regulated firms using AI?</p>
+    <p class="ob-faq-a">Five things: a pre-deployment risk assessment, a named accountable senior manager, real-time monitoring with documented thresholds, an audit trail at the interaction level, and evidence covering any third-party AI tools in use.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A twenty-person business will never need a four-person audit team. It does need to know that supplier payments and payroll, the two areas where fraud and error actually cost money, are being checked more often than once a year. Outsourcing that check for a few thousand pounds annually, or running a lightweight monitoring tool against just those processes, closes most of the real risk that the FRC's new control-effectiveness standard is aimed at, without hiring anyone.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this this week</div>
+  <p>This week, name the two processes in your business where an undetected error or fraud would actually hurt, most often supplier payments and payroll, and check when each was last independently reviewed. If the honest answer is "not in the last twelve months", that is your starting point before anything else on this list.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out where your own control gaps are?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Worth reading alongside <a class="ob-link" href="#/articles/ai-data-governance-framework">the practical framework behind AI data governance</a>, <a class="ob-link" href="#/articles/ai-governance-basics">AI governance for SMBs who don't have a compliance team</a>, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> and <a class="ob-link" href="#/articles/ai-ethics-framework-small-business">the AI ethics framework your small business can build</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.frc.org.uk/news-and-events/news/2024/01/frc-revises-uk-corporate-governance-code/" target="_blank" rel="noopener noreferrer">FRC, FRC Revises UK Corporate Governance Code</a>; <a href="https://www.finexaccounting.co.uk/pros-and-cons-of-outsourcing-internal-audit-services/" target="_blank" rel="noopener noreferrer">Finex Accounting, Understanding the True Pros and Cons of Outsourcing Internal Audit Services</a>; <a href="https://www.sirion.ai/library/contract-insights/continuous-compliance-vs-periodic-audits-roi/" target="_blank" rel="noopener noreferrer">Sirion, Continuous Compliance Monitoring vs Periodic Audits: 2026 ROI Analysis</a>; <a href="https://www.digitalapplied.com/blog/ai-compliance-small-business-2026-bias-audits-risk-guide" target="_blank" rel="noopener noreferrer">Digital Applied, AI Compliance for Small Business 2026: Bias Audit Guide</a>; <a href="https://aveni.ai/blog/evidence-ai-agent-compliance-fca/" target="_blank" rel="noopener noreferrer">Aveni, How to evidence AI agent compliance: 5 expectations from the FCA</a>.</p>
