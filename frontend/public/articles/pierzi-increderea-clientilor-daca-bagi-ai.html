@@ -1,0 +1,158 @@
+<!--
+title: Clienții nu urăsc AI-ul, urăsc să fie pasați robotului
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-09-19
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 57% dintre consumatorii din UK zic că ar avea mai puțină încredere într-o firmă care se bazează în principal pe AI la customer service, dar cifra aia ascunde un adevăr mult mai prietenos pentru tine, patron de firmă mică.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Vrei să bagi AI să-ți scrie ofertele, să răspunzi la review-uri, să aluergi facturile restante. Și tot o grijă te oprește: dacă prinde clientul de veste și crede că ai luat-o pe ieftin? E o întrebare cinstită. Nimeni nu vrea să fie firma aia care a schimbat un răspuns cald cu unul de robot. Dar cifrele nu zic "clienții urăsc AI-ul". Zic altceva, mult mai specific, și odată ce vezi forma reală a lucrurilor, frica te împinge spre folosit AI-ul cu cap, nu spre evitat de tot.</p>
+
+<div class="ob-callout">
+  <p>57% dintre consumatorii din UK ar avea mai puțină încredere într-o firmă care se bazează în principal pe AI la customer service. Dar 71% sunt ok cu AI-ul care grăbește lucrurile, atâta timp cât rămâne și un om la capătul firului.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">57%</div>
+    <div class="ob-stat-label">dintre consumatorii din UK ar avea mai puțină încredere într-o firmă care se bazează predominant pe AI la customer service, față de 53% acum un an (MaxContact, Voice of the UK Consumer 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">71%</div>
+    <div class="ob-stat-label">dintre consumatori sunt ok cu AI-ul care rezolvă mai repede o problemă, atâta timp cât rămâne un om disponibil pe tot parcursul (MaxContact, Voice of the UK Consumer 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">50%</div>
+    <div class="ob-stat-label">cât a crescut numărul de clienți la firmele mici care au adoptat AI între septembrie 2025 și martie 2026 (Bluevine, 2026 Small Business AI Trends Report)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Mitul: clienții miros robotul de la distanță și îl urăsc</h2>
+  <p class="ob-section-sub">Reacția nu e împotriva AI-ului, e împotriva faptului că te pasează cuiva total</p>
+
+  <p class="ob-p">Cifra aia de 57% pare grea până citești ce măsoară de fapt: încrederea scade când firma se bazează predominant pe AI, adică te pasează unui bot fără cale de ieșire. Nu măsoară ce se întâmplă când un om verifică tot, doar mai repede. Sunt două experiențe complet diferite care poartă aceleași trei litere.</p>
+  <p class="ob-p">Imaginează-ți un salon mic de coafură care începe să folosească AI ca să-i facă draft-uri la review-urile de pe Google. Patroana tot citește fiecare răspuns, ajustează tonul, apasă send ea. Un client fidel nu prinde diferența, răspunsul tot sună ca ea, doar că ajunge în seara aia, nu peste trei săptămâni. Asta e varianta de AI pe care aproape nimeni n-o contestă.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Ce chiar taie din încredere, și ce nu</h2>
+  <p class="ob-section-sub">Contează unde stă AI-ul în proces, nu dacă îl folosești deloc</p>
+
+  <p class="ob-p">Linia clară din cercetare e prezența omului, nu prezența AI-ului. 71% dintre consumatori chiar sunt ok cu AI-ul care grăbește o rezolvare, atâta timp cât rămâne cineva de contactat dacă lucrurile o iau razna. Înlocuirea completă e ce respinge lumea, nu asistența din spate.</p>
+  <p class="ob-p">Ia un instalator care lucrează singur și obișnuia să-și scrie ofertele seara, de la zero. Acum AI-ul îi face primul draft din câteva notițe dictate în mașină, el verifică cifrele, ajustează formularea, trimite oferta într-o oră, nu a doua zi. Clientul vede doar o ofertă mai rapidă și mai clară. Nimic nu s-a schimbat în relație, doar timpul de răspuns, și exact ăsta e tiparul din spatele firmelor mici care câștigă clienți după ce bagă AI, nu îi pierd.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Ține un om care verifică fiecare output</span>
+    <span class="ob-badge">Folosește AI să facă draft-uri, nu decizii</span>
+    <span class="ob-badge">Anunță doar unde chiar cere legea</span>
+    <span class="ob-badge">Urmărește viteza de răspuns, nu tăierile de personal</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cei mai mulți antreprenori</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Sunt obligat legal să le spun clienților că folosesc AI?</p>
+    <p class="ob-faq-a">Doar când clientul ar putea crede rezonabil că vorbește cu un om într-o interacțiune live, automată, cum ar fi un chatbot nemarcat. Dacă AI-ul îți face un draft de email sau ofertă pe care îl verifică și îl trimite tot un om, nu se aplică regula asta.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi va face firma să pară mai puțin personală?</p>
+    <p class="ob-faq-a">Doar dacă lași AI-ul să înlocuiască toată conversația. Folosit ca să facă draft-uri sau să grăbească ceva ce tot un om verifică, de obicei îți eliberează timp pentru detaliile personale care chiar contează, un bilețel scris de mână sau un telefon ca lumea.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Care e locul cel mai sigur ca să încep cu AI fără riscul unei reacții proaste?</p>
+    <p class="ob-faq-a">Task-uri din spate, nu din față: prime draft-uri la oferte, răspunsuri la review-uri, remindere de programări, urmărirea facturilor restante. Toate locuri unde AI-ul lucrează în spatele unui om, nu în fața clientului.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Chiar îi îndepărtează AI-ul pe clienți de la cumpărat?</p>
+    <p class="ob-faq-a">Nu există nicio dovadă în sensul ăsta când e integrat cu cap. Firmele mici care au adoptat AI au văzut numărul de clienți crescând, nu scăzând, în lunile următoare.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>O firmă mică trăiește din reputație și din gura lumii, într-un fel în care un brand mare nu trebuie să-și facă griji. Un client care simte că a fost pasat unui bot te costă mai mult decât un review prost, le spune vecinilor. Dar tocmai de-asta contează modelul de asistent aici: n-ai omul care să răspundă tuturor manual la viteza pe care o așteaptă clienții acum, iar AI-ul închide golul ăla fără să ieși tu vreo clipă din conversație.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta săptămâna asta</div>
+  <p>Săptămâna asta alege un singur task orientat spre client pe care acum îl faci integral manual, răspunsuri la review-uri, follow-up-uri la oferte sau remindere de programări sunt puncte bune de start, și lasă AI-ul să facă primul draft în timp ce tu tot citești și trimiți fiecare mesaj. Pentru client nu se schimbă nimic în afară de cât de repede primește răspuns de la tine.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe idei practice de AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Vezi și <a class="ob-link" href="#/articles/ai-review-replies-saved-cafe-reputation">cum și-a păstrat vocea o cafenea folosind AI la review-uri</a> și <a class="ob-link" href="#/articles/ai-quoting-cut-trade-firm-admin-time">cum a tăiat un instalator timpul de ofertare cu AI</a>.</p>
+
+<p class="ob-sources">Surse: <a href="https://www.maxcontact.com/downloads/voice-of-the-uk-consumer-2026" target="_blank" rel="noopener noreferrer">MaxContact, Voice of the UK Consumer 2026: The Trust Gap Report</a>; <a href="https://www.bluevine.com/blog/small-business-ai-trends-report-2026" target="_blank" rel="noopener noreferrer">Bluevine, 2026 Small Business AI Trends Report</a>.</p>

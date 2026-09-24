@@ -1,0 +1,158 @@
+<!--
+title: Know when you'll run out of cash before you do
+tags: AI Strategy, AI Implementation
+date: 2026-09-15
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: 57% of UK small businesses say they're wrestling with cash flow problems right now, and AI can help you build a working forecast before you even open your doors.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've got the logo. The pitch deck's tight. But ask most first-time founders what their cash balance looks like in week nine of trading, and you'll get a shrug. That gap, between a business plan that looks great on paper and a spreadsheet that tells you when the money actually runs out, is where a lot of new businesses quietly die. Building a real cash flow forecast used to mean hiring an accountant or wrestling with formulas. Now you can get a working first draft out of an AI tool in an afternoon.</p>
+
+<div class="ob-callout">
+  <p>57% of UK small businesses say they're currently dealing with cash flow problems, and most only found out the hard way.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">29%</div>
+    <div class="ob-stat-label">of failed startups cite running out of cash as a root cause of failure (CB Insights)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">57%</div>
+    <div class="ob-stat-label">of UK small businesses report ongoing cash flow issues (QuickBooks UK)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">4+ months</div>
+    <div class="ob-stat-label">the average stretch of negative cash flow a UK small business faces each year (Xero Small Business Insights)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The forecast in your pitch deck isn't the one that saves you</h2>
+  <p class="ob-section-sub">Investors want the story, your bank account wants the truth</p>
+
+  <p class="ob-p">Pitch deck financials sell a vision: revenue climbing, costs flat, everyone paying on time. A cash flow forecast does something less glamorous and far more useful, it tells you which week you'll be short. Both can coexist, but only one needs updating every Friday.</p>
+  <p class="ob-p">Take a plausible scenario: a founder opens a small bakery supplying three local cafés on 30-day terms. Sales look healthy from day one, around £4,200 a month. But flour, wages and rent are paid weekly or monthly upfront, while the cafés don't settle up for 30 to 45 days. Without mapping that gap, the founder runs out of working capital in week seven, not because the business isn't working, but because nobody modelled the lag between doing the work and getting paid for it.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Building the forecast with AI, step by step</h2>
+  <p class="ob-section-sub">You don't need Excel wizardry, you need the right questions answered in order</p>
+
+  <p class="ob-p">Start by listing every cost you already know: rent, software, wages, stock, insurance, loan repayments. Feed that list into an AI tool such as ChatGPT or Claude and ask it to build a simple 13-week rolling cash flow template, with columns for expected income, expected outgoings and running balance. Be specific about payment terms, that's the detail most generic templates miss.</p>
+  <p class="ob-p">Once you're trading and have accounting software connected, tools built for this take over the heavy lifting. Xero's forecasting features and add-ons like Fathom now generate AI commentary straight from your live numbers, flagging a coming shortfall weeks before it happens rather than after the direct debit bounces.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">List fixed costs first</span>
+    <span class="ob-badge">Map payment timing, not just sales</span>
+    <span class="ob-badge">Build a 13-week rolling view</span>
+    <span class="ob-badge">Review and update it every week</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick answers</h2>
+  <p class="ob-section-sub">The questions most founders ask first</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need accounting software before I can forecast cash flow?</p>
+    <p class="ob-faq-a">No. A spreadsheet and a free AI tool like ChatGPT or Claude can build your first 13-week forecast before you've even registered the business.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How far ahead should a new business forecast?</p>
+    <p class="ob-faq-a">A rolling 13-week view for day-to-day decisions, plus a 12-month version broken down by month for your first year.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can AI actually predict my cash flow accurately?</p>
+    <p class="ob-faq-a">Not on its own. It only works with the numbers you give it, so treat it as a fast way to build and update the model, not a crystal ball.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the biggest mistake founders make with cash flow forecasts?</p>
+    <p class="ob-faq-a">Forecasting sales but forgetting payment timing. A sale isn't cash until it lands in the account.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, the cash buffer is thin by definition. A single late-paying client or an unexpectedly large tax bill can tip a genuinely profitable business into crisis. A forecast doesn't fix that fragility, but it turns a surprise into something you saw coming three weeks ago and already had a plan for.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this this week</div>
+  <p>This week, list every cost due in the next 90 days, ask an AI tool to turn it into a simple weekly cash flow spreadsheet, and block 10 minutes every Friday to update it with what actually happened.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI ideas for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Worth pairing with <a class="ob-link" href="#/articles/ai-competitor-analysis-before-you-launch">your pre-launch competitor analysis</a> and a look at <a class="ob-link" href="#/articles/ai-accounts-payable-smb-roi">what AI can do for accounts payable once you're trading</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top/" target="_blank" rel="noopener noreferrer">CB Insights, Why Startups Fail</a>; <a href="https://quickbooks.intuit.com/uk/press/small-business-cash-flow-issues/" target="_blank" rel="noopener noreferrer">QuickBooks UK, small business cash flow issues</a>; <a href="https://www.xero.com/uk/media-releases/cash-flow-crunch-continues-to-hamper-uk-small-businesses/" target="_blank" rel="noopener noreferrer">Xero, cash flow crunch continues to hamper UK small businesses</a>.</p>
