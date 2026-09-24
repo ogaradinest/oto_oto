@@ -1,0 +1,159 @@
+<!--
+title: Write your FAQ before your inbox writes it for you
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-09-24
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 78% of CRM leaders say customers would rather solve a problem themselves than message a business, so an AI-drafted FAQ page starts paying you back before you've made a single sale.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (step list) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.25); color: #FF6B2C; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You haven't launched yet, and you're already answering the same five questions on repeat: in DMs, in your family group chat, in every waitlist reply. Do you ship to Ireland? What's your returns policy? Each message is a small, unbudgeted tax on your time, and once you actually open the doors, the volume triples. An FAQ page clears most of that queue before day one, and AI can draft you a solid first version in under an hour.</p>
+
+<div class="ob-callout">
+  <p>78% of CRM leaders say customers would rather find an answer themselves than message a business, HubSpot found, which means the FAQ page you write this week starts paying you back before you've made a single sale.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">78%</div>
+    <div class="ob-stat-label">of CRM leaders say customers prefer solving problems independently rather than contacting a business (HubSpot, 2024)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">60%</div>
+    <div class="ob-stat-label">of software users say they actively prefer self-service options over speaking to a person (Heretto Self-Service Report, cited by HubSpot)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">65%</div>
+    <div class="ob-stat-label">of aspiring US entrepreneurs plan to use AI tools to help launch their business in 2026 (Intuit QuickBooks entrepreneurship survey)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHY YOU NEED ONE BEFORE DAY ONE ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why founders need an FAQ page before day one</h2>
+  <p class="ob-section-sub">It's not a nice-to-have, it's a queue you're avoiding</p>
+
+  <p class="ob-p">Every question you answer by hand today is one you'll answer again next week. A new business gets asked the same handful of things on loop, pricing, delivery, returns, what actually makes you different. Stack those up over a month and you've quietly built yourself an unpaid, part-time customer service job before you've sold a single unit.</p>
+  <p class="ob-p">Take a founder setting up an online plant subscription box. In the first fortnight of her waitlist she had 40 sign-ups and 22 near-identical DMs asking about delivery windows and whether she shipped to Northern Ireland, close to four hours of typing the same three answers. A one-page FAQ, drafted with AI and edited into her own voice, cut that to almost nothing for the next intake.</p>
+</div>
+
+<!-- ─── SECTION 2: HOW TO BUILD ONE WITH AI ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">How to build one with AI in about an hour</h2>
+  <p class="ob-section-sub">Five steps, no design skills required</p>
+
+  <p class="ob-p">Start by listing every question you've actually been asked, in group chats, waitlist replies, comments, wherever they've shown up. Fifteen to twenty is plenty. Feed that list to ChatGPT, Claude, or Gemini with two or three sentences about your business, what you sell, who it's for, how delivery or booking works, and ask for plain-English draft answers.</p>
+  <p class="ob-p">Read every answer before it goes near your website. AI will guess at policies you haven't set yet, like your returns window or which countries you ship to, so correct anything invented and drop in your real numbers. Group the questions under headers like Ordering, Delivery, Returns, and About Us, then paste them into your website builder's FAQ or accordion block, most no-code tools, including Wix, Squarespace, and Durable, already have one.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">List real questions</span>
+    <span class="ob-badge">Draft with AI</span>
+    <span class="ob-badge">Fact-check every answer</span>
+    <span class="ob-badge">Group into sections</span>
+    <span class="ob-badge">Publish and revisit monthly</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need paid software to build an FAQ page, or can I use a free AI tool?</p>
+    <p class="ob-faq-a">A free tool is enough. ChatGPT, Claude, or Gemini's free tiers can draft the whole page, a paid plan only matters if you want it kept updated automatically.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long should a launch-stage FAQ page be?</p>
+    <p class="ob-faq-a">Ten to fifteen questions is plenty for day one. Add more once real customers start asking things you didn't think to anticipate.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should I publish AI's answers exactly as written?</p>
+    <p class="ob-faq-a">No, always edit for accuracy first. AI doesn't know your actual return window or delivery cut-off times, it will invent something plausible if you don't supply the real detail yourself.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does an FAQ page actually help with Google search, or is it just for customers?</p>
+    <p class="ob-faq-a">Both. Pages marked up with FAQ schema can appear directly inside Google results, a small visibility boost before your site has any real search history.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a solo founder or a two-person team, every hour spent typing the same answer by hand is an hour not spent on sourcing, selling, or building the actual product. An FAQ page is one of the few pre-launch tasks with near-immediate payback, under an hour to draft, and it starts saving you time in the very first week you're open, exactly when you have the least spare capacity in your business's life.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write down the 15 questions people have actually asked about your business, in DMs, emails, or in person, paste that list into ChatGPT or Claude with two sentences about what you sell, and ask it to draft an FAQ page you can fact-check and publish before you launch.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more tips like this before you launch?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If customer questions keep landing in your inbox after you launch too, <a class="ob-link" href="#/articles/build-ai-customer-support-chatbot-one-afternoon">an AI customer support chatbot you can build in an afternoon</a> picks up where the FAQ page leaves off.</p>
+
+<p class="ob-sources">Sources: <a href="https://blog.hubspot.com/service/self-service-stats" target="_blank" rel="noopener noreferrer">HubSpot, 13 customer self-service stats that leaders need to know</a>; <a href="https://www.heretto.com/self-service-report" target="_blank" rel="noopener noreferrer">Heretto Self-Service Report</a>; <a href="https://quickbooks.intuit.com/r/small-business-data/entrepreneurship-in-2026/" target="_blank" rel="noopener noreferrer">Intuit QuickBooks, 2026 Entrepreneurship Trends</a>.</p>
