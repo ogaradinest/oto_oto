@@ -1,0 +1,159 @@
+<!--
+title: You don't need big data to make AI work for your business
+tags: AI Strategy, AI Implementation
+date: 2026-09-26
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Gartner says 60% of AI projects will be scrapped by 2026 over data that isn't AI-ready, and dataset size has nothing to do with it.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (myth-buster pills) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0.5rem 0; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.6rem 1.1rem; font-size: 0.85rem; font-weight: 600; color: #1a1a3d; }
+  .ob-badge::before { content: '✓ '; color: #FF6B2C; font-weight: 900; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've probably talked yourself out of trying AI at least once because of one quiet, nagging thought: my business doesn't have enough data for that. You picture Amazon-scale warehouses of customer records and figure a five-person shop with a couple of spreadsheets and a POS export doesn't qualify. It's a reasonable worry, and it's also based on how AI worked a decade ago, not how it works now.</p>
+
+<div class="ob-callout">
+  <p>Gartner predicts 60% of AI projects will be abandoned through 2026 because the data behind them wasn't ready, and that's a quality problem, not a quantity one.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">60%</div>
+    <div class="ob-stat-label">of AI projects will be abandoned through 2026 because the data feeding them isn't AI-ready, not because there wasn't enough of it (Gartner, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">23%</div>
+    <div class="ob-stat-label">of UK businesses reported using some form of AI by late September 2025, up from just 9% two years earlier (ONS Business Insights and Conditions Survey)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">49%</div>
+    <div class="ob-stat-label">of UK SME leaders not planning to adopt AI point to data privacy and security worries as the reason, not a lack of data itself (YouGov)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: THE MYTH ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The myth: AI needs a warehouse of records before it's useful</h2>
+  <p class="ob-section-sub">Modern AI tools were built for what you already have, not what a corporation has</p>
+
+  <p class="ob-p">Picture a four-person bakery that exports twelve months of till receipts from its POS system: one spreadsheet, nothing fancy. Fed into a basic AI analysis tool, that single file is enough to flag which traybakes sell out by 10am on a Saturday and which ones sit in the cabinet until closing. No data warehouse, no data scientist, just an export button and an afternoon.</p>
+  <p class="ob-p">That's the pattern behind most AI tools built for small businesses in 2026: they expect a spreadsheet, an inbox or a few months of invoices, not a dataset the size of a supermarket chain's. The barrier was never how much you had. It's whether it's readable.</p>
+</div>
+
+<!-- ─── SECTION 2: WHAT'S ACTUALLY HOLDING YOU BACK ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What's actually holding small businesses back, and it isn't size</h2>
+  <p class="ob-section-sub">The real blockers are trust and tidiness, not the row count</p>
+
+  <p class="ob-p">Gartner's number backs this up from the other direction: it's big organisations with genuinely enormous datasets that are abandoning AI projects, because that data is scattered, ungoverned or duplicated across ten systems, not because there isn't enough of it. A small business with one till system and one inbox usually starts from a tidier place than a corporation ever will.</p>
+  <p class="ob-p">The bigger blocker, per the YouGov survey, is nerves about where the data goes once you hand it over, not whether you have enough to begin with. That's a fair concern, and it has a fair answer: check whether the tool trains its models on your inputs before you upload anything. Most reputable small business tools let you switch that off.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">One spreadsheet is enough to start</span>
+    <span class="ob-badge">Messy but complete beats missing</span>
+    <span class="ob-badge">Check the tool's training settings first</span>
+    <span class="ob-badge">Small businesses often have tidier data than big ones</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much data do I actually need before trying an AI tool?</p>
+    <p class="ob-faq-a">Usually a single spreadsheet, invoice export or a few months of records is plenty to start. Most small business AI tools are built around exactly that scale, not enterprise databases.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What if my data is spread across a few different apps?</p>
+    <p class="ob-faq-a">Export what you can into one file first. A messy but complete spreadsheet works better than data locked inside three separate tools that don't talk to each other.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it safe to upload my business data to an AI tool?</p>
+    <p class="ob-faq-a">Check the tool's settings for whether it uses your data to train its models, most let you turn this off. Stick to established providers and avoid pasting anything customer-identifiable unless you've checked their policy.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Where should I start if I've never used AI for data before?</p>
+    <p class="ob-faq-a">Pick one file you already have, sales, expenses or bookings, and ask a general AI tool to summarise the patterns in it. That's a smaller step than most owners expect.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business has a data advantage nobody tells you about: you don't have ten legacy systems fighting each other. Your sales live in one till, your invoices in one inbox, your bookings in one calendar. That's exactly the tidy, single-source setup AI tools handle best, while the corporations Gartner surveyed are drowning in the mess you don't have.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, export the last six months of sales, invoices or bookings from whatever system you already use into one spreadsheet, and feed it to a general AI tool with one question: what patterns do you see here? No new software, no data warehouse, just the file that was already sitting in an app.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI ideas for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once the data question stops being the blocker, the next one is usually trust: <a class="ob-link" href="#/articles/is-ai-safe-for-business-data">whether your business data is actually safe with AI</a> covers exactly that.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk" target="_blank" rel="noopener noreferrer">Gartner, Lack of AI-Ready Data Puts AI Projects at Risk (2025)</a>; <a href="https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026" target="_blank" rel="noopener noreferrer">Office for National Statistics, Artificial intelligence in UK businesses: 2023 to 2026</a>; <a href="https://yougov.com/en-gb/articles/52730-we-polled-uk-sme-leaders-about-ai-adoption-heres-what-they-said" target="_blank" rel="noopener noreferrer">YouGov, We polled UK SME leaders about AI adoption</a>.</p>
