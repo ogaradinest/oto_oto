@@ -1,0 +1,159 @@
+<!--
+title: Scrie-ți FAQ-ul înainte să ți-l scrie inboxul
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-09-25
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 78% dintre liderii CRM zic că clienții preferă să-și rezolve singuri problema decât să scrie unei firme, deci o pagină de FAQ scrisă cu AI îți dă timp înapoi încă înainte să vinzi ceva.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (step list) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.25); color: #FF6B2C; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">N-ai lansat firma încă și deja răspunzi la aceleași cinci întrebări, pe repeat: în DM-uri, în grupul de familie de pe WhatsApp, la fiecare reply de pe lista de așteptare. Livrați și în Irlanda? Ce faceți cu retururile? Fiecare mesaj e o taxă mică pe timpul tău, pe care n-ai bugetat-o nicăieri. Pac, alt DM. Și cand chiar lansezi, volumul se triplează. O pagină de FAQ îți taie majoritatea cozii ăsteia înainte de ziua unu, iar AI-ul îți scrie un prim draft solid într-o oră.</p>
+
+<div class="ob-callout">
+  <p>78% dintre liderii CRM zic că clienții preferă să rezolve problema singuri decât să scrie unei firme, zice HubSpot. Deci pagina de FAQ pe care o scrii săptămâna asta începe să-ți dea timp înapoi încă înainte să vinzi ceva.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">78%</div>
+    <div class="ob-stat-label">dintre liderii CRM zic că clienții preferă să rezolve problemele singuri, nu să contacteze firma (HubSpot, 2024)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">60%</div>
+    <div class="ob-stat-label">dintre utilizatorii de software zic că preferă activ self-service în loc să vorbească cu cineva (Heretto Self-Service Report, citat de HubSpot)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">65%</div>
+    <div class="ob-stat-label">dintre aspiring antreprenorii din SUA plănuiesc să folosească AI ca să-și lanseze firma în 2026 (studiul Intuit QuickBooks)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: DE CE AI NEVOIE DE UN FAQ ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">De ce ai nevoie de un FAQ înainte de ziua unu</h2>
+  <p class="ob-section-sub">Nu e un moft, e o coadă pe care o eviți</p>
+
+  <p class="ob-p">Fiecare întrebare la care răspunzi acum manual e o întrebare la care răspunzi din nou săptămâna viitoare. O firmă nouă primește aceleași întrebări pe repeat: preț, livrare, retururi, ce te diferențiază de fapt. Adună mesajele astea pe o lună și ți-ai construit, fără să bagi de seamă, un job part-time de customer service, neplătit, înainte să vinzi ceva.</p>
+  <p class="ob-p">Ia o fondatoare care pornește un abonament online de plante. În primele două săptămâni de listă de așteptare a avut 40 de înscrieri și 22 de DM-uri aproape identice, despre intervalul de livrare și dacă trimite și în Irlanda de Nord, cam patru ore bune de tastat aceleași trei răspunsuri. O pagină de FAQ, scrisă cu AI și editată în vocea ei, a tăiat asta aproape complet la următorul val de înscrieri. Bun tare pentru patru ore recuperate din nimic.</p>
+</div>
+
+<!-- ─── SECTION 2: CUM O CONSTRUIEȘTI CU AI ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Cum o construiești cu AI într-o oră</h2>
+  <p class="ob-section-sub">Cinci pași. Fără skill de design. Gata.</p>
+
+  <p class="ob-p">Începe prin a lista toate întrebările pe care chiar le-ai primit, din grupuri, din reply-uri la lista de așteptare, din comentarii, de oriunde au apărut. Cincisprezece-douăzeci ajunge. Bagă lista în ChatGPT, Claude sau Gemini, cu două-trei propoziții despre firma ta, ce vinzi, pentru cine, cum merge livrarea sau programarea, și cere-i răspunsuri clare, pe un ton prietenos.</p>
+  <p class="ob-p">Citește fiecare răspuns înainte să ajungă pe site. AI-ul o să ghicească politici pe care nu le-ai stabilit încă, gen intervalul de retur sau în ce țări livrezi, așa că verifică ce a inventat și pune cifrele tale reale. Grupează întrebările sub headere gen Comenzi, Livrare, Retururi și Despre noi, apoi bagă totul în blocul de FAQ sau accordion al site-ului, majoritatea tool-urilor no-code, Wix, Squarespace, Durable, au deja unul integrat.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Listează întrebări reale</span>
+    <span class="ob-badge">Scrie primul draft cu AI</span>
+    <span class="ob-badge">Verifică fiecare răspuns</span>
+    <span class="ob-badge">Grupează pe secțiuni</span>
+    <span class="ob-badge">Publică și revizuiește lunar</span>
+  </div>
+</div>
+
+<!-- ─── DARK: RĂSPUNSURI RAPIDE ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Răspunsuri rapide</h2>
+  <p class="ob-section-sub">Întrebările pe care le pun cei mai mulți antreprenori</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Am nevoie de software plătit ca să fac o pagină de FAQ, sau merge și gratis?</p>
+    <p class="ob-faq-a">Merge și gratis. Variantele free de ChatGPT, Claude sau Gemini îți scriu tot draftul, un plan plătit contează doar dacă vrei ca AI-ul să țină pagina actualizată singur.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Cât de lungă ar trebui să fie o pagină de FAQ la lansare?</p>
+    <p class="ob-faq-a">Zece-cincisprezece întrebări ajung pentru ziua unu. Adaugi mai multe pe măsură ce clienții reali te întreabă chestii la care nu te-ai gândit.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Public răspunsurile exact cum le-a scris AI-ul?</p>
+    <p class="ob-faq-a">Nu, verifică-le mereu întâi. AI-ul nu-ți știe intervalul real de retur sau ora limită de livrare, o să inventeze ceva plauzibil dacă nu-i dai tu cifrele adevărate.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">O pagină de FAQ chiar ajută la Google, sau e doar pentru clienți?</p>
+    <p class="ob-faq-a">Amândouă. Paginile marcate cu FAQ schema pot apărea direct în rezultatele Google, un boost mic de vizibilitate cât timp site-ul tău încă n-are istoric de căutări.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce contează pentru tine</div>
+  <p>Pentru un fondator singur sau o echipă de doi oameni, fiecare oră pierdută tastând același răspuns e o oră luată de la sourcing, vânzare, sau de la construit efectiv produsul. O pagină de FAQ e unul din puținele task-uri de dinainte de lansare cu payback aproape imediat: sub o oră ca s-o scrii, și îți dă timp înapoi chiar din prima săptămână de când ești deschis, exact când ai cea mai puțină capacitate liberă din toată viața firmei tale.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta săptămâna asta</div>
+  <p>Săptămâna asta, notează cele 15 întrebări pe care chiar le-ai primit despre firma ta, din DM-uri, emailuri sau discuții live, bagă lista în ChatGPT sau Claude cu două propoziții despre ce vinzi, și cere-i să-ți scrie o pagină de FAQ pe care o verifici și o publici înainte de lansare.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe idei practice de AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Dacă întrebările clienților continuă să apară și după lansare, <a class="ob-link" href="#/articles/chatbot-ai-clienti-gata-intr-o-dupa-amiaza">un chatbot AI pentru clienți, gata într-o după-amiază</a> preia ștafeta de unde se oprește pagina de FAQ. Iar dacă vrei să ții toată organizarea într-un singur loc, <a class="ob-link" href="#/articles/notion-ai-pentru-fondatori-de-startup">toată firma ta organizată într-un singur AI workspace</a> e următorul pas logic.</p>
+
+<p class="ob-sources">Surse: <a href="https://blog.hubspot.com/service/self-service-stats" target="_blank" rel="noopener noreferrer">HubSpot, 13 customer self-service stats that leaders need to know</a>; <a href="https://www.heretto.com/self-service-report" target="_blank" rel="noopener noreferrer">Heretto Self-Service Report</a>; <a href="https://quickbooks.intuit.com/r/small-business-data/entrepreneurship-in-2026/" target="_blank" rel="noopener noreferrer">Intuit QuickBooks, 2026 Entrepreneurship Trends</a>.</p>
