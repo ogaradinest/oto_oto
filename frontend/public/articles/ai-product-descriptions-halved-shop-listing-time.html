@@ -1,0 +1,158 @@
+<!--
+title: The AI shortcut that cut one shop's listing time in half
+tags: AI Implementation, AI for Marketing & Sales
+date: 2026-10-01
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: 44% of small businesses using AI now put it toward content creation, and product descriptions are usually the first job handed over, turning a lost weekend into an afternoon.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Twenty new products are photographed, priced, and ready to go live, and every one needs a description, not a placeholder but a proper one, with materials, sizing, and something that sounds like your shop rather than a spec sheet. So the batch sits in drafts while you look for a spare evening, and three weeks later half of them still are not live while a competitor is already ranking for the exact term you wanted.</p>
+
+<div class="ob-callout">
+  <p>44% of small businesses using AI now put it toward content creation, product and website copy included, the same task that used to eat a whole weekend before it ever reached a customer.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">44%</div>
+    <div class="ob-stat-label">of small businesses using AI apply it to content creation, product and website copy included (Constant Contact, Small Business Now Report)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">60%</div>
+    <div class="ob-stat-label">of small businesses using AI or automation say it saves them time and lets them work more efficiently, the same survey found</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">5-15%</div>
+    <div class="ob-stat-label">the productivity lift generative AI can add to total marketing spend, worth roughly $463 billion a year worldwide (McKinsey)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The listing backlog nobody budgets time for</h2>
+  <p class="ob-section-sub">Why product copy always loses to whatever's on fire that day</p>
+
+  <p class="ob-p">Writing product descriptions rarely gets its own slot on the calendar. It gets squeezed in after the orders are packed and the till is reconciled, which usually means it does not get done that day at all. An unlisted box of stock is invisible in a way an empty till is not, so the backlog grows for weeks without anyone deciding to let it.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Take a small homeware and gift shop selling online alongside a physical counter, around 40 new products landing each month. Before, the owner wrote every description herself on a Sunday evening: about six hours for a batch of 20, longer when she had to work out what actually made one candle different from the last. New stock often sat unlisted for two or three weeks, missing the exact window a customer searching for it online would have found it.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What changed once AI drafted the first pass</h2>
+  <p class="ob-section-sub">Same voice, a fraction of the time</p>
+
+  <p class="ob-p">She did not switch platforms or hire anyone. Her ecommerce platform already had an AI writing tool built in, the kind most mainstream platforms now ship with as standard: feed it a product photo, a few specs, and a short prompt about tone, and it drafts a title, a description, and a handful of the search terms shoppers actually type. She still edits every draft so it sounds like her shop, not a template, but a description that took fifteen minutes of staring at a blank box now takes about ninety seconds to fix.</p>
+  <p class="ob-p">That batch of 20 now takes under an hour, edits included, and all 40 monthly products go live within days instead of trickling out over three or four weeks. Because every listing consistently includes the terms customers search for, organic traffic to new product pages has crept up too, with no marketing hire or new subscription required, just a tool already sitting in her settings menu.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Product title</span>
+    <span class="ob-badge">Key features</span>
+    <span class="ob-badge">Materials & care</span>
+    <span class="ob-badge">Search keywords</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small shop owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Won't AI-written descriptions sound generic?</p>
+    <p class="ob-faq-a">Only if you publish the first draft unedited. Treat it as a fast first pass, then rewrite the details and phrases that make your shop sound like your shop.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a new platform or app for this?</p>
+    <p class="ob-faq-a">Probably not. Most mainstream ecommerce platforms, and many marketplace apps, now include an AI description tool in the plan you're already paying for.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will AI-written copy hurt my search rankings?</p>
+    <p class="ob-faq-a">No. Search engines don't penalise AI text itself, thin or duplicated content is the real risk, so a genuine edit matters more than who typed the first draft.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much time does this realistically save?</p>
+    <p class="ob-faq-a">For a small batch of listings, it turns an evening task into one you finish over a coffee break.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small shop competing against retailers with an in-house content team cannot out-write them, and does not need to. Every day a product sits unlisted is a day it cannot be found, bought, or ranked for. AI does not change what you would want to say about a product, it just removes the excuse of not having an evening free to say it.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, check whether your ecommerce platform already has an AI description tool sitting switched off in settings. Pick the five oldest unlisted products in your backlog, run them through it, edit each one in your own words, and get them live before Friday.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help clearing your own content backlog?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Before buying anything new, <a class="ob-link" href="#/articles/you-dont-need-new-software-for-ai">check the tools you already pay for</a>, and see <a class="ob-link" href="#/articles/ai-review-replies-saved-cafe-reputation">how another small business let AI handle a different backlog</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://assets.ctfassets.net/t21gix3kzulv/4DyMfIRpJEdiLaWb73JioX/603078e4bafca3bf9d9c8f09dca7053a/Constant_Contact_Small_Business_Now_Report_-_An_AI_Awakening_-_August_2023.pdf" target="_blank" rel="noopener noreferrer">Constant Contact, Small Business Now Report: An AI Awakening</a>; <a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/how-generative-ai-can-boost-consumer-marketing" target="_blank" rel="noopener noreferrer">McKinsey & Company, How generative AI can boost consumer marketing</a>.</p>
