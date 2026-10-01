@@ -1,0 +1,176 @@
+<!--
+title: AI's biggest win for contractors: bids you never write
+tags: AI Strategy, AI Implementation
+date: 2026-09-27
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: The average contractor wins about one bid in four. AI bid-scoring tools are pushing that roughly 12 percentage points higher for firms that use them consistently.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (myth-buster pills) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0.5rem 0; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.6rem 1.1rem; font-size: 0.85rem; font-weight: 600; color: #1a1a3d; }
+  .ob-badge::before { content: '✓ '; color: #FF6B2C; font-weight: 900; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Most contractors win about one bid in four, according to industry survey data. That means the average bidding team spends three quarters of its time and cost writing proposals that go nowhere. The expensive part of construction bidding was never really the winning bid, it was the 40 to 80 hours of skilled time spent on the ones that lose. AI bid-scoring tools do not make you better at winning. They make you faster at recognising, before you start writing, which opportunities were never worth pursuing.</p>
+
+<div class="ob-callout">
+  <p>A tender you were always going to lose costs the same 40 to 80 hours as one you win. The single highest-value AI use case in construction bidding is not pricing. It is deciding, in the first hour, whether to bid at all.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">~25%</div>
+    <div class="ob-stat-label">average win rate for commercial contractors across submitted bids</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">+12 points</div>
+    <div class="ob-stat-label">typical win-rate improvement reported by contractors using AI bid-scoring tools</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">3,803</div>
+    <div class="ob-stat-label">UK construction firm insolvencies in the 12 months to May 2026, the highest of any sector</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The bid/no-bid decision is where the money actually is</h2>
+  <p class="ob-section-sub">Not the pricing, the filtering</p>
+
+  <p class="ob-p">A tender response typically takes 40 to 80 hours of a skilled estimator or bid manager's time. At a 25% average win rate, three out of every four of those efforts produce nothing but cost. AI bid-scoring tools address this directly by pulling together a firm's historical win and loss data, current capacity, and the tender's own scope and evaluation criteria into a single recommendation before anyone starts writing.</p>
+  <p class="ob-p">The value is not that the algorithm is smarter than an experienced bid manager. It is that it applies the same filter consistently across twenty opportunities a month, rather than relying on gut feel that varies by who happens to be reviewing the tender that week.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why margin discipline matters more than volume right now</h2>
+  <p class="ob-section-sub">A sector under real pressure</p>
+
+  <p class="ob-p">UK construction firms recorded 3,803 insolvencies in the 12 months to May 2026, the highest of any sector, despite construction making up only around 14% of registered UK businesses. Thin margins are a large part of the story: typical fixed-price contract margins sit in low single digits, which means a handful of underpriced or over-optimistic bids can outweigh a year of otherwise sound work.</p>
+  <p class="ob-p">This is the environment AI bid filtering is actually built for. Reported outcomes include roughly 12 percentage point improvements in win rate and around 8% improvement in margin for contractors who use scoring tools consistently, mainly because fewer resources are wasted on tenders that were priced too aggressively to be profitable in the first place.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Average win rate: ~25%</span>
+    <span class="ob-badge">With AI scoring: +12 points</span>
+    <span class="ob-badge">Margin improvement: ~8%</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Procurement Act 2023 changed what evaluators are actually scoring</h2>
+  <p class="ob-section-sub">Price is no longer the whole story</p>
+
+  <p class="ob-p">New procurement thresholds under the Procurement Act 2023 apply from 1 January 2026, and the Act's broader aim is to make public tenders more accessible to smaller firms through simplified procedures and greater transparency. Alongside this, evaluation criteria increasingly weight social value, apprenticeships, local employment and carbon commitments, not just price.</p>
+  <p class="ob-p">For a small contractor without a dedicated bid-writing team, this is where AI-assisted document analysis earns its keep: automatically flagging which social value criteria a tender scores on, and whether the firm's existing credentials already meet them, before committing days to drafting a response.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Getting started without a six-figure system</h2>
+  <p class="ob-section-sub">What a small contractor can actually implement</p>
+
+  <p class="ob-p">You do not need a bespoke pricing algorithm to get most of the benefit. Start by tagging every bid from the last two years as won or lost, with the client type, value band and region attached. That spreadsheet alone, reviewed before each new bid/no-bid decision, replicates a large part of what a paid scoring tool does.</p>
+  <p class="ob-p">Only once that habit is running consistently does it make sense to look at a dedicated platform, and even then, the smallest, lowest-cost tier of a tender management tool is usually enough for a firm bidding fewer than twenty times a month.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions contractors ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is AI bid scoring only useful for large contractors?</p>
+    <p class="ob-faq-a">No. The core benefit, filtering out tenders you were always going to lose, matters proportionally more for a small contractor with limited bid-writing capacity than for a large firm that can absorb the occasional wasted proposal.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is a realistic win-rate improvement to expect?</p>
+    <p class="ob-faq-a">Industry data points to roughly 12 percentage points on average for firms using bid-scoring tools consistently, moving a typical 25% win rate closer to the high 30s over time, not overnight.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the Procurement Act 2023 make it easier for small firms to win public contracts?</p>
+    <p class="ob-faq-a">It is designed to. Simplified procedures, new thresholds from January 2026, and more weight on social value criteria alongside price all aim to open public tenders to SMEs that previously found the process too complex to compete in.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should we do before buying any bidding software?</p>
+    <p class="ob-faq-a">Tag your last two years of bids as won or lost with value, client type and region attached. That single spreadsheet, checked before every new bid decision, delivers a meaningful share of the benefit before you spend anything.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small contractor bidding fifteen times a year cannot absorb the same waste as a national firm bidding two hundred times. Every tender pursued that was always going to lose is 40 to 80 hours that could have gone toward one with a real chance. Filtering that decision earlier, even with a spreadsheet rather than paid software, is the single highest-leverage AI use case available to a construction business that cannot afford a dedicated bid team.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pull your last ten tender submissions and mark each one won or lost, alongside its value and client type. Look for a pattern, a value band, sector or client type where you consistently lose. That pattern is your first real bid/no-bid rule, and it costs nothing beyond an hour with a spreadsheet.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want an outside view on whether a tender is worth pursuing?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once the bid/no-bid habit is in place, the next question is usually how to make sure the AI tools you bring in actually pay for themselves: <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a> and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> cover exactly that ground.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.ons.gov.uk/businessindustryandtrade/constructionindustry" target="_blank" rel="noopener noreferrer">ONS, Construction industry statistics and output data</a>; <a href="https://www.bidicontracting.com/blog/how-to-win-more-construction-bids" target="_blank" rel="noopener noreferrer">Bidi Contracting, How to Win More Construction Bids in 2026</a>; <a href="https://gitnux.org/ai-construction-industry-statistics/" target="_blank" rel="noopener noreferrer">Gitnux, AI Construction Industry: 2026 Verified Stats & Trends</a>; <a href="https://www.gov.uk/government/statistics/company-insolvencies-may-2026/commentary-company-insolvency-statistics-may-2026" target="_blank" rel="noopener noreferrer">gov.uk, Company Insolvency Statistics, May 2026</a>; <a href="https://smallbusiness.co.uk/the-new-procurement-act-and-how-it-affects-smes-2595787/" target="_blank" rel="noopener noreferrer">Small Business UK, The new Procurement Act and how it affects SMEs</a>.</p>
