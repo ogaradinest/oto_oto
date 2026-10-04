@@ -1,0 +1,160 @@
+<!--
+title: Skip the keywords everyone else is already fighting over
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-10-03
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: A 2025 Ahrefs study found just 1.74% of new pages crack Google's top 10 in their first year, so picking the right long-tail keywords with AI matters far more than picking a lot of them.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (myth-buster pills) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0.5rem 0; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.6rem 1.1rem; font-size: 0.85rem; font-weight: 600; color: #1a1a3d; }
+  .ob-badge::before { content: '✓ '; color: #FF6B2C; font-weight: 900; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've got a name, maybe a logo, maybe a website half built. Somewhere on your list is "sort out the SEO", and it's been sitting there for weeks because keyword research sounds like agency work: spreadsheets, jargon, a tool that costs more than your first month's revenue. It isn't. A genuinely useful first pass takes about an hour with ChatGPT or Claude and one free Google tool, and if you aim it at the right kind of keyword, it starts paying off long before you'd ever crack page one for anything competitive.</p>
+
+<div class="ob-callout">
+  <p>Ahrefs' 2025 analysis of over two million pages found only 1.74% of newly published pages reach Google's top 10 within their first year, down from 5.7% in 2017, so a brand-new business chasing broad terms is playing a game it's almost guaranteed to lose.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">91.8%</div>
+    <div class="ob-stat-label">of all keywords are long-tail phrases of three or more words, not broad, high-competition terms (Backlinko, 306 million keywords analysed)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">1.74%</div>
+    <div class="ob-stat-label">of newly published pages reach Google's top 10 within their first year, down from 5.7% in 2017 (Ahrefs, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">58%</div>
+    <div class="ob-stat-label">of UK SMEs spend under £250 a month on marketing, exactly why free AI-assisted keyword research punches above its cost (Sopro UK research)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why chasing "coffee shop" wastes your first year</h2>
+  <p class="ob-section-sub">Broad keywords are a losing game for a brand-new site</p>
+
+  <p class="ob-p">Take a founder launching a mobile dog-grooming van. "Dog groomer" gets searched a lot, and a dozen national platforms plus every established local groomer already sit on page one. "Mobile dog groomer that comes to your house in Wakefield" gets searched a fraction as often, but almost nobody targets it directly, and whoever types it is closer to booking than anyone typing "dog groomer" ever is.</p>
+  <p class="ob-p">That's the whole trade-off in one example. Long-tail phrases have less search volume each, but there are so many of them, and so little competition for most, that a brand-new site can realistically rank for a handful within weeks rather than years. Broad, one- or two-word terms are the ones every competitor already owns.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">How to run it with AI in about an hour</h2>
+  <p class="ob-section-sub">Two free tools, one afternoon, no subscription needed</p>
+
+  <p class="ob-p">Start by describing your business to ChatGPT or Claude in a few sentences, what you sell, who buys it, what problem it solves, and ask for 30 long-tail phrases your ideal customer might actually type, framed as questions and specific problems rather than single words. You'll get a mix of strong and weak ideas, which is fine, this is a brainstorm, not a finished list.</p>
+  <p class="ob-p">Next, check each promising phrase in a free tool, Google's Keyword Planner or Google Trends both work, to see whether anyone is actually searching it and roughly how much competition exists. Then Google the phrase yourself and look at who currently ranks, if it's all national brands or big directories, that term is harder than it looks. Shortlist 15 to 20 phrases you could realistically win, and write one page or blog post around each over the coming weeks.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Brainstorm with AI</span>
+    <span class="ob-badge">Check real search volume</span>
+    <span class="ob-badge">Google it yourself</span>
+    <span class="ob-badge">Shortlist 15-20 terms</span>
+    <span class="ob-badge">Write a page for each</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a paid tool like Ahrefs or Semrush to do this?</p>
+    <p class="ob-faq-a">No. ChatGPT or Claude for brainstorming plus Google's free Keyword Planner or Google Trends is enough for a launch-stage business. Paid tools only earn their cost once you're publishing content regularly.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How many keywords should I target before launch?</p>
+    <p class="ob-faq-a">Fifteen to twenty long-tail phrases is plenty. Pick a handful you can realistically build a page or post around this month rather than a long list you'll never action.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Won't AI just make up the search volumes?</p>
+    <p class="ob-faq-a">Treat anything a chatbot tells you about volume or difficulty as a guess. Always confirm real numbers in a keyword tool before you commit content to a phrase.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this worth doing if most of my customers come from referrals or social media?</p>
+    <p class="ob-faq-a">Yes, because search keeps working while you sleep, and it costs nothing to claim these long-tail phrases now, before a competitor who launches after you does it first.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business can't outspend a national chain on broad keywords or paid ads, and doesn't need to. Long-tail search is the one channel where a specific, well-targeted answer beats a bigger marketing budget, and AI removes the only real barrier to doing it properly, the hour of brainstorming most founders never get around to.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, open ChatGPT or Claude and ask it for 30 long-tail phrases your ideal customer might Google, then check the five most promising ones in Google's free Keyword Planner and write one page targeting the best match.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI ideas for small businesses?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once your keyword shortlist is set, the next useful hour is spent on <a class="ob-link" href="#/articles/ai-competitor-analysis-before-you-launch">AI-powered competitor analysis you can do in one afternoon</a>, so you know exactly who you're up against for each term.</p>
+
+<p class="ob-sources">Sources: <a href="https://backlinko.com/google-keyword-study" target="_blank" rel="noopener noreferrer">Backlinko, We Analyzed 306 Million Keywords</a>; <a href="https://ahrefs.com/blog/how-long-does-it-take-to-rank-in-google-and-how-old-are-top-ranking-pages/" target="_blank" rel="noopener noreferrer">Ahrefs, How Long Does It Take to Rank in Google?</a>; <a href="https://whito.co.uk/research/how-much-should-marketing-cost-uk/" target="_blank" rel="noopener noreferrer">Whito, How Much Should Marketing Cost UK? (Sopro research)</a>.</p>
