@@ -1,0 +1,160 @@
+<!--
+title: Nu te lupta pentru cuvintele cheie pe care le vrea toată lumea
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-10-04
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: Ahrefs a găsit, în 2025, că doar 1.74% din paginile noi prind top 10 pe Google în primul an, deci alegerea corectă a cuvintelor cheie long-tail cu AI contează mult mai mult decât câte alegi.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row (myth-buster pills) ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0.5rem 0; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.6rem 1.1rem; font-size: 0.85rem; font-weight: 600; color: #1a1a3d; }
+  .ob-badge::before { content: '✓ '; color: #FF6B2C; font-weight: 900; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Ai un nume, poate un logo, poate un site pe jumătate făcut. Undeva pe listă stă "ocupă-te de SEO", și stă acolo de vreo trei săptămâni pentru că keyword research sună a treabă de agenție: excel-uri, jargon, un tool care costă mai mult decât primul tău venit. Nu-i așa. Un prim pas chiar util îți ia vreo oră, cu ChatGPT sau Claude și un tool gratuit de la Google, și dacă îl ținteşti bine, începe să-ți dea roade cu mult înainte să prinzi vreodată prima pagină la ceva competitiv.</p>
+
+<div class="ob-callout">
+  <p>Ahrefs a analizat peste două milioane de pagini în 2025 și a găsit că doar 1.74% din paginile noi ajung în top 10 pe Google în primul an, față de 5.7% în 2017. O afacere nouă care se ia la trântă cu termeni largi joacă un joc pe care aproape sigur îl pierde.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">91.8%</div>
+    <div class="ob-stat-label">din toate cuvintele cheie sunt fraze long-tail, de trei cuvinte sau mai multe, nu termeni largi cu concurență mare (Backlinko, analiză pe 306 milioane de cuvinte cheie)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">1.74%</div>
+    <div class="ob-stat-label">din paginile noi ajung în top 10 pe Google în primul an, față de 5.7% în 2017 (Ahrefs, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">58%</div>
+    <div class="ob-stat-label">dintre IMM-urile din UK cheltuie sub 250 de lire pe lună pe marketing, motiv pentru care keyword research gratuit cu AI merită exact atât de mult (Sopro, cercetare UK)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">De ce "cafenea" îți mănâncă primul an</h2>
+  <p class="ob-section-sub">Termenii largi sunt un joc pierdut pentru un site nou</p>
+
+  <p class="ob-p">Ia un fondator care lansează o dubă de tuns câini la domiciliu. "Frizerie câini" se caută mult, dar o groază de platforme naționale plus toți frizerii locali deja stabiliți stau pe prima pagină. "Frizer canin la domiciliu în Wakefield" se caută de zeci de ori mai rar, dar aproape nimeni nu îl ţinteşte direct, iar cine tastează exact asta e mult mai aproape de o programare decât oricine caută "frizerie câini".</p>
+  <p class="ob-p">Ăsta-i tot trade-off-ul, pe scurt. Frazele long-tail au trafic mai mic fiecare, dar sunt atât de multe, și concurența la majoritatea e atât de mică, încât un site nou poate chiar să prindă câteva în câteva săptămâni, nu ani. Termenii largi, de un cuvânt sau două, sunt deja ai concurenței.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Cum faci treaba asta cu AI, într-o oră</h2>
+  <p class="ob-section-sub">Două tool-uri gratuite, o după-amiază, fără abonament</p>
+
+  <p class="ob-p">Descrie-ți afacerea în câteva fraze lui ChatGPT sau Claude: ce vinzi, cui, ce problemă rezolvi, și cere-i 30 de fraze long-tail pe care clientul tău ideal chiar le-ar căuta, formulate ca întrebări sau probleme concrete, nu cuvinte izolate. O să iasă un pilaf de idei bune și slabe. E ok, e brainstorming, nu lista finală.</p>
+  <p class="ob-p">Apoi verifică fiecare frază bună într-un tool gratuit, Google Keyword Planner sau Google Trends merg amândouă, ca să vezi dacă chiar caută cineva după ea și cât de multă concurență e. După aia caut-o singur pe Google și uită-te cine apare acum. Dacă sunt numai branduri naționale sau directoare mari, termenul e mai greu decât pare. Fă-ți o listă scurtă de 15-20 fraze pe care chiar le poți câștiga, și scrie câte o pagină sau un articol pentru fiecare, în următoarele săptămâni.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Brainstorming cu AI</span>
+    <span class="ob-badge">Verifici traficul real</span>
+    <span class="ob-badge">Îl cauți și tu pe Google</span>
+    <span class="ob-badge">Lista scurtă: 15-20 termeni</span>
+    <span class="ob-badge">O pagină pentru fiecare</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Întrebări rapide</h2>
+  <p class="ob-section-sub">Ce întreabă cel mai des firmele mici</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Îmi trebuie un tool plătit, gen Ahrefs sau Semrush?</p>
+    <p class="ob-faq-a">Nu. ChatGPT sau Claude pentru brainstorming plus Google Keyword Planner sau Google Trends, gratuite, sunt suficiente pentru o afacere abia lansată. Tool-urile plătite își merită banii abia când postezi conținut constant.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Câte cuvinte cheie ţintesc înainte de lansare?</p>
+    <p class="ob-faq-a">Cincisprezece, douăzeci de fraze long-tail ajung. Alege câteva pe care chiar le poți transforma în pagină sau articol luna asta, nu o listă lungă pe care n-o atingi niciodată.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">AI-ul nu inventează cifrele de trafic?</p>
+    <p class="ob-faq-a">Tratează orice cifră de trafic sau concurență primită de la un chatbot ca pe o ghicitoare. Confirmă mereu cifrele reale într-un tool de keyword research înainte să scrii conținut pe o frază.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Merită dacă majoritatea clienților vin din recomandări sau social media?</p>
+    <p class="ob-faq-a">Da, pentru că search-ul muncește și cât dormi, și nu te costă nimic să ocupi frazele astea long-tail acum, înainte să o facă un concurent care lansează după tine.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">De ce îți pasă</div>
+  <p>O afacere mică nu poate concura cu un lanț național pe termeni largi sau pe reclame plătite, și nici nu trebuie. Search-ul long-tail e canalul unde un răspuns specific, bine ţintit, bate un buget de marketing mai mare, iar AI-ul îţi ia din cale singurul obstacol real: ora de brainstorming la care majoritatea fondatorilor nu ajung niciodată.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Încearcă asta</div>
+  <p>Săptămâna asta, deschide ChatGPT sau Claude și cere-i 30 de fraze long-tail pe care clientul tău ideal le-ar căuta pe Google, apoi verifică primele cinci în Google Keyword Planner și scrie o pagină pentru cea mai bună potrivire.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Vrei mai multe idei practice de AI pentru firme mici?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Odată ce ai lista de cuvinte cheie, următoarea oră bine folosită e <a class="ob-link" href="#/articles/ai-competitor-analysis-before-you-launch">analiza concurenței cu AI, gata într-o după-amiază</a>, ca să știi exact cu cine te lupți pentru fiecare termen.</p>
+
+<p class="ob-sources">Sources: <a href="https://backlinko.com/google-keyword-study" target="_blank" rel="noopener noreferrer">Backlinko, We Analyzed 306 Million Keywords</a>; <a href="https://ahrefs.com/blog/how-long-does-it-take-to-rank-in-google-and-how-old-are-top-ranking-pages/" target="_blank" rel="noopener noreferrer">Ahrefs, How Long Does It Take to Rank in Google?</a>; <a href="https://whito.co.uk/research/how-much-should-marketing-cost-uk/" target="_blank" rel="noopener noreferrer">Whito, How Much Should Marketing Cost UK? (Sopro research)</a>.</p>
