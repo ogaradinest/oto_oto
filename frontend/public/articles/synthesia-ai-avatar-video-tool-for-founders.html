@@ -1,0 +1,173 @@
+<!--
+title: Skip the camera: how Synthesia turns a script into video
+tags: AI for Marketing & Sales, AI Technology
+date: 2026-10-05
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 24% of businesses skip video because it costs too much, and Synthesia turns a script into a finished video for a fraction of a £2,960 agency quote.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards (also used for badge rows) ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Farah is three weeks from launching an online course that teaches small bakeries how to price their menus properly. Her landing page needed one thing above everything else: a founder video explaining what the course covers, because people buy from a face, not a bullet list. The problem was she hates being on camera, English is her second language and she stumbles over scripted lines, and every time she updates the course she'd need to reshoot the whole thing. A £3,000 agency quote for one 90-second video made the decision simple: skip it, or find another way.</p>
+
+<div class="ob-callout">
+  <p>24% of businesses that skip video marketing say it's simply too expensive, exactly the barrier an AI avatar tool is built to remove.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">24%</div>
+    <div class="ob-stat-label">of businesses without video marketing say it's too expensive, tied as the top reason given for not using it (Wyzowl, State of Video Marketing 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£2,960</div>
+    <div class="ob-stat-label">the average cost of a professionally produced 30-second explainer video in the UK in 2026 (Squideo, analysis of 45 agencies)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">65,000+</div>
+    <div class="ob-stat-label">businesses now make video with Synthesia's AI avatars instead of hiring a crew, including 90% of the Fortune 100</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Type a script, get a presenter</h2>
+  <p class="ob-section-sub">How Synthesia actually makes the video</p>
+
+  <p class="ob-p">Synthesia turns a block of text into a finished video. You write or paste a script, pick from over 200 AI avatars (or build a digital version of your own face and voice, with your consent), choose a voice in one of more than 150 languages, and it renders a presenter talking through your words in a few minutes. There's no camera, no lighting, and no retakes because you fumbled a sentence, just an edit to the text if something needs to change.</p>
+
+  <p class="ob-p">Farah used a stock avatar instead of her own face, wrote her explainer in English, then asked for a second version in Arabic for the customers she actually expected to convert first. Same script, same structure, two finished videos in under twenty minutes, something a reshoot would have cost her a full afternoon, and the Arabic version would have needed a translator she didn't have.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card"><h4>Script in, video out</h4></div>
+    <div class="ob-barrier-card"><h4>200+ avatars, 150+ languages</h4></div>
+    <div class="ob-barrier-card"><h4>No camera or crew needed</h4></div>
+    <div class="ob-barrier-card"><h4>Edit the text, not the footage</h4></div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What it's good for, and where it isn't</h2>
+  <p class="ob-section-sub">An avatar isn't a replacement for you everywhere</p>
+
+  <p class="ob-p">This is the right tool for repeatable, script-heavy content: product explainers, onboarding walkthroughs, training modules, FAQ videos, anything you'll need to update every few months. It's the wrong tool for a founder update on social media or an investor pitch, where people specifically want to see you, unscripted, reacting in real time. An avatar reads beautifully, but it doesn't riff.</p>
+
+  <p class="ob-p">Cost is where it earns its place for a small business. A free tier exists for testing short clips, and even a paid plan comes in well under the £2,960 a single agency-made explainer costs, before you even add a second language version or a mid-course update.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need to be on camera at all to use Synthesia?</p>
+    <p class="ob-faq-a">No, that's the point. You can use a stock AI avatar, or build a digital version of your own likeness with consent if you specifically want your own face, but you never have to film yourself.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will an AI avatar make my business look less trustworthy?</p>
+    <p class="ob-faq-a">It depends what you use it for. For a training video or product walkthrough, most people don't mind at all. For anything meant to feel personal, like a founder update, a real unscripted video still lands better.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can it handle languages other than English?</p>
+    <p class="ob-faq-a">Yes, and it's one of its strongest features. Synthesia supports over 150 languages and accents, so one script can produce native-sounding versions for different markets without hiring a translator.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does it cost for a solo founder?</p>
+    <p class="ob-faq-a">There's a free tier for testing short clips, and paid plans start at a level most solo founders can absorb monthly, well under the cost of a single professionally filmed video.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, video isn't optional anymore, but the two usual routes both have a catch: filming it yourself demands a skill and a confidence most founders don't have, and hiring it out costs thousands per clip. A tool that turns a script into a finished, presentable video for a fraction of that price closes the gap for exactly the businesses that can't yet justify a video budget or a marketing hire, and it means the video actually gets made instead of sitting on the to-do list for another quarter.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write a 60-second script answering the one question new customers ask you most, and run it through Synthesia's free tier to see a finished video before you spend anything.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more practical AI guidance for small businesses like yours?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you'd rather work with footage you've already filmed, <a class="ob-link" href="#/articles/descript-ai-video-editing-for-founders">editing your own filmed footage instead of using an AI avatar</a> covers that route, and if you don't need a visual presenter at all, <a class="ob-link" href="#/articles/elevenlabs-ai-voice-tool-for-founders">generating a standalone AI voiceover</a> can be the simpler option.</p>
+
+<p class="ob-sources">Sources: <a href="https://wyzowl.com/video-marketing-statistics/" target="_blank" rel="noopener noreferrer">Wyzowl, State of Video Marketing 2026</a>; <a href="https://www.squideo.com/how-much-does-an-explainer-video-cost-in-2026" target="_blank" rel="noopener noreferrer">Squideo, How Much Does an Explainer Video Cost in 2026</a>; <a href="https://www.synthesia.io/post/series-e-200-million-4-billion-valuation-future-work" target="_blank" rel="noopener noreferrer">Synthesia, Series E $200 million at $4 billion valuation</a>.</p>
