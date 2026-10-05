@@ -1,0 +1,192 @@
+<!--
+title: AI can price your bill of quantities before you've opened it
+tags: AI Technology, AI Implementation
+date: 2026-10-05
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: 45% of construction organisations report no AI use at all, and only 12% of quantity surveyors say they understand the technology well enough to judge its output.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Comparison cards ── */
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  /* ── Tier cards (also used for badge rows) ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">A modern document parsing tool can read a 300-line bill of quantities, match it against subcontractor quotes, and flag discrepancies in minutes rather than the 40-plus hours a manual review takes. That capability already exists and works reasonably well on typed, well-formatted documents. The harder problem is not the software. RICS's own research found that only 12% of quantity surveyors currently rate themselves competent in AI and machine learning concepts, which means the tool doing the reading is often ahead of the person meant to check it.</p>
+
+<div class="ob-callout">
+  <p>First-pass accuracy on a typed bill of quantities runs 83 to 91%. That is good, not perfect. The remaining gap is exactly where a competent, sceptical reviewer earns their fee, and exactly where most practices have not yet built the habit of checking.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">45%</div>
+    <div class="ob-stat-label">of construction organisations report no AI use at all (RICS)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">12%</div>
+    <div class="ob-stat-label">of quantity surveyors rate themselves competent in AI and machine learning concepts (RICS, 2023)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">9 Mar 2026</div>
+    <div class="ob-stat-label">when RICS's first global standard on responsible AI use in surveying took effect</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What document parsing actually gets right, and where it still struggles</h2>
+  <p class="ob-section-sub">83 to 91%, not 100%</p>
+
+  <p class="ob-p">Modern parsing tools combine optical character recognition, layout analysis and language models trained on construction documents to read a bill of quantities, extract line items, and match them against subcontractor quotes using fuzzy text matching. On typed, well-structured documents, first-pass accuracy runs 83 to 91%. Scanned or poorly formatted documents, and hand-annotated drawings, push accuracy down significantly, sometimes into the 60s or 70s.</p>
+
+  <p class="ob-p">That gap is not a reason to avoid the tools. It is a reason to keep a human reviewer in the loop for anything scanned, unusual, or high-value, and to treat a clean typed BOQ with correspondingly lighter review.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card"><h4>Typed BOQ</h4><p>83-91% first-pass accuracy</p></div>
+    <div class="ob-barrier-card"><h4>Scanned or poor quality</h4><p>Significantly lower accuracy</p></div>
+    <div class="ob-barrier-card"><h4>BIM-extracted quantities</h4><p>95%+ when data is clean</p></div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The skills gap RICS is now confirming directly</h2>
+  <p class="ob-section-sub">Why the tool being ready is not the same as the team being ready</p>
+
+  <p class="ob-p">RICS's own research found that 45% of construction organisations report no AI use at all, while only 1% have scaled it across projects. Among quantity surveyors specifically, just 12% currently rate themselves competent in AI and machine learning concepts, and 56% report a lack of training opportunities to close that gap.</p>
+
+  <p class="ob-p">This matters more than it sounds. A parsing tool that is wrong 10 to 15% of the time on a typed document needs a reviewer who can spot which line items look off. If nobody on the team has been shown what that looks like, the tool's output gets rubber-stamped rather than checked, and the error rate quietly becomes the practice's error rate.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">RICS now has a standard for this, and it applies from March 2026</h2>
+  <p class="ob-section-sub">What responsible use actually requires</p>
+
+  <p class="ob-p">RICS's first global professional standard for responsible AI use in surveying practice took effect for all members and regulated firms on 9 March 2026. It does not ban AI tools. It requires members to understand the limitations of any AI tool they rely on, maintain professional judgement over the final output, and be able to explain how a figure was reached if challenged.</p>
+
+  <p class="ob-p">For a small QS practice, meeting this standard does not require a formal training budget running into thousands of pounds. It requires picking one AI-assisted process, running it in parallel with the manual method for a few tenders, and documenting where the two disagreed and why, before relying on the tool unsupervised.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What a small practice can actually afford to run</h2>
+  <p class="ob-section-sub">You do not need the enterprise platform</p>
+
+  <p class="ob-p">Enterprise-grade platforms with native NRM3 support run into several thousand pounds a year and are built for QS practices processing well over a hundred tenders annually. Smaller contractors and practices have cheaper options: entry-level UK estimating tools now start free or from roughly £24 to £45 per user a month, a fraction of the £10,000 to £50,000-plus annual cost of the largest enterprise platforms.</p>
+
+  <p class="ob-p">The sensible path for a small practice is to run one of these lighter tools against your own historical BOQs first, measure how often its extraction actually matches what a person would have produced, and only scale up to a pricier NRM3-native platform once tender volume genuinely justifies it.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How accurate is AI at reading a bill of quantities?</p>
+    <p class="ob-faq-a">On a typed, well-formatted document, first-pass accuracy typically runs 83 to 91%. Scanned or poorly formatted documents score noticeably lower, which is why human review still matters most on exactly those documents.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do quantity surveyors need formal AI training to use these tools?</p>
+    <p class="ob-faq-a">RICS's own data shows only 12% currently rate themselves competent in AI concepts, and its new March 2026 standard expects members to understand a tool's limitations well enough to explain its output. Structured, informal practice, running the tool alongside the manual method for a few tenders, closes most of that gap.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does RICS's new AI standard stop us using these tools?</p>
+    <p class="ob-faq-a">No. It requires responsible use: understanding limitations, keeping professional judgement over the final figure, and being able to explain how a number was reached. It does not prohibit AI-assisted document parsing.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should a small practice budget for BOQ automation?</p>
+    <p class="ob-faq-a">Entry-level UK estimating tools start free or around £24 to £45 per user a month, well below the several-thousand-pound annual cost of enterprise NRM3-native platforms. Start there and scale only once volume justifies it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A two or three-person QS practice cannot absorb a wrongly-priced tender the way a national firm can. The honest risk with document parsing tools is not that they fail outright, it is that an 83 to 91% first-pass accuracy rate gets treated as 100% by a team that has never been shown what the errors look like. Running a cheap tool alongside your existing manual process for a handful of tenders, before trusting it unsupervised, costs nothing but time and closes most of that risk.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>On your next bill of quantities, run it through a free or low-cost AI parsing tool alongside your usual manual read. Compare the two line by line and note every disagreement. That single comparison tells you exactly how much to trust the tool on your typical document types, without spending anything on a platform yet.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out which AI tools are actually worth trusting in your practice?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If pricing the job is only half the battle, <a class="ob-link" href="#/articles/ai-construction-bid-no-bid-decisions">why most construction bids should never be written</a> covers the decision before you even get to the BOQ, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> walks through rolling out a new tool properly once you've decided to trust it.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.rics.org/news-insights/optimism-high-for-ai-in-construction-but-skills-shortages-and-integration-challenges-adoption" target="_blank" rel="noopener noreferrer">RICS, Optimism high for AI in construction but skills shortages and integration challenges adoption</a>; <a href="https://ww3.rics.org/uk/en/modus/technology-and-data/surveying-tools/what-surveyors-think-ai.html" target="_blank" rel="noopener noreferrer">RICS Modus, What do surveyors really think of AI?</a>; <a href="https://www.rics.org/profession-standards/rics-standards-and-guidance/conduct-competence/responsible-use-of-ai" target="_blank" rel="noopener noreferrer">RICS, Responsible use of artificial intelligence in surveying practice</a>; <a href="https://buildern.com/resources/blog/construction-estimating-software-in-uk/" target="_blank" rel="noopener noreferrer">Buildern, 7 Best Construction Estimating Software in the UK (2026 Guide)</a>.</p>
