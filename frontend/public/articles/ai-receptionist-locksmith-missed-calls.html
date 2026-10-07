@@ -1,0 +1,158 @@
+<!--
+title: Why this locksmith stopped losing jobs to voicemail
+tags: AI Implementation, AI for Marketing & Sales
+date: 2026-10-06
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: A third of UK micro-businesses miss their own calls entirely, costing a typical trades firm an estimated £24,000 a year, per FSB research. Here's what changed when one locksmith let AI answer every one.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Amir runs a two-van locksmith and emergency call-out business outside Milton Keynes, most of his day spent under a bonnet, up a ladder, or picking a lock at 11pm for someone standing in the rain. His phone rang constantly, and for years it rang straight to a voicemail nobody checked until the job was already done. A locked-out customer doesn't wait around. They ring the next name on Google, and Amir never even knew that job had existed.</p>
+
+<div class="ob-callout">
+  <p>69% of callers who reach a small business's voicemail hang up without leaving a message, and most never try again. An unanswered phone is effectively a closed shop.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">33%</div>
+    <div class="ob-stat-label">of UK micro-businesses fail to answer their incoming calls at all (Moneypenny's Small Business Call Report)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£24,000</div>
+    <div class="ob-stat-label">the estimated yearly cost of missed calls and slow response times to a typical UK trades business (Federation of Small Businesses research)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$78.9bn</div>
+    <div class="ob-stat-label">the projected size of the global conversational AI market by 2033, up from $17.7bn in 2026 (Grand View Research)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: THE PHONE NOBODY WAS EVER FREE TO ANSWER ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The phone nobody was ever free to answer</h2>
+  <p class="ob-section-sub">Why the busiest hours were also the quietest on the phone</p>
+
+  <p class="ob-p">For Amir, the problem was never demand, it was timing. Emergency trades get calls exactly when they're least able to take them: mid-job, hands full, engine running. Every unanswered call rang out to a generic voicemail that didn't even name the business. Callers heard it and hung up. Moneypenny's small business research found a third of micro-businesses miss their incoming calls entirely, and most callers who land on voicemail never try again.</p>
+  <p class="ob-p">Add it up over a normal week for a one or two-van outfit: five or six missed calls, each worth £60 for a simple lockout to £300 for an after-hours emergency. Miss half of those and a competitor who picked up first is quietly taking £150 to £900 a week that was always Amir's to win. Federation of Small Businesses research puts the yearly cost of this to a typical UK trades business at around £24,000.</p>
+</div>
+
+<!-- ─── SECTION 2: WHAT CHANGED WHEN EVERY CALL GOT ANSWERED ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What changed when every call got answered</h2>
+  <p class="ob-section-sub">Same number, a different first response</p>
+
+  <p class="ob-p">Amir didn't hire a receptionist. He set up an AI phone-answering tool on his existing number instead. Every call is picked up in under two rings, gives the business name, asks what's needed and where, then books a straightforward job into his calendar or texts him a summary if it needs his judgement. He still sets the price, and anything urgent gets flagged to his phone immediately, the tool just makes sure nobody hits a dead voicemail again.</p>
+  <p class="ob-p" style="margin-bottom: 0;">In the two months since switching it on, Amir reckons he's capturing roughly 8 to 10 jobs a month that used to slip through. At an average job value of £120, that's over £1,000 a month recovered from calls that were always coming in, just never answered. The tool costs less than the value of one missed callout.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Answers in under 2 rings</span>
+    <span class="ob-badge">Books simple jobs into the calendar</span>
+    <span class="ob-badge">Texts a summary for anything urgent</span>
+    <span class="ob-badge">Costs less than one missed job a month</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Won't customers find it off-putting that AI answers the phone?</p>
+    <p class="ob-faq-a">Most don't mind if it sounds natural and books them in fast. The alternative was silence, and a quick answer beats a voicemail every time.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What happens to calls that need a real person straight away?</p>
+    <p class="ob-faq-a">Anything urgent gets flagged to the owner's phone with the details already taken. The tool handles routine bookings and hands over what it shouldn't decide alone.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does something like this cost?</p>
+    <p class="ob-faq-a">Most AI call-answering tools run to the tens of pounds a month, well under the cost of one missed job in a typical week.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this only useful for trades and call-out businesses?</p>
+    <p class="ob-faq-a">No. Any small business that loses bookings to an unanswered phone, salons, clinics, garages, letting agents, sees the same pattern: whoever answers first gets the job.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, a missed call is a sale that just walked to whichever competitor picked up. Hiring a receptionist rarely makes sense below a certain size, and a generic voicemail greeting quietly tells callers nobody's really there. An AI phone-answering tool sits in between: cheap enough for a one or two-person outfit, fast enough that a caller never gets time to look up the next name, and it works the same at 11pm as it does at 11am.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, call your own business number from another phone during your busiest hour and see what happens: ring-out, voicemail, or a real answer. That gap is roughly what an AI receptionist would be recovering for you right now.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more stories like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">A fast first response matters just as much before you've even priced the job, <a class="ob-link" href="#/articles/ai-quoting-cut-trade-firm-admin-time">the same speed-first advantage shows up in how fast you send a quote</a>, and if you're worried a tool like this costs more than it saves, <a class="ob-link" href="#/articles/is-ai-too-expensive-for-small-business">here's what the numbers actually say</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.moneypenny.com/uk/resources/news/small-business-call-report/" target="_blank" rel="noopener noreferrer">Moneypenny, Small Business Call Report</a>; <a href="https://www.oryxaiautomations.com/blog/missed-calls-cost-uk-tradespeople-thousands" target="_blank" rel="noopener noreferrer">Federation of Small Businesses research, via ORYX, "Missed Calls Are Costing UK Tradespeople £24,000 a Year"</a>; <a href="https://www.grandviewresearch.com/industry-analysis/conversational-ai-market-report" target="_blank" rel="noopener noreferrer">Grand View Research, Conversational AI Market Report</a>.</p>
