@@ -1,0 +1,147 @@
+<!--
+title: Jasper turns a blank homepage into a draft in minutes
+tags: AI Technology, AI for Marketing & Sales
+date: 2026-10-07
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: 80% of marketers already use AI to write their content, so why are you still staring at a blank homepage the night before launch?
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've got the business idea, you've picked a name, maybe you've even got the logo sorted. Then you open a blank page to write your homepage copy and the whole thing grinds to a halt, because explaining why someone should trust you is somehow harder than actually building the thing. That's the exact gap Jasper AI is built to fill, and it's a lot cheaper than a freelance copywriter while you're still finding your feet.</p>
+
+<div class="ob-callout">
+  <p>80% of marketers already use AI to write content, including email copy, according to HubSpot's 2026 marketing data.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">80%</div>
+    <div class="ob-stat-label">of marketers now use AI for content creation, including website copy and email (HubSpot, 2026 Marketing Statistics)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">40%</div>
+    <div class="ob-stat-label">average productivity gain for skilled knowledge workers using generative AI tools on writing-heavy tasks (MIT Sloan Management Review)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">97%</div>
+    <div class="ob-stat-label">of content marketers plan to use AI to support their content work in 2026 (Siege Media & Wynter survey)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHAT JASPER ACTUALLY DOES ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Jasper actually does</h2>
+  <p class="ob-section-sub">It's not just a fancier autocomplete</p>
+
+  <p class="ob-p">Jasper is a writing tool built specifically for marketing copy rather than general chat: homepage sections, ad variations, email sequences, social captions, and first drafts of blog posts. You feed it a Brand Voice profile, a few sentences plus some existing writing samples, and it keeps that tone consistent across everything it drafts afterwards, instead of sounding like generic AI filler every time.</p>
+  <p class="ob-p">Take a founder launching a mobile dog-grooming service. Instead of paying a freelance copywriter around £150 to £200 for homepage copy, she set up a Brand Voice profile from three paragraphs she'd written herself, and had a full homepage draft, headline, three service blocks, and an FAQ section, in under twenty minutes. She still rewrote a third of it, but she was editing instead of staring at a blank page.</p>
+</div>
+
+<!-- ─── SECTION 2: WHAT IT COSTS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What it costs, and when it's worth it</h2>
+  <p class="ob-section-sub">Pro plan pricing and where the free trial fits</p>
+
+  <p class="ob-p">Jasper's Pro plan runs $69 a month billed monthly, or $59 a month if you pay annually, and includes a 7-day free trial so you can test it against your own copy before committing. For a founder who isn't yet generating revenue, that's still real money, so the honest way to use it is during the trial week: draft your homepage, your launch email, and a month of social captions in one sitting, then decide if the ongoing cost earns its keep.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The tool is genuinely strong at first drafts and repetitive copy, less strong at anything requiring real judgement, like legal disclaimers, pricing claims, or anything a regulator might read. Treat its output as a very fast first draft that a human, ideally you, still checks before it goes anywhere near a customer.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is Jasper AI good enough to replace a copywriter completely?</p>
+    <p class="ob-faq-a">Not entirely. It's excellent for first drafts and repetitive copy, but anything customer-facing still needs a human pass for accuracy and tone before it goes live.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does Jasper AI cost?</p>
+    <p class="ob-faq-a">The Pro plan starts at $69 a month, or $59 a month billed annually, and there's a 7-day free trial to test it before you pay anything.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can Jasper write in my specific brand voice, or does it sound generic?</p>
+    <p class="ob-faq-a">Its Brand Voice feature learns from writing samples you give it, so drafts match your actual tone rather than the flat, generic style you get from a default chatbot prompt.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is there a free way to try this before paying for Jasper specifically?</p>
+    <p class="ob-faq-a">A general AI chat tool can draft basic copy for free, but Jasper's marketing templates and brand-voice consistency start paying for themselves once you're writing regularly across multiple channels.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Most aspiring founders don't have a marketing budget in month one, let alone a copywriter on retainer, so the choice is usually between a blank page and a rushed, unconvincing draft. A tool like Jasper doesn't replace judgement about what to say, but it removes the blank-page problem entirely, turning a half-day of procrastination into a twenty-minute draft you can actually edit into something good.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pick one piece of copy you've been putting off, your homepage headline or your launch email, and draft it with Jasper's free trial before you pay a freelancer or lose another weekend staring at a blank page.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more stories like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're building out other launch materials too, <a class="ob-link" href="#/articles/gamma-ai-pitch-deck-tool-for-founders">a pitch deck built with AI in minutes</a> covers the investor-facing side, and <a class="ob-link" href="#/articles/notion-ai-for-startup-founders">Notion AI for startup founders</a> looks at keeping the rest of the business organised once the copy is done.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="noopener noreferrer">HubSpot, 2026 Marketing Statistics, Trends & Data</a>; <a href="https://www.siegemedia.com/strategy/ai-writing-statistics" target="_blank" rel="noopener noreferrer">MIT Sloan Management Review / Siege Media, 55 AI Writing Statistics (2026)</a>.</p>
