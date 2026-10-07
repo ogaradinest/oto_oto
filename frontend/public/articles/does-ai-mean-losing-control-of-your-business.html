@@ -1,0 +1,156 @@
+<!--
+title: AI doesn't take the wheel, you're still the one driving
+tags: AI Governance, AI Strategy
+date: 2026-10-07
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 67% of small business owners won't let an AI agent spend company money without approving it first — using AI and losing control turn out to be two very different things.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">A lot of small business owners have picked up the same nagging worry: turn AI loose in the business and you hand over the wheel. You stop making the calls. The software does. It's a fair worry if you've never used the tools, but it's not what owners who have are actually doing.</p>
+
+<div class="ob-callout">
+  <p>67% of small business owners say they won't let an AI agent spend company money without approving every transaction themselves.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">47%</div>
+    <div class="ob-stat-label">of UK small businesses now use AI in some form, up from 22% a year earlier, but only 19% call themselves "very confident" using it day to day (Simply Business, 2026 SME Insights Report)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">67%</div>
+    <div class="ob-stat-label">of small business owners would not let an AI agent spend company money without approving each transaction themselves (Small Business Expo Research Team survey, Aug 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">89%</div>
+    <div class="ob-stat-label">of owners said it wouldn't automatically be a problem if an employee used AI to do most of their job undisclosed, as long as the work was accurate (same survey)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: THE MYTH ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The myth: AI takes the wheel</h2>
+  <p class="ob-section-sub">Why it feels that way even though it isn't</p>
+
+  <p class="ob-p">The fear isn't really about the software, it's about what happens once you're not watching it. You picture an AI tool quietly reordering stock, replying to a customer, or changing a price, and only finding out afterwards. That would be losing control. It's also not how the AI tools a small business actually uses are built to work.</p>
+  <p class="ob-p">Every AI product aimed at small businesses, from a chatbot answering FAQs to a bookkeeping assistant flagging expenses, runs inside permissions you set. It drafts, suggests, or flags. A human still presses send or signs off, unless you've specifically told it not to need that.</p>
+</div>
+
+<!-- ─── SECTION 2: WHAT OWNERS ARE ACTUALLY DOING ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What owners are actually doing: AI drafts, you decide</h2>
+  <p class="ob-section-sub">The line most small businesses already draw</p>
+
+  <p class="ob-p">A recent Small Business Expo survey found the opposite of runaway AI: two-thirds of owners said they would not let an AI agent spend company money without approving each transaction, and only 8% would give it unrestricted spending authority. AI can prepare the decision, but the person signing the cheque is still a person.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Take a nine-person joinery workshop. The owner has an AI tool draft supplier reorders whenever stock runs low, picking the quantity based on past orders. Anything over £200 sits in a queue until she taps approve. The AI does the drafting; she still makes every call that costs money. That's outsourcing the first draft, not the decision.</p>
+</div>
+
+<!-- ─── SECTION 3: THE REAL RISK ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The real control risk isn't the AI, it's not having a rule</h2>
+  <p class="ob-section-sub">Where confidence actually falls apart</p>
+
+  <p class="ob-p">UK adoption doubled to 47% this year, but confidence hasn't kept up. Just 19% of owners feel "very confident" using AI day to day, and security concerns are the top reason others hold back. That gap isn't caused by AI overreaching, it's caused by businesses adopting tools one at a time without ever writing down what each one is allowed to do.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The fix costs nothing and takes twenty minutes: list what AI can do without asking (drafting, research, scheduling) and what always needs your sign-off (anything that spends money, reaches a customer unedited, or touches a contract). Share it with staff using AI tools. That one page is what keeps you in control, not avoiding the tools.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can an AI tool spend my business's money without me knowing?</p>
+    <p class="ob-faq-a">Only if you've explicitly given it that permission, and most owners don't. 67% require approval on every transaction; set that as your default and no AI tool spends a penny without you seeing it first.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should always need my approval, even with AI involved?</p>
+    <p class="ob-faq-a">Anything that spends money, reaches a customer without a human reading it first, or touches a contract, price, or hiring decision. Drafting, research, and scheduling are generally safe to leave unsupervised.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does using AI mean I need a written policy?</p>
+    <p class="ob-faq-a">Not a formal one. A one-page list of what's allowed unsupervised and what needs sign-off covers most small businesses, and it closes the biggest gap behind low AI confidence.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will I lose the personal touch if I let AI draft things?</p>
+    <p class="ob-faq-a">Not if you keep editing before it goes out. AI drafting a reply and you approving it is the same control you'd have over anything a new employee wrote on their first day.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, control isn't an abstract governance issue, it's the difference between a tool that saves you an evening and one that costs you a customer or a bad invoice. Keeping control doesn't require IT staff or a formal AI committee. It requires deciding, in advance, which decisions still need your name on them, and most small businesses that use AI well have already done exactly that without calling it a policy.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write one page: three things AI can do without asking you, and three things that always need your approval before they go out or cost money. Share it with anyone else using AI tools in the business, that's the whole system.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more stories like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If that approval question made you wonder what AI tools actually do with your data, <a class="ob-link" href="#/articles/is-ai-safe-for-business-data">here's how AI tools actually handle your business data</a>, and if the worry is really about adding new software rather than control, <a class="ob-link" href="#/articles/you-dont-need-new-software-for-ai">start with the AI tools you already have</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://bmmagazine.co.uk/ai/ai-adoption-small-businesses-doubles/" target="_blank" rel="noopener noreferrer">Simply Business, 2026 SME Insights Report, via Business Matters</a>; <a href="https://www.thesmallbusinessexpo.com/blog/ai-in-the-workplace/" target="_blank" rel="noopener noreferrer">Small Business Expo Research Team, AI in the Workplace survey</a>.</p>
