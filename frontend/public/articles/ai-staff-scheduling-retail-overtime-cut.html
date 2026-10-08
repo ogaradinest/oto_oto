@@ -1,0 +1,158 @@
+<!--
+title: The rota that builds itself: how AI cut one retailer's overtime
+tags: AI Implementation
+date: 2026-10-08
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Automated rota software cuts scheduling admin by up to 50% and saves small businesses over $4,100 a year on average, and one three-shop retailer used it to claw back a Sunday night and a chunk of its overtime bill.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">If you run more than one shop, you know the rota is the thing that eats a Sunday night every single week. Who's off, who called in sick, who's about to tip into overtime you didn't budget for. It's not glamorous work. Get it wrong, though, and it's an expensive habit to keep.</p>
+
+<div class="ob-callout">
+  <p>Small businesses using AI for scheduling and payroll together save an average of 7.7 hours and over $4,100 a year.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">50%</div>
+    <div class="ob-stat-label">typical drop in time spent building rotas once scheduling is automated, per Deputy's UK workforce research</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$4,100+</div>
+    <div class="ob-stat-label">average yearly savings for small businesses using AI across scheduling and payroll (Homebase, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">25%</div>
+    <div class="ob-stat-label">of UK employees have been paid incorrectly at some point, with human error the cause in 46% of those cases</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: THE SUNDAY NIGHT ROTA RITUAL ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Sunday Night Rota Ritual</h2>
+  <p class="ob-section-sub">Why building it by hand quietly costs more than it looks like</p>
+
+  <p class="ob-p">Take a small homeware retailer with three shops and 22 staff between them. The manager spent around four hours a week building and re-jigging the rota in a spreadsheet, chasing swaps over WhatsApp, and still got caught out. One bank holiday got double-booked. Overtime crept up to roughly £600 a month without anyone deciding it should.</p>
+  <p class="ob-p">After moving to an AI scheduling tool, the draft rota builds itself from past footfall and staff availability, and the manager just tweaks it. Weekly admin dropped to under 40 minutes, and overtime fell by about a third within two months, because the tool flagged problem shifts before they were published, not after payroll ran.</p>
+  <p class="ob-p" style="margin-bottom: 0;">None of that needed a new till system or a data team. Just a tool that could see the pattern already sitting in the sales and staffing data.</p>
+</div>
+
+<!-- ─── SECTION 2: WHAT THE AI IS ACTUALLY DOING ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What the AI Is Actually Doing</h2>
+  <p class="ob-section-sub">Pattern-matching against your own sales data, not guesswork</p>
+
+  <p class="ob-p">These tools pull in your sales history, staff availability, holiday requests, and basic rest-break rules, then generate a first-draft rota instead of leaving you to start from a blank grid. Before it publishes, it flags anyone heading into overtime and any shift that's understaffed against forecast demand.</p>
+  <p class="ob-p" style="margin-bottom: 0;">That's the whole trick. It's not predicting the future, it's doing the arithmetic you'd otherwise do at 9pm on a Sunday, faster and with fewer blind spots.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Auto-drafts the rota from sales data</span>
+    <span class="ob-badge">Flags overtime before it happens</span>
+    <span class="ob-badge">Adjusts fast when someone calls in sick</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will it work with the till or EPOS system I already use?</p>
+    <p class="ob-faq-a">Most retail and hospitality scheduling tools plug into common EPOS and payroll systems through a straightforward integration. Check your specific system's compatibility before you buy, since coverage varies by provider.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do my staff need training to use it?</p>
+    <p class="ob-faq-a">Usually not much. Staff typically see their shifts and request swaps through an app. The setup work sits with whoever manages the rota, and that's normally an afternoon, not a project.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">My sales are seasonal and unpredictable, will the forecasting even help?</p>
+    <p class="ob-faq-a">It gets more accurate the more sales history you feed it. For outlier weeks, like Christmas or a big local event, most owners still manually override the suggested rota rather than trust the forecast blindly.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this only useful for shops and cafes?</p>
+    <p class="ob-faq-a">No. Anywhere with shift patterns benefits, including care settings, warehouses, gyms, and cleaning or trade businesses with rotating crews.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Most small businesses don't have an operations or HR department. The person building the rota is usually the owner or a single manager, on top of everything else, and overtime is a cost that's easy to lose track of when you're juggling stock and customers too. AI scheduling isn't a luxury here, it's a direct cap on one of the few costs that quietly grows if nobody's watching it.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, add up the actual hours you or your manager spent building and re-jigging the rota, then price that at your hourly rate. If it comes to more than an hour, trial one AI scheduling tool aimed at your sector alongside your current process for two weeks before switching over fully.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more stories like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If scheduling isn't the only admin bleeding time, <a class="ob-link" href="#/articles/ai-expense-management-cut-sme-admin-time">here's how one business cut admin time elsewhere too</a>, and if you're worried handing this over to a tool means losing your grip on the business, <a class="ob-link" href="#/articles/does-ai-mean-losing-control-of-your-business">this looks at whether that fear holds up</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.financialcontent.com/article/bizwire-2026-9-22-new-homebase-data-89-of-small-businesses-say-ai-is-paying-off-saving-them-up-to-4100-a-year" target="_blank" rel="noopener noreferrer">Homebase, New Homebase Data: 89% of Small Businesses Say AI Is Paying Off (2026)</a>; <a href="https://www.deputy.com/gb/blog/the-true-cost-of-manual-scheduling-and-how-to-win-it-back" target="_blank" rel="noopener noreferrer">Deputy, The True Cost of Manual Scheduling (and How to Win It Back)</a>.</p>
