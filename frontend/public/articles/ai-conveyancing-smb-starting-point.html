@@ -1,0 +1,175 @@
+<!--
+title: Where small conveyancing firms should put AI first
+tags: AI Governance, AI Implementation
+date: 2026-10-11
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: Roughly one in four UK property sales still falls through, and most collapses happen in the first four weeks. Here's where a small firm should start, and where it shouldn't yet.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">About one in four UK property sales collapses before completion, a rate that has barely moved from its decade average of 24.5%, and 38% of those collapses happen within the first four weeks after the sale is agreed. For a small conveyancing firm choosing where to spend a limited AI budget first, that single statistic points somewhere specific: whatever speeds up the earliest stages of a transaction, identity checks, source of funds, initial searches, protects more deals than anything applied later in the process.</p>
+
+<div class="ob-callout">
+  <p>AML and source-of-funds checks are the cheapest, fastest AI investment a small conveyancing firm can make, and they sit exactly in the highest-risk early weeks of a transaction. Start there before anything else.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">24.2%</div>
+    <div class="ob-stat-label">of UK property sales fell through in June 2026, close to the decade average</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">38%</div>
+    <div class="ob-stat-label">of all fall-throughs happen within the first four weeks after agreement of sale</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">3,425</div>
+    <div class="ob-stat-label">registered conveyancers in England and Wales as of January 2026, down from 3,539 a year earlier</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the first four weeks deserve the first investment</h2>
+  <p class="ob-section-sub">Fall-throughs cluster early</p>
+
+  <p class="ob-p">Fall-through data shows 38% of collapsed sales fail within four weeks of the sale being agreed, with weeks one and two alone accounting for nearly 16% of all collapses. Survey issues are the single leading cause of collapse at 37.5%, but delay itself is what turns a fixable problem into a lost sale: a buyer or seller who waits weeks for a routine check often has time to reconsider, get gazumped, or lose mortgage approval before anything is actually wrong with the property.</p>
+  <p class="ob-p" style="margin-bottom: 0;">This is why the highest-leverage place for a small firm to apply AI is not the conveyancing process as a whole. It is the specific early steps, identity verification, source of funds, initial title checks, that determine how quickly a transaction gets past its riskiest window.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why AML automation is the sensible first step</h2>
+  <p class="ob-section-sub">Cheapest to adopt, fastest to show a return</p>
+
+  <p class="ob-p">Specialist AML platforms built for conveyancing can cut the time spent on client due diligence by up to 80%, and one recent case study recorded a 350% improvement in verification sign-off efficiency after adoption. This is the easiest AI investment for a small firm to justify: the workflow is narrow and well-defined, the compliance requirement already exists regardless of AI, and the tool pays for itself in hours saved within the first few transactions.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Contract review and chain-management tools are valuable too, but they solve different problems later in the transaction. Starting with AML gets a firm comfortable with AI-assisted verification on a contained, low-risk process before extending automation to judgement-heavy areas like lease analysis.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">AML time saved: up to 80%</span>
+    <span class="ob-badge">Verification efficiency gain: 350% (case study)</span>
+    <span class="ob-badge">Highest fall-through risk: weeks 1–4</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The staffing reality behind this decision</h2>
+  <p class="ob-section-sub">Fewer people are available to absorb delay</p>
+
+  <p class="ob-p">The number of registered conveyancers in England and Wales fell to 3,425 by January 2026, down from 3,539 a year earlier, while solicitors working in residential conveyancing dropped to 10,724, over 2,000 fewer than at the end of 2021. A shrinking workforce handling a recovering transaction volume means fewer people available to manually chase identity documents and source-of-funds evidence.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Automating the most repetitive, lowest-judgement part of that workload, verification, frees the people you do have for the parts of a transaction that genuinely need a qualified conveyancer's attention: reviewing search results, advising on lease terms, managing a difficult chain.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What the SRA and CLC actually require</h2>
+  <p class="ob-section-sub">Principle-based, not tool-specific</p>
+
+  <p class="ob-p">Both the SRA and the CLC take a principle-based approach to AI and technology: firms must maintain client confidentiality, keep audit trails, ensure a person reviews any AI-assisted decision with real consequences, and can explain how the technology works. Neither regulator prescribes a specific tool or bans AI-assisted verification.</p>
+  <p class="ob-p" style="margin-bottom: 0;">For a small firm, meeting this bar does not require a compliance department. It requires choosing an AML platform with a clear audit trail, keeping a named person accountable for reviewing flagged cases, and documenting that choice once, rather than treating every new client onboarding as a fresh judgement call.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Where should a small conveyancing firm start with AI?</p>
+    <p class="ob-faq-a">AML and source-of-funds verification. It is the cheapest, fastest tool to adopt, sits in the highest-risk early weeks of a transaction, and the underlying compliance requirement already exists regardless of whether you automate it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much time does AML automation actually save?</p>
+    <p class="ob-faq-a">Specialist platforms report reducing time spent on client due diligence by up to 80%, with one recent case study showing a 350% improvement in verification sign-off efficiency.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does using AI for AML checks meet SRA and CLC requirements?</p>
+    <p class="ob-faq-a">Yes, provided the firm maintains an audit trail, keeps a named person accountable for reviewing flagged cases, and can explain how the tool works. Both regulators take a principle-based approach rather than prescribing specific software.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should we automate chain management and contract review too?</p>
+    <p class="ob-faq-a">Eventually, yes, but AML is the sensible starting point. It is the narrowest, lowest-judgement process to automate, which makes it the easiest place for a small firm to build confidence with AI before extending it to more complex parts of a transaction.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small conveyancing firm cannot absorb a shrinking pool of qualified staff and a stubborn one-in-four fall-through rate at the same time. Automating the narrowest, most repetitive part of the process, identity and source-of-funds verification, frees the people you have for the judgement calls that actually need them, and it targets the first four weeks of a transaction, which is exactly when most collapses happen.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Time how long your current AML and identity verification process actually takes from client instruction to sign-off, across your last five transactions. That single average is the number to compare against any AML platform's claimed time saving, and it is the clearest evidence you will have for whether the investment is worth making.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out where to put your AI budget first?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For the next layer of legal admin to tackle, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> is a useful next read, and if contracts are part of your workload too, <a class="ob-link" href="#/articles/ai-contract-review-small-business-budget">AI contract review without a solicitor's retainer</a> covers that side of it.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.propertywire.com/news/property-fall-throughs-decline-to-23-7-in-early-2026/" target="_blank" rel="noopener noreferrer">PropertyWire, Property fall-throughs decline to 23.7% in early 2026</a>; <a href="https://todaysconveyancer.co.uk/15-fall-in-conveyancer-numbers-since-pandemic/" target="_blank" rel="noopener noreferrer">Today's Conveyancer, 15% fall in conveyancer numbers since pandemic</a>; <a href="https://www.thirdfort.com/sectors/conveyancers/" target="_blank" rel="noopener noreferrer">Thirdfort, ID, AML and Source of Funds for Conveyancers</a>; <a href="https://theintermediary.co.uk/2026/07/thirdfort-helps-muve-improve-aml-check-efficiency-by-350/" target="_blank" rel="noopener noreferrer">The Intermediary, Thirdfort helps Muve improve AML check efficiency by 350%</a>.</p>
