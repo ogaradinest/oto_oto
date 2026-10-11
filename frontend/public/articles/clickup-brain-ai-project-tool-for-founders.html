@@ -1,0 +1,147 @@
+<!--
+title: ClickUp Brain: the AI that ends your app-switching habit
+tags: AI Implementation, AI Strategy
+date: 2026-10-10
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: The average worker switches apps 30 times a day just to find out what's actually due, and ClickUp Brain is built to end that scavenger hunt before you even hire anyone.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Your to-do list lives in Notes app, your client deadlines live in an email thread, and your actual tasks live in a spreadsheet you half-trust. Nobody told you that running a business means becoming the human glue between five different apps, but here you are, checking three places just to answer one question: what's actually due this week? ClickUp Brain, the AI layer built into ClickUp's project management tool, is aimed squarely at that problem, before you've got a team big enough to need a project manager.</p>
+
+<div class="ob-callout">
+  <p>The average worker switches between apps roughly 30 times a day, enough fragmentation to lose a real afternoon of focus, according to Asana's Anatomy of Work Index.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">30x</div>
+    <div class="ob-stat-label">the average number of times a knowledge worker switches between apps each day (Asana Anatomy of Work Index)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">11 hrs</div>
+    <div class="ob-stat-label">a week the average UK small business owner spends on admin instead of growing the business (Amex / SME Barometer 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">of UK small business owners say paperwork actively gets in the way of running their business (Amex / SME Barometer 2026)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What ClickUp Brain actually does</h2>
+  <p class="ob-section-sub">It's a task list that can also answer 'where are we on this'</p>
+
+  <p class="ob-p">ClickUp itself is a fairly standard project and task tracker: lists, boards, due dates. Brain is the AI layered on top, and it does two things well. It turns a messy brain dump into a structured task list with dates and owners attached, and it answers questions about your own work, 'what's overdue', 'summarise this project', without you clicking through six tabs to find out.</p>
+  <p class="ob-p" style="margin-bottom: 0;">A two-person bookkeeping startup fed it a rambling 'launch checklist' voice memo and got fourteen tracked tasks back in under a minute. A week later, Brain's status summary flagged that two client onboarding forms were overdue, before either client had to chase them about it. That's the kind of catch that normally needs a dedicated ops person.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What it costs, and the add-on trap to know about</h2>
+  <p class="ob-section-sub">The task tracker and the AI are priced separately</p>
+
+  <p class="ob-p">ClickUp's own plans start free, with the Unlimited plan around £7 to £10 a user a month. Brain, the part that actually does the summarising, is a separate add-on from roughly $9 a user a month, so a two or three person team is looking at a modest but real line item once both are stacked together, not just the base price on the homepage.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Start on the free plan with your real task list before paying for anything. Once the backlog is messy enough that you're genuinely losing track of what's due, add Brain and see whether the time it saves is worth the subscription, rather than paying for AI on day one out of habit.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is ClickUp Brain included free with ClickUp?</p>
+    <p class="ob-faq-a">No. The task tracker has a free plan, but Brain, the AI that summarises status and drafts updates, is a separate paid add-on on top.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does it replace the need for a project manager?</p>
+    <p class="ob-faq-a">Not fully. It's good at summarising status and structuring rough notes, but a founder still has to decide what matters and chase the conversations it can't have for you.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will it work with the tools my team already uses?</p>
+    <p class="ob-faq-a">ClickUp connects with common tools like Slack, Google Drive, and calendar apps, so you don't have to abandon everything else to centralise your tasks there.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it worth it for a team of just two or three people?</p>
+    <p class="ob-faq-a">Often yes, because a tiny team has no dedicated ops person to catch what's slipping. The free plan plus Brain on one account is usually enough to test whether it earns its keep.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Founders and small business owners are already doing five jobs each, and the Amex SME Barometer data above shows admin alone eats roughly 11 hours a week that could go toward actual growth. A tool that consolidates where tasks live and can answer status questions without a meeting isn't a luxury at that scale, it's one of the few ways a one or two person team avoids quietly dropping something a client was waiting on.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Move whatever to-do list you're currently keeping in your head, Notes app, or a stray spreadsheet into ClickUp's free plan, then test the Brain add-on on a single messy project to see if its status summaries actually save you the Monday-morning scramble.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more stories like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If scheduling, not tasks, is your bigger headache, <a class="ob-link" href="#/articles/motion-ai-scheduling-assistant-for-founders">here's an AI tool that builds your daily schedule for you</a>, and <a class="ob-link" href="#/articles/lindy-ai-assistant-for-founders">this AI assistant is built to free up your week</a> more broadly.</p>
+
+<p class="ob-sources">Sources: <a href="https://asana.com/resources/anatomy-of-work" target="_blank" rel="noopener noreferrer">Asana: Anatomy of Work Index</a>; <a href="https://retailtimes.co.uk/amex-sme-barometer-small-business-owners-spend-nearly-twice-the-time-on-admin-than-growing-their-business/" target="_blank" rel="noopener noreferrer">American Express / Small Business Saturday UK: SME Barometer 2026</a>; <a href="https://clickup.com/pricing" target="_blank" rel="noopener noreferrer">ClickUp: Pricing</a>.</p>
