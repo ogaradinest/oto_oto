@@ -1,0 +1,175 @@
+<!--
+title: AI contract review without a solicitor's retainer
+tags: AI Governance, AI Implementation
+date: 2026-10-09
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: UK businesses lose an estimated £12.2 billion a year to repeated, avoidable contract mistakes. Here's what a business without in-house counsel can do about it for under £100 a month.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">A UK court found in June 2025 that a well-known AI chatbot is not capable of conducting reliable legal research, after lawyers were caught citing cases it had invented. That ruling is aimed at solicitors, but the underlying lesson applies just as directly to a small business owner pasting a supplier contract into ChatGPT and trusting whatever comes back. AI contract review genuinely works. It just needs to be the right tool, used the right way, rather than a general chatbot asked to spot everything on its own.</p>
+
+<div class="ob-callout">
+  <p>Enterprise contract review platforms cost £40,000 to £150,000 a year and are built for legal teams reviewing thousands of contracts. A small business reviewing a few dozen a year needs a completely different budget, and one now exists.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">£12.2bn+</div>
+    <div class="ob-stat-label">lost annually by UK businesses to repeated, avoidable contract work (Genie AI, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£13,812</div>
+    <div class="ob-stat-label">average cost per unresolved legal issue for UK SMEs</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">9 Feb 2026</div>
+    <div class="ob-stat-label">when the SRA's updated compliance expectations for AI use took effect</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What went wrong when lawyers trusted a chatbot</h2>
+  <p class="ob-section-sub">The Ayinde and Al-Haroun warning</p>
+
+  <p class="ob-p">In June 2025, the Divisional Court ruled on two cases where lawyers had relied on an AI chatbot for legal research without checking its output, and the AI had invented cases that did not exist. The court was blunt: a general-purpose language model is not capable of conducting reliable legal research on its own, and lawyers who submit unverified AI output risk being held in contempt of court.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The lesson for a small business is not to avoid AI contract review. It is to understand what a general chatbot is actually good at, summarising and explaining, versus what it is not reliable at doing unsupervised, spotting every risk in a legal document with no second check.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What the SRA actually expects, even if you're not a law firm</h2>
+  <p class="ob-section-sub">Verify, disclose, stay accountable</p>
+
+  <p class="ob-p">The SRA's compliance guidance, updated 9 February 2026, does not ban AI. It requires solicitors using it to verify every output, protect client confidentiality, and remain personally responsible for the final result. A business without in-house counsel is not bound by SRA rules directly, but the same three habits, verify, protect sensitive information, stay accountable for the final decision, are exactly what keeps AI-assisted contract review safe for anyone using it.</p>
+  <p class="ob-p" style="margin-bottom: 0;">In practice, this means never pasting an unsigned commercial contract with real counterparties, prices and terms into a general AI tool without checking the flagged risks against your own reading of the document, and never treating an AI summary as the final word on anything that carries real financial exposure.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What actually costs money right now</h2>
+  <p class="ob-section-sub">The gap between enterprise and nothing</p>
+
+  <p class="ob-p">Repeated and avoidable contract work costs UK businesses an estimated £12.2 to £12.6 billion a year, split roughly evenly between external law firms and in-house teams re-doing work that better first-pass review would have caught. Traditional legal review is not cheap either: top firm rates now average £449 an hour, and the average unresolved legal issue costs an SME £13,812.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Purpose-built AI contract review tools aimed at small businesses now sit well under that cost, from free tiers offering a handful of reviews a month to paid plans in the £15 to £80 a month range, alongside fixed-fee human review services from providers such as LawBite starting around £165 plus VAT for a one-off contract check.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Enterprise platform: £40k–£150k/year</span>
+    <span class="ob-badge">Small business AI tool: free to ~£80/month</span>
+    <span class="ob-badge">Fixed-fee solicitor review: from ~£165+VAT</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A workable process with no in-house counsel</h2>
+  <p class="ob-section-sub">Layer the tools, do not replace judgement with them</p>
+
+  <p class="ob-p">Use an AI contract review tool as the first pass on any routine agreement: an NDA, a standard supplier terms document, a straightforward service agreement. Have it flag missing clauses, unusual liability terms and deviations from what you would normally accept. Read the flagged items yourself against the actual contract before acting on any of them.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Reserve a fixed-fee human review, from a solicitor or a service like LawBite, for anything genuinely high-value or unfamiliar: a lease, a partnership agreement, anything with real financial exposure if a clause turns out to matter. The AI tool handles volume cheaply. The fixed-fee human review handles the contracts where being wrong actually costs you.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it safe to use ChatGPT to review a contract?</p>
+    <p class="ob-faq-a">For a first pass on a low-stakes document, it can help you spot obvious issues. A June 2025 court ruling found general AI chatbots are not reliable for legal research on their own, so treat its output as a starting point to check, rather than a final answer, especially on anything with real financial exposure.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should a small business actually spend on AI contract review?</p>
+    <p class="ob-faq-a">Purpose-built tools for small businesses typically run from free tiers to roughly £15 to £80 a month, a fraction of the £40,000-plus enterprise platforms built for legal teams reviewing thousands of contracts a year.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">When should we still pay for a solicitor instead of using AI alone?</p>
+    <p class="ob-faq-a">For anything with significant financial exposure or unfamiliar terms, a lease, a partnership agreement, a contract with an unusually large counterparty. Fixed-fee contract review services exist from as little as £165 plus VAT for exactly this situation.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do SRA rules on AI use apply to us if we are not a law firm?</p>
+    <p class="ob-faq-a">Not directly, but the same principles keep you safe: verify AI output before acting on it, think carefully about confidentiality before entering sensitive commercial details into a general AI tool, and keep a human accountable for the final decision.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A business with no in-house counsel cannot justify a £40,000 enterprise contract review platform, but it also cannot afford to keep losing money to the same missed clause twice, part of the £12.2 billion UK businesses lose annually to repeated contract mistakes. A cheap AI tool for routine agreements, backed by an occasional fixed-fee solicitor review for anything genuinely high-value, closes most of that gap without a retainer.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Pull the last three contracts your business signed and check whether any contain a clause you now wish you had negotiated differently. That pattern, whatever it is, payment terms, liability caps, notice periods, is the exact thing to configure an AI review tool to flag automatically on every contract from now on.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out where your contract process is actually exposed?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If legal admin is where AI is doing the most work for you, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> is a good next read, and <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a> shows how to check whether a tool like this is actually paying for itself.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.sra.org.uk/solicitors/resources/innovate/compliance-tips-for-solicitors/" target="_blank" rel="noopener noreferrer">SRA, Compliance tips for solicitors regarding the use of AI and technology</a>; <a href="https://www.writford.co.uk/blog/sra-guidance-ai-tools-2026" target="_blank" rel="noopener noreferrer">Writford, SRA Guidance on AI: What UK Solicitors Need to Know (2026)</a>; <a href="https://www.thesmallbusinessexpo.com/blog/the-average-legal-expense-for-small-business/" target="_blank" rel="noopener noreferrer">The Small Business Expo, What Is The Average Legal Expense For Small Business Owners?</a>; <a href="https://www.genieai.co/blog/report-the-true-cost-of-repeated-legal-work-in-the-uk" target="_blank" rel="noopener noreferrer">Genie AI, Report: UK Businesses Lose £12.2bn to Repeated Legal Work</a>; <a href="https://lawyerlink.co/blog/cost-commercial-legal-services-uk" target="_blank" rel="noopener noreferrer">LawyerLink, What legal fees could cost your business in 2025 (and how to save)</a>.</p>
