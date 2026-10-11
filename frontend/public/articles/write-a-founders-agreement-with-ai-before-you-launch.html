@@ -1,0 +1,159 @@
+<!--
+title: Skip the lawyer bill: draft your founders' agreement with AI first
+tags: AI Governance, AI Implementation
+date: 2026-10-08
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: Harvard Business School research says 65% of startups fail from co-founder conflict, not a bad idea, and most of that conflict starts with a founders' agreement nobody ever wrote.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Right now you and your co-founder finish each other's sentences. Same vision, same hours, same hunger. That's exactly the moment to write down what happens when one of those things stops being true, because eighteen months in is a miserable time to start negotiating who owns what. A founders' agreement is the document for that conversation, and you don't need a few thousand pounds in solicitor fees to get a solid first draft. ChatGPT or Claude, plus an evening, gets you most of the way there.</p>
+
+<div class="ob-callout">
+  <p>Startups don't usually die because the product was wrong. Harvard Business School research puts co-founder and management-team conflict behind 65% of startup failures, more than running out of money or building something nobody wanted.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">65%</div>
+    <div class="ob-stat-label">of startups fail primarily from co-founder and management-team conflict rather than product or market failure (Harvard Business School research, Noam Wasserman's The Founder's Dilemmas)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£10,000+</div>
+    <div class="ob-stat-label">in legal fees founders routinely pay to unpick a generic template agreement once investors start digging at their first funding round (Harper James Solicitors)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">53%</div>
+    <div class="ob-stat-label">of small firms and solo practitioners now use generative AI in their legal work, up from 27% in 2023 (Smokeball, 2025 State of Law Report)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHY THE AGREEMENT YOU SKIP IS THE ONE THAT SINKS YOU ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the agreement you skip is the one that sinks you</h2>
+  <p class="ob-section-sub">The good times are exactly when you should write down the bad ones</p>
+
+  <p class="ob-p">Take two friends launching a bookkeeping SaaS together. Year one, they split everything 50/50 on a handshake, no problem, they're both coding every evening. Year two, one of them goes part-time to care for a parent, then leaves entirely for a salaried job, but keeps the full 50% equity because nobody ever wrote a vesting schedule. The one who stays is now doing all the work for half the company, and there's no document that says otherwise. Nobody acted in bad faith. It's just what happens when nothing gets written down while things are fine.</p>
+  <p class="ob-p" style="margin-bottom: 0;">That gap is exactly what a founders' agreement is for, and you're not the only one reaching for AI to write it. Over half of small firms and solo practitioners are already using generative AI in their legal work, so treating a chatbot as a serious first drafter isn't a shortcut, it's fairly normal by now.</p>
+</div>
+
+<!-- ─── SECTION 2: HOW TO DRAFT ONE WITH AI IN AN EVENING ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">How to draft one with AI in an evening</h2>
+  <p class="ob-section-sub">Five terms to nail down, then a lawyer just checks your homework</p>
+
+  <p class="ob-p">Open ChatGPT or Claude and describe your situation in plain English: how many founders, the current equity split, who's full-time versus part-time, and what should happen if someone leaves. Ask it to draft a founders' agreement covering five things specifically: equity split, a four-year vesting schedule with a one-year cliff, roles and decision-making, leaver terms (good leaver versus bad leaver), and IP assignment, confirming that everything built for the company belongs to the company, not to whoever's laptop it was written on.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Then push back on the draft the way you'd push back on a junior associate: ask what's unusual for a UK company your size, and what a generic template usually gets wrong. Take that draft, not a blank page, to a solicitor for a fixed-fee review. You're paying for judgment on the edge cases, not for someone to type out clauses you already knew you needed.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Equity split</span>
+    <span class="ob-badge">Vesting schedule</span>
+    <span class="ob-badge">Decision rights</span>
+    <span class="ob-badge">Leaver terms</span>
+    <span class="ob-badge">IP assignment</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can AI actually write a legally binding founders' agreement?</p>
+    <p class="ob-faq-a">The draft isn't binding until you and your co-founders sign it, and a UK solicitor should still check the final version. What AI is genuinely good for is turning a blank page into a structured first draft covering the terms that matter, which is most of the actual work.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the single term most first-time founders forget?</p>
+    <p class="ob-faq-a">Vesting. Without it, someone can walk away in month three and keep their full slice of equity forever. A standard four-year schedule with a one-year cliff protects everyone still doing the work.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do we need this if we're still pre-revenue and just two friends?</p>
+    <p class="ob-faq-a">Especially then. The agreement is cheapest and easiest to write while you're getting on well. Every month you wait, whatever's unwritten just becomes whatever anyone remembers it to be.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much should a solicitor's review actually cost?</p>
+    <p class="ob-faq-a">Ask for a fixed fee to review an AI-drafted agreement rather than an hourly rate to write one from scratch. Most UK startup solicitors will quote a flat rate once there's already a draft to work from.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a very small company, a founders' dispute isn't a boardroom problem, it's an existential one. There's no HR department to mediate, no board to break a tie, and usually not enough cash reserve to survive months of the two people who run the business not speaking to each other. A written agreement doesn't prevent disagreements, but it turns them into a five-minute look at a document instead of a slow-motion argument about who was right, which is often the difference between a bump in the road and the whole thing folding.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, before anything else changes, open ChatGPT or Claude and draft your founders' agreement covering equity split, vesting, decision-making, leaver terms and IP assignment, then book a fixed-fee solicitor review of that draft rather than starting from a blank page.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more stories like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Getting the legal basics sorted early pairs well with <a class="ob-link" href="#/articles/price-your-product-with-ai-before-you-launch">pricing your product with AI before you launch</a>, so the business side is just as settled as the paperwork.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.entrepreneur.com/leadership/harvard-business-school-professor-says-65-of-startups-fail/370367" target="_blank" rel="noopener noreferrer">Entrepreneur, Harvard Business School Professor Says 65% of Startups Fail for One Reason</a>; <a href="https://harperjames.co.uk/article/why-you-need-a-founders-agreement/" target="_blank" rel="noopener noreferrer">Harper James Solicitors, What is a founders agreement? Why do you need one?</a>; <a href="https://www.lawnext.com/2025/03/ai-adoption-nearly-doubles-among-small-law-firms-according-to-smokeballs-2025-state-of-law-report.html" target="_blank" rel="noopener noreferrer">LawNext, AI Adoption Nearly Doubles Among Small Law Firms, According to Smokeball's 2025 State of Law Report</a>.</p>
