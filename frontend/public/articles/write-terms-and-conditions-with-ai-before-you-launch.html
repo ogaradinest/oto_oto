@@ -1,0 +1,167 @@
+<!--
+title: Terms and conditions: the launch step founders skip
+tags: AI Governance, AI Implementation
+date: 2026-10-11
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: Only 10% of UK small businesses think a solicitor is worth the cost for this — here's how to draft your terms and conditions with AI before your first sale, not after.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Say you've just taken your first online order. Brilliant, except the customer now wants a refund on something you'd marked final sale, and you realise you never actually wrote that rule down anywhere a judge, or even just an annoyed customer, could read. Most new founders treat terms and conditions as paperwork for 'later', something to sort once the business feels real. But the moment you take a payment, quote a price, or promise a delivery date, you've already made a commitment. The only question is whether it's written down. Terms and conditions aren't about sounding like a law firm. They're the one document that decides who wins the argument you haven't had yet.</p>
+
+<div class="ob-callout">
+  <p>Only 10% of UK small businesses think a solicitor is worth the cost for this kind of work, and nearly a third hit a legal problem every single year.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">32%</div>
+    <div class="ob-stat-label">of UK small businesses face a legal issue in any given year, commonly over contracts and customer disputes (Legal Services Board, 2022)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">10%</div>
+    <div class="ob-stat-label">of small businesses viewed solicitors as cost-effective for this kind of work, and about half resolved their last legal problem entirely alone (Legal Services Board, 2022)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£350–£1,200</div>
+    <div class="ob-stat-label">the typical fixed-fee range UK solicitors quote for custom contract or T&Cs drafting (Sprintlaw)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">List what could actually go wrong first</h2>
+  <p class="ob-section-sub">Your terms exist to answer arguments you haven't had yet</p>
+
+  <p class="ob-p">Before you open any AI tool, write down every way a transaction with your business could go sideways: a customer wants a refund you don't offer, a delivery runs late, someone resells what they bought, or a client claims you owe more work than you quoted for.</p>
+  <p class="ob-p" style="margin-bottom: 0;">This list, not a generic template, is what makes your terms actually protect you. A kitchen-table candle business needs different clauses to a freelance web developer billing by the project, and a template pulled off Google covers neither of them properly.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Draft with AI, then check it against the real gaps</h2>
+  <p class="ob-section-sub">A generator or a general AI tool both work, if you feed them specifics</p>
+
+  <p class="ob-p">Feed your scenario list into ChatGPT, Claude, or a dedicated generator like Termly or Rocket Lawyer, naming your actual payment terms, delivery timelines, refund policy, and what happens if a client cancels partway through. Either route gets you a workable first draft in minutes, not the days a solicitor's queue usually takes.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Then check the draft covers what UK law actually expects: clear pricing, your right to change terms, a limitation of liability, and, if you sell to consumers online, the statutory 14-day cancellation right under the Consumer Contracts Regulations. AI is fast at structure and plain English; it doesn't know your real refund window unless you tell it.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">List every way a sale could go wrong</span>
+    <span class="ob-badge">Draft with AI in minutes</span>
+    <span class="ob-badge">Check against UK consumer law basics</span>
+    <span class="ob-badge">Add your own edge cases</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The clause a furniture maker nearly skipped</h2>
+  <p class="ob-section-sub">A made-to-order shop with a six-week lead time</p>
+
+  <p class="ob-p">Tom was three weeks from opening an online shop for handmade furniture, built to order with a six-week lead time. His first AI draft covered pricing and delivery neatly but said nothing about what happens if a customer cancels a custom piece halfway through, a real risk once materials are already cut to size.</p>
+  <p class="ob-p" style="margin-bottom: 0;">He went back to his scenario list, added one clause on non-refundable deposits for custom orders past the cutting stage, and had an updated draft ten minutes later. That's the pattern: AI gets you most of the way there instantly, and the part that actually matters is the bit specific to how you trade.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I legally need terms and conditions before I launch?</p>
+    <p class="ob-faq-a">There's no single law forcing every business to publish T&Cs, but UK consumer law already governs refunds, delivery, and cancellation rights regardless. Writing your own terms sets clear expectations up front, rather than leaving everything to statutory rules a customer may not know apply.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can an AI-drafted terms and conditions document actually hold up?</p>
+    <p class="ob-faq-a">As a solid baseline, yes, provided you feed it specific details about how you trade and check it covers UK basics like the 14-day cancellation right for online consumer sales. For anything unusual, like subscriptions or regulated goods, it's worth a solicitor's eye on the final draft.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the real difference between terms and conditions and a privacy policy?</p>
+    <p class="ob-faq-a">Terms and conditions cover the rules of buying from you: pricing, delivery, refunds, liability. A privacy policy covers what personal data you collect and why. Most new businesses need both, as separate documents.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How often should I update my terms and conditions?</p>
+    <p class="ob-faq-a">Review them whenever you change how you trade, such as a new delivery method, refund policy, or adding subscriptions, and at least once a year regardless, since UK consumer law itself gets updated periodically.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a business running on a shoestring launch budget, a £350–£1,200 solicitor's quote for a first draft is real money, and the Legal Services Board's own data says most small businesses end up resolving disputes on their own anyway, without ever having written the terms that would have settled the argument in their favour. An AI-assisted draft, built from an honest list of what could go wrong in your specific business, gets you a workable document for the cost of an evening instead of a line item you keep postponing.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before you take another order: write down every way a sale with your business could go wrong (late delivery, a refund request, a cancelled custom order), feed that list into ChatGPT, Claude, or a UK terms and conditions generator along with your actual payment and delivery details, check the draft against the 14-day cancellation right if you sell online, and publish it in your site footer before your next sale.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more stories like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Pair this with <a class="ob-link" href="#/articles/write-an-faq-page-with-ai-before-you-launch">an AI-drafted FAQ page for the same launch week</a>, and if you've got co-founders, <a class="ob-link" href="#/articles/write-a-founders-agreement-with-ai-before-you-launch">the same approach works for a founders' agreement</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://legalservicesboard.org.uk/news/new-research-reveals-the-legal-struggles-facing-small-businesses-lsb-calls-on-the-government-for-a-legal-support-strategy" target="_blank" rel="noopener noreferrer">New Research Reveals the Legal Struggles Facing Small Businesses, Legal Services Board (2022)</a>; <a href="https://sprintlaw.co.uk/articles/how-much-does-a-solicitor-cost-per-hour-a-guide-for-uk-businesses/" target="_blank" rel="noopener noreferrer">How Much Does a Solicitor Cost Per Hour? A Guide for UK Businesses, Sprintlaw</a>.</p>
