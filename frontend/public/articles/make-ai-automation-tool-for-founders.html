@@ -1,0 +1,147 @@
+<!--
+title: Make quietly automates the busywork you don't see
+tags: AI Technology, AI Implementation
+date: 2026-10-12
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: Gartner expects at least 80% of the people building automated workflows by 2026 to have never written a line of code, and Make is built for exactly that crowd.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Say you're running your first online shop before you've hired anyone at all. A customer pays through Stripe. You have to notice that, add them to your mailing list, log the order in a spreadsheet so your accountant isn't guessing at tax time, and maybe post a note in a team Slack that doesn't really need to exist yet. Multiply that by every order, every day, and congratulations, you've become unpaid data entry for your own business. Make, the no-code automation tool once called Integromat, is built to delete exactly that job before you've even clocked you're doing it.</p>
+
+<div class="ob-callout">
+  <p>Gartner expects at least 80% of the people building these automated workflows by 2026 to be ordinary business owners, not developers, up from 60% back in 2021.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">80%</div>
+    <div class="ob-stat-label">of people building low-code and no-code workflows will work outside IT departments by 2026, up from 60% in 2021, meaning the default builder is a business owner, not a coder (Gartner)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">90%</div>
+    <div class="ob-stat-label">of small businesses are already considering AI and automation tools just to stay competitive, not to get ahead (Visa, cited in Zapier's State of Business Automation report)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$26.9B</div>
+    <div class="ob-stat-label">the size of the worldwide low-code development market in 2023 alone, up 19.6% in a single year, with platforms like Make sitting inside that growth (Gartner)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Make actually does</h2>
+  <p class="ob-section-sub">A visual map of if-this-then-that, with AI steps built in</p>
+
+  <p class="ob-p">Open Make and you get a canvas, not a chat box. You drag in "triggers", a new Stripe payment, a new form reply, a new email, and connect them to "actions", add a row, send a message, draft a reply, by wiring them together like a very patient robot assistant. Recent versions bundle AI modules too, so a step can ask a model to summarise a message or sort an enquiry before passing it on, without opening a separate tool.</p>
+  <p class="ob-p">Picture a one-person candle business run out of a spare room. Before Make, she spent roughly 40 minutes most mornings copying yesterday's Etsy orders into a spreadsheet and sending a handwritten thank-you email to each buyer. One scenario, built from a free Make template in an afternoon, now does both the moment an order lands, and flags anything over £50 for a personal note instead. That's the whole pitch: not more software, just the plumbing between the software you already have.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What it costs, and the bit nobody mentions</h2>
+  <p class="ob-section-sub">Pricing runs on "credits", not on how many apps you connect</p>
+
+  <p class="ob-p">Make's free plan gives you 1,000 credits a month, with each action in a scenario, not each app, spending one credit, and over 3,000 apps are available even on that free tier. The cheapest paid plan, Core, starts at $12 a month for 10,000 credits once you outgrow that, which for most two or three-step scenarios is still a small line item.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The bit nobody mentions: building a scenario is easy, but debugging one that half-works is where founders actually lose an afternoon. Test with two or three real records before switching an automation on for everything, and expect your first attempt at anything with more than three steps to need a second pass.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions founders ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need to know how to code to use Make?</p>
+    <p class="ob-faq-a">No. It's drag-and-drop, though filters and conditional logic (only do this if that's true) take a few tries to get right the first time.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does Make cost?</p>
+    <p class="ob-faq-a">Free for up to 1,000 credits a month. Paid plans start at $12 a month for 10,000 credits, billed on how many actions you run, not how many apps you connect.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is Make better than Zapier?</p>
+    <p class="ob-faq-a">Neither wins outright. Zapier is quicker to start with its templates, while Make tends to work out cheaper once you're running more than a handful of automations and don't mind a slightly steeper learning curve.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What happens if an automation breaks halfway through?</p>
+    <p class="ob-faq-a">Make flags the failed run and lets you fix and replay that single run, so one bad entry doesn't force you to redo everything that ran before it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A founder starting out rarely has budget for an ops hire, so every manual handoff between apps comes out of the founder's own unpaid evening hours. The Visa figure above, that 90% of small businesses are already weighing automation tools, suggests this has stopped being a nice-to-have. For a one or two-person team, a tool like Make is closer to table stakes before the business has even properly opened.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write down the one two-app handoff you repeat most often, new customer, new order, new enquiry, and build exactly that one scenario on Make's free plan using one of its ready-made templates, before touching anything else.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more straight-talking AI guidance for your business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This <a class="ob-link" href="#/articles/clickup-brain-ai-project-tool-for-founders">pairs well with a tool that keeps your task list in one place</a>, and remember, <a class="ob-link" href="#/articles/you-dont-need-new-software-for-ai">you don't need new software to start using AI, either</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2022-12-13-gartner-forecasts-worldwide-low-code-development-technologies-market-to-grow-20-percent-in-2023" target="_blank" rel="noopener noreferrer">Gartner: Forecasts Worldwide Low-Code Development Technologies Market to Grow 20% in 2023</a>; <a href="https://zapier.com/blog/state-of-business-automation/" target="_blank" rel="noopener noreferrer">Zapier: State of Business Automation</a>; <a href="https://www.make.com/en/pricing" target="_blank" rel="noopener noreferrer">Make: Pricing</a>.</p>
