@@ -1,0 +1,158 @@
+<!--
+title: The B&B That Let AI Set a New Price Every Night
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-10-13
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: Properties that price to daily demand earn 8.6% higher revenue per room than a flat rate, and that gap is exactly what turned a struggling guesthouse's off-season around.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+  .ob-badge { background: #fff8f5; color: #FF6B2C; font-size: 0.82rem; font-weight: 700; padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid rgba(255,107,44,0.25); }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Helen runs a six-room guesthouse just outside the Peak District, and for years she priced every room the same way: £95 a night, whatever the season. A bank holiday weekend in July and a wet Tuesday in February got the identical rate. She knew that felt wrong, but adjusting six rooms by hand across a whole year sounded like a part-time job she didn't have time for.</p>
+
+<div class="ob-callout">
+  <p>Independent accommodation owners who leave their pricing on autopilot are leaving real money on the table: properties that price to daily demand earn 8.6% higher revenue per room than a flat rate.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">43%</div>
+    <div class="ob-stat-label">of independent accommodation owners update their room rates just once a year, according to a UK-and-Europe-wide eviivo survey of 263 operators</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">8.6%</div>
+    <div class="ob-stat-label">higher revenue per available room earned by properties that price to daily demand instead of a flat rate, per a Tourism Management study cited by eviivo</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">19%</div>
+    <div class="ob-stat-label">average revenue increase recorded across 567 independent properties after switching to AI-driven pricing, per a RoomPriceGenie study</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Same Price, Whether the Room Sold Out or Sat Empty</h2>
+  <p class="ob-section-sub">Pricing by gut feeling meant guessing wrong in both directions</p>
+
+  <p class="ob-p">Helen checked a couple of competitor websites every few months and nudged her rate if it felt obviously out of step, which is close to how most small accommodation businesses actually price. 43% of independent owners touch their rates only once a year, and most who adjust more often are still going on instinct rather than demand.</p>
+  <p class="ob-p">The cost showed up in two places at once. Midweek in February, rooms sat empty at a price nobody fancied paying for a quiet off-season break. On the bank holiday weekend in July, she sold out within days, at the exact same £95, for rooms with far more demand than supply.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A Pricing Tool Started Checking Every Room, Every Night</h2>
+  <p class="ob-section-sub">The fix was a tool costing less than one night's stay, not a revenue manager's salary</p>
+
+  <p class="ob-p">Helen connected her booking calendar to an AI pricing tool built for small accommodation businesses, in the same family as RoomPriceGenie and PriceLabs. Every night it checks how many rooms are already booked, what nearby competitors charge, local events, and how far out the date sits, then nudges her rate up or down on its own.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Over the next six months, her quiet midweek rate dropped as low as £65, enough to pull in guests who'd have skipped £95. On her busiest weekends it climbed past £140. Her overall revenue came in close to a fifth higher than the same period the year before, in line with the RoomPriceGenie study of 567 properties.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Checks bookings already on the calendar</span>
+    <span class="ob-badge">Compares nearby competitor rates</span>
+    <span class="ob-badge">Factors in local events and school holidays</span>
+    <span class="ob-badge">Adjusts the rate automatically, every night</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Won't guests mind that the same room costs more some nights than others?</p>
+    <p class="ob-faq-a">Most don't notice, because it's exactly how hotels, airlines and train tickets already work. What guests actually dislike is overpaying for a quiet week, and this fixes that too.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this only useful for hotels and guesthouses?</p>
+    <p class="ob-faq-a">No. Anything with a fixed number of slots and changing demand works the same way: treatment rooms, van hire, parking, event tickets.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does a pricing tool like this cost?</p>
+    <p class="ob-faq-a">These tools typically price per room, often only a few pounds a month each, so well under £30 a month for a property Helen's size.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need months of booking history before this works?</p>
+    <p class="ob-faq-a">No. These tools start from local market data and your own availability, then get sharper the more bookings you feed back in.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business with a fixed number of anything to sell each day, whether that's rooms, appointment slots, or hire vans, a flat price is really two mistakes at once: too high when demand is weak, too low when it's strong. Fixing that doesn't need a revenue management department, just your calendar.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, compare your busiest weekend to your quietest midweek slot over the last 12 months. If you charged the same rate for both, that gap is what an AI pricing tool would have captured instead.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more straight-talking AI guidance for your business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This <a class="ob-link" href="#/articles/price-your-product-with-ai-before-you-launch">pairs well with getting your starting price right before you ever open the doors</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://eviivo.com/trade-secrets/the-power-of-pricing" target="_blank" rel="noopener noreferrer">eviivo: The Power of Pricing</a>; <a href="https://roompricegenie.com/the-real-impact-of-revenue-management-insights-from-567-hotels-using-roompricegenie/" target="_blank" rel="noopener noreferrer">RoomPriceGenie: The Real Impact of Revenue Management</a>.</p>
