@@ -1,0 +1,174 @@
+<!--
+title: The AI customer service bill that doubles after you sign
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-10-16
+image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
+excerpt: The headline price on an AI customer service platform is rarely the number you actually pay. Here's how to model the real monthly bill before you sign anything.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+  .ob-badge { background: #fff8f5; color: #FF6B2C; font-size: 0.82rem; font-weight: 700; padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid rgba(255,107,44,0.25); }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">A platform advertising itself from $29 a seat a month sounds affordable until you add the usage-based AI fee on top, then multiply by however many resolutions your business actually handles. Several major AI customer service platforms now charge per AI resolution as well as, or instead of, a flat seat price, and that per-resolution charge is where budgets quietly move past what a small business expected to pay.</p>
+
+<div class="ob-callout">
+  <p>Model your actual monthly bill at your real volume, seats plus AI usage plus add-ons, before comparing headline prices. A mid-size team handling 20,000 AI resolutions a month can see a genuine cost difference of £15,000 or more a month between platforms quoting similar starting prices.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">£12-£18/hr</div>
+    <div class="ob-stat-label">typical UK cost of a part-time customer service hire in 2026, the real comparison point</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$0.29-$2.00</div>
+    <div class="ob-stat-label">range of per-resolution AI pricing across major platforms, before seat fees</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$20k+</div>
+    <div class="ob-stat-label">monthly cost difference possible between platforms at 20,000 AI resolutions a month</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the Sticker Price Is Not the Real Price</h2>
+  <p class="ob-section-sub">Seats, usage fees, and add-ons</p>
+
+  <p class="ob-p">Most platforms now price on at least two dimensions: a per-seat monthly fee for human agents, and a separate usage-based charge for every AI-handled resolution. A team paying around £55 a seat a month for the base platform can still face an additional AI copilot add-on running another £50 a seat, before a single AI resolution is counted.</p>
+  <p class="ob-p">The per-resolution fee is where costs scale unpredictably for a growing business. A tool charging under $0.30 per resolution and one charging $2 per resolution look similar on a features page, but at real volume the gap between them is the difference between a manageable software line item and a number that needs board approval.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What 20,000 Resolutions a Month Actually Costs</h2>
+  <p class="ob-section-sub">The comparison that headline pricing hides</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">At 20,000 AI-handled resolutions a month, a mid-size team can expect to pay roughly $19,800 on a platform charging under a dollar per resolution, rising past $30,000 on a platform charging around $1.50 per resolution plus per-seat fees, and over $40,000 on a platform charging $2 per conversation plus a separate service-desk licence. Very few small businesses handle 20,000 resolutions a month, but the principle holds at any scale: request the per-resolution rate and any add-on fees in writing before comparing two vendors' entry-level prices, because the entry-level price rarely includes the AI feature you are actually buying the platform for.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">~$19,800/mo at &lt;$1 per resolution</span>
+    <span class="ob-badge">~$30,000+/mo at ~$1.50 per resolution</span>
+    <span class="ob-badge">~$40,000+/mo at $2 per resolution</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Real Comparison Point Is Your Current Staffing Cost</h2>
+  <p class="ob-section-sub">Compare against the alternative, not just other vendors</p>
+
+  <p class="ob-p">Before comparing AI customer service vendors against each other, compare the cheapest sensible AI option against what a part-time human hire actually costs: roughly £12 to £18 an hour in the UK in 2026. An AI tool handling the majority of first-contact queries at a fraction of that hourly cost is very likely worth adopting, almost regardless of which specific vendor is chosen, provided the resolution rate reflects genuine problem-solving rather than a deflection statistic.</p>
+  <p class="ob-p">The vendor comparison matters most once a business has already decided AI customer service is worth doing at all. At that point, the fine print, per-resolution pricing, add-on costs, contract minimums, is what actually determines whether the business case holds up after the first invoice.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A Simple Way to Shortlist Without a Lengthy Procurement Process</h2>
+  <p class="ob-section-sub">Three questions, not twelve demos</p>
+
+  <p class="ob-p">Ask every vendor the same three questions before a demo: what is the all-in cost per resolution at our expected volume, including any add-ons; what happens to the price if our volume doubles; and can we see the escalation and confidence-scoring features working live, not in a slide.</p>
+  <p class="ob-p">A vendor that cannot answer the first two questions clearly and in writing is not ready for a small business budget, regardless of how capable the underlying AI looks in a demo. Price transparency at your actual volume is a better predictor of a smooth relationship than any feature comparison chart.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do AI customer service platforms cost more than the advertised price?</p>
+    <p class="ob-faq-a">Most charge a per-seat fee for the base platform plus a separate usage-based fee for every AI-handled resolution, and often an additional AI copilot add-on on top. These three rarely appear together on the homepage pricing table.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do we compare vendors fairly?</p>
+    <p class="ob-faq-a">Ask for the all-in cost per resolution at your actual expected monthly volume, in writing, from each vendor, rather than comparing their advertised starting prices, which rarely include the AI usage fee you are buying the platform for.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is AI customer service worth it if we only handle a few hundred queries a month?</p>
+    <p class="ob-faq-a">Usually, yes, if the alternative is part-time staff time costing £12 to £18 an hour. At low volume, per-resolution AI pricing stays cheap in absolute terms even before seat fees are considered.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the single most useful question to ask a vendor before signing?</p>
+    <p class="ob-faq-a">What happens to our price if our volume doubles. Usage-based pricing can make a cheap-looking platform expensive quickly, and a vendor who cannot answer this clearly in writing is a warning sign.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business signing up for an AI customer service platform based on the advertised seat price alone can find the real bill considerably higher once usage fees and add-ons are included. Modelling the all-in cost at your actual volume, and comparing that number against the real cost of part-time staff time, gives an honest answer to whether the tool is worth it, rather than a comparison based on marketing pages.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next renewal or new platform decision, ask your current or prospective vendor for the all-in monthly cost at your actual query volume, in writing, including every add-on. Compare that single number against your current staffing cost per hour. That comparison, not a features list, is what should decide the purchase.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a hand modelling the real cost of an AI customer service platform?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This pairs well with <a class="ob-link" href="#/articles/ai-customer-service-automation-rollout">what to automate first in customer service</a>, <a class="ob-link" href="#/articles/ai-agents-customer-service-resolution">what the resolution-rate numbers for AI customer service agents actually mean</a>, <a class="ob-link" href="#/articles/ai-development-cost-uk">the real cost of AI for your business</a>, and <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://alhena.ai/blog/ai-chatbot-pricing-comparison/" target="_blank" rel="noopener noreferrer">Alhena: AI Chatbot Pricing Comparison, 8 Platforms, Real Costs (2026)</a>; <a href="https://fin.ai/learn/ai-customer-service-agent-pricing-comparison" target="_blank" rel="noopener noreferrer">Fin: AI Agent Pricing Comparison 2026</a>; <a href="https://whito.co.uk/research/uk-ai-adoption-statistics/" target="_blank" rel="noopener noreferrer">Whito: UK Business AI Adoption Statistics 2026</a>.</p>
