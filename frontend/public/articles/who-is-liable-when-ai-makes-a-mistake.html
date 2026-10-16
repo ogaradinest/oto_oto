@@ -1,0 +1,167 @@
+<!--
+title: When your AI gets it wrong, the liability is yours
+tags: AI Governance, AI Implementation
+date: 2026-10-13
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 78% of small business owners don't fully trust AI to work without a human checking it, and the legal reality is exactly why that instinct is right.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+  .ob-badge { background: #fff8f5; color: #FF6B2C; font-size: 0.82rem; font-weight: 700; padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid rgba(255,107,44,0.25); }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've probably had this half-thought late at night: what happens if the AI chatbot on your site promises a customer something you never agreed to? You're not being paranoid. You're asking the one question most "just add AI to your business" advice skips straight past.</p>
+
+<div class="ob-callout">
+  <p>Here's the uncomfortable bit: when your AI tool gets something wrong, your customer doesn't ring the software company. They ring you.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">78%</div>
+    <div class="ob-stat-label">of small business owners don't fully trust AI to run tasks without a human checking the output first (Bluevine 2026 Business Owner Success Survey)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">22%</div>
+    <div class="ob-stat-label">feel completely confident letting AI handle routine business tasks unsupervised, the rest want a person checking first</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">72 hrs</div>
+    <div class="ob-stat-label">the usual window UK businesses have to report a notifiable data breach to the ICO, and an AI tool mishandling customer data counts</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Myth: It's the Software's Problem, Not Yours</h2>
+  <p class="ob-section-sub">Spoiler: it almost never works that way</p>
+
+  <p class="ob-p">Plenty of owners assume that if an AI tool quotes the wrong price, drafts a misleading reply, or mishandles a customer's details, the blame sits with whoever built the tool. It's an easy assumption to make, since you didn't write a line of its code.</p>
+  <p class="ob-p">In practice, your customers deal with you, not your software vendor. If an AI chatbot tells someone they're entitled to a refund that doesn't exist, that's generally treated as your business making the claim, the same as if a staff member had said it on the phone.</p>
+  <p class="ob-p">Picture a small bakery that lets its AI chatbot answer website questions. One evening it tells a customer their order is "fully refundable, no questions asked", a policy the bakery has never actually offered. The owner now has a real complaint on their hands, and a vendor contract that almost certainly puts the job of checking outputs back on the business, not the software.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What You're Actually on the Hook For</h2>
+  <p class="ob-section-sub">Two areas worth knowing before you worry about the rest</p>
+
+  <p class="ob-p">If an AI tool touches customer data, UK GDPR still applies to you, not just to the software. A genuine personal data breach needs reporting to the ICO, usually within 72 hours, and that clock doesn't care whose chatbot caused it.</p>
+  <p class="ob-p">If AI plays any part in hiring or eligibility decisions, the Equality Act 2010 still applies too. "The AI decided" isn't a defence if the outcome turns out discriminatory, and a rushed rubber-stamp from a human doesn't count as genuine oversight either.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Four Safeguards That Actually Protect You</h2>
+  <p class="ob-section-sub">None of these need a lawyer on retainer</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">The fix isn't avoiding AI. It's closing the gap between what you assumed someone else was handling and what's actually sitting on your desk, which takes an afternoon, not a legal department.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Write a one-page internal AI use policy</span>
+    <span class="ob-badge">Put a real human check on anything customer-facing</span>
+    <span class="ob-badge">Read the liability clause in your vendor's terms</span>
+    <span class="ob-badge">Spot-check outputs for accuracy and bias regularly</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is my AI vendor liable if their tool gives a customer bad advice?</p>
+    <p class="ob-faq-a">Rarely as the first port of call. Most vendor terms place responsibility for reviewing outputs on you, the business using the tool, so check that clause before you lean on it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does having a human check AI outputs protect me completely?</p>
+    <p class="ob-faq-a">Only if the check is real. A rushed glance before hitting send doesn't count as genuine human oversight under the rules covering automated decisions.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What counts as a data breach if my AI tool mishandles customer details?</p>
+    <p class="ob-faq-a">If personal data is exposed or misused, it's treated the same as any other breach under UK GDPR, with a duty to report notifiable ones to the ICO, usually within 72 hours.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a solicitor before using any AI tool?</p>
+    <p class="ob-faq-a">Not for low-risk internal tasks like drafting notes. For anything customer-facing or touching personal data, an hour reviewing your terms and privacy notice is worth it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Big companies have legal teams to absorb this kind of risk quietly in the background. You don't, which makes "it's not my problem" a far more expensive assumption for a small business than for a corporation with compliance staff on payroll. A customer complaint or a data slip lands directly on your desk, and your time, not a department's.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write a one-page AI use policy: which tools your team can use, what customer data they're allowed to touch, and who actually checks the output before it reaches a customer. Twenty minutes now beats a complaint later.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more straight-talking AI guidance for your business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This pairs well with <a class="ob-link" href="#/articles/does-ai-mean-losing-control-of-your-business">staying in control once AI is handling customer-facing work</a>, and with the broader question of <a class="ob-link" href="#/articles/is-ai-safe-for-business-data">whether AI tools are actually safe for your business data</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://stacker.com/stories/small-business/34-small-businesses-dont-trust-ai-basic-tasks" target="_blank" rel="noopener noreferrer">Bluevine 2026 Business Owner Success Survey (via Stacker)</a>; <a href="https://sprintlaw.co.uk/articles/who-is-legally-responsible-when-ai-makes-a-mistake/" target="_blank" rel="noopener noreferrer">Sprintlaw UK: Who Is Legally Responsible When AI Makes a Mistake</a>.</p>
