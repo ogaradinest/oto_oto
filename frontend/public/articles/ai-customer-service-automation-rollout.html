@@ -1,0 +1,175 @@
+<!--
+title: Automate this first if you want AI support that works
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-10-15
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Nearly one in five customers who tried AI customer service saw no benefit at all. The difference between that outcome and a good one is usually the order you automate things in.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+  .ob-badge { background: #fff8f5; color: #FF6B2C; font-size: 0.82rem; font-weight: 700; padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid rgba(255,107,44,0.25); }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Nearly one in five consumers who have used AI for customer service report seeing no benefit from the experience, according to Qualtrics's 2026 Customer Experience Trends Report. That is not primarily a technology problem. Most AI customer service failures trace back to a single design choice: which tasks got automated first, and whether an escalation path existed for the moment the AI reached its limit. Getting the sequencing right matters more than which platform you buy.</p>
+
+<div class="ob-callout">
+  <p>Automate the tasks where being wrong is cheap and obvious to fix: order status, appointment confirmation, password resets. Keep a human on anything where being wrong is expensive or hard to notice: complaints, refunds, anything emotionally charged.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">31%</div>
+    <div class="ob-stat-label">of UK small businesses have adopted AI for customer service (YouGov, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">~20%</div>
+    <div class="ob-stat-label">of consumers who used AI customer service reported no benefit at all (Qualtrics, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">42%</div>
+    <div class="ob-stat-label">of customers now trust businesses to use AI ethically, down from 58% in 2023</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why Deflection Is the Wrong Thing to Optimise For</h2>
+  <p class="ob-section-sub">Resolution, not contact avoidance</p>
+
+  <p class="ob-p">Most underperforming AI customer service deployments were built to reduce the number of enquiries reaching a human, not to resolve the customer's actual problem. That distinction matters. A chatbot that answers a simple FAQ well but loops uselessly when a customer needs account-specific context or an exception decision is optimising for the wrong outcome, and customers notice immediately.</p>
+  <p class="ob-p">The trust data reflects this. Only 42% of customers now say they trust businesses to use AI ethically, down sharply from 58% in 2023, and the erosion tracks closely with poorly designed escalation, not with AI's presence in support generally.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The Order That Actually Works</h2>
+  <p class="ob-section-sub">Start narrow, expand only after it holds</p>
+
+  <p class="ob-p">Begin with the tasks where an AI getting it wrong is cheap and instantly obvious: order status lookups, appointment confirmations, password resets, opening hours. These are high-volume, low-judgement, and a wrong answer here rarely does lasting damage because the customer can tell immediately and ask again.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Only after that narrow scope is running reliably should a business extend automation to moderate-complexity requests, billing questions, simple returns, with a human reviewing the AI's draft before it goes out. Complaints, refunds above a threshold, and anything emotionally charged should stay entirely human for longer than feels necessary, because this is precisely where current research shows AI most often disappoints.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Automate now: order status, resets, confirmations</span>
+    <span class="ob-badge">Automate with review: billing, simple returns</span>
+    <span class="ob-badge">Keep human: complaints, high-value refunds</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Escalation Is the Feature, Not the Fallback</h2>
+  <p class="ob-section-sub">Build the exit before you need it</p>
+
+  <p class="ob-p">The clearest pattern behind AI customer service failures is a missing or invisible escalation path, not a weak model. Customers tolerate an AI that cannot help, provided the way out is obvious and immediate: a one-click route to a human, without repeating the whole problem from scratch.</p>
+  <p class="ob-p">Practical triggers worth building in from day one: an explicit request for a human, a customer repeating the same complaint, the AI's own confidence score dropping below a set threshold, and any interaction involving a high-value account. None of these require sophisticated engineering. They require deciding, in advance, what "the AI has reached its limit" looks like for your business.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What This Costs, Roughly, Before Any Specific Platform</h2>
+  <p class="ob-section-sub">The comparison that actually matters</p>
+
+  <p class="ob-p">A part-time customer service hire in the UK costs roughly £12 to £18 an hour in 2026. An AI tool handling 60 to 70% of first-contact queries typically costs a fraction of that on a monthly basis, with individual AI-handled interactions running well under a pound compared with several pounds for a human-handled one.</p>
+  <p class="ob-p">That gap explains why the economics of automating the narrow, high-volume tasks first are so favourable. It does not mean automating everything is proportionally more valuable. The tasks best suited to AI are a specific subset, not the whole queue.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should we automate first in customer service?</p>
+    <p class="ob-faq-a">High-volume, low-judgement tasks where a wrong answer is cheap and obvious: order status, appointment confirmations, password resets. Expand from there only once that narrow scope runs reliably.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do so many AI customer service rollouts disappoint customers?</p>
+    <p class="ob-faq-a">Nearly one in five consumers who tried AI customer service reported no benefit, and the common thread is poor escalation design, not the presence of AI itself. Customers tolerate limits if the way out to a human is obvious and immediate.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">When should a complaint or refund request go straight to a human?</p>
+    <p class="ob-faq-a">As a general rule, keep anything emotionally charged, high-value, or involving a refund above a set threshold entirely human for longer than feels necessary. This is where AI most often underperforms according to current customer experience research.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do we know if our escalation design is good enough?</p>
+    <p class="ob-faq-a">Test it directly: have a colleague try to reach a human through your AI system while pretending to be frustrated. If it takes more than one or two steps, or requires repeating the problem, that is the fix to make before expanding automation further.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business cannot afford the reputational cost of a customer stuck in an AI loop with no visible way out. Automating narrow, low-stakes tasks first, and building an obvious human escalation path from day one, protects the trust a small business depends on more than a larger one, where one bad AI interaction is a smaller fraction of total customer relationships.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, ask a colleague to try to reach a human through your current customer service channels while acting like a mildly frustrated customer. Time how long it takes and count how many steps it requires. If it takes more than a click or two, fixing that single path is worth more than any new automation you could add.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a hand getting your customer service automation sequenced right?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This pairs well with <a class="ob-link" href="#/articles/ai-agents-customer-service-resolution">what the resolution-rate numbers for AI customer service agents actually mean</a>, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>, and <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://whito.co.uk/research/uk-ai-adoption-statistics/" target="_blank" rel="noopener noreferrer">Whito: UK Business AI Adoption Statistics 2026</a>; <a href="https://www.eglobalis.com/ai-in-cx-is-not-the-problem-escalation-failures-are-the-real-trust-gap/" target="_blank" rel="noopener noreferrer">eGlobalis: AI in CX Is Not the Problem, Escalation Failures Are the Real Trust Gap</a>; <a href="https://www.gleap.io/blog/ai-support-failures-lessons" target="_blank" rel="noopener noreferrer">Gleap: AI Customer Support Failures</a>.</p>
