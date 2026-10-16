@@ -1,0 +1,167 @@
+<!--
+title: The one-page NDA most founders skip before they pitch
+tags: AI Governance, AI Implementation
+date: 2026-10-13
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: A quarter of small business owners sign agreements exactly as presented, with zero review — here's how to draft your own NDA with AI before you pitch your idea to anyone.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+  .ob-badge { background: #fff8f5; color: #FF6B2C; font-size: 0.82rem; font-weight: 700; padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid rgba(255,107,44,0.25); }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've got a demo call booked with a freelance developer, or coffee with someone who might become your co-founder, and you're about to explain the whole idea out loud for the first time. That's the moment most aspiring founders skip the one document that would actually matter if things went sideways: something in writing saying this conversation stays between you. Not because every stranger is plotting to steal your idea, but because you can't un-say something once it's out, and a one-page NDA costs you ten minutes now instead of a very awkward conversation later.</p>
+
+<div class="ob-callout">
+  <p>UK small businesses lose up to £13.6 billion a year to legal problems they never wrote the rules down for, and a quarter of owners admit they sign agreements without reading them at all.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">£13.6bn</div>
+    <div class="ob-stat-label">lost every year by UK SMEs who neglect legal issues like contracts and confidentiality, including the cost of disputes over key information and relationships — YouGov survey, analysis by the Centre for Economics and Business Research (CEBR)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£2,240</div>
+    <div class="ob-stat-label">the average cost of a single legal problem for a business with fewer than 10 staff, adding up to almost £7,000 a year once you count every issue — CEBR analysis of the same YouGov SME data</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">1 in 4</div>
+    <div class="ob-stat-label">small business owners who sign a contract or agreement exactly as it's presented to them, with no review at all — Rocket Lawyer 2026 SMB Survey</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Work Out What You're Actually Protecting</h2>
+  <p class="ob-section-sub">Not every chat needs an NDA, but the ones with your real edge do</p>
+
+  <p class="ob-p">An NDA only matters if there's something specific worth keeping quiet: a product mechanism, a pricing model, a customer list, source code, or a supplier deal you've spent months arranging. If you're just describing a general market gap, skip it; nobody can steal "an app for dog walkers".</p>
+  <p class="ob-p">Decide early whether you need a mutual NDA (both sides share something, like you and a potential co-founder) or a one-way NDA (only you're disclosing, like pitching to a freelance developer or supplier). Getting this wrong is the most common mistake Sprintlaw's own guide flags for UK founders drafting their first one.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Draft It With AI in the Time It Takes to Make Coffee</h2>
+  <p class="ob-section-sub">Give it specifics, not a vague request for "an NDA"</p>
+
+  <p class="ob-p">Tell ChatGPT or Claude exactly who's involved, what's confidential, how long it needs protecting (one to two years is standard for a pitch, longer for genuine trade secrets), and that you want England and Wales governing law. Ask for the mutual or one-way version you settled on above.</p>
+  <p class="ob-p" style="margin-bottom: 0;">You'll have a usable first draft in minutes, not the days a solicitor's inbox usually takes. Read it back against your actual scenario: does it name the right parties, cover the right information, and say what happens to any files or notes once the conversation ends?</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">List what's actually confidential</span>
+    <span class="ob-badge">Pick mutual or one-way</span>
+    <span class="ob-badge">Draft with AI in minutes</span>
+    <span class="ob-badge">Check names, dates, and governing law</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Two Founders, One Developer, Twenty Minutes</h2>
+  <p class="ob-section-sub">A mini example: a delivery-app idea before the first demo call</p>
+
+  <p class="ob-p">Two aspiring founders had a demo call booked with a freelance developer to scope out a delivery-app concept, including a routing idea they thought gave them a real edge over bigger players. A solicitor quote for a bespoke NDA had come back at around £400, more than they wanted to spend before the business even existed.</p>
+  <p class="ob-p">They fed ChatGPT their scenario: mutual NDA, two parties, eighteen months' protection, covering the routing logic and any pricing numbers discussed. The draft was ready before their coffee had gone cold, both sides signed it electronically, and the call went ahead with the one thing that actually mattered on paper.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I really need a solicitor for a basic NDA?</p>
+    <p class="ob-faq-a">Not for a standard pitch-stage NDA between two parties. An AI-drafted version covers the essentials fine. Save the solicitor's budget for anything involving serious IP, a large investment, or terms you don't fully understand.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should my NDA be mutual or one-way?</p>
+    <p class="ob-faq-a">Mutual if both sides are sharing confidential information, such as you and a potential co-founder. One-way if you're the only one disclosing, such as pitching your idea to a freelancer or supplier who isn't sharing anything back.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will an AI-drafted NDA actually hold up if someone breaches it?</p>
+    <p class="ob-faq-a">A clear, specific NDA with the right parties, scope, and duration is enforceable regardless of who drafted it. What makes NDAs fail in practice is vague wording, not the tool used to write them, so read the draft carefully before you rely on it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should never go in the confidential information, even with an NDA signed?</p>
+    <p class="ob-faq-a">Anything you can't afford to lose if the agreement is ignored. An NDA gives you legal recourse after a breach; it doesn't stop someone from talking. For your single most sensitive detail, consider whether you need to share it at all before you've even launched.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a founder who hasn't registered a company yet, let alone hired a solicitor, a £400 quote for a one-off NDA is exactly the kind of cost that gets postponed until "after launch", which is usually the point where it's too late to matter. The CEBR's analysis of UK SME legal problems shows the cost of skipping documents like this adds up fast, and it rarely shows up as a single bad meeting; it shows up as a slow leak of leverage you never notice until a competitor launches your feature first.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next pitch, demo call, or chat with a potential co-founder: decide whether you need a mutual or one-way NDA, list the two or three things you'd actually mind someone repeating, and draft it with ChatGPT or Claude using England and Wales governing law. Get it signed electronically before you say anything you can't take back.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more straight-talking AI guidance for your business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">This <a class="ob-link" href="#/articles/write-a-founders-agreement-with-ai-before-you-launch">same AI-first approach works for a founders' agreement</a>, and it pairs well with <a class="ob-link" href="#/articles/write-terms-and-conditions-with-ai-before-you-launch">AI-drafted terms and conditions for launch day</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.crunch.co.uk/knowledge/article/failing-to-take-care-of-legal-issues-costing-uks-smes-13-6-billion-per-year" target="_blank" rel="noopener noreferrer">Crunch: Failing to Take Care of Legal Issues Is Costing UK SMEs £13.6 Billion a Year</a>; <a href="https://researchscape.com/inthenews/1-in-4-smbs-sign-contracts-as-is-is-your-speed-costing-you" target="_blank" rel="noopener noreferrer">Rocket Lawyer 2026 SMB Survey</a>; <a href="https://www.sprintlaw.co.uk/articles/how-to-write-an-nda-for-your-uk-business-key-clauses-and-mistakes" target="_blank" rel="noopener noreferrer">Sprintlaw: How to Write an NDA for Your UK Business</a>.</p>
