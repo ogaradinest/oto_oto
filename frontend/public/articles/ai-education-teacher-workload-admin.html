@@ -1,0 +1,175 @@
+<!--
+title: AI is already saving teachers time, just not from marking
+tags: AI Strategy, AI Implementation
+date: 2026-10-18
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: English teachers work a 49-hour week on average, but only 43% of it is spent teaching. AI is starting to close that gap, mostly outside the classroom.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Teachers in England work an average of 49 hours a week, and only 43% of that time is actually spent teaching, according to the DfE's own workload research. The rest goes to marking, planning, data entry and administrative paperwork, the exact tasks the Department for Education itself identifies as the biggest drivers of unnecessary workload. For a small independent school, tutoring company or training provider, this is where AI is already making a measurable difference, in the administrative work surrounding the classroom rather than the teaching itself.</p>
+
+<div class="ob-callout">
+  <p>Schools already using AI report saving 2 to 5 hours per teacher per week. Almost none of that saving comes from marking, which remains the least automated task. Nearly all of it comes from planning, resource drafting and administrative communication.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">43%</div>
+    <div class="ob-stat-label">of a UK teacher's working week actually spent teaching (DfE Workload Survey)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">2-5 hrs</div>
+    <div class="ob-stat-label">typical weekly time saved per teacher in schools already using AI tools</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">450,000</div>
+    <div class="ob-stat-label">disadvantaged pupils targeted by the DfE's planned AI tutoring rollout from 2027</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where the 57% actually goes, and where AI already helps</h2>
+  <p class="ob-section-sub">Marking, planning, and paperwork</p>
+
+  <p class="ob-p">The DfE identifies marking, planning and preparation, and data management as the three largest drivers of workload beyond actual teaching time. AI tools are making the clearest difference in planning and administrative drafting, generating first-draft lesson resources, letters home, and reports, freeing staff to review and personalise rather than start from a blank page.</p>
+  <p class="ob-p">Marking remains the exception. Only 7% of teachers currently use AI for marking, reflecting a reasonable caution about handing assessment judgement to a tool, especially for anything feeding into a pupil's formal record. The time savings reported so far come almost entirely from the tasks around teaching, not from AI marking student work.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Marking automation: ~7% adoption</span>
+    <span class="ob-badge">Planning/admin: main source of time saved</span>
+    <span class="ob-badge">DfE AI tutoring trials: from autumn 2026</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What the DfE actually expects schools and training providers to do</h2>
+  <p class="ob-section-sub">A safety and governance toolkit, not a ban</p>
+
+  <p class="ob-p">The DfE's AI integration toolkit for school and college leaders covers strategic decision-making, safety and risk management, and how AI fits into a wider digital strategy, including policy and governance. It does not prohibit AI tools. It expects leaders to have thought through data protection, not just enthusiasm, before rolling anything out.</p>
+  <p class="ob-p">The ICO's expectation is specific: any school or training provider using AI tools that touch learner data should complete a data protection assessment first. For a small provider without a dedicated data protection officer, this does not need to be elaborate. It needs to identify what data the tool sees, where it is stored, and who is accountable if something goes wrong.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The bigger shift: AI tutoring is becoming a government-backed programme</h2>
+  <p class="ob-section-sub">What this means for smaller providers</p>
+
+  <p class="ob-p">The DfE has committed to developing AI tutoring tools aimed at up to 450,000 disadvantaged pupils, with trials starting in autumn 2026 and a wider rollout planned by the end of 2027, partly filling the gap left as in-school tutoring has declined sharply since the National Tutoring Programme ended in 2024. Over half of schools report reducing their tutoring offer as a result.</p>
+  <p class="ob-p">For independent tutoring companies and small training providers, this signals both competition and validation: government-backed AI tutoring tools will normalise the category, but providers who already offer a well-supported, human-plus-AI service have a real opportunity to differentiate on the personal relationship a government platform will struggle to replicate at scale.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A sensible starting point for a small provider</h2>
+  <p class="ob-section-sub">Admin first, assessment last</p>
+
+  <p class="ob-p">Start with the lowest-risk, highest-volume administrative task: drafting parent communications, lesson resource first drafts, or scheme-of-work outlines. These carry no assessment risk and free the most staff time relative to the effort of adopting the tool.</p>
+  <p class="ob-p">Leave anything touching formal assessment or a pupil's permanent record for later, and only after running a data protection assessment and deciding, in writing, who reviews the AI's output before it counts for anything official.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small providers ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much time can AI actually save teachers?</p>
+    <p class="ob-faq-a">Schools already using AI tools report saving 2 to 5 hours per teacher per week, mostly from planning and administrative drafting rather than marking, which remains the least automated task at just 7% adoption.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do we need a data protection assessment before using AI tools with pupil data?</p>
+    <p class="ob-faq-a">Yes. The ICO expects any school or training provider to assess data protection risk before deploying AI tools that touch learner data, identifying what the tool sees, where it is stored, and who is accountable.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will government AI tutoring tools replace private tutoring companies?</p>
+    <p class="ob-faq-a">Not directly. The DfE's planned rollout targets disadvantaged pupils at scale from 2027, which will normalise AI-assisted tutoring as a category, but a well-run tutoring business built on personal relationships has room to differentiate rather than compete head-on with a government platform.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Where should a small school or training provider start with AI?</p>
+    <p class="ob-faq-a">Low-risk administrative tasks: drafting parent communications, first-pass lesson resources, and scheme-of-work outlines. Leave formal assessment and anything touching a pupil's permanent record until a data protection assessment and review process are in place.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small independent school, nursery or tutoring business does not have a large administrative team to absorb the paperwork that eats 57% of a teacher's week. AI tools aimed at planning and communication give exactly this kind of provider a meaningful time saving without touching the assessment decisions that should stay human, and the DfE's own toolkit gives a small provider a ready-made structure for doing this safely rather than building governance from scratch.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, ask your teaching staff to track, for just two days, how much time goes to marking, planning and admin versus actual teaching. That number, compared against the DfE's 43% teaching-time benchmark, tells you whether administrative AI tools are worth prioritising now or whether your provider's workload balance is already healthier than average.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out where AI can safely take admin off your staff's plate?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're building the plan around this, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> and <a class="ob-link" href="#/articles/ai-data-governance-framework">the practical framework behind AI data governance</a> cover the setup, <a class="ob-link" href="#/articles/ai-ethics-framework-small-business">the AI ethics framework your small business can build</a> covers the judgement calls, and <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a> shows how to check the time saving is real.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.structural-learning.com/post/ai-teacher-workload-reduction" target="_blank" rel="noopener noreferrer">Structural Learning, AI for Teacher Workload: What Actually Saves Time (2026)</a>; <a href="https://thirdspacelearning.com/blog/ai-in-schools/" target="_blank" rel="noopener noreferrer">Third Space Learning, Using AI In Schools: What The DfE Guidance Means For You</a>; <a href="https://thirdspacelearning.com/blog/dfe-ai-tutoring/" target="_blank" rel="noopener noreferrer">Third Space Learning, DfE Backs AI Tutoring To Close The Attainment Gap</a>; <a href="https://www.computerweekly.com/news/366637833/UK-government-to-develop-AI-tutoring-tools" target="_blank" rel="noopener noreferrer">Computer Weekly, UK government to develop AI tutoring tools</a>.</p>
