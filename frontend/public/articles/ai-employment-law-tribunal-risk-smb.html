@@ -1,0 +1,176 @@
+<!--
+title: The real risk isn't the new law, it's your paperwork
+tags: AI Governance, AI Consultancy
+date: 2026-10-19
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 531,000 employment tribunal claims are currently open in England and Wales, and new staff gain unfair dismissal rights after six months from July 2026. Documentation is about to matter a lot more.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">From July 2026, new employees gain unfair dismissal protection after six months of service instead of two years, one of the headline changes in the Employment Rights Act 2025. At the same time, employment tribunals already have 531,000 open claims, up from 491,000 a year earlier, with unfair dismissal the single most common complaint. For a small business without a dedicated HR or legal team, the practical risk is not the law itself. It is a disciplinary or performance process that was never properly documented, now reachable by an employee six months in rather than two years in.</p>
+
+<div class="ob-callout">
+  <p>AI does not make an employment decision defensible. Consistent, contemporaneous documentation does. What AI can genuinely help with is making sure that documentation actually gets written, in a consistent format, every time, rather than reconstructed from memory after a claim is already filed.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">531,000</div>
+    <div class="ob-stat-label">open employment tribunal claims in England and Wales, up from 491,000 a year earlier</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">6 months</div>
+    <div class="ob-stat-label">new unfair dismissal qualifying period from July 2026, down from 2 years</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">51%</div>
+    <div class="ob-stat-label">of new tribunal claims include an unfair dismissal complaint</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: WHY THE QUALIFYING PERIOD CHANGE MATTERS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the qualifying period change matters more than it sounds</h2>
+  <p class="ob-section-sub">Six months arrives faster than most HR processes are built for</p>
+
+  <p class="ob-p">Under the current two-year qualifying period, a small business has real time to observe a new hire, document performance conversations informally, and make a considered decision before unfair dismissal protection applies. From July 2026, that window shrinks to six months. A probation period that used to run comfortably inside the risk-free zone may now extend past the point where a dismissal needs to withstand tribunal scrutiny.</p>
+  <p class="ob-p">This does not mean dismissals become harder to justify. It means the paper trail needs to exist much earlier in the employment relationship than most small businesses are currently set up to produce it.</p>
+</div>
+
+<!-- ─── SECTION 2: RISING TRIBUNAL NUMBERS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What the rising tribunal numbers actually show</h2>
+  <p class="ob-section-sub">More claims, and a growing backlog</p>
+
+  <p class="ob-p">There were 531,000 open tribunal claims at the end of the last quarter, up from 491,000 a year earlier, with 52,400 new claims filed in the first quarter of 2026 alone. Unfair dismissal remains the most common single complaint, appearing in 51% of new claims. Some claim types are rising even faster: whistleblowing claims are up 112% year on year and disability discrimination claims up 79%.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Open claims: 531,000</span>
+    <span class="ob-badge">Unfair dismissal in 51% of claims</span>
+    <span class="ob-badge">Whistleblowing claims: +112% year on year</span>
+  </div>
+
+  <p class="ob-p">A growing backlog also means cases now take longer to resolve, which extends the period a business needs to be able to produce clear records if a claim is filed months or years after the decision itself.</p>
+</div>
+
+<!-- ─── SECTION 3: WHERE AI HELPS ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where AI genuinely helps, and where it does not</h2>
+  <p class="ob-section-sub">Consistency of process, not the decision itself</p>
+
+  <p class="ob-p">AI tools can draft consistent disciplinary and performance review templates, prompt managers to record specific dates, conversations and outcomes at the time they happen rather than weeks later, and flag when a required step in a process, a verbal warning, a written warning, a formal meeting, has been skipped. This turns an inconsistent, memory-dependent process into a documented one.</p>
+  <p class="ob-p">What AI should not do is make the actual decision to dismiss, discipline or performance-manage someone, or draft the substantive reasoning behind it without a manager's direct input. Current guidance on AI in employment decisions is consistent on this point: AI in disciplinary and dismissal contexts should support documentation and consistency, not replace the judgement of the person accountable for the decision.</p>
+</div>
+
+<!-- ─── SECTION 4: WHAT TO DO BEFORE JULY 2026 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What a small business should actually do before July 2026</h2>
+  <p class="ob-section-sub">Three changes that matter more than any new tool</p>
+
+  <p class="ob-p">Audit how probation and early-tenure performance conversations are currently recorded. If the honest answer is 'in a manager's head' or 'in an email thread nobody could easily produce', that is the gap to close first, with or without AI involved. Build a simple, consistent template for documenting every formal conversation from day one of employment, not from month eighteen: a basic AI-assisted note-taking or template tool can prompt for the same fields every time, date, what was discussed, what was agreed, and the next review date, without needing a dedicated HR system.</p>
+  <p class="ob-p">Finally, put a written policy in place on where AI is and is not used in employment decisions, since this is now an explicit expectation in HR guidance: AI should stay out of interviews, disciplinary actions, investigations and performance evaluations as a decision-maker, and be used only to support documentation and consistency around those human decisions.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the new six-month qualifying period apply to all employees?</p>
+    <p class="ob-faq-a">It applies to new employees from July 2026 onward under the Employment Rights Act 2025, replacing the current two-year qualifying period for unfair dismissal protection.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can AI make a fair dismissal decision for us?</p>
+    <p class="ob-faq-a">No, and current guidance is explicit that AI should not be the decision-maker in disciplinary, dismissal or performance contexts. It can help ensure the process around that decision is consistently documented, which is what actually protects a business at tribunal.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does the Employment Rights Act 2025 cost businesses overall?</p>
+    <p class="ob-faq-a">Government analysis estimates the impact at around £1 billion a year across the economy, roughly 0.1% of the UK's total pay bill, though the practical cost for an individual small business depends heavily on how well its processes are already documented.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the single most useful thing a small business can do before July 2026?</p>
+    <p class="ob-faq-a">Start documenting probation and early performance conversations consistently from day one of employment, using a simple template applied every time, rather than waiting until month eighteen when the old two-year window would have applied.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business without a dedicated HR team is exactly where informal, undocumented performance conversations are most common, and exactly where the shortened six-month qualifying period bites hardest. A consistent documentation habit, built with a simple AI-assisted template rather than a full HR platform, closes most of the real tribunal risk without requiring a legal department.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pick one new starter currently in their first six months and check what written record exists of any performance or conduct conversation with them so far. If the answer is little or nothing, build a one-page template today, four fields: date, what was discussed, what was agreed, next review, and use it from the next conversation onward.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help building a documentation process that would hold up at tribunal?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For the wider picture on getting AI properly embedded, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> and <a class="ob-link" href="#/articles/ai-ethics-framework-small-business">the AI ethics framework your small business can build</a> cover the ground this article doesn't.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gov.uk/government/statistics/tribunals-statistics-quarterly-january-to-march-2026/tribunal-statistics-quarterly-january-to-march-2026" target="_blank" rel="noopener noreferrer">gov.uk, Tribunal Statistics Quarterly: January to March 2026</a>; <a href="https://www.squirepattonboggs.com/insights/publications/the-employment-rights-act-2025-april-2026-changes-what-needs-to-be-on-your-agenda-now/" target="_blank" rel="noopener noreferrer">Squire Patton Boggs, The Employment Rights Act 2025: April 2026 Changes</a>; <a href="https://assets.publishing.service.gov.uk/media/695d3ebfbd1c076f787e7399/employment-rights-act-2025-economic-analysis.pdf" target="_blank" rel="noopener noreferrer">gov.uk, Employment Rights Act 2025 Economic Analysis, January 2026</a>; <a href="https://www.thehrdirector.com/business-news/tribunals/employment-tribunal-claims-continue-spike/" target="_blank" rel="noopener noreferrer">theHRD, Employment tribunal claims continue to spike</a>.</p>
