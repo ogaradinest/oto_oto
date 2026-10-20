@@ -1,0 +1,157 @@
+<!--
+title: The fraud tax: how one AI checkout setting stopped the bleeding
+tags: AI Implementation, AI Technology
+date: 2026-10-20
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: 54% of UK small businesses were hit by online fraud last year, losing an average of £10,800 each — here's how one shop used AI screening to stop the bleeding.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You ship the order, feel good about the sale, and three weeks later your payment processor emails you: chargeback, "item not received", money already clawed back out of your account. You didn't do anything wrong. You just didn't have anyone watching the door.</p>
+
+<div class="ob-callout">
+  <p>54% of UK small businesses were hit by online fraud last year — and the average loss was £10,800, not counting the days spent fighting it.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">of UK small and medium businesses were victims of online fraud in 2024, per Mollie's SMB research</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£10,800</div>
+    <div class="ob-stat-label">the average amount a UK SMB lost to online fraud last year, before counting staff time</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">26.7%</div>
+    <div class="ob-stat-label">of merchants now use AI-based fraud screening, with another 37% planning to add it, per Chargebacks911's 2026 field report</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Small shops are the easy target, not the big ones</h2>
+  <p class="ob-section-sub">You don't have a fraud team. Fraudsters know exactly that.</p>
+
+  <p class="ob-p">A big retailer has a fraud desk. You have you, on your phone, between everything else. That gap is exactly what fraudsters test for — stolen cards get run through small checkouts first.</p>
+  <p class="ob-p">Mollie found UK SMBs spend 15 working days a year just managing fraud: disputing chargebacks, refunding "friendly fraud" claims, chasing carding attempts. Three working weeks you didn't choose to spend.</p>
+  <p class="ob-p">Picture a small homeware shop turning over £15,000 a month online. Before screening: 3-4 chargebacks a month, costing roughly £600 in lost stock and fees, plus hours each week disputing cases that mostly don't get won back.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What an AI fraud tool actually does at checkout</h2>
+  <p class="ob-section-sub">It's not a bouncer turning people away — it's a quiet background check.</p>
+
+  <p class="ob-p">Tools like Stripe Radar or Signifyd score every order the second it's placed: does the billing address match the card, has this device hit five other stores today, is the order oddly large for a first-time buyer. Suspicious orders get held for a quick manual look instead of shipping automatically.</p>
+  <p class="ob-p">After the homeware shop turned on AI screening inside their existing Stripe checkout, no new software, no developer, fraudulent orders dropped to about one a month. Roughly £450 a month back, plus the hours that used to go into disputes.</p>
+  <p class="ob-p">The point isn't to block more people. It's to stop guessing, instead of either accepting everything and eating the losses, or reviewing everything by hand and slowing down real customers.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Stripe Radar</span>
+    <span class="ob-badge">Signifyd</span>
+    <span class="ob-badge">Shopify Fraud Filters</span>
+    <span class="ob-badge">PayPal Seller Protection</span>
+  </div>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will this block real customers by mistake?</p>
+    <p class="ob-faq-a">A few genuine orders get flagged at first, that's normal. Most tools let you set the risk threshold, so you start cautious and loosen it once you see your real fraud pattern.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a developer to set this up?</p>
+    <p class="ob-faq-a">No. On Stripe, Shopify, or Square, fraud screening is usually a toggle already built into the checkout you're using.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does it cost?</p>
+    <p class="ob-faq-a">Many basic tools are free, bundled into your payment processor. Dedicated services like Signifyd charge a small percentage per transaction, usually worth it once fraud is already costing you more.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the difference between fraud and a chargeback?</p>
+    <p class="ob-faq-a">Fraud is someone using a stolen card. A chargeback is the dispute that follows, sometimes real fraud, sometimes a customer who forgot they bought the thing. Screening mostly stops the first, which cuts the second.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A big company can absorb a bad month of chargebacks. A small shop can't — £10,800 is real margin for most businesses this size, and the 15 days a year spent fighting it is time nobody was budgeting for. The tools that used to belong to enterprise fraud teams are now a setting inside the checkout software most small businesses already use, which means the barrier isn't cost anymore. It's just not knowing the switch exists.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week: log into your payment processor's dashboard and check whether fraud screening is already switched on — Stripe Radar and Shopify's fraud filters are usually live by default but set loose. Tighten the risk threshold one notch and watch your next ten orders before deciding whether to go further.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to keep up with how small businesses are using AI day to day?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're weighing up how much of your business data AI tools can safely touch, <a class="ob-link" href="#/articles/is-ai-safe-for-business-data">how safe your business data actually is with AI tools</a> is worth reading next.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.mollie.com/news/fraud-loss-2024" target="_blank" rel="noopener noreferrer">Mollie — UK SMBs lost £11,000 to online fraud in 2024</a>; <a href="https://chargebacks911.com/2026-chargeback-field-report/" target="_blank" rel="noopener noreferrer">Chargebacks911 — 2026 Chargeback Field Report</a>.</p>
