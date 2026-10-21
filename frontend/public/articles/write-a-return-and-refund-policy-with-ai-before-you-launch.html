@@ -1,0 +1,190 @@
+<!--
+title: The returns page that quietly costs you sales before launch
+tags: AI Governance, AI Implementation
+date: 2026-10-21
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 67% of shoppers check your returns page before they buy anything — here's how to draft a return and refund policy with AI before your first sale, not after.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Picture this: you're three days from launching your online shop, and an early tester asks, "what happens if I don't like it?" You freeze, because you genuinely don't know, you never wrote it down. A return and refund policy feels like the kind of paperwork you'll get to eventually, right up until the first annoyed email lands in your inbox during launch week. Here's the thing: this is one of the fastest documents to draft with AI, because the hard part isn't the writing, it's deciding what you'll actually allow. Get that sorted, and the rest takes an evening.</p>
+
+<div class="ob-callout">
+  <p>Two-thirds of shoppers check your returns page before they even add anything to their basket, so if that page doesn't exist yet, you've lost the sale before you knew it was happening.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">67%</div>
+    <div class="ob-stat-label">of online shoppers check a retailer's return policy before completing a purchase (Invesp, via Mailmodo)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">72%</div>
+    <div class="ob-stat-label">of customers say they're more likely to buy from the same business again after an easy return experience (Richpanel, via Mailmodo)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">14 days</div>
+    <div class="ob-stat-label">the legal cooling-off period UK customers get to cancel most online orders, no reason required (Consumer Contracts Regulations 2013)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Decide the real rules before you write anything</h2>
+  <p class="ob-section-sub">AI can't guess your return window, who pays postage, or what's excluded</p>
+
+  <p class="ob-p">Before you touch ChatGPT or Claude, answer four questions on paper: how many days will you give customers to return something, who pays the postage, does the item need to be unused and in original packaging, and are any items excluded, such as made-to-order, perishable, personalised, or opened cosmetics.</p>
+  <p class="ob-p">These choices are yours to make as the business owner, not the AI's. A print-on-demand t-shirt seller and a bakery selling custom cakes need completely different rules, and a generic template pulled off Google tends to split the difference badly, covering neither one properly.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Draft with AI, then check it against UK law</h2>
+  <p class="ob-section-sub">Two legal baselines apply whether or not you wrote them down yourself</p>
+
+  <p class="ob-p">Feed your four decisions into ChatGPT, Claude, or a dedicated generator like iubenda, and ask for a return and refund policy written in plain English for your specific product and delivery setup. You'll have a working draft in minutes.</p>
+  <p class="ob-p">Then check it covers two things UK law already gives customers, regardless of your own rules: the 14-day cancellation right for most online orders under the Consumer Contracts Regulations, and the right to a full refund within 30 days for anything that arrives faulty under the Consumer Rights Act 2015. Your own policy can be more generous than these. It can't be stingier.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Set your real return window</span>
+    <span class="ob-badge">Decide who pays postage</span>
+    <span class="ob-badge">Draft with AI in minutes</span>
+    <span class="ob-badge">Check against UK consumer law</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The postage clause a skincare founder almost missed</h2>
+  <p class="ob-section-sub">A mini example: a one-woman skincare brand's launch-week scramble</p>
+
+  <p class="ob-p">Priya was two weeks from launching a small-batch skincare line and used AI to draft her returns policy the night before her site went live. The first version covered her 30-day window neatly but said nothing about who'd pay to post back a £6 bottle of serum, and she realised return postage alone could wipe out her margin on a £15 order.</p>
+  <p class="ob-p">She went back, added a clause capping free returns to faulty items only and asking customers to cover postage on simple changes of mind, and had an updated policy published ten minutes later. AI handled the structure instantly. The number that actually protected her margin came from knowing her own cost base.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>AI drafts the structure</h4>
+      <p>Plain-English clauses, ready in minutes once you know your rules</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>You protect the margin</h4>
+      <p>Only you know what a return actually costs you per order</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>A ten-minute fix</h4>
+      <p>Spotting the gap early is cheaper than fixing it after launch</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I legally need a returns policy for my small business?</p>
+    <p class="ob-faq-a">There's no single law forcing every business to publish one, but UK consumer law already governs returns and refunds whether you've written anything down or not. Publishing your own policy just makes the rules clear upfront, rather than leaving customers to find out mid-dispute.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can I refuse returns altogether?</p>
+    <p class="ob-faq-a">For faulty goods, no, the Consumer Rights Act 2015 gives customers a refund or repair right regardless of your policy. For change-of-mind on most online orders, customers also get a 14-day statutory cancellation right you can't remove, though you can ask them to cover return postage.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is an AI-drafted return policy good enough, or do I need a solicitor?</p>
+    <p class="ob-faq-a">For most straightforward retail or ecommerce setups, an AI draft checked against the two UK baselines above is a solid working policy. If you sell regulated goods, subscriptions, or digital downloads with unusual terms, it's worth a solicitor's quick review before you publish.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How specific should my return window be?</p>
+    <p class="ob-faq-a">Specific enough that a customer never has to ask. State the number of days, who pays postage, the condition goods must arrive in, and any excluded categories like personalised or perishable items, right on the policy page itself.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a business launching on a tight budget, a clear return policy isn't just a legal box to tick, it's a sales tool. With two-thirds of shoppers checking this page before buying anything, and most of the rest judging you on how easily they could get their money back if something went wrong, a vague or missing policy quietly costs sales every single day you trade without one, long before anyone actually asks for a refund.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, before your next sale: write down your real return window, who pays postage, and what's excluded, feed those details into ChatGPT or Claude for a plain-English draft, check it against the 14-day Consumer Contracts Regulations right and the 30-day Consumer Rights Act refund rule, and publish it somewhere a customer can find it before they check out, not after.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more small-business AI guides like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're building out the rest of your launch paperwork, <a class="ob-link" href="#/articles/write-terms-and-conditions-with-ai-before-you-launch">pair it with your AI-drafted terms and conditions</a>, and <a class="ob-link" href="#/articles/write-an-faq-page-with-ai-before-you-launch">add it to the same AI-drafted FAQ page</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.mailmodo.com/guides/ecommerce-return-statistics/" target="_blank" rel="noopener noreferrer">23 Ecommerce Return Statistics to Know in 2026 — Mailmodo</a>; <a href="https://qualitycompanyformations.co.uk/blog/guidance-on-customer-returns-and-refunds-for-small-business/" target="_blank" rel="noopener noreferrer">Customer Returns and Refunds: A Guide for UK Small Businesses — Quality Company Formations</a>.</p>
