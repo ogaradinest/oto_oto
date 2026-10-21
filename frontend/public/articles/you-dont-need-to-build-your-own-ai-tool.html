@@ -1,0 +1,188 @@
+<!--
+title: The AI tool you're building yourself probably already exists
+tags: AI Strategy, AI Governance
+date: 2026-10-21
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: 67% of small firms using AI have already built their own tool, and 35% have found one running that nobody actually approved.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">A lot of advice tells small business owners that the "serious" way to do AI is to build something of your own: a custom chatbot, a bespoke little system nobody else has. It sounds like the grown-up choice, more control, no subscription creeping up every year. So plenty of owners quietly start building it themselves, or let a keen member of staff have a go, without ever really asking if that's the right call. Most of the time, it isn't.</p>
+
+<div class="ob-callout">
+  <p>67% of businesses already using AI have built at least one tool of their own, and most have no process for reviewing what they've actually built.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">67%</div>
+    <div class="ob-stat-label">of AI-using businesses have already built at least one AI tool or workflow themselves (Pax8 SMB AI Pulse Report)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">35%</div>
+    <div class="ob-stat-label">discovered an AI tool, agent or workflow running without anyone's formal sign-off in just the last six months, so-called "shadow AI"</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">50%</div>
+    <div class="ob-stat-label">of organisations buy or lease their AI from a vendor instead of building it, versus just 12% building entirely in-house (KPMG)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why building feels like the serious option</h2>
+  <p class="ob-section-sub">It looks like control. Often it's just extra hours.</p>
+
+  <p class="ob-p">Building something yourself feels like you're taking AI seriously, you're creating an asset instead of paying a subscription. That logic led the owner of a six-person joinery workshop near Milton Keynes to spend roughly three weekends building a quoting chatbot in a no-code tool, instead of paying around £40 a month for one already built for trades. It worked, eventually, but it ate about 25 hours of the owner's own time that weren't spent on actual jobs.</p>
+  <p class="ob-p">That's the cost almost nobody prices in. A finished, bought-in tool has already had its edge cases found and fixed by thousands of other users. A tool you build yourself hasn't, you're the one who finds them, usually at the worst moment.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What building it yourself actually costs you later</h2>
+  <p class="ob-section-sub">The risks show up after launch, not on day one.</p>
+
+  <p class="ob-p">The Pax8 data above isn't about big tech firms, it's small and mid-sized businesses. 35% found an AI tool or workflow running that nobody had formally signed off, often set up by a staff member solving their own problem in good faith. Without any review, that tool can end up handling customer data or quoting prices with nobody checking it's still right.</p>
+  <p class="ob-p">On top of that, over half the decision-makers in the same survey now spend three or more hours a week checking or fixing AI-generated output, time that eats straight into whatever the tool was supposed to save.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Nobody reviewed it</span>
+    <span class="ob-badge">Bills nobody forecast</span>
+    <span class="ob-badge">Hours spent double-checking it</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">When building really is the right call</h2>
+  <p class="ob-section-sub">Only when it's the thing that actually makes you different.</p>
+
+  <p class="ob-p">KPMG's own guidance narrows it down well: build when the AI touches the one thing that genuinely sets your business apart, and buy for everything else. If your edge is a genuinely unusual way of pricing jobs or running your supply chain, owning that logic can be worth it. If you just need a chatbot or a quoting tool that any trade business could use, somebody has already built it, tested it on thousands of users, and priced it at a fraction of your time.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Build only your edge</h4>
+      <p>The one thing that actually makes you different from competitors</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Buy everything else</h4>
+      <p>Already tested on thousands of users, priced far below your time</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Review what exists</h4>
+      <p>Check what's already running before adding anything new</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Isn't it cheaper long-term to build my own AI tool?</p>
+    <p class="ob-faq-a">Usually not, once you count your own time. A £30-£50 a month tool that works on day one is almost always cheaper than the hours it takes to build and maintain something homemade.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is "shadow AI" and why does it matter for a small business?</p>
+    <p class="ob-faq-a">Any AI tool or workflow running in your business that you, the owner, never formally approved, often set up by a staff member solving their own problem. The risk is nobody's checking it's accurate or safe.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">When does it make sense for a small business to build its own AI tool?</p>
+    <p class="ob-faq-a">When the AI touches the specific thing that makes your business different: a unique pricing model or data no competitor has. For anything a dozen other businesses also need, an existing tool is almost always cheaper.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do I know if a tool someone on my team built is safe to keep using?</p>
+    <p class="ob-faq-a">Ask what data it touches, who can change it, and what happens if it's wrong. If you can't answer all three, that's your sign to formalise it or replace it with a reviewed, off-the-shelf tool.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, time is the real currency, not the subscription-fee comparisons AI blog posts love to run. Every hour an owner spends building and maintaining a homemade AI tool is an hour not spent serving customers, and unlike a subscription, that cost never shows up on an invoice.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, list every AI tool or workflow currently running in your business, including anything staff set up themselves without asking. For each one, decide: did I actually approve this, and could an existing tool do the same job for less than it's costing us in time?</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more small-business AI guides like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're weighing build-versus-buy for a specific job, <a class="ob-link" href="#/articles/make-ai-automation-tool-for-founders">an off-the-shelf automation tool</a> is worth a look, and for managing business data without custom code, <a class="ob-link" href="#/articles/airtable-ai-for-small-business">a ready-made system for your business data</a> covers the same ground.</p>
+
+<p class="ob-sources">Sources: <a href="https://thenextweb.com/news/shadow-ai-small-businesses-pax8-survey" target="_blank" rel="noopener noreferrer">The Next Web, Pax8 Q3 2026 SMB AI Pulse Report</a>; <a href="https://kpmg.com/uk/en/home/insights/2025/02/the-evolution-of-build-vs-buy.html" target="_blank" rel="noopener noreferrer">KPMG UK, The evolution of build vs buy</a>.</p>
