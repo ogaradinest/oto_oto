@@ -1,0 +1,183 @@
+<!--
+title: The cash flow trap: why profitable businesses still go under
+tags: AI Consultancy, AI Strategy
+date: 2026-10-22
+image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
+excerpt: 82% of SME failures trace back to cash flow problems, not a lack of orders. AI forecasting tools now hit 92-97% accuracy, against 60-70% for manual methods.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Roughly 82% of small business failures trace back to cash flow problems, a mismatch in the timing of money coming in against money going out, rather than a shortage of orders or falling revenue. Manual cash flow forecasting, built on spreadsheets and gut feel, typically achieves 60 to 70% accuracy. AI-based forecasting tools now report 92 to 97% accuracy on the same task, using transaction history, invoice patterns and payment behaviour rather than a single best guess.</p>
+
+<div class="ob-callout">
+  <p>The value of AI cash flow forecasting is not a smarter prediction. It is enough lead time to act, moving a payment, chasing an invoice, delaying a purchase, while there is still a choice to make.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">82%</div>
+    <div class="ob-stat-label">of SME failures linked to cash flow problems rather than lack of revenue</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">92-97%</div>
+    <div class="ob-stat-label">AI cash flow forecasting accuracy, versus 60-70% for manual methods</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">60 days</div>
+    <div class="ob-stat-label">new statutory cap on large-firm payment terms to smaller suppliers (2026 reforms)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why cash flow, not revenue, is the actual failure point</h2>
+  <p class="ob-section-sub">Profitable businesses still run out of cash</p>
+
+  <p class="ob-p">A business can be profitable on paper and still fail because money arrives too late to cover payroll, rent or supplier payments due that week. This is precisely why 82% of SME failures trace back to cash flow problems rather than a lack of underlying demand: the issue is timing, not viability.</p>
+  <p class="ob-p">UK small businesses are currently owed an estimated £26 billion in unpaid invoices, which makes timing even harder to predict manually. A spreadsheet forecast built on when invoices are supposed to be paid consistently overstates how much cash will actually be available on a given date.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What AI forecasting actually does differently</h2>
+  <p class="ob-section-sub">Pattern-based prediction, not a single number</p>
+
+  <p class="ob-p">Manual forecasting typically assumes invoices get paid on their stated terms, achieving roughly 60 to 70% accuracy against what actually happens. AI-based tools instead learn each customer's real payment behaviour, some pay on day 28 of a 30-day term, others reliably slip to day 45, and forecast based on that pattern rather than the contractual assumption. Reported accuracy from this approach reaches 92 to 97%.</p>
+  <p class="ob-p">The practical benefit compounds from there: businesses using AI forecasting report reducing emergency borrowing costs by an average of 35% and improving working capital efficiency by 12 to 18%, largely because problems get spotted with enough notice to act on them rather than discovered the week they become urgent.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the new late payment rules make this more useful, not less</h2>
+  <p class="ob-section-sub">The 60-day cap does not solve timing risk on its own</p>
+
+  <p class="ob-p">The government's March 2026 response to its late payment consultation introduces a statutory 60-day cap on payment terms where a larger business buys from a smaller one, alongside a non-negotiable right to interest at 8% above the Bank of England base rate on late payments. This is a genuine improvement, but implementation is not expected before 2027, and the cap does not stop a large customer paying on day 59 rather than day 30 as they might have before.</p>
+  <p class="ob-p">Forecasting tools that learn actual payment behaviour remain useful precisely because a legal cap changes the ceiling, not the pattern. A customer who has always paid slowly within terms will likely keep doing so within the new limit, and a forecast built on their real history still outperforms one built on the contractual assumption.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Manual forecast accuracy: 60-70%</span>
+    <span class="ob-badge">AI forecast accuracy: 92-97%</span>
+    <span class="ob-badge">New payment cap: 60 days (from 2027)</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where a small business should actually start</h2>
+  <p class="ob-section-sub">Your existing accounting platform is the first place to check</p>
+
+  <p class="ob-p">Several forecasting-specific tools built for SMEs, Float, Futrli and Agicap among them, connect directly to Xero, QuickBooks or Sage and layer AI-based prediction on top of data you are already generating. This is usually a cheaper and faster starting point than a broader treasury platform built for larger finance teams.</p>
+  <p class="ob-p">The test worth running before committing to any tool: pull your last six months of actual payment dates against invoice due dates, and see how far off a simple "paid on terms" assumption was. That gap is the accuracy problem an AI forecasting tool is specifically built to close.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do profitable businesses still run out of cash?</p>
+    <p class="ob-faq-a">Because profit and cash timing are different problems. A sale recorded as revenue this month might not be paid for another six weeks, while payroll and supplier bills are due regardless. 82% of SME failures trace back to this timing mismatch, not a lack of underlying demand.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much more accurate is AI forecasting really?</p>
+    <p class="ob-faq-a">Reported figures put AI-based cash flow forecasting at 92 to 97% accuracy, against 60 to 70% for manual, terms-based forecasting, mainly because it learns each customer's actual payment behaviour rather than assuming contractual terms are followed.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the new 60-day payment cap solve the cash flow problem?</p>
+    <p class="ob-faq-a">It helps, but implementation is not expected before 2027, and it sets a ceiling rather than guaranteeing faster payment within that ceiling. A customer who habitually pays slowly is still likely to pay slowly within the new limit.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the cheapest way to start with AI cash flow forecasting?</p>
+    <p class="ob-faq-a">Check forecasting add-ons that connect directly to your existing accounting platform, Xero, QuickBooks or Sage, rather than a standalone treasury system. Tools like Float, Futrli and Agicap are built specifically for this SME starting point.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business rarely fails because it stopped selling. It fails because cash arrived later than a spreadsheet assumed, at the exact moment payroll or rent was due. AI forecasting tools that learn real customer payment behaviour, rather than assuming contractual terms are followed, close most of that gap, and connect directly to accounting software most small businesses already use, at a fraction of the cost of a dedicated finance hire.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pull your last six months of invoices and compare actual payment dates against stated payment terms. Calculate the average gap in days. That single number tells you how unreliable a simple terms-based cash flow forecast has been for your business, and whether an AI forecasting tool is likely to pay for itself.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help putting a cash flow forecasting tool to work in your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If forecasting is on your mind, it's worth also reading <a class="ob-link" href="#/articles/ai-accounting-small-practice-guide">what AI actually changes for a small accounting practice</a>, and for a wider view of getting any AI tool off the ground, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> is a useful next stop.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.smbcompass.com/small-businesses-fail-cash-flow-data/" target="_blank" rel="noopener noreferrer">SMBCompass, 82% of Small Businesses Fail from Cash Flow: The Data</a>; <a href="https://actgsys.com/en/blog/ai-cashflow-forecasting-financial-planning-sme-2026" target="_blank" rel="noopener noreferrer">ACTGSYS, AI Cash Flow Forecasting & Financial Planning Guide for SMEs in 2026</a>; <a href="https://www.gov.uk/government/news/largest-crackdown-on-late-payments-in-over-25-years-as-landmark-bill-enters-parliament" target="_blank" rel="noopener noreferrer">gov.uk, Largest crackdown on late payments in over 25 years as landmark Bill enters Parliament</a>; <a href="https://invopilot.com/blog/small-business-cash-flow-statistics/" target="_blank" rel="noopener noreferrer">Invopilot, 70 Small Business Cash Flow Statistics Every Owner Must Know in 2026</a>.</p>
