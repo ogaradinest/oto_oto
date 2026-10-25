@@ -1,0 +1,175 @@
+<!--
+title: AI due diligence finally fits deals under £100 million
+tags: AI Consultancy, AI Strategy
+date: 2026-10-24
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: AI due diligence tools used to be priced for private equity doing dozens of large deals a year. Cheaper versions built for 2 to 6 deals a year now exist, right where most UK M&A activity happens.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Sub-£100 million deals accounted for 88% of UK M&A transactions in the first half of 2025, yet most AI due diligence tools were originally built and priced for private equity firms running dozens of large deals a year. That gap is closing. AI-assisted due diligence platforms aimed specifically at sponsors doing two to six deals a year, and at deals under $50 million, have emerged as a genuinely lower-cost alternative to the enterprise tools built for the top of the market.</p>
+
+<div class="ob-callout">
+  <p>The main benefit of AI due diligence is not speed. It is depth. A deal team can now examine every contract, every anomaly in the financials, and every customer cohort, rather than sampling a fraction of the data room and hoping nothing important sat in the part nobody had time to read.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">88%</div>
+    <div class="ob-stat-label">of UK M&A transactions in H1 2025 were sub-£100 million deals</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">30-50%</div>
+    <div class="ob-stat-label">reduction in due diligence time reported from AI-assisted review</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$10k-$70k</div>
+    <div class="ob-stat-label">typical saving on adviser costs from an AI-organised data room on a mid-market deal</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why AI due diligence tools are finally built for this deal size</h2>
+  <p class="ob-section-sub">Not every tool needs private equity pricing</p>
+
+  <p class="ob-p">Most of the earliest AI due diligence platforms targeted private equity firms and their Big Four advisers, running review processes priced for deals well above $100 million and firms doing dozens of transactions annually. Given that sub-£100 million deals make up 88% of UK M&A activity, that pricing model excluded the vast majority of actual transactions taking place.</p>
+  <p class="ob-p">A newer generation of tools, Robin AI and Diligen among them, is now explicitly positioned for sponsors running two to six deals a year and for transactions under $50 million, closing the gap between what most deals actually need and what was previously available only at enterprise pricing.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What AI actually changes in a due diligence process</h2>
+  <p class="ob-section-sub">Depth of coverage, not just speed</p>
+
+  <p class="ob-p">The most mature AI applications in due diligence are legal contract review, financial anomaly detection and customer cohort analysis. A language model trained on legal documents can extract key terms, flag non-standard clauses, identify change-of-control provisions, and summarise obligations across thousands of contracts in hours rather than days.</p>
+  <p class="ob-p">The genuine benefit is not primarily time saved, though AI-assisted review cuts due diligence time by an estimated 30 to 50%. It is that a deal team reviewing every document rather than a sample catches the problem contract or the anomalous customer concentration that a time-pressured manual review, sampling a fraction of the data room, might have missed entirely.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What this actually saves on a smaller deal</h2>
+  <p class="ob-section-sub">The adviser fee reduction matters more at this scale</p>
+
+  <p class="ob-p">A well-organised, AI-assisted due diligence data room can save $10,000 to $70,000 on a typical mid-market deal by cutting redundant adviser work, reviewing the same documents multiple times across different workstreams because information was not structured for reuse. For a smaller deal, this saving is proportionally far more significant against total transaction costs than it would be on a nine-figure acquisition.</p>
+  <p class="ob-p">The current UK M&A market reinforces why this matters now: deal volumes fell 30% year on year in the first quarter of 2026 while aggregate deal value rose 36%, meaning the deals that do progress are being scrutinised more carefully by buyers deploying capital selectively. Thorough, efficient due diligence is increasingly what separates a deal that completes from one that stalls.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Sub-£100m deals: 88% of UK M&A</span>
+    <span class="ob-badge">Due diligence time saved: 30-50%</span>
+    <span class="ob-badge">Adviser cost saving: $10k-$70k per deal</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A realistic way to use this on a smaller acquisition</h2>
+  <p class="ob-section-sub">Layer AI review under your existing adviser, do not replace them</p>
+
+  <p class="ob-p">For a business buying or selling in the sub-£10 million to £50 million range, the sensible approach is to use an AI-assisted platform to do the first-pass, full-coverage review, every contract, every anomaly, every cohort, and have your solicitor or accountant focus their time on the specific items the AI flags rather than starting from a blank page across the entire data room.</p>
+  <p class="ob-p">This does not remove the need for professional advisers. It changes what they spend their billable time on, from reading every document once to interrogating the specific handful of issues that actually matter to the deal.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is AI due diligence only useful for large private equity deals?</p>
+    <p class="ob-faq-a">No. Newer tools are specifically priced and built for sponsors doing two to six deals a year and for transactions under $50 million, closing a gap that previously left most UK M&A activity, which is overwhelmingly sub-£100 million, without an affordable option.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does AI due diligence replace lawyers and accountants on a deal?</p>
+    <p class="ob-faq-a">No. It changes what they spend time on. AI handles the first-pass, full-coverage review across contracts and financials, and advisers focus their billable time on the specific issues flagged rather than reviewing every document from scratch.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much time does AI actually save in due diligence?</p>
+    <p class="ob-faq-a">Estimates put the reduction at 30 to 50% of review time, though the more valuable benefit is depth of coverage, examining every document rather than a sample, not simply finishing faster.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why does due diligence quality matter more in the current UK market?</p>
+    <p class="ob-faq-a">UK deal volumes fell 30% year on year in early 2026 while aggregate value rose 36%, meaning buyers are being more selective. Thorough due diligence increasingly determines which deals actually complete.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Most UK M&A activity happens well below the deal sizes AI due diligence tools were originally built for, with sub-£100 million transactions making up 88% of the market. Lower-cost platforms aimed at smaller deal volumes now bring full-coverage contract and financial review within reach of a smaller acquirer or seller, cutting adviser costs by proportionally more than they would on a large transaction, without removing the need for a solicitor or accountant's judgement.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>If you are preparing to buy or sell a business in the next year, ask your solicitor or accountant whether they currently use an AI-assisted review tool for due diligence, and if not, why. Their answer, and how it compares to the $10,000 to $70,000 typical saving reported on mid-market deals, tells you whether it is worth raising before your next transaction.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out whether AI-assisted due diligence fits your next deal?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For related ground, see <a class="ob-link" href="#/articles/ai-contract-review-small-business-budget">AI contract review without a law firm retainer</a>, <a class="ob-link" href="#/articles/ai-accounting-small-practice-guide">what AI actually changes for a small accounting practice</a>, <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://wedlakebell.com/insights/uk-private-ma-trends-insights-from-2025-and-predictions-for-2026/" target="_blank" rel="noopener noreferrer">Wedlake Bell, UK private M&A trends: insights from 2025 and predictions for 2026</a>; <a href="https://www.ons.gov.uk/businessindustryandtrade/changestobusiness/mergersandacquisitions/bulletins/mergersandacquisitionsinvolvingukcompanies/januarytomarch2026" target="_blank" rel="noopener noreferrer">ONS, Mergers and acquisitions involving UK companies, January to March 2026</a>; <a href="https://ctacquisitions.com/ai-due-diligence-tools-2026/" target="_blank" rel="noopener noreferrer">CT Acquisitions, AI Due Diligence Tools for M&A in 2026</a>; <a href="https://www.peony.ink/blog/due-diligence-cost-breakdown" target="_blank" rel="noopener noreferrer">Peony, Due Diligence Costs (What You'll Actually Pay) in 2026</a>.</p>
