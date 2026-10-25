@@ -1,0 +1,157 @@
+<!--
+title: Clay turns a weekend of LinkedIn scraping into fifteen minutes
+tags: AI Technology, AI for Marketing & Sales
+date: 2026-10-23
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Clay, the AI tool that builds and enriches prospect lists on autopilot, jumped from $100 million to $150 million in annual revenue in just six months, proof that finding your first customers no longer means a weekend lost to copy-pasting LinkedIn profiles.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">You've got an idea and zero sales team, so finding your first hundred customers means you, a laptop, and an evening of opening LinkedIn profiles one at a time, copying names and emails into a spreadsheet until your eyes glaze over. Clay, the AI tool for building and enriching prospect lists, is built to take that evening down to about fifteen minutes.</p>
+
+<div class="ob-callout">
+  <p>Clay's annual revenue jumped from $100 million to $150 million in just six months, a sign of how many founders and small sales teams are letting AI do the prospect research they used to do by hand.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">$150M</div>
+    <div class="ob-stat-label">Clay's annual recurring revenue as of May 2026, up from $100M only six months earlier (Sacra research, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">of UK SMEs are now actively adopting AI, up from 35% in 2025 (BCC/Atos survey, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">32.7%</div>
+    <div class="ob-stat-label">higher response rate for outreach emails with a personalised message body versus a generic template (Backlinko Email Outreach Study)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What Clay actually does</h2>
+  <p class="ob-section-sub">You load a list, it finds and fills in the rest</p>
+
+  <p class="ob-p">Clay looks like a spreadsheet, which is the point, you're already comfortable in one. Drop in a list of companies or people, and it runs each row through 150-plus data providers (ZoomInfo, Hunter.io, People Data Labs, and more) to find emails, phone numbers, and company details. If one provider comes up empty, it tries the next automatically, a trick called "waterfalling" that's the main reason people pick Clay over a single lookup tool.</p>
+  <p class="ob-p">Picture a founder launching booking software for independent gyms. Instead of googling three hundred gym names one by one, they drop the list into Clay, which pulls each owner's verified email and whether they already use a competitor's software, then pushes the clean list into their cold email tool. A week of manual research becomes an afternoon.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What it costs, and the part AI still can't do for you</h2>
+  <p class="ob-section-sub">Credit-based pricing, and why the message still matters more than the list</p>
+
+  <p class="ob-p">The free plan gives you 100 data credits to try it out. Paid plans start around $149 to $185 a month for a few thousand credits, with CRM sync to Salesforce or HubSpot on the higher tiers. Clay also cut the cost of the underlying data by 50 to 90% in a March 2026 repricing.</p>
+  <p class="ob-p">Here's the catch nobody puts in the demo video: a perfectly enriched list of 500 verified emails gets you nowhere if the email reads like a template. Personalised content still earns roughly a third more replies than generic copy, so Clay's real job is giving you back the hours spent finding people, not the minutes it takes to write a decent first line.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Free: 100 data credits</span>
+    <span class="ob-badge">Launch: ~$185/mo, a few thousand credits</span>
+    <span class="ob-badge">Growth: ~$495/mo, adds CRM sync</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does Clay actually do, in plain terms?</p>
+    <p class="ob-faq-a">You give it a list of companies or people, and it automatically finds missing details like emails, phone numbers, and job titles by checking over 150 data sources, then hands you a clean list ready for outreach.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is Clay worth it for a one-person startup?</p>
+    <p class="ob-faq-a">The free plan's 100 credits are enough to test it on a small list. If you're sending more than a handful of cold emails a week, the time saved on manual research usually justifies the lowest paid tier.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does Clay write the outreach emails too?</p>
+    <p class="ob-faq-a">It can generate AI-written first lines and snippets, but a personalised human-reviewed message still outperforms generic AI copy, so treat Clay as the research engine, not the copywriter.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How is Clay different from just using LinkedIn and Google?</p>
+    <p class="ob-faq-a">Clay automates the lookup across dozens of data providers at once and lets a single mistake, like a dead email, fall back to another source automatically, instead of you manually checking each one.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business without a sales team can't afford a researcher whose only job is finding emails, but it can't skip research either, since a list of guesses gets ignored or bounces. Clay turns that research into a background task, freeing the one or two people running the business to spend their time on the conversations the list makes possible.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pull together a list of just 20 to 30 companies that look like your ideal first customers, load them into Clay's free plan, and see how many come back with a verified email before you decide whether a paid tier earns its place in your budget.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help putting a lead generation workflow like this to work in your business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once the leads are coming in, <a class="ob-link" href="#/articles/ai-lead-response-kitchen-fitter-missed-jobs">speed to lead matters just as much as finding them</a>, and this pairs well with <a class="ob-link" href="#/articles/write-a-marketing-plan-with-ai-before-you-launch">building out a wider AI-assisted marketing plan before you launch</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://sacra.com/research/clay-crosses-150m-year/" target="_blank" rel="noopener noreferrer">Sacra, Clay Crosses $150M/Year</a>; <a href="https://www.staffingindustry.com/news/global-daily-news/ai-adoption-among-uk-smes-climbs-to-54-in-2026" target="_blank" rel="noopener noreferrer">Staffing Industry Analysts, AI Adoption Among UK SMEs Climbs to 54% in 2026</a>; <a href="https://backlinko.com/email-outreach-study" target="_blank" rel="noopener noreferrer">Backlinko, Email Outreach Study</a>; <a href="https://amplemarket.com/blog/how-much-does-clay-really-cost" target="_blank" rel="noopener noreferrer">Amplemarket, How Much Does Clay Really Cost?</a>.</p>
