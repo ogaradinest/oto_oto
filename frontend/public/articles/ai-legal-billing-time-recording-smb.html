@@ -1,0 +1,175 @@
+<!--
+title: The billable hours your time-recording system never catches
+tags: AI Governance, AI Implementation
+date: 2026-10-24
+image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
+excerpt: A 50 fee-earner firm loses close to £2 million a year in unrecorded billable time. For a small practice, the same leak is proportionally just as damaging, and far cheaper to fix.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">UK law firms lose an average of 4.16 billable hours per fee earner every week to poor time recording, working out to nearly £2 million a year in unrecorded billing for a firm of 50 fee earners. For a small practice with five or six fee earners, the proportional loss is identical, and it happens for the same reason: billable time gets forgotten between the actual work and the moment someone sits down to record it, usually hours or days later.</p>
+
+<div class="ob-callout">
+  <p>AI time-capture tools do not bill more aggressively. They capture time that already happened and was simply never written down, an average of 28 extra billable minutes a day per fee earner in firms that have adopted them.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">4.16 hrs/week</div>
+    <div class="ob-stat-label">average billable hours lost per fee earner to poor time recording (UK firms)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">28 min/day</div>
+    <div class="ob-stat-label">additional billable time recovered per fee earner using AI-powered time tracking</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£28,000/yr</div>
+    <div class="ob-stat-label">average value of previously missed billable work recovered per lawyer, per year</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where the lost time actually goes</h2>
+  <p class="ob-section-sub">It is not laziness, it is the gap between doing and recording</p>
+
+  <p class="ob-p">Time recording and billing account for 28% of the frustration fee earners report with their current systems, more than any other single cause, ahead of switching between disconnected applications and document drafting. The pattern is consistent: work gets done, the details are clear in the moment, and by the time someone opens the time-recording system at the end of the day, or the end of the week, the specifics have blurred and get rounded down or skipped entirely.</p>
+  <p class="ob-p">This problem hits a small firm harder in relative terms than a large one, even though it is common across firms of every size. A large firm's loss is a rounding error against total revenue. For a five or six fee-earner practice, 4.16 hours a week per person is a meaningful share of total billable capacity.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why there is a real gap between what leaders believe and what actually happens</h2>
+  <p class="ob-section-sub">71% versus 71%</p>
+
+  <p class="ob-p">In one survey, 71% of firm leaders said they were confident their case management system allowed fee earners to capture all their billable time. The exact same proportion, 71%, of fee earners said the opposite. This gap matters because it means most firms are not aware they have a problem worth measuring, let alone fixing.</p>
+  <p class="ob-p">AI-powered time capture closes this gap by working passively in the background, logging activity, drafts, calls, document time, as it happens rather than relying on someone to remember and manually enter it hours later.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Leaders confident system captures time: 71%</span>
+    <span class="ob-badge">Fee earners who disagree: 71%</span>
+    <span class="ob-badge">AI recovery: ~28 min/day per fee earner</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What this is actually worth, and what it costs</h2>
+  <p class="ob-section-sub">The payback point is lower than most firms assume</p>
+
+  <p class="ob-p">Firms adopting AI-powered time tracking report recovering roughly 28 additional billable minutes per fee earner per day, working out to an average of £28,000 per lawyer per year in previously missed billable work. AI invoice drafting and time-capture add-ons typically cost $30 to $50 per user per month on top of a base billing platform.</p>
+  <p class="ob-p">Industry pricing analysis suggests the investment pays back once a firm has more than 50 to 75 active matters or three or more fee earners, a threshold most small practices clear comfortably. Below that, the tool still helps, but the case for it rests more on accuracy and reduced admin stress than on a clean payback calculation.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Getting started without replacing your whole billing system</h2>
+  <p class="ob-section-sub">Layer the capability, do not rebuild the platform</p>
+
+  <p class="ob-p">Most modern legal billing platforms, Clio among them, now offer AI time-capture and invoice-drafting as an add-on to an existing subscription rather than requiring a full system migration. This is the sensible entry point for a small firm: add the capability to what you already run, measure the actual time recovered over a month, and only consider a full platform switch if the underlying system itself is the limiting factor.</p>
+  <p class="ob-p">The measurement worth doing before and after adoption is simple: compare total billed hours per fee earner for a representative month before the tool, against the same period after, adjusted for caseload. That comparison is a more honest test of value than any vendor's headline recovery percentage.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much billable time do law firms typically lose to poor time recording?</p>
+    <p class="ob-faq-a">UK firms lose an average of 4.16 billable hours per fee earner per week, which works out to close to £2 million a year in unrecorded billing for a 50 fee-earner firm, and a proportionally similar loss for smaller practices.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does AI time-capture bill clients more aggressively?</p>
+    <p class="ob-faq-a">No. It captures time that already happened and was never recorded, rather than generating additional charges. The value comes from accuracy, not from billing more than the work actually justifies.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does AI billing and time-capture actually cost?</p>
+    <p class="ob-faq-a">Typically $30 to $50 per user per month as an add-on to an existing legal billing platform, rather than requiring a full system replacement.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this worth it for a very small firm?</p>
+    <p class="ob-faq-a">The clearest payback appears once a firm has more than 50 to 75 active matters or three or more fee earners, a bar most small practices clear. Below that, the tool still helps accuracy and reduces admin stress, even if the payback calculation is less clean.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A five or six fee-earner firm loses the same proportional share of billable time as a fifty fee-earner firm, roughly four hours a week per person, but has far less capacity to absorb that loss. AI time-capture tools recover it passively, in the background, without asking already-stretched fee earners to be more diligent about manual entry, and typically cost less per month than a single hour of the billable time they recover.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, ask each fee earner to estimate, honestly, how much of their actual working time last week made it into a client-billable entry. Compare that estimate against your system's recorded hours for the same period. Any meaningful gap is the exact problem AI time-capture is built to close, and it tells you whether the investment is worth exploring now.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out where your firm's billable time is actually leaking?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For related ground, see <a class="ob-link" href="#/articles/ai-contract-review-small-business-budget">AI contract review without a law firm retainer</a>, <a class="ob-link" href="#/articles/ai-employment-law-tribunal-risk-smb">what the unfair dismissal changes mean for documentation</a>, <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a>, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.legalfutures.co.uk/associate-news/uk-law-firms-losing-nearly-2m-a-year-to-legal-tech-that-frustrates-fee-earners" target="_blank" rel="noopener noreferrer">Legal Futures, UK law firms losing nearly £2m a year to legal tech that 'frustrates' fee earners</a>; <a href="https://www.nonbillable.co.uk/news/lawyers-lose-three-hours-a-day-ai-thinks-it-can-get-them-back" target="_blank" rel="noopener noreferrer">Nonbillable, Lawyers lose 3 hours a day, and AI thinks it can get them back</a>; <a href="https://www.clio.com/resources/ai-for-lawyers/legal-ai-tool-pricing/" target="_blank" rel="noopener noreferrer">Clio, What's Driving Legal AI Pricing in 2026?</a>; <a href="https://www.solicitorsjournal.com/sjarticle/law-firms-losing-millions-to-tech" target="_blank" rel="noopener noreferrer">Solicitors Journal, Law firms losing millions to tech</a>.</p>
