@@ -1,0 +1,175 @@
+<!--
+title: Why AI marketing content backfires for some businesses, not others
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-10-25
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: 72% of small businesses use AI for marketing, mostly content generation. The data shows quality control, not AI use itself, is what determines whether that content actually works.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Marketing is the single most common use of AI among small businesses, named by 72% of adopters, with AI writing and content generation the single most-used category at around 71%. Yet 70% of UK SMBs report using AI in some form, while only 31% see a positive return. The gap between those two numbers is not about whether AI content works. An Ahrefs study of 600,000 top-ranking pages found 86.5% already contain some AI-generated content, with no meaningful correlation between AI content percentage and ranking. The gap is about how the content gets used.</p>
+
+<div class="ob-callout">
+  <p>Sites publishing 50 to 100 AI-assisted articles with real human editing saw traffic gains of 30 to 80%. Sites publishing 1,000 or more unedited AI articles saw traffic drops of 40 to 90%. Same technology, opposite outcomes. The difference was quality control.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">72%</div>
+    <div class="ob-stat-label">of small business AI adopters name marketing as their top AI use case</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">86.5%</div>
+    <div class="ob-stat-label">of top-ranking Google pages in one study contain some AI-generated content</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">30-80%</div>
+    <div class="ob-stat-label">traffic increase from small batches of edited AI content, versus 40-90% drops from large unedited batches</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the "AI content is penalised" fear is mostly wrong</h2>
+  <p class="ob-section-sub">What actually gets penalised</p>
+
+  <p class="ob-p">There is no blanket Google penalty for AI-generated content, and the data backs this up clearly: in an Ahrefs study of 600,000 top-ranking pages, 86.5% contained some AI-generated content, and the correlation between AI content percentage and ranking position was 0.011, statistically negligible. Google's own guidance is specific about what actually triggers action: producing low-quality content at scale specifically to manipulate rankings, regardless of whether a human or an AI wrote it.</p>
+  <p class="ob-p">This matters because it changes the actual question a small business marketing team should be asking. It is not whether AI can be used for content. It already works, at scale, across the web. It is whether the content is genuinely helping a reader, or generating volume for its own sake.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The batch-size pattern that actually predicts results</h2>
+  <p class="ob-section-sub">50 to 100 edited articles versus 1,000 unedited ones</p>
+
+  <p class="ob-p">Case study data shows small, carefully edited batches of AI-assisted content, roughly 50 to 100 articles with genuine human review, delivering traffic increases of 30 to 80%. Large, unedited batches, 1,000 or more AI articles published with minimal review, produced traffic drops of 40 to 90% over the same period. Both used the same underlying AI writing tools.</p>
+  <p class="ob-p">The determining factor was not the AI. It was whether a human with actual judgement reviewed each piece before publishing: checking facts, removing generic filler, and confirming the content said something a reader could not get from the first three search results already.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Small edited batches: +30-80% traffic</span>
+    <span class="ob-badge">Large unedited batches: -40-90% traffic</span>
+    <span class="ob-badge">Google ranking correlation with AI %: negligible</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Where AI genuinely helps a small marketing effort</h2>
+  <p class="ob-section-sub">Draft speed, not final judgement</p>
+
+  <p class="ob-p">The most defensible use of AI in small business marketing is compressing the time between having something worth saying and having a publishable draft: turning a rough set of bullet points into a structured first draft, adapting one piece of content into formats for different channels, or generating variations of ad copy to test. In each case, AI removes blank-page friction rather than replacing editorial judgement.</p>
+  <p class="ob-p">The tasks worth keeping firmly human are anything requiring a genuine opinion, a specific customer story, or claims about your own product or service that need to be accurate. AI can draft the structure around these; it should not be trusted to invent the substance.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">A simple rule that would have prevented most of the bad outcomes</h2>
+  <p class="ob-section-sub">One editor, every piece, before it goes out</p>
+
+  <p class="ob-p">The businesses seeing traffic drops from AI content were not using worse AI tools than the businesses seeing gains. They were publishing more volume with less review per piece. A workable rule for a small marketing team: no AI-assisted content goes live without a specific named person reading it in full and confirming it says something genuinely useful, not just correctly formatted.</p>
+  <p class="ob-p">This single rule scales down naturally with team size. A one-person marketing function reviewing everything themselves before publishing is following the same principle as a larger team with a formal editorial process, just without the extra layer.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does Google penalise content just for being AI-generated?</p>
+    <p class="ob-faq-a">No. Research shows 86.5% of top-ranking pages already contain some AI-generated content, with no meaningful ranking correlation. What gets penalised is low-quality content published at scale to manipulate rankings, regardless of who or what wrote it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do some businesses see AI content backfire while others see gains?</p>
+    <p class="ob-faq-a">Batch size and review quality. Small volumes of AI-assisted content with genuine human editing saw traffic gains of 30 to 80% in case studies, while large volumes published with minimal review saw drops of 40 to 90%.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should AI actually be used for in small business marketing?</p>
+    <p class="ob-faq-a">Compressing the gap between an idea and a publishable first draft: structuring bullet points into an article, adapting one piece across channels, or generating ad copy variations to test. Not inventing facts, opinions or customer stories.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the single most useful rule for using AI in marketing content?</p>
+    <p class="ob-faq-a">No piece goes live without a specific named person reading it in full and confirming it says something genuinely useful. This one habit accounts for most of the difference between businesses seeing gains and those seeing traffic drops.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Marketing is the single most common AI use case for small businesses, but the same data showing AI content can rank well also shows most of the ROI gap comes from unreviewed volume, not the technology itself. A small business publishing a handful of carefully edited pieces a month is following exactly the pattern linked to traffic gains, without needing the output volume or editorial team a larger competitor might have.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Look at the last five pieces of content your business published, blog posts, social captions, email copy, and honestly assess whether a specific person read each one in full before it went out, checking for accuracy and genuine usefulness rather than just formatting. If the answer is no for any of them, that review step is the single change worth making before publishing anything else.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help putting a quality-controlled AI content process to work in your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For related ground, see <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>, <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a>, and <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.lilachbullock.com/ai-adoption-statistics-small-business/" target="_blank" rel="noopener noreferrer">Lilach Bullock, AI Adoption Statistics for Small Business 2026</a>; <a href="https://whito.co.uk/research/uk-ai-adoption-statistics/" target="_blank" rel="noopener noreferrer">Whito, AI Adoption Statistics for UK Businesses 2026</a>; <a href="https://www.rankability.com/data/does-google-penalize-ai-content/" target="_blank" rel="noopener noreferrer">Rankability, Does Google Penalize AI Content? SEO Study (2026)</a>.</p>
