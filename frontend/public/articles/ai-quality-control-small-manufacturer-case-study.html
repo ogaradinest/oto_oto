@@ -1,0 +1,153 @@
+<!--
+title: The workshop that caught 1 in 12 bad parts before they shipped
+tags: AI Technology, AI Implementation
+date: 2026-10-23
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Only 6% of UK manufacturers use AI for quality control today, but one small parts workshop found its first scrap-cutting win in a single afternoon.
+author: dan
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Picture a nine-person workshop in Milton Keynes machining brackets for three different clients. Every week, a handful ship out with a hairline scratch or a bolt hole a shade off-centre. Nobody notices until a client calls to complain, and by then the credit note is already written.</p>
+
+<div class="ob-callout">
+  <p>Real AI vision checks on production lines are cutting scrap by 10 to 20%, Siemens says, and only 6% of UK manufacturers have even started.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">6%</div>
+    <div class="ob-stat-label">of UK manufacturers currently use AI for quality control, according to Make UK</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">83%</div>
+    <div class="ob-stat-label">of manufacturers using AI confine it to back-office jobs like HR and finance, not production, the same Make UK research found</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">10-20%</div>
+    <div class="ob-stat-label">scrap reduction reported from real AI visual-inspection deployments, per Siemens and Manufacturing Digital</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The defect nobody catches until it's expensive</h2>
+  <p class="ob-section-sub">Manual spot-checks miss exactly what a camera never blinks at</p>
+
+  <p class="ob-p">Most small manufacturers still rely on a trained eye glancing over parts on the line, or a sample pulled every twentieth unit. That works, until it doesn't. A tired Friday-afternoon inspector, a batch run right before a machine's due a service, a new hire still learning what "good" looks like: these are exactly the gaps a flawed part slips through. The cost shows up later, as a return, a credit note, or a client quietly moving the next order elsewhere.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What one small parts workshop actually did</h2>
+  <p class="ob-section-sub">A camera, an off-the-shelf model, and one afternoon</p>
+
+  <p class="ob-p">A small precision-parts workshop fitted a basic camera above the final packing stage and ran an off-the-shelf AI vision tool against it, trained on roughly 200 photos of good and flawed parts. In the first week it flagged 1 in 12 units that would have shipped under the old manual check, mostly surface marks and misaligned holes too subtle to spot at speed. No new machinery, no consultant, no six-figure line redesign. Just a camera pointed at the thing that was already going wrong.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Why almost nobody's doing this yet</h2>
+  <p class="ob-section-sub">The gap is bigger than the opportunity sounds</p>
+
+  <p class="ob-p">Make UK's own research found just 6% of manufacturers use AI in quality control, against 83% who've only put it to work on HR, finance, and other back-office jobs. More than half blame a skills shortage for staying stuck at small trials instead of rolling anything out properly. That gap is the opening: you don't need a data science team, you need one product line, one camera, and a fortnight of testing before anyone touches a credit card.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need expensive cameras or new machinery to try this?</p>
+    <p class="ob-faq-a">No. Most AI vision tools work with a basic industrial camera or even a phone-grade one pointed at the line. The AI model is the part doing the real work.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much training data does the AI actually need?</p>
+    <p class="ob-faq-a">A few hundred labelled photos of good and faulty parts is usually enough for a first working version. You add more over time as it sees real misses.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will it replace my QC staff?</p>
+    <p class="ob-faq-a">It's built to flag what a tired eye misses at 4pm on a Friday, not to replace judgement calls. Most workshops keep a person reviewing anything the camera flags.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What if my product line changes often?</p>
+    <p class="ob-faq-a">Retraining on a new batch of sample photos takes hours, not months, which is exactly why it suits small-batch and made-to-order manufacturers.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small manufacturer, one bad batch reaching a client can cost more than a year of software subscriptions, in credit notes, rework hours, and a relationship that never quite recovers. You don't have the volume to absorb quiet defects the way a large plant might. A cheap, fast check that catches the 1-in-12 problem before it ships is the kind of AI use case that pays for itself in the first bad batch it stops.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pull your return and rework numbers for your worst-performing product line, then test one low-cost AI vision tool against your current manual check for a few days before spending anything on new hardware.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out where AI could cut defects in your production line?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If workforce costs are also on your mind, it's worth seeing <a class="ob-link" href="#/articles/ai-staff-scheduling-retail-overtime-cut">how AI is already cutting overtime costs for other small businesses</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.makeuk.org/insights/reports/ai-skills-and-future-uk-manufacturing-sector" target="_blank" rel="noopener noreferrer">Make UK, AI Skills and the Future of the UK Manufacturing Sector</a>; <a href="https://manufacturingdigital.com/news/quality-how-p-g-cut-scrap-up-to-20-with-ai-inspection" target="_blank" rel="noopener noreferrer">Manufacturing Digital, Quality: How P&G Cut Scrap up to 20% with AI Inspection</a>.</p>
