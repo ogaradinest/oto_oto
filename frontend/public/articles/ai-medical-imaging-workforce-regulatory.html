@@ -1,0 +1,183 @@
+<!--
+title: The staffing gap behind the push for AI-assisted imaging
+tags: AI Technology, AI Governance
+date: 2026-10-26
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: NHS radiology has a 29% capacity shortfall, rising to 39% by 2029. This covers the workforce and regulatory case for AI-assisted imaging tools, not clinical accuracy claims.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">UK radiology services face a 29% capacity shortfall as of 2024, projected to reach 39% by 2029 without intervention, with the Royal College of Radiologists calculating the NHS needs 1,953 more clinical radiology consultants. Nearly a million scan results in England took longer than a month to reach patients in 2025 alone. This article covers the workforce and regulatory landscape around AI-assisted imaging tools, procurement considerations, MHRA approval pathways, and cost, not the clinical accuracy of any specific tool, which is a matter for radiologists, the Royal College and the relevant regulatory approval process.</p>
+
+<div class="ob-callout">
+  <p>Nothing in this article should be read as advice on whether any specific AI imaging tool is clinically accurate or appropriate for a given case. That judgement sits with qualified radiologists and the regulatory approval process. What follows covers the workforce pressure driving adoption and what the procurement and regulatory landscape actually looks like.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">29%</div>
+    <div class="ob-stat-label">UK radiology capacity shortfall in 2024, projected to reach 39% by 2029</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">1,953</div>
+    <div class="ob-stat-label">additional clinical radiology consultants the RCR says the NHS needs</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£362m</div>
+    <div class="ob-stat-label">spent by the NHS in 2025 alone on short-term fixes for the radiology shortage</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The scale of the workforce gap driving this conversation</h2>
+  <p class="ob-section-sub">A shortage that is getting worse, not better</p>
+
+  <p class="ob-p">Demand for CT and MRI imaging grew by 8% in 2024, while the radiology workforce grew by only 4.7% over the same period, widening an already significant gap. The Royal College of Radiologists puts the current shortfall at 29%, rising to a projected 39% by 2029 if nothing changes, and calculates the NHS needs 1,953 additional clinical radiology consultants to meet demand safely.</p>
+  <p class="ob-p">The consequence is measurable in patient wait times: nearly 940,900 scan results in England took longer than a month to reach patients in 2025, against an NHS target that no patient should wait beyond that. The financial cost of managing this gap with temporary measures, locums, overtime and outsourcing, reached £362 million in 2025 alone, and £1.4 billion over the last five years.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What MHRA's regulatory pathway actually looks like in 2026</h2>
+  <p class="ob-section-sub">A framework built specifically for this category of device</p>
+
+  <p class="ob-p">The MHRA has confirmed it will publish a dedicated regulatory framework for AI as a medical device during 2026, with an international reliance pathway expected to open in the first half of the year. This pathway is designed to let products already approved by trusted overseas regulators reach the UK market faster, potentially cutting six to twelve months off the usual approval timeline for eligible products.</p>
+  <p class="ob-p">The MHRA's AI Airlock regulatory sandbox, now moving into its third phase after securing renewed multi-year funding, has specifically explored large language models in clinical decision support and synthetic data for radiology validation, indicating imaging is a priority category for the regulator rather than an afterthought.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Radiology shortfall: 29%, rising to 39% by 2029</span>
+    <span class="ob-badge">NHS spend on short-term fixes: £362m in 2025</span>
+    <span class="ob-badge">MHRA international pathway: expected H1 2026</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What this means for a smaller imaging provider or practice</h2>
+  <p class="ob-section-sub">Procurement and workforce planning, not a clinical decision</p>
+
+  <p class="ob-p">For a private diagnostic imaging provider or a smaller radiology practice, the workforce shortage translates directly into either longer waiting lists or higher spending on locum and overtime cover, the same pressure the NHS is managing at a larger scale. Any AI-assisted imaging tool under consideration should have a clear, current MHRA approval status, which a supplier should be able to state plainly and in writing.</p>
+  <p class="ob-p">The decision to adopt any specific tool, and how its output is used within a diagnostic pathway, is a clinical governance question for radiologists and the practice's clinical leadership, working within MHRA approval status and the guidance of relevant professional bodies. The business case for exploring this category of technology rests on the scale of the workforce pressure described above, not on any performance claim this article could responsibly make.</p>
+</div>
+
+<!-- ─── SECTION 4 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Questions worth asking before any procurement conversation</h2>
+  <p class="ob-section-sub">What a supplier should be able to answer clearly</p>
+
+  <p class="ob-p">What is the tool's current MHRA approval status, and under which specific use case was that approval granted. Has the tool gone through the international reliance pathway or a comparable route, and what evidence supports its intended use. What does the vendor say about how the tool fits into an existing reporting workflow, and who remains clinically accountable for the final report.</p>
+  <p class="ob-p">A supplier unable to answer these questions clearly and in writing is not ready for a procurement conversation, regardless of how the underlying technology performs, because the accountability and regulatory questions matter as much as the tool itself in a clinical imaging context.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions providers ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How large is the UK radiology workforce shortage?</p>
+    <p class="ob-faq-a">The Royal College of Radiologists puts the current shortfall at 29%, projected to reach 39% by 2029 without intervention, with 1,953 additional clinical radiology consultants needed to meet demand.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this article recommending any specific AI imaging tool?</p>
+    <p class="ob-faq-a">No. This covers the workforce pressure and regulatory landscape only. Whether any specific tool is clinically appropriate is a matter for radiologists, the Royal College and the MHRA approval process.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is MHRA's international reliance pathway?</p>
+    <p class="ob-faq-a">A route expected to open in the first half of 2026 that allows products already approved by trusted overseas regulators to reach the UK market faster, potentially reducing approval time by six to twelve months for eligible devices.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should a smaller imaging provider ask a supplier before considering any AI tool?</p>
+    <p class="ob-faq-a">The tool's current MHRA approval status and specific approved use case, whether it used the international reliance pathway, how it fits into existing reporting workflow, and who remains clinically accountable for the final report.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A smaller diagnostic imaging provider faces the same workforce pressure driving NHS spending on locums and overtime, just at a smaller scale and with a tighter budget to absorb it. Understanding MHRA's 2026 regulatory pathway and asking suppliers direct, specific questions about approval status and clinical accountability gives a smaller provider a clear-eyed starting point for this conversation, without needing to make any clinical judgement about the technology itself.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, if your organisation is considering any AI-assisted imaging tool, ask your clinical lead and the supplier separately for the tool's exact MHRA approval status and the specific use case that approval covers. If those two answers do not match precisely, that mismatch is worth resolving before any further procurement conversation.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Weighing up the workforce and regulatory case for AI-assisted imaging?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For the equivalent conversation in general practice, see <a class="ob-link" href="#/articles/ai-healthcare-primary-care-admin">what NHS England's ambient AI push means for a small practice</a>, and before adopting any new clinical tool, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> is worth working through first.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.rcr.ac.uk/news-policy/latest-updates/nhs-spent-record-14bn-on-short-term-fixes-to-radiologist-shortage-in-past-5-years/" target="_blank" rel="noopener noreferrer">Royal College of Radiologists, NHS spent record £1.4bn on short-term fixes to radiologist shortage in past 5 years</a>; <a href="https://www.azmed.co/news-post/mhra-2025-ai-radiology-regulations" target="_blank" rel="noopener noreferrer">AZmed, MHRA 2025 Reforms: Faster AI Radiology & Imaging Access</a>; <a href="https://www.fieldfisher.com/en/insights/mhra-expands-its-ai-sandbox-model-across-medicines-and-medical-devices" target="_blank" rel="noopener noreferrer">Fieldfisher, MHRA expands its AI sandbox model across medicines and medical devices</a>.</p>
