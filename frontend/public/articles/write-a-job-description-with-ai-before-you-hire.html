@@ -1,0 +1,167 @@
+<!--
+title: Why your job ad might be scaring off half your applicants
+tags: AI Consultancy, AI Implementation
+date: 2026-10-26
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: Job ads loaded with masculine-coded language pull in up to 10% fewer female applicants, so the way you write your first job post matters more than you think.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0.25rem; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.82rem; font-weight: 700; color: #1a1a3d; }
+
+  /* ── Tier cards ── */
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">So you're finally hiring your first person. Exciting, terrifying, and you've got a blank job ad staring back at you with no idea what to type. Here's what nobody tells first-time founders: the wording on that ad decides who even bothers applying, before a single CV lands in your inbox. Get it wrong and you quietly filter out your best candidates without meaning to. AI fixes the blank-page problem in minutes, but only if you use it right.</p>
+
+<div class="ob-callout">
+  <p>Job ads loaded with masculine-coded words like "ninja", "dominant" or "aggressive" pull in up to 10% fewer female applicants, and only 44% of women apply to them at all.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">£35,500</div>
+    <div class="ob-stat-label">average first-year cost of taking on your first UK employee once National Insurance, pension and recruitment are added up (FSB/CEBR)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">10%</div>
+    <div class="ob-stat-label">fewer female applicants when a job ad leans on masculine-coded language, across a study of over 7,500 adverts (Pearn Kandola)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">42%</div>
+    <div class="ob-stat-label">more applicants a job post gets once the wording is made gender-neutral (ZipRecruiter)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">Your job ad is quietly filtering people out</h2>
+  <p class="ob-section-sub">Most founders don't even realise they're doing it</p>
+
+  <p class="ob-p">Take Priya, who runs a six-person landscaping business outside Reading. Her first ad for an office coordinator asked for someone "driven, competitive, and able to dominate a chaotic workload." Three men applied. Zero women. She hadn't set out to write a male-coded ad; that's just how urgency comes out when you're typing fast at 11pm.</p>
+  <p class="ob-p">Run the same ad through an AI tool and ask it specifically to flag gendered or exclusionary language, and it catches words like "dominate", "ninja" and "rockstar" in seconds, words that read as confident to one group and off-putting to another.</p>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">How to actually do this with AI</h2>
+  <p class="ob-section-sub">Four prompts, fifteen minutes, done</p>
+
+  <p class="ob-p">Open any AI chat tool you already have, ChatGPT or Claude both work fine, and describe the role the way you'd describe it to a mate: what the person will actually do day to day, not a wish list of buzzwords. Ask for a first draft.</p>
+  <p class="ob-p">Then ask it for three fixes: strip out jargon and inflated requirements ("5 years' experience" for entry-level admin is a classic), flag gendered or exclusionary language, and shorten it to the essentials a candidate needs to decide whether to apply. Read it out loud. If it doesn't sound human, tell the AI to make it sound like you.</p>
+</div>
+
+<!-- ─── SECTION 3 ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What to keep human</h2>
+  <p class="ob-section-sub">AI drafts it, you decide it</p>
+
+  <p class="ob-p">Don't let AI invent salary bands, legal requirements, or a long list of "nice to haves" that scares off good people. Check pay against something like the UK National Living Wage and your own numbers, and keep the actual requirements to what the job needs on day one, not day 400.</p>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions first-time founders ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Will an AI-written job ad sound robotic?</p>
+    <p class="ob-faq-a">Only if you let it. Ask the AI to match your tone, then rewrite the first line yourself so it sounds like you, not a template.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a specific AI hiring tool, or will ChatGPT do?</p>
+    <p class="ob-faq-a">A general AI chat tool is plenty for writing the ad itself. Dedicated hiring tools help later, with screening CVs, but you don't need one just to draft a job post.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long should a job description actually be?</p>
+    <p class="ob-faq-a">Short enough that a candidate can read it on their phone in under two minutes. If it's longer than that, you're probably listing wishes, not requirements.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it legal to use AI-generated job description wording?</p>
+    <p class="ob-faq-a">Yes, but you're still responsible for what it says. Check pay, hours, and any legal requirements, like right-to-work wording, yourself before you post it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, a badly worded ad doesn't just mean fewer applicants, it means fewer of the right ones, which means a slower hire and a bigger gap in the business while the role sits empty. At an average £35,500 first-year cost for a first UK hire, getting it right the first time isn't a nice-to-have.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, run the job ad you're about to post through an AI tool with one specific instruction: "flag any gendered, exclusionary, or jargon-heavy language and suggest a plain-English rewrite." Compare the two versions before you post.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more small-business AI guides like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once the role is filled, <a class="ob-link" href="#/articles/ai-cv-screening-cuts-sme-hiring-time">how AI CV screening cut one SME's hiring time in half</a> covers the next step in the process.</p>
+
+<p class="ob-sources">Sources: <a href="https://pearnkandola.com/resources/press/masculine-language-in-job-adverts-deterring-female-candidates-research-finds/" target="_blank" rel="noopener noreferrer">Pearn Kandola, Masculine language in job adverts deterring female candidates, research finds</a>; <a href="https://www.cio.com/article/236513/how-gender-neutral-job-postings-decrease-time-to-hire.html" target="_blank" rel="noopener noreferrer">ZipRecruiter data, via CIO.com, How gender-neutral job postings decrease time to hire</a>; <a href="https://taxassist.co.uk/resources/news/uk-start-ups-pay-35500-to-take-on-their-first-employee" target="_blank" rel="noopener noreferrer">Federation of Small Businesses / CEBR, via TaxAssist, UK start-ups pay £35,500 to take on their first employee</a>.</p>
