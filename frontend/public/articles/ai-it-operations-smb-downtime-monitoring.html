@@ -1,0 +1,167 @@
+<!--
+title: The hidden cost of downtime most small IT teams never price
+tags: AI Implementation, AI Strategy
+date: 2026-10-28
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: A micro business downtime hour costs an estimated $100,000. AIOps tools that used to serve only large enterprises are now priced and built for smaller IT teams too.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 1rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1.1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">IT downtime costs the average micro-business, under 25 employees, an estimated $1,670 per minute, or roughly $100,000 per hour, according to ITIC's downtime cost research. AIOps, artificial intelligence for IT operations, was built and priced for large enterprises first: the market is valued at $2.67 billion in 2026 and growing toward $11.8 billion by 2034. Reported outcomes include up to 60% downtime reduction and 90% fewer meaningless alerts. This article covers what AIOps actually does, what it costs, and what a smaller IT team can realistically expect from it.</p>
+
+<div class="ob-callout">
+  <p>AIOps does not replace an IT team's judgement about what to fix. It reduces the volume of alerts a team has to sort through manually and flags likely problems earlier, so the humans making the actual decisions spend less time hunting for the signal in the noise.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">$100,000/hr</div>
+    <div class="ob-stat-label">estimated downtime cost for a micro-business under 25 employees</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">up to 90%</div>
+    <div class="ob-stat-label">reduction in alert noise reported from AIOps tools</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">54%</div>
+    <div class="ob-stat-label">of UK SMEs actively using AI tools in business operations in 2026, up from 35% in 2025</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why downtime costs more than it looks like it should</h2>
+  <p class="ob-section-sub">The hidden costs stack up fast, even for a small team</p>
+
+  <p class="ob-p">ITIC's downtime cost research puts the average cost for a micro-business, under 25 employees, at roughly $1,670 per minute, close to $100,000 for a full hour of a critical system being down. That figure covers lost staff productivity, missed customer transactions and the time spent diagnosing and fixing the problem, not just the visible outage itself.</p>
+  <p class="ob-p">For a business where a website, booking system or point-of-sale platform is how customers actually transact, an hour of downtime during business hours is not an abstract inconvenience. It is a direct, measurable revenue loss on top of whatever it costs to get the system back online.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What AIOps actually does, in plain terms</h2>
+  <p class="ob-section-sub">Pattern recognition across your systems, applied continuously</p>
+
+  <p class="ob-p">AIOps, short for artificial intelligence for IT operations, uses pattern recognition across logs, performance metrics and past incidents to spot the early signs of a problem before it causes an outage, and to cut through the flood of automated alerts that most monitoring systems generate. Reported outcomes across AIOps deployments include 45% faster incident response, up to 60% downtime reduction, and up to 90% fewer alerts reaching a human, because the system filters out the noise that does not need attention.</p>
+  <p class="ob-p">The market reflects how fast this has moved from a large-enterprise tool to something smaller businesses can access: valued at $2.67 billion in 2026, the AIOps platform market is projected to reach $11.8 billion by 2034, a 20.4% annual growth rate driven substantially by cloud-based tools priced for teams far smaller than the Fortune 500 IT departments this category originally served.</p>
+
+  <div class="ob-badges">
+    <span class="ob-badge">Micro-business downtime cost: ~$100,000/hr</span>
+    <span class="ob-badge">Alert noise reduction: up to 90%</span>
+    <span class="ob-badge">AIOps market 2026: $2.67bn</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why this is arriving at small businesses now, not five years ago</h2>
+  <p class="ob-section-sub">Cloud-native pricing changed who can actually use this</p>
+
+  <p class="ob-p">Most AIOps platforms five years ago required a dedicated data engineering effort to integrate with your systems, effectively pricing out any business without its own IT operations team. Cloud-native versions now connect to standard monitoring feeds, cloud hosting platforms and common business software with a much shorter setup process, and are billed per monitored system rather than as an enterprise licence.</p>
+  <p class="ob-p">UK adoption reflects this shift: 54% of UK SMEs report actively using AI tools in their business operations in 2026, up from 35% the year before, though the skills gap remains the most commonly cited barrier, with lack of internal expertise named ahead of cost or ROI uncertainty as the top reason businesses hesitate.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A realistic starting point for a small IT team</h2>
+  <p class="ob-section-sub">Monitor the one system that would actually hurt if it went down</p>
+
+  <p class="ob-p">Rather than attempting to bring AIOps across every system at once, identify the single platform whose downtime would cost your business the most, a customer-facing website, a booking system, a payment processor, and start monitoring only that one. Most cloud-based AIOps tools now offer usage-based or per-system pricing specifically to make this kind of narrow pilot possible.</p>
+  <p class="ob-p">Measure two things over the following few months: how many alerts your team actually had to act on, versus how many the tool flagged, and whether any genuine incident was caught earlier than your team would have noticed it manually. Those two numbers, not the vendor's headline percentage, tell you whether it is worth expanding coverage.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small IT teams ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does IT downtime actually cost a small business?</p>
+    <p class="ob-faq-a">ITIC's downtime cost research estimates roughly $1,670 per minute, close to $100,000 per hour, for a micro-business under 25 employees, covering lost productivity, missed transactions and remediation time.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does AIOps actually do?</p>
+    <p class="ob-faq-a">It applies pattern recognition to logs, performance data and past incidents to flag likely problems early and filter out alerts that do not need human attention, reported to cut alert volume by up to 90% and downtime by up to 60%.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is AIOps only for large enterprises?</p>
+    <p class="ob-faq-a">It was originally built for large IT departments, but cloud-native, usage-based pricing has brought it within reach of smaller teams. The AIOps market is projected to grow from $2.67 billion in 2026 to $11.8 billion by 2034, much of that growth coming from smaller-business adoption.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Where should a small IT team start with AIOps?</p>
+    <p class="ob-faq-a">Pick the single system whose downtime would cost the business the most, monitor only that one, and measure how many alerts were genuinely actionable and whether any real incident was caught earlier than manual monitoring would have caught it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business does not have a dedicated data engineering team to build custom monitoring, but the downtime cost, an estimated $100,000 an hour for a micro-business, is proportionally just as damaging as it is for a large enterprise. Cloud-native, usage-based AIOps tools now let a small IT team or a single IT-responsible person monitor the one system that matters most, without the integration effort that made this category enterprise-only five years ago.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, ask whoever handles your IT which single system would cause the most damage if it went down for an hour, and how they would currently find out about a problem before a customer complains. If the honest answer is a customer complaint, that gap is worth costing against the $100,000-an-hour downtime estimate before deciding whether monitoring is worth exploring.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out whether AIOps monitoring is worth it for your setup?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For the bigger picture, see <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> and <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://calliber.net/blog/trends-ai-operations-automation-tools" target="_blank" rel="noopener noreferrer">Calliber, AIOps Statistics & Trends 2026: AI Operations Automation</a>; <a href="https://thenetworkinstallers.com/blog/cost-of-it-downtime-statistics/" target="_blank" rel="noopener noreferrer">The Network Installers, Cost of IT Downtime Statistics, Data & Trends (2026)</a>; <a href="https://spicyadvisory.com/blog/ai-adoption-uk-smb-guide-2026" target="_blank" rel="noopener noreferrer">Spicy Advisory, AI Adoption for UK SMBs in 2026</a>; <a href="https://www.augmentcode.com/guides/what-is-aiops" target="_blank" rel="noopener noreferrer">Augment Code, What Is AIOps in 2026?</a>.</p>
