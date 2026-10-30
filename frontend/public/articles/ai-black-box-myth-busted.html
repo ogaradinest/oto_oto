@@ -1,0 +1,160 @@
+<!--
+title: Your AI isn't a black box, you just haven't asked it why
+tags: AI Governance, AI Implementation
+date: 2026-10-27
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: 95% of senior data leaders admit they don't have full visibility into how their own AI tools reach a decision, so if the black box myth has you stuck, you're not alone, and it's fixable.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 1rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1.1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">You ask your AI tool why it flagged an invoice as risky, and you get a number back. No reasoning, just an answer, delivered with total confidence, like it's a fact rather than a guess. So you either trust it blindly or ignore it completely, and neither feels great. Good news: that black box feeling is mostly fixable, and it starts with something most owners never try, just asking.</p>
+
+<div class="ob-callout">
+  <p>95% of senior data leaders admit they don't have full visibility into how their own AI tools reach a decision. If the people building this stuff are confused too, you're allowed to ask questions.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">95%</div>
+    <div class="ob-stat-label">of senior data leaders say they lack full visibility into how their own AI tools reach a decision (Dataiku / The Harris Poll)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">52%</div>
+    <div class="ob-stat-label">have delayed or blocked an AI rollout over explainability concerns, the same survey found</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">36%</div>
+    <div class="ob-stat-label">of small business owners (US, Simply Business 2026 Outlook) name accuracy, not cost, as their top AI worry</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the "black box" idea stuck around</h2>
+  <p class="ob-section-sub">Old AI earned the label. The AI you're actually using doesn't have to keep it.</p>
+
+  <p class="ob-p">The reputation comes from genuine history. Older machine learning models, the kind that score credit risk or flag fraud, really were nearly impossible to question. Even the people who built them often couldn't say which inputs mattered most.</p>
+  <p class="ob-p">Generative AI tools, the ChatGPT and Claude-style assistants most small businesses actually use, work differently. You can ask them directly what data they used and how confident they are. They'll answer, not perfectly, but that's the part most owners never test.</p>
+  <p class="ob-p">Take a nine-person letting agency in Milton Keynes using AI to triage maintenance requests. It flagged a boiler complaint as "low priority." The office manager asked why instead of overriding it, and found the tenant's message had been auto-translated and had lost the word "leaking." One follow-up question caught a mistake that would otherwise have surfaced as a flood.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Three questions that make any AI tool show its work</h2>
+  <p class="ob-section-sub">None of these need you to understand how a model actually works</p>
+
+  <p class="ob-p">Ask what data it used. A tool that can't name what it drew on isn't one to lean on for anything that matters.</p>
+  <p class="ob-p">Ask what it's assuming. Most AI answers quietly assume an average cost or a "usual" customer, which is often exactly where it goes wrong for your business.</p>
+  <p class="ob-p">Ask how confident it actually is. A tool that admits uncertainty is more trustworthy than one that sounds certain about everything, the same way a decent accountant hedges and a cowboy one doesn't.</p>
+
+  <div class="ob-badges">
+    <span class="ob-badge">What data did you use?</span>
+    <span class="ob-badge">What are you assuming?</span>
+    <span class="ob-badge">How confident are you, and why?</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What UK regulators already expect you to be able to do</h2>
+  <p class="ob-section-sub">This isn't extra effort, it's roughly what the guidance already says</p>
+
+  <p class="ob-p">The ICO, working with the Alan Turing Institute, has published guidance on explaining decisions made with AI. The expectation: you should be able to explain, in plain language, why an AI-assisted decision came out the way it did. No compliance department needed, just the habit of asking and writing the answer down.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can I really just ask ChatGPT or Claude why it gave me that answer?</p>
+    <p class="ob-faq-a">Yes. Ask it to walk through its reasoning and name what it assumed. If the explanation doesn't hold up, don't act on the answer yet.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does asking an AI tool to explain itself cost extra?</p>
+    <p class="ob-faq-a">No, it's just another prompt. The habit costs you the ten seconds it takes to type the question.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this the same as telling customers they're talking to AI?</p>
+    <p class="ob-faq-a">No, that's a separate disclosure rule. This is about checking the reasoning internally, before a decision reaches a customer.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What if the AI tool genuinely can't explain its answer?</p>
+    <p class="ob-faq-a">Treat that as useful information. A tool that can't justify a decision that matters is one you double-check by hand.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A big company can afford a data science team to audit every AI recommendation. You can't, which means the audit has to be you, for about ten seconds per decision. That's actually the advantage: you're close enough to ask the question and get an answer fast, something a thousand-person company with five approval layers can't do as quickly.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Next time an AI tool gives you a recommendation that actually matters, ask it directly: "walk me through exactly why, including what data you used and what you assumed." Write the answer down. If it doesn't hold up, you've just caught a mistake for free.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more straight talk on using AI well in a small business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If accountability is on your mind, <a class="ob-link" href="#/articles/who-is-liable-when-ai-makes-a-mistake">who's actually on the hook when your AI tool gets something wrong</a> is worth reading next, alongside <a class="ob-link" href="#/articles/does-ai-mean-losing-control-of-your-business">whether using AI means losing control of your own decisions</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://futurecio.tech/75-worry-about-trust-in-ai-agent-deployments-survey-reveals" target="_blank" rel="noopener noreferrer">Dataiku / The Harris Poll, Global AI Confessions Report: Data Leaders Edition</a>; <a href="https://www.simplybusiness.com/small-businesses-are-using-ai-but-theyre-not-letting-it-run-the-show-2026-outlook/" target="_blank" rel="noopener noreferrer">Simply Business, 2026 Small Business AI Outlook</a>; <a href="https://www.scl.org/10744-explaining-ai-decision-making-ico-and-the-alan-turing-institute-consult-on-joint-guidance/" target="_blank" rel="noopener noreferrer">ICO and The Alan Turing Institute, Explaining decisions made with AI</a>.</p>
