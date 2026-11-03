@@ -1,0 +1,157 @@
+<!--
+title: The AI copilot that remembers your leads so you don't have to
+tags: AI Technology, AI for Marketing & Sales
+date: 2026-10-31
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Sales reps spend 70% of their time on work that isn't selling, and a free AI-powered CRM like HubSpot Breeze is built to claw most of that back for a founder running sales solo.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">You're the founder, which means you're also the entire sales team, which means every lead lives in whatever note-taking app you opened last: a WhatsApp thread here, a sticky note there, a half-remembered promise to "follow up Thursday" that Thursday quietly ate. HubSpot Breeze is the AI layer bolted onto HubSpot's free CRM, and its whole job is to stop you being the one who has to remember all of that.</p>
+
+<div class="ob-callout">
+  <p>Sales reps already lose 70% of their time to work that isn't selling, and most of that time disappears into exactly the admin a free AI-powered CRM is designed to absorb.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">70%</div>
+    <div class="ob-stat-label">of a sales rep's time goes to non-selling admin work like updating records and prepping for calls, not talking to prospects (Salesforce State of Sales research, 2024)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">52%</div>
+    <div class="ob-stat-label">of sales professionals already use AI for data analysis tasks like lead scoring, pipeline review and forecasting (HubSpot State of AI in Sales report)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">83%</div>
+    <div class="ob-stat-label">of sales teams using AI saw revenue growth this year, against 66% of teams without it (Salesforce State of Sales research, 2024)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What Breeze actually does for a one-person sales team</h2>
+  <p class="ob-section-sub">An assistant that remembers the account so you don't have to</p>
+
+  <p class="ob-p">Breeze sits inside HubSpot's CRM as a copilot plus a set of specific agents. The copilot summarises everything that's happened with a contact before you dial them, drafts the follow-up email after, and fills in CRM fields from whatever you type instead of dropdown clicking. A prospecting agent researches a lead and flags buying signals before you reach out, and a content agent can draft a landing page or social post from a brief.</p>
+  <p class="ob-p">Picture a founder running a small subscription-box business, juggling supplier calls, Instagram DMs and wholesale enquiries. Before every call they used to scroll back through old email threads to remember what was agreed. Now Breeze hands them a one-paragraph recap the second the record opens, and drafts the follow-up before they've closed the tab.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What it costs, and where the free tier stops</h2>
+  <p class="ob-section-sub">The basic assistant is free; the autonomous agents run on credits</p>
+
+  <p class="ob-p">The core CRM and Breeze Copilot are free on every plan, including HubSpot's Free tier, which is why it's a reasonable first CRM for a founder with no budget yet. The Agent Hub tools — the content agent, the customer-facing support agent, AI forecasting — sit on paid Service Hub plans running on a credit system, from roughly 500 credits a month on Starter up to 5,000 on Enterprise, with a basic customer-support conversation costing around 50 credits to resolve.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The honest catch: Breeze is good at remembering and drafting, not at actually knowing your customer better than you do. A summarised call history and an AI-drafted follow-up still need you to read them before they go out, especially early on when one wrong email to a key lead costs more than the hour Breeze just saved you.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Free</h4>
+      <p>Core CRM + Breeze Copilot</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Starter</h4>
+      <p>~500 AI credits a month</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Enterprise</h4>
+      <p>~5,000 AI credits a month</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is HubSpot Breeze, in plain terms?</p>
+    <p class="ob-faq-a">It's the AI layer built into HubSpot's CRM: a copilot that summarises contacts and drafts emails, plus separate agents that can research leads, draft content, and handle basic support questions.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is the free version actually usable for a brand-new business?</p>
+    <p class="ob-faq-a">Yes, for the core job of not losing track of leads. The free plan includes the CRM and the basic Breeze Copilot; the more autonomous agents are reserved for paid tiers.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need a sales background to use it?</p>
+    <p class="ob-faq-a">No. The point of the copilot is to do the remembering and drafting that experienced sales reps do automatically, so a founder with zero sales training gets a rough version of that same support.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the real catch?</p>
+    <p class="ob-faq-a">AI drafts still need a human read before they're sent, and a summary is only as good as what's logged in the CRM in the first place, so it rewards founders who actually use the tool consistently rather than only when they remember to.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A brand-new business rarely has a dedicated salesperson, which means the founder is doing discovery calls, demos and follow-ups between everything else, and the thing that quietly kills deals isn't a bad pitch, it's the follow-up that never happened because it lived in someone's head. A free CRM with an AI assistant attached turns that memory problem into something the software carries instead of the founder.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, move your current leads out of notes and spreadsheets into HubSpot's free CRM, log your next three calls in it, and let Breeze Copilot draft the follow-up emails, then just edit them before sending rather than writing from scratch.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out which AI tools are actually worth your time?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're still deciding whether to build a lightweight CRM yourself first, <a class="ob-link" href="#/articles/ai-crm-for-startups">this covers that option too</a>, and once your leads are logged, <a class="ob-link" href="#/articles/clay-ai-lead-generation-tool-for-founders">Clay is the AI tool that fills in the research on who they actually are</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://blog.hubspot.com/sales/state-of-ai-sales" target="_blank" rel="noopener noreferrer">HubSpot, The State of AI in Business and Sales</a>; <a href="https://www.salesforce.com/news/stories/sales-ai-statistics-2024/" target="_blank" rel="noopener noreferrer">Salesforce, Sales AI Statistics 2024</a>; <a href="https://www.hubspot.com/products/artificial-intelligence" target="_blank" rel="noopener noreferrer">HubSpot, Artificial Intelligence Products (Breeze)</a>.</p>
