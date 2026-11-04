@@ -1,0 +1,173 @@
+<!--
+title: Your staff are using AI anyway, with or without a policy
+tags: AI Governance, AI Implementation
+date: 2026-11-03
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: One in three UK employees has already put confidential company data into a public AI tool. A short, specific usage policy closes most of that gap for a small business.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Only 31% of UK employers have a formal AI policy, yet staff use AI tools daily regardless, and unsanctioned AI use now features in 45% of data breaches analysed in the 2026 DBIR. One in three UK employees admits to entering proprietary or sensitive company information into a public AI tool, and two-thirds of C-suite leaders believe their organisation has already suffered a data leak caused by an employee using an unapproved AI tool. This article covers what a short, practical staff-facing AI usage policy actually needs to say, distinct from a broader ethics framework or data governance strategy.</p>
+
+<div class="ob-callout">
+  <p>This covers a specific, staff-facing document: which tools are approved, what data cannot go into them, and what to do when something goes wrong. It is not the broader ethical principles or the ongoing compliance monitoring system a business might also want, both covered separately.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">31%</div>
+    <div class="ob-stat-label">of UK employers have a formal, written AI usage policy</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">45%</div>
+    <div class="ob-stat-label">of breaches in the 2026 DBIR involved unsanctioned AI tool use</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">1 in 3</div>
+    <div class="ob-stat-label">UK employees has entered confidential company data into a public AI tool</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The gap between AI use and AI policy</h2>
+  <p class="ob-section-sub">Staff are not waiting for permission</p>
+
+  <p class="ob-p">Only 31% of UK employers have a formal AI policy in place, and 25% of UK organisations still prohibit generative AI outright, yet staff use AI tools daily regardless of what any policy says. One in three UK employees has entered proprietary, confidential or sensitive company information into a public AI tool, and 16% have used an AI product explicitly banned by their own employer.</p>
+  <p class="ob-p">The consequences are measurable: unsanctioned AI use tripled to feature in 45% of breaches analysed in the 2026 Data Breach Investigations Report, and two-thirds of C-suite leaders believe their organisation has already suffered a data leak or security breach caused by an employee using an unapproved AI tool. Only 24% of UK businesses using AI have any practices in place to manage this specific risk.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What a usage policy needs to cover, in plain terms</h2>
+  <p class="ob-section-sub">Specific tools, specific data, specific consequences</p>
+
+  <p class="ob-p">A workable staff-facing AI usage policy answers three questions clearly: which AI tools are approved for use, what categories of information must never be entered into any AI tool regardless of whether it is approved, and what a staff member should do if they realise they have made a mistake. Vague guidance like "use AI responsibly" gives staff nothing concrete to follow and explains why so many policies exist on paper without changing behaviour.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The categories of information worth naming explicitly are the ones that cause the most damage if leaked: customer personal data, financial figures not yet public, anything covered by an NDA, and login credentials or access details for any system. Naming these specifically, rather than referring generally to "sensitive information", removes the ambiguity that leads a well-meaning employee to paste something they should not have.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>UK employers with a formal AI policy</h4>
+      <p>31%</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Breaches involving unsanctioned AI</h4>
+      <p>45%</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Staff who've entered sensitive data into AI</h4>
+      <p>1 in 3</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why training matters as much as the document itself</h2>
+  <p class="ob-section-sub">A policy nobody has seen is not a policy</p>
+
+  <p class="ob-p">Only around 22% of UK businesses have provided AI-specific governance training to staff involved in AI deployment, and just 35% of UK employers provided any AI training or support at all. A policy document sitting unread in a shared drive does not change the behaviour behind the 45% of breaches linked to unsanctioned AI use.</p>
+  <p class="ob-p" style="margin-bottom: 0;">A short session walking staff through the specific approved tools, the specific categories of information to avoid, and a real example of what a mistake looks like does more to change behaviour than the document alone, and takes far less time to organise than most businesses assume.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A realistic starting point for a small business</h2>
+  <p class="ob-section-sub">A one-page policy beats no policy at all</p>
+
+  <p class="ob-p">A usage policy does not need to be a lengthy legal document to be effective. A single page naming the approved tools, the categories of information never to enter into any AI tool, and a clear point of contact for questions or mistakes covers the ground that actually matters, and is far more likely to be read and followed than a long policy modelled on enterprise governance documents.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Being able to tell a customer or partner your business has a documented AI usage policy, uses only approved tools, and reviews AI-generated output before it goes external is a real point of difference, since most small businesses currently cannot say the same.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How many UK employers actually have a formal AI policy?</p>
+    <p class="ob-faq-a">Only 31%, despite staff using AI tools daily in most workplaces regardless of whether a policy exists.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How often does unapproved AI use actually cause a data breach?</p>
+    <p class="ob-faq-a">Unsanctioned AI use featured in 45% of breaches analysed in the 2026 Data Breach Investigations Report, and two-thirds of C-suite leaders believe their own organisation has already suffered a related data leak.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should a staff-facing AI usage policy actually cover?</p>
+    <p class="ob-faq-a">Which specific tools are approved, which specific categories of information must never be entered into any AI tool, such as customer data, unpublished financials, and NDA-covered material, and what to do if a mistake happens.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does a usage policy need staff training to actually work?</p>
+    <p class="ob-faq-a">Yes. Only 22% of UK businesses have provided AI-specific governance training, and a policy document nobody has walked through does little to change the behaviour behind most AI-related data incidents.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business has just as much exposure to the 45% of breaches linked to unsanctioned AI use as a larger organisation, but usually without a dedicated security team to catch a mistake before it causes damage. A short, specific, one-page usage policy naming approved tools and forbidden categories of information, paired with a brief staff walkthrough, closes most of this gap without requiring the lengthy governance documents larger organisations use.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, list the AI tools your staff are actually using, whether officially sanctioned or not, and write down the three categories of information that must never go into any of them for your business specifically. That short list is the core of a usage policy, and it can be shared with your team by the end of the week.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help putting a usage policy together that your team will actually read?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once a usage policy is in place, <a class="ob-link" href="#/articles/ai-ethics-framework-small-business">the AI ethics framework your small business can build</a> is the natural next layer, and <a class="ob-link" href="#/articles/ai-compliance-monitoring-small-business">AI compliance monitoring for a small business</a> covers how to keep checking it is actually being followed.</p>
+
+<p class="ob-sources">Sources: <a href="https://techspireit.co.uk/ai-usage-policy-for-uk-smes-2026/" target="_blank" rel="noopener noreferrer">TechspireIT, AI Usage Policy for UK SMEs 2026</a>; <a href="https://securitybrief.co.uk/story/uk-firms-race-ahead-on-ai-but-controls-lag-behind" target="_blank" rel="noopener noreferrer">SecurityBrief, UK firms race ahead on AI, but controls lag behind</a>; <a href="https://www.comparethecloud.net/articles/ai-acceptable-use-policy-small-uk-business-free-template-checklist" target="_blank" rel="noopener noreferrer">Compare the Cloud, AI Acceptable Use Policy for UK Small Business Template</a>; <a href="https://deadsimplecomputing.co.uk/insights/stop-staff-data-leaks-to-ai" target="_blank" rel="noopener noreferrer">Dead Simple Computing, Stop Staff Leaking Data to ChatGPT and AI</a>.</p>
