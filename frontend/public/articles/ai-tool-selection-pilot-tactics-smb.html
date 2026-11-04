@@ -1,0 +1,173 @@
+<!--
+title: Why most AI pilots fail, and the 14-day fix that works
+tags: AI Implementation, AI Strategy
+date: 2026-11-01
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: More than 80% of AI projects fail, twice the rate of ordinary IT projects. The practical fix for a small business is picking one tool, one metric, and a 14-day window before committing further.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">More than 80% of AI projects fail, roughly twice the failure rate of conventional IT projects, according to RAND Corporation research, and McKinsey found only 22% of AI experiments generate significant value. Among small businesses, 51% of owners describe themselves as AI explorers, testing tools without full commitment, often buying several overlapping subscriptions in the same month with no clear owner for any of them. This article covers the specific tactics that separate a small business pilot that produces a real answer from one that quietly fades into "we're still testing".</p>
+
+<div class="ob-callout">
+  <p>This is about the tactics of choosing and testing a specific tool: what to pilot, for how long, and against what number. It is not the longer strategic roadmap for sequencing AI adoption across a business, which is a separate, longer-term planning exercise.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">80%+</div>
+    <div class="ob-stat-label">of AI projects fail, roughly twice the failure rate of ordinary IT projects</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">85%</div>
+    <div class="ob-stat-label">of AI project failures are attributed to poor data quality</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">14 days</div>
+    <div class="ob-stat-label">typical pilot length needed to decide whether a tool deserves wider rollout</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why so many AI pilots fail before they even get a fair test</h2>
+  <p class="ob-section-sub">The problem is rarely the technology itself</p>
+
+  <p class="ob-p">More than 80% of AI projects fail, a rate roughly twice that of ordinary IT projects, and McKinsey's research puts the share of AI experiments generating significant value at just 22%. For generative AI pilots specifically, MIT's Project NANDA found 95% of organisations see no measurable return to their income statement. 85% of these failures are attributed to poor data quality, not a shortcoming in the underlying AI model.</p>
+  <p class="ob-p">For small businesses, the pattern often starts before the pilot: an owner buys a chatbot, an automation platform and a CRM add-on within the same month, each pitched to solve a similar problem, without deciding upfront which one actually owns which task. By the time any of them are properly tested, nobody remembers which tool was meant to do what.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The one change that fixes most of this: a number, not a vibe</h2>
+  <p class="ob-section-sub">Define what success looks like before you start testing</p>
+
+  <p class="ob-p">A pilot with no defined success metric does not fail cleanly. It fades into "we're still testing" and quietly dies months later, having cost real time and subscription fees without ever producing a clear answer. The fix is deciding, in writing, before the pilot begins: what specific number needs to move, by how much, for this tool to be worth keeping.</p>
+  <p class="ob-p" style="margin-bottom: 0;">This does not need to be complicated. Hours saved per week, response time to a customer enquiry, or a specific error rate are all measurable within a short window, and any of them beats the alternative of judging a tool on whether it felt useful, which is subjective and gives no clear signal for when to stop.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>AI project failure rate</h4>
+      <p>80%+</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Failures from poor data quality</h4>
+      <p>85%</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Recommended pilot window</h4>
+      <p>14 days</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why 14 days is the right test window for most pilots</h2>
+  <p class="ob-section-sub">Long enough for a real pattern, short enough to stay accountable</p>
+
+  <p class="ob-p">A 14-day pilot is generally enough time to see whether a tool produces a genuine, repeatable improvement against the metric you defined, long enough to smooth out a single unusually good or bad day, short enough that the test does not simply drift into permanent low-commitment use without a decision ever being made.</p>
+  <p class="ob-p" style="margin-bottom: 0;">At the end of the 14 days, there are only three honest outcomes: the metric moved enough to justify keeping the tool, it did not move and the tool should be dropped, or the data needed to judge it properly was not available, which is itself useful information about what needs fixing before trying again.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Fixing the data problem before it sinks the pilot</h2>
+  <p class="ob-section-sub">The tool cannot answer the question if you cannot ask it cleanly</p>
+
+  <p class="ob-p">Given that 85% of AI project failures trace back to poor data quality, the single highest-leverage step before any pilot is checking whether the specific data the tool needs, customer records, past support tickets, financial records, whatever the use case requires, is actually complete, current and in one place. A tool tested against incomplete or scattered data will produce a confidently wrong result rather than an honest failure.</p>
+  <p class="ob-p" style="margin-bottom: 0;">If that data does not exist in usable form yet, the pilot should wait, or start with a smaller, cleaner subset specifically chosen because the data behind it is already in reasonable shape, rather than testing against your messiest, most complete dataset and concluding the technology does not work.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do so many AI pilots fail?</p>
+    <p class="ob-faq-a">More than 80% of AI projects fail overall, and 85% of those failures trace back to poor data quality rather than a limitation of the AI itself. Many small business pilots also fail simply because nobody defined what success would look like before starting.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long should a small business AI pilot run?</p>
+    <p class="ob-faq-a">About 14 days is typically enough to see a genuine, repeatable pattern against a defined metric, long enough to smooth out one unusual day, short enough to force an actual decision rather than indefinite low-commitment testing.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the single biggest fix for a failing AI pilot process?</p>
+    <p class="ob-faq-a">Defining a specific, measurable success metric in writing before the pilot starts. A pilot judged on whether it felt useful rarely produces a clear decision either way.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should happen if the data needed for a pilot is not ready?</p>
+    <p class="ob-faq-a">Wait, or narrow the pilot to a smaller subset where the data is already clean and complete, rather than testing against your messiest dataset and concluding the tool does not work.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business often runs several overlapping AI pilots at once with no clear owner or success metric for any of them, exactly the pattern behind most reported failures. Committing to one specific tool, one number that needs to move, and a fixed 14-day test window gives a small business the same disciplined pilot process a larger organisation would use, without needing a dedicated AI team to run it.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pick the single AI tool your business is currently testing or considering, and write down one specific number it needs to move, and by how much, within 14 days. If you cannot name that number right now, that is the actual gap to close before running, or continuing, the pilot.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help picking the one AI tool actually worth piloting?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once you've run a pilot successfully, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> covers what comes next, and if a past attempt stalled out, <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a> is worth a read too.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.pertamapartners.com/insights/ai-project-failure-statistics-2026" target="_blank" rel="noopener noreferrer">Pertama Partners, AI Project Failure Rate 2026: 80% Fail</a>; <a href="https://nofluffaitools.com/small-business-ai-mistakes-2026/" target="_blank" rel="noopener noreferrer">No Fluff AI Tools, 7 Small Business AI Mistakes That Are Costing You Time and Money (2026)</a>; <a href="https://colorwhistle.com/artificial-intelligence-statistics-for-small-business/" target="_blank" rel="noopener noreferrer">ColorWhistle, Artificial Intelligence (AI) Statistics for Small Business</a>; <a href="https://connectedpaths.com/insights/ai-project-failure-statistics/" target="_blank" rel="noopener noreferrer">Connected Paths, AI Project Failure Statistics</a>.</p>
