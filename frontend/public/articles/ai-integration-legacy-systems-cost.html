@@ -1,0 +1,173 @@
+<!--
+title: The real reason AI projects blow their budget
+tags: AI Implementation, AI Strategy
+date: 2026-11-02
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Most AI project cost overruns trace back to connecting the new tool to systems it was never designed for. Here's what integration actually costs, and where the budget usually breaks.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">68% of AI projects exceed their initial budget estimate, with the average overrun reaching 42% above the original figure, and industry data puts the typical overrun range at 30 to 70%. Integration with existing systems, legacy software without modern APIs, data scattered across disconnected platforms, custom middleware requirements, is consistently cited as one of the top three cost escalators. This article covers what AI integration with existing business systems actually costs, why the estimate so often breaks, and how a small business can budget for it more realistically.</p>
+
+<div class="ob-callout">
+  <p>This covers the cost and complexity of connecting an AI tool to your existing systems, accounting software, CRM, booking platforms, and similar. It does not cover the cost of the AI tool or model itself, which is usually the smaller and more predictable part of the budget.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">68%</div>
+    <div class="ob-stat-label">of AI projects exceed their initial budget estimate</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">42%</div>
+    <div class="ob-stat-label">average cost overrun above the original AI project estimate</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$30k-$100k</div>
+    <div class="ob-stat-label">typical additional cost to integrate AI with a legacy system lacking modern APIs</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the AI tool is rarely the expensive part</h2>
+  <p class="ob-section-sub">Integration, not the model, is where budgets actually break</p>
+
+  <p class="ob-p">68% of AI projects exceed their initial budget estimate, with the average overrun reaching 42% above the original figure, and some projects run 30 to 70% over depending on the specific systems involved. 85% of organisations misestimate AI project costs by more than 10%, and a meaningful share miss their forecast by over half. Integration complexity, connecting the new AI tool to systems that were never built to talk to it, is consistently cited as one of the top three cost escalators in enterprise surveys.</p>
+  <p class="ob-p">The pattern behind this is straightforward: a small, simple AI agent can cost around $25,000 to build in isolation, but total first-year costs for AI agent integration typically range from $12,000 to $180,000 depending on how many existing systems it needs to connect to and how complex those connections turn out to be.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What actually drives the integration cost specifically</h2>
+  <p class="ob-section-sub">Old systems without APIs are the biggest single factor</p>
+
+  <p class="ob-p">Legacy system integration, building custom middleware for older platforms that were never designed with an API for another system to connect to, typically adds $30,000 to $100,000 on top of the core AI tool cost. The underlying difficulties are consistent: data scattered across several systems with inconsistent formats, poor documentation requiring reverse engineering of how an old system actually works, and a shrinking pool of engineers who understand platforms built years or decades ago.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Middleware and integration platform-as-a-service tools can reduce the amount of custom development needed, but they carry their own upfront cost, typically $20,000 to $100,000, and the more separate systems involved, accounting software, a CRM, a booking platform, a stock system, the higher the total integration cost climbs, because each connection is its own separate piece of work.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>AI projects over budget</h4>
+      <p>68%</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Average overrun</h4>
+      <p>42%</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Legacy API integration add-on</h4>
+      <p>$30k-$100k</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The cost that continues after launch</h2>
+  <p class="ob-section-sub">Integration is not a one-off expense</p>
+
+  <p class="ob-p">Software maintenance for an AI-integrated system typically runs 15 to 25% of the initial build cost every year, meaning a $25,000 integration carries an ongoing $3,750 to $6,250 annual cost simply to keep it working as the connected systems themselves get updated. This ongoing cost is frequently missing from a first-year budget built only around the initial build.</p>
+  <p class="ob-p" style="margin-bottom: 0;">This matters specifically because the systems on the other end of an integration, your accounting software, your CRM, your booking platform, are updated independently by their own vendors, and each of those updates carries a real chance of breaking the connection your AI tool depends on, a cost that a one-off project budget does not naturally account for.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A more realistic way to budget for integration</h2>
+  <p class="ob-section-sub">Ask about the connection cost before the tool cost</p>
+
+  <p class="ob-p">Before committing to any AI tool that needs to connect to your existing systems, get a specific, written estimate for the integration work separately from the cost of the AI tool itself, and ask directly whether any of your systems lack a modern API, since that single factor is the clearest predictor of a $30,000 to $100,000 cost addition.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Budget for ongoing maintenance from day one, 15 to 25% of the build cost annually, rather than treating it as a surprise bill in year two, and build in a contingency reflecting the 42% average overrun reported industry-wide rather than assuming your project will be the exception.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do AI projects go over budget so often?</p>
+    <p class="ob-faq-a">68% of AI projects exceed their initial estimate, averaging 42% over budget, and integration with existing systems, not the AI tool itself, is one of the top three cost escalators cited in industry surveys.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does it cost to integrate AI with an old system that has no API?</p>
+    <p class="ob-faq-a">Typically $30,000 to $100,000 in additional custom middleware work, on top of the core AI tool cost, because of scattered data, poor documentation and the specialist engineering time needed to work with older platforms.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does AI integration cost end once the system is built?</p>
+    <p class="ob-faq-a">No. Ongoing maintenance typically runs 15 to 25% of the initial build cost every year, since the systems your AI tool connects to are updated independently and can break that connection.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the single most useful question to ask before an AI integration project?</p>
+    <p class="ob-faq-a">Whether any of the systems involved lack a modern API. That single factor is the clearest predictor of a significant additional cost, and should be priced separately from the AI tool itself.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business is more likely to run older accounting, booking or stock systems without modern APIs than a business built on newer, cloud-native software, making the $30,000 to $100,000 legacy integration cost a real risk rather than an edge case. Asking for a separate, specific integration estimate before committing to any AI tool, and budgeting for the 15 to 25% annual maintenance cost from the start, avoids the most common way small business AI budgets run over.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, list the systems any new AI tool would need to connect to, accounting software, CRM, booking platform, and check with each vendor whether they offer a modern API. Any system without one is where your integration budget is most likely to expand beyond the initial estimate, so price that risk before committing.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a clearer read on what an AI project would actually cost you?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For a broader look at pricing, <a class="ob-link" href="#/articles/ai-development-cost-uk">the real cost of AI for your business</a> covers the build side too, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> is worth working through before you sign anything.</p>
+
+<p class="ob-sources">Sources: <a href="https://adevs.com/blog/ai-agent-integration-cost-small-business/" target="_blank" rel="noopener noreferrer">ADEVS, AI Agent Integration Cost for Small Business (2026)</a>; <a href="https://aristeksystems.com/blog/how-much-does-it-really-cost-to-implement-ai-in-business/" target="_blank" rel="noopener noreferrer">Aristek Systems, Cost of AI Integration: What Shapes the Budget Beyond the Model Itself</a>; <a href="https://www.pertamapartners.com/insights/hidden-costs-ai-implementation" target="_blank" rel="noopener noreferrer">Pertama Partners, Hidden Costs of AI Implementation</a>; <a href="https://aiintegrator.in/blog/ai-integration-legacy-systems/" target="_blank" rel="noopener noreferrer">AI Integrator, AI Integration with Legacy Systems: A Practical Guide for 2026</a>.</p>
