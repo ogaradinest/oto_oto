@@ -1,0 +1,173 @@
+<!--
+title: Why scaling AI takes longer than you think
+tags: AI Implementation, AI Strategy
+date: 2026-11-01
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Scaling AI properly takes 12 to 24 months, not a weekend. This lays out the realistic phase-by-phase timeline for a small business, from first pilot to full adoption.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Moving from an initial AI pilot to genuine organisation-wide scaling typically takes 12 to 24 months, the longest single phase in AI adoption, because it requires building organisational capability rather than just running more projects. 54% of organisations plan to move 40% or more of their AI experiments into production within six months, but only 25% actually reach that milestone. This article lays out the realistic phase-by-phase timeline for a small business, distinct from the tactics of running any single pilot, which is a separate, narrower decision.</p>
+
+<div class="ob-callout">
+  <p>This is a timeline for sequencing AI adoption across a business over 6 to 24 months. It does not cover how to choose or test a specific tool, which is a narrower, faster decision covered separately.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">0-6 mo</div>
+    <div class="ob-stat-label">typical phase for foundation building and first small-scale pilots</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">12-24 mo</div>
+    <div class="ob-stat-label">typical phase for full organisational scaling, the longest step in the process</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">25%</div>
+    <div class="ob-stat-label">of organisations that actually hit their six-month AI production target, versus 54% that planned to</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Phase one: foundation and first value</h2>
+  <p class="ob-section-sub">Months zero to six: small pilots and basic workforce readiness</p>
+
+  <p class="ob-p">The first phase of AI adoption covers workforce education, basic policy decisions and small-scale pilots, typically taking three to six months. 57% of organisations cite skill gaps as the primary barrier at this stage, reflecting how much of this phase is about people becoming comfortable with a new tool rather than the technology itself being difficult. Initial productivity gains can emerge within 30 to 60 days on a specific, narrow task, though a systematic, business-wide impact generally takes 6 to 12 months to show up as adoption broadens beyond the first pilot.</p>
+  <p class="ob-p">For a small business, this phase should stay deliberately narrow: one tool, one team, one measurable task. Trying to run parallel pilots across several departments at once in this phase is the most common way small businesses lose track of what is actually working.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Phase two: scale and systematise</h2>
+  <p class="ob-section-sub">Months six to twelve: moving from a working pilot to a working process</p>
+
+  <p class="ob-p">The second phase covers systematising what worked in phase one: process simplification, choosing a settled technology platform rather than several competing point tools, and building the basic monitoring needed to know whether the wider rollout is actually working. Average enterprise AI implementation takes 6 to 12 months from initial scoping to production for a well-defined use case, extending to 12 to 18 months for anything requiring custom development rather than an off-the-shelf tool.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The organisations making the most progress at this stage tend to follow one pattern: redesigning a single workflow end-to-end around AI, rather than adding AI as a layer on top of an unchanged process, and using that end-to-end ownership to build the confidence and evidence needed for a broader rollout.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Phase 1: foundation</h4>
+      <p>0-6 months</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Phase 2: systematise</h4>
+      <p>6-12 months</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Phase 3: scaling</h4>
+      <p>12-24 months</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Phase three: real scaling</h2>
+  <p class="ob-section-sub">Months twelve to twenty-four: the longest phase, because it is the hardest one</p>
+
+  <p class="ob-p">Moving from a systematised, working process to genuine organisation-wide scaling is the longest phase, typically 12 to 24 months, because it requires building deep organisational capability, internal AI literacy, governance frameworks, and change management skill, not simply running more of the same pilot at greater volume. This is also where the gap between plan and reality tends to show up most clearly: 54% of organisations plan to move 40% or more of their AI experiments into production within six months, but only 25% actually hit that target.</p>
+  <p class="ob-p" style="margin-bottom: 0;">For a small business, this phase rarely means matching an enterprise's full governance apparatus. It means having settled, written answers to who owns each AI tool, what happens when it produces a wrong or unexpected result, and how a new starter is trained to use it, the practical equivalent of governance at a scale that suits five or ten people rather than five hundred.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What this means for setting your own timeline</h2>
+  <p class="ob-section-sub">Do not compress the phases, and do not skip them</p>
+
+  <p class="ob-p">The most common mistake at any business size is treating a successful pilot in phase one as evidence that phase three, full scaling, should follow within weeks. The skills, process and governance work in between is not optional overhead, it is the actual mechanism by which a good pilot result becomes a reliable, repeatable business outcome rather than a one-off success story.</p>
+  <p class="ob-p" style="margin-bottom: 0;">A realistic small business timeline sets phase one at three to six months for one narrow pilot, phase two at a further six to twelve months to systematise what worked, and treats anything beyond that as an ongoing, deliberate scaling effort rather than a fixed end date. Businesses that plan against this realistic timeline are less likely to be among the 75% who miss their own six-month production targets.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long does it actually take to scale AI across a small business?</p>
+    <p class="ob-faq-a">Full organisational scaling typically takes 12 to 24 months after the initial pilot and systematisation phases, because it requires building organisational capability, not just running more projects.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What happens in the first six months of AI adoption?</p>
+    <p class="ob-faq-a">Foundation building: workforce education, basic policy decisions, and one or two small-scale pilots. Initial productivity gains can appear within 30 to 60 days on a narrow task, with broader impact taking 6 to 12 months.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do most organisations miss their own AI production timelines?</p>
+    <p class="ob-faq-a">54% plan to move 40% or more of AI experiments into production within six months, but only 25% actually do, usually because the skills, process and governance work between pilot and scaling gets underestimated or skipped.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the single biggest mistake in AI adoption sequencing?</p>
+    <p class="ob-faq-a">Treating a successful small pilot as evidence that full scaling should follow within weeks, rather than deliberately working through the systematisation and capability-building phases in between.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business does not need an enterprise-scale governance apparatus to move through these phases, but it does need to respect the sequence: a narrow pilot, a systematisation period, then deliberate scaling, rather than expecting one good pilot result to translate into business-wide adoption within weeks. Setting internal expectations against this realistic 12 to 24 month timeline, rather than the compressed version vendors often imply, reduces the risk of joining the 75% who miss their own targets.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write down which phase your business is actually in right now, foundation, systematising, or scaling, honestly rather than aspirationally. If you are still running your first small pilot but planning as though you are scaling, that mismatch in expectations is worth correcting before it causes frustration with a process that is actually on a normal timeline.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help mapping where your business actually sits on this timeline?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're still at the very first step, <a class="ob-link" href="#/articles/ai-tool-selection-pilot-tactics-smb">the tactics of picking and testing one AI tool</a> covers that stage in detail, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> is a useful reference throughout.</p>
+
+<p class="ob-sources">Sources: <a href="https://aiassemblylines.com/post/long-ai-transformation-take-mid-market-timeline-guide" target="_blank" rel="noopener noreferrer">AI Assembly Lines, How Long Does AI Transformation Take? The Phase-by-Phase Timeline for Mid-Market Enterprises</a>; <a href="https://writer.com/blog/enterprise-ai-adoption-2026/" target="_blank" rel="noopener noreferrer">WRITER, Enterprise AI adoption in 2026: Why 79% face challenges despite high investment</a>; <a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noopener noreferrer">Deloitte, The State of AI in the Enterprise - 2026 AI report</a>; <a href="https://capsulecrm.com/blog/small-business-ai-adoption-statistics/" target="_blank" rel="noopener noreferrer">Capsule CRM, Small business AI adoption statistics for 2026</a>.</p>
