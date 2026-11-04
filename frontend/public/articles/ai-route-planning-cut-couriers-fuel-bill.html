@@ -1,0 +1,145 @@
+<!--
+title: How smarter routing shaved a fifth off one courier's fuel bill
+tags: AI Implementation
+date: 2026-11-04
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Nearly half of UK fleet operators say AI route planning has lowered their fuel costs, and one six-van courier used it to shave about a fifth off its diesel bill in six weeks.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0; }
+  .ob-badge { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 0.55rem 1.1rem; font-size: 0.85rem; font-weight: 600; color: #1a1a3d; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">If you run a small courier or delivery business, your morning probably starts the same way. A coffee, a stack of addresses, and twenty minutes squinting at a map working out who goes where. Get it wrong and a van burns an extra hour of diesel doubling back across town, and with UK diesel sitting around 177p a litre this year, that's not a small mistake to make daily.</p>
+
+<div class="ob-callout">
+  <p>Nearly half of UK fleet operators say switching to AI route planning has cut their total fuel costs, and three in four report better on-time delivery because of it.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">49%</div>
+    <div class="ob-stat-label">of UK fleet operators say AI route optimisation has lowered their total fuel costs (Geotab, Connected Fleets in the UK, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">75%</div>
+    <div class="ob-stat-label">report better on-time delivery rates since adopting AI-powered routing (Geotab, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">48%</div>
+    <div class="ob-stat-label">average drop in fuel consumption for small fleets of 1-29 vehicles after adopting route and fleet tracking tech, the biggest drop of any fleet size (Geotab, 2026)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The Whiteboard Routing Problem</h2>
+  <p class="ob-section-sub">Why planning routes by hand costs more than it looks like</p>
+
+  <p class="ob-p">Take a six-van same-day courier firm working out of Milton Keynes. Every morning, the owner spent 35 to 40 minutes building that day's routes by eye, using Google Maps and local knowledge of which roads jam up at 8am. It worked, mostly, but it was a guess dressed up as a plan.</p>
+  <p class="ob-p">The real cost showed up in the diesel bill: around £2,600 a month across the fleet, with vans regularly crossing each other's patch because the route wasn't built on actual traffic or drop density, just memory. A couple of late add-on jobs most weeks got bumped to the next day, because there was no clean way to slot them in without re-drawing the whole plan by hand.</p>
+  <p class="ob-p">None of this showed up as one dramatic number. It just leaked out, £30 here, an hour there, every day.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What Changed Once the Routes Got Smart</h2>
+  <p class="ob-section-sub">An AI route planner, not a bigger fleet</p>
+
+  <p class="ob-p">The owner started feeding the morning's drop list into an AI route-planning app instead. It builds a sequenced route per van in seconds, factoring in current traffic, delivery windows, and where each van starts from, rather than 35 to 40 minutes of guesswork.</p>
+  <p class="ob-p">Six weeks in, the fuel bill was down to roughly £2,000 a month, about a fifth lower, and rolled-over deliveries nearly disappeared. A last-minute drop just gets re-sequenced into the route instead of forcing a full re-plan by hand, and drivers get turn-by-turn on their phone, so the "where am I going next" calls mostly stopped too.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Routes built in seconds, not 40 minutes</span>
+    <span class="ob-badge">Fuel bill down about a fifth</span>
+    <span class="ob-badge">Re-sequences automatically when a job's added</span>
+  </div>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need to replace the sat nav or app my drivers already use?</p>
+    <p class="ob-faq-a">Usually not. Most AI route planners sit on top of what you've got, typically as an app the driver opens alongside their normal navigation, feeding it an optimised stop order rather than replacing it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this only worth it for a big fleet?</p>
+    <p class="ob-faq-a">No. Geotab's 2026 UK fleet data found small fleets of under 30 vehicles saw the biggest average fuel drop of any fleet size, bigger than mid-size or enterprise fleets.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What happens if a customer adds a last-minute drop?</p>
+    <p class="ob-faq-a">Most tools re-optimise the remaining route in seconds rather than making the driver or dispatcher re-plan by hand, so one extra stop doesn't derail the whole day.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long before it pays for itself?</p>
+    <p class="ob-faq-a">It depends on fleet size and mileage, but most small operators see the fuel and time savings outweigh the subscription cost within a couple of months, since diesel is usually the single biggest controllable cost in a delivery business.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small courier or delivery business doesn't have a logistics department. The person planning routes is usually the owner or one dispatcher, doing it before the first van even leaves the yard, on top of everything else they're responsible for that day. Shaving 15 to 20% off a fuel bill and cutting next-day rollovers isn't a nice-to-have gadget here, it's a direct line to the bottom line in a business where diesel is often the biggest cost after wages.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, add up what your fleet actually spent on fuel last month, then time how long it takes you or whoever plans routes to build tomorrow's run. If that's eating more than half an hour a day, trial one AI route-planning app against your current method for two weeks before deciding whether to switch over fully.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more stories like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If admin time is the bottleneck elsewhere in the business too, see <a class="ob-link" href="#/articles/ai-staff-scheduling-retail-overtime-cut">how AI scheduling cut overtime in a retail business</a>, and for the sales side of speed, <a class="ob-link" href="#/articles/ai-lead-response-kitchen-fitter-missed-jobs">how AI speed can stop a trade business losing jobs</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.geotab.com/uk/blog/smallfleetfuelpricereductionstrategies/" target="_blank" rel="noopener noreferrer">Geotab: How Small UK Fleets Hedged Against the 2026 Fuel Price Surge (Connected Fleets in the UK)</a>.</p>
