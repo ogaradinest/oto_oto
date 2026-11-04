@@ -1,0 +1,173 @@
+<!--
+title: Build your AI MVP for a fifth of the usual cost
+tags: AI Implementation, AI Strategy
+date: 2026-11-03
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: A custom-built AI MVP can run $140,000 to $300,000. An API-first version using existing AI models typically costs $35,000 to $70,000 and gets a real product in front of users faster.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">A fully custom AI-powered MVP typically costs $140,000 to $300,000 or more, roughly four to five times a traditional software MVP's $30,000 to $55,000 range. A well-architected, API-first AI MVP, using existing AI models through their published APIs rather than building custom infrastructure, typically costs $35,000 to $70,000, a fraction of the custom build cost while still producing a genuine, working product for real users. This article covers what an AI MVP actually needs to be, why the API-first approach works for most small businesses, and where startups most commonly waste this budget.</p>
+
+<div class="ob-callout">
+  <p>An MVP is a first production-ready version for real users, distinct from a proof of concept, which exists purely to test technical feasibility before any budget is committed to building something real.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">$35k-$70k</div>
+    <div class="ob-stat-label">typical cost of a well-built API-first AI MVP, versus $140k-$300k+ for a fully custom build</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">42%</div>
+    <div class="ob-stat-label">of startups fail due to no genuine market need for what they built</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">90%</div>
+    <div class="ob-stat-label">of startups overestimate how quickly they can actually reach the market</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why an AI MVP costs so much more than a traditional one</h2>
+  <p class="ob-section-sub">The gap is real, but avoidable for most small businesses</p>
+
+  <p class="ob-p">A fully custom-built AI-powered MVP typically costs $140,000 to $300,000 or more, against $30,000 to $55,000 for a traditional software MVP, a gap driven by data infrastructure, model training and the testing and guardrail work needed before an AI feature can be trusted with real users. A typical AI MVP budget breaks down as 50 to 60% on AI integration and development itself, 15 to 25% on data infrastructure, and 20 to 30% on testing, guardrails and deployment.</p>
+  <p class="ob-p">The API-first alternative changes this picture substantially: building on managed large language model APIs and retrieval-based architecture rather than training custom models typically costs $35,000 to $70,000, closing most of the gap with a traditional MVP while still delivering genuine AI functionality. GenAI-specific features, chat interfaces, retrieval-based answers, AI copilots, add 15 to 30% to a budget beyond the core product, largely for the data preparation and evaluation work needed to keep the AI's answers reliable.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why most MVPs fail before the cost question even matters</h2>
+  <p class="ob-section-sub">The product, not the budget, is usually the real problem</p>
+
+  <p class="ob-p">42% of startups fail because there was no genuine market need for what they built, and poor product-market fit accounts for a similar share of failures in other breakdowns of the same data. This failure happens regardless of whether the MVP was expensive or cheap, custom-built or API-first, because it is a validation problem rather than a technical one: the team built based on an assumption about what users wanted rather than confirmed demand.</p>
+  <p class="ob-p" style="margin-bottom: 0;">90% of startups also overestimate how quickly they can reach the market, leading to delayed launches that compound the cost of the eventual build. A simple MVP can reasonably be built in 2 to 6 weeks using modern agile methods, and even complex products in 6 to 10 weeks, timelines that are frequently underestimated by teams who add features because doing so feels productive, rather than because a specific user need demands them.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>API-first AI MVP</h4>
+      <p>$35k-$70k</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Custom AI MVP</h4>
+      <p>$140k-$300k+</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Startups failing from no market need</h4>
+      <p>42%</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What actually belongs in an AI MVP, and what does not</h2>
+  <p class="ob-section-sub">The smallest version that answers a real question about demand</p>
+
+  <p class="ob-p">An AI MVP should include only the features needed to test whether real users find the core AI functionality genuinely useful for a specific task, not every feature eventually planned for the full product. If the goal is to test whether users will pay for AI-assisted document summarisation, the MVP needs summarisation and a way to collect payment or genuine intent to pay, not a full account system, admin dashboard and integrations with five other platforms.</p>
+  <p class="ob-p" style="margin-bottom: 0;">This discipline matters more for AI features specifically because the testing and guardrail work, 20 to 30% of a typical AI MVP budget, scales with every additional AI-powered feature added. Each new AI capability needs its own evaluation and safety checking before it can be trusted with real user data, which is exactly the work most likely to get compressed or skipped when a team keeps adding scope.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A realistic path for a small business building its first AI MVP</h2>
+  <p class="ob-section-sub">Start API-first, validate demand, expand only with evidence</p>
+
+  <p class="ob-p">For most small businesses, the API-first approach at $35,000 to $70,000 is the sensible starting point, since it delivers genuine AI functionality without the data infrastructure investment a custom build requires, and gets a real product in front of users within a timeline closer to 6 to 10 weeks than 3 to 6 months.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Treat the first version as a genuine test of demand, not a finished product, and resist adding features beyond what is needed to answer that question. If real users engage with and pay for the core functionality, that evidence, not a longer feature list, is what justifies expanding toward the more expensive custom-built version later.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does an AI-powered MVP actually cost?</p>
+    <p class="ob-faq-a">A fully custom build typically costs $140,000 to $300,000 or more. A well-architected API-first version, using existing AI models rather than custom infrastructure, typically costs $35,000 to $70,000.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do most MVPs fail regardless of budget?</p>
+    <p class="ob-faq-a">42% of startups fail because there was no genuine market need for what they built, a validation problem rather than a technical or budget one. This affects expensive custom builds and cheap API-first MVPs equally.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long should building an AI MVP actually take?</p>
+    <p class="ob-faq-a">A simple MVP can be built in 2 to 6 weeks using modern agile methods, and even complex products in 6 to 10 weeks. 90% of startups overestimate how quickly they will actually reach market.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the difference between an MVP and a proof of concept?</p>
+    <p class="ob-faq-a">An MVP is a first production-ready version for real users. A proof of concept exists purely to test technical feasibility before any budget is committed to building something users will actually use.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business cannot realistically absorb a $140,000 to $300,000 custom AI build, but the API-first approach at $35,000 to $70,000 makes a genuine AI MVP achievable within a small business budget, provided the scope stays disciplined to testing one specific user need. Given that 42% of startups fail from building something nobody needed regardless of budget, keeping the first version small and focused matters more than which architecture approach is chosen.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write down the single, specific task your planned AI feature needs to prove real users will pay for or genuinely rely on, and check that your current MVP scope contains nothing beyond what is needed to test that one thing. Anything extra is scope that increases cost and timeline without answering the actual question that matters.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want a second opinion on your AI MVP scope before you build it?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Before you build anything, <a class="ob-link" href="#/articles/ai-tool-selection-pilot-tactics-smb">the tactics of picking and testing one AI tool</a> can save you from building a feature nobody wanted, and <a class="ob-link" href="#/articles/ai-development-cost-uk">the real cost of AI for your business</a> covers the wider pricing picture.</p>
+
+<p class="ob-sources">Sources: <a href="https://iphtechnologies.com/ai-mvp-development-cost-2026/" target="_blank" rel="noopener noreferrer">iPH Technologies, AI MVP Development Cost in 2026: Complete Pricing Guide</a>; <a href="https://sainam.tech/blog/ai-mvp-development-2026/" target="_blank" rel="noopener noreferrer">Sainam Tech, AI MVP Development 2026: Cost, Timeline & Best Practices</a>; <a href="https://seoscaleup.com/blog/startup-failure-statistics-2026/" target="_blank" rel="noopener noreferrer">SEOScaleUp, Startup Failure Statistics 2026: 80+ Data Points on Why Startups Fail</a>; <a href="https://enqcode.com/blog/why-most-startups-fail-at-mvp-development-and-how-to-do-it-right" target="_blank" rel="noopener noreferrer">EnqCode, MVP Development 2026: Why Startups Fail & How to Succeed</a>.</p>
