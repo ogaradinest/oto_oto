@@ -1,0 +1,173 @@
+<!--
+title: The free tool that finally proves your marketing ROI
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-11-02
+image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
+excerpt: Only 41% of marketers can demonstrate ROI on their AI spend. Multi-touch attribution and a newly free measurement tool are closing that gap, even for a small in-house team.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Only 41% of marketers can demonstrate ROI on their AI investments in 2026, down from 49% the year before, and 62% of CMOs say proving marketing ROI to finance is their single biggest challenge. The good news for a small business is that the tools to fix this have become dramatically more accessible: Google's Meridian marketing mix modelling framework became freely available in January 2025, turning what was previously a six-figure consulting engagement into a project a small in-house team can actually run. This article covers what changed in marketing measurement and how a small business can use it.</p>
+
+<div class="ob-callout">
+  <p>This is about proving whether your marketing spend is actually working, attribution and measurement. It is not about generating marketing content itself, a separate use case with its own quality and volume considerations covered elsewhere.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">41%</div>
+    <div class="ob-stat-label">of marketers can currently demonstrate ROI on their AI marketing investments, down from 49%</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">62%</div>
+    <div class="ob-stat-label">of CMOs say proving marketing ROI to finance is their single biggest challenge</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">up to 40%</div>
+    <div class="ob-stat-label">ROI improvement reported by companies switching from single-touch to multi-touch attribution</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why proving marketing ROI has actually gotten harder</h2>
+  <p class="ob-section-sub">More AI spend, less confidence in what it delivers</p>
+
+  <p class="ob-p">Only 41% of marketers can currently demonstrate ROI on their AI marketing investments, a figure that has fallen from 49% the year before even as AI marketing spend has grown. 40% of marketers more broadly say they find it difficult to prove the ROI of their marketing activities at all, and 62% of CMOs name proving marketing ROI to finance as their single biggest challenge, according to NIQ's 2026 CMO Outlook.</p>
+  <p class="ob-p">The root cause, according to MarTech.org's 2025 survey, is not a shortage of measurement models or sophistication. 65.7% of respondents named data integration, getting the numbers from different platforms to talk to each other cleanly, as their top martech management challenge, ahead of budget, skills, or tooling gaps.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why last-touch attribution keeps winning despite being wrong</h2>
+  <p class="ob-section-sub">Familiar and simple beats accurate, until it does not</p>
+
+  <p class="ob-p">Last-touch attribution, crediting the final click before a sale to the entire purchase, still dominates at 67% adoption despite being widely acknowledged as ineffective, largely because it is the simplest model to set up and explain. Multi-touch attribution, which spreads credit across every interaction a customer had before buying, has grown from 31% adoption in 2023 to 47% in 2026, and companies making that switch report 15 to 30% lower customer acquisition costs and up to 40% ROI improvement.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Some businesses making the switch discover that as much as 60% of their previous spend was misallocated, credited to the wrong channel or campaign rather than genuinely wasted, which meant budget decisions were being made on a fundamentally inaccurate picture of what was actually working.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Can prove AI marketing ROI</h4>
+      <p>41%</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Multi-touch attribution adoption</h4>
+      <p>47%</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>ROI gain from switching to MTA</h4>
+      <p>up to 40%</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The tool that changes the maths for a small marketing team</h2>
+  <p class="ob-section-sub">Marketing mix modelling used to be a six-figure engagement</p>
+
+  <p class="ob-p">Marketing mix modelling, a statistical approach that measures the revenue impact of spend across channels including offline ones like TV, used to require a specialist consulting engagement costing well into six figures, putting it firmly out of reach for a small business. Google made its Meridian marketing mix modelling framework freely available to all marketers in January 2025, turning this into a project a small in-house team can run directly rather than an enterprise-only capability.</p>
+  <p class="ob-p" style="margin-bottom: 0;">The two approaches, multi-touch attribution and marketing mix modelling, answer different questions and are increasingly used together rather than as alternatives: multi-touch attribution tells you whether a specific digital campaign is pulling its weight day to day, while marketing mix modelling tells you whether a broader shift in spend actually moved overall revenue.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A realistic starting point for a small marketing team</h2>
+  <p class="ob-section-sub">Fix data integration before adding a new model</p>
+
+  <p class="ob-p">Given that data integration, not model sophistication, is the top-cited barrier, the highest-value first step is making sure your existing marketing platforms, ad accounts, CRM and sales data are actually feeding into one place cleanly, before introducing multi-touch attribution or marketing mix modelling on top of an unreliable data foundation.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Once that foundation is in place, start with multi-touch attribution for a clearer read on your digital campaigns, since it requires less specialist setup than marketing mix modelling, and consider Google's free Meridian framework specifically once you have enough historical spend and revenue data, at least several months across multiple channels, for the model to produce a meaningful result.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why is it so hard for marketers to prove AI marketing ROI?</p>
+    <p class="ob-faq-a">Only 41% currently can, down from 49% the year before. The most commonly cited barrier is data integration, getting numbers from different platforms to align cleanly, ahead of budget, skills or tooling gaps.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why does last-touch attribution remain so common if it is inaccurate?</p>
+    <p class="ob-faq-a">It is the simplest model to set up and explain, and still holds 67% adoption despite acknowledged inaccuracy. Multi-touch attribution is growing, up from 31% adoption in 2023 to 47% in 2026, as more teams prioritise accuracy over simplicity.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What changed to make marketing mix modelling accessible to small businesses?</p>
+    <p class="ob-faq-a">Google made its Meridian marketing mix modelling framework freely available to all marketers in January 2025, turning a previously six-figure consulting engagement into a project a small in-house team can run directly.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should a small marketing team fix first before adding a new attribution model?</p>
+    <p class="ob-faq-a">Data integration. 65.7% of martech professionals cite this as their top challenge, meaning a new measurement model built on disconnected or inconsistent data will not solve the underlying ROI-proof problem.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small marketing team facing the same 41% ROI-proof gap as larger organisations previously had no realistic path to marketing mix modelling, a six-figure engagement out of reach for most small businesses. Google's free Meridian framework and the growing accessibility of multi-touch attribution tools mean a small team can now build a genuinely more accurate picture of what marketing spend is actually working, provided the underlying data from different platforms is cleanly connected first.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, check whether your ad platforms, website analytics and CRM data actually connect to one consistent source of truth, or whether each system currently tells a slightly different story about the same customer journey. That data integration gap, more than any specific attribution model, is the first thing worth fixing before investing further in marketing measurement.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out whether your marketing spend is actually paying off?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more on where AI fits in the marketing mix itself, <a class="ob-link" href="#/articles/ai-marketing-content-use-cases-smb">how small businesses are actually using AI for marketing content</a> is a useful companion read, alongside <a class="ob-link" href="#/articles/ai-performance-roi-small-businesses">AI performance and ROI for small businesses</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.omnibound.ai/blog/marketing-attribution-statistics" target="_blank" rel="noopener noreferrer">Omnibound, Marketing Attribution Statistics (2026): 54+ Data Points on Measurement Gaps, Model Adoption, and ROI Impact</a>; <a href="https://gigawattgroup.com/insights/how-cmos-prove-roi-on-ai-marketing-investments-in-2026/" target="_blank" rel="noopener noreferrer">Gigawatt Group, How CMOs Prove ROI on AI Marketing Investments in 2026</a>; <a href="https://www.cometly.com/post/marketing-mix-modeling-multi-touch-attribution-2026" target="_blank" rel="noopener noreferrer">Cometly, Marketing Mix Modeling Multi Touch Attribution Guide</a>; <a href="https://www.tapclicks.com/blog/marketing-attribution-in-2026-why-multi-touch-and-marketing-mix-modeling-have-to-work-together" target="_blank" rel="noopener noreferrer">TapClicks, Marketing Attribution in 2026: Why Multi-Touch and Marketing Mix Modeling Have to Work Together</a>.</p>
