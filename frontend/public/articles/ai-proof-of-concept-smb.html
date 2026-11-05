@@ -1,0 +1,154 @@
+<!--
+title: Kill bad AI ideas fast: the one-day proof of concept test
+tags: AI Implementation, AI Strategy
+date: 2026-11-05
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Modern AI tooling has compressed proof of concept time from weeks to hours. Here's how a small business can use that shift to kill bad ideas cheaply before any real budget is committed.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">A proof of concept used to take a team one to two weeks to build. In 2026, a competent engineer can put together a working proof of concept in a single day, sometimes a single afternoon, thanks to modern AI development tooling. This matters because a proof of concept exists purely to test whether an idea is technically feasible before any real budget is committed, distinct from an MVP, which tests whether real users actually want the thing once it works. This article covers how a small business can use this compressed timeline to validate ideas cheaply.</p>
+
+<div class="ob-callout">
+  <p>A proof of concept answers one question: does this actually work technically. It does not test whether real users want it, which is what an MVP is for, and it should never be presented to customers as a finished product.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">1 day</div>
+    <div class="ob-stat-label">time a competent engineer can now build a basic AI proof of concept, down from 1-2 weeks</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">3.2x</div>
+    <div class="ob-stat-label">more likely to reach production when a structured proof of concept methodology is used</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">~30%</div>
+    <div class="ob-stat-label">of generative AI projects are abandoned after proof of concept, often due to unclear business value</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why proof of concept timelines have compressed so dramatically</h2>
+  <p class="ob-section-sub">From a week of senior engineering time to an afternoon</p>
+  <p class="ob-p">Two years ago, building a serious AI proof of concept took a team one to two weeks. Today, a competent engineer using modern AI development tools can stand up a working proof of concept in a single day, sometimes a single afternoon. This compression is specific to proof of concept work: it tests a narrow technical question, does this specific AI approach actually work for this specific task, which modern tooling now answers much faster than before.</p>
+  <p class="ob-p" style="margin-bottom: 0;">This speed gain does not carry over to the next stage. AI tooling has compressed proof of concept cost dramatically, but it has not compressed MVP validation in the same way, because validating real user demand still depends on actual users, real infrastructure and enough time for a genuine pattern to emerge, none of which respond to faster code generation.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What a structured approach actually changes</h2>
+  <p class="ob-section-sub">The difference between a real test and an expensive guess</p>
+  <p class="ob-p">Organisations using a structured proof of concept methodology are 3.2 times more likely to reach production deployment, and using a proven framework reduces proof of concept failure by 64% compared with an ad-hoc approach. The single biggest factor is whether a specific, quantified success metric was defined before the work started: projects with a defined metric achieve a 54% success rate, while projects without one manage just 12%.</p>
+  <p class="ob-p">This means the discipline of writing down, in advance, exactly what result would count as this idea works matters more than the sophistication of the proof of concept itself. A fast, cheap proof of concept built without a defined success measure is barely more useful than not testing the idea at all.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Proof of concept build time: ~1 day</span>
+    <span class="ob-badge">Success rate with defined metric: 54%</span>
+    <span class="ob-badge">Success rate without one: 12%</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why so many proof of concept projects still get abandoned</h2>
+  <p class="ob-section-sub">The problem is rarely the technology at this stage</p>
+  <p class="ob-p">Roughly 30% of generative AI projects are abandoned after the proof of concept stage, most commonly due to escalating costs, unclear business value, poor data quality, or a lack of financial oversight over the project. None of these reasons are really about whether the AI worked technically, the actual question a proof of concept is meant to answer, which suggests many of these projects should have defined their success metric and cost ceiling before starting rather than discovering the problem partway through.</p>
+  <p class="ob-p" style="margin-bottom: 0;">A failed proof of concept, tested cheaply and quickly, is not wasted money. It is a small, controlled discovery that a specific approach does not work, and it is far cheaper than discovering the same thing after committing to a full MVP build costing tens of thousands of pounds more.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A realistic sequence for a small business testing an AI idea</h2>
+  <p class="ob-section-sub">Kill the idea cheaply before funding it properly</p>
+  <p class="ob-p">Given that a proof of concept can now be built in a day or two at a fraction of MVP cost, the sensible sequence for a small business is to run a fast, narrow proof of concept first, with a specific written success metric and a fixed budget ceiling agreed before starting, and only commit to a full MVP build once that proof of concept has actually cleared the bar.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Treat a proof of concept that fails to clear its own success metric as useful information rather than a setback. It has done its job: preventing a much larger MVP investment on an idea that was never going to work in the first place.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How long does an AI proof of concept take to build in 2026?</p>
+    <p class="ob-faq-a">A competent engineer can often build a basic proof of concept in a single day, down from one to two weeks previously, thanks to modern AI development tooling.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the difference between a proof of concept and an MVP?</p>
+    <p class="ob-faq-a">A proof of concept tests whether an AI approach is technically feasible. An MVP tests whether real users actually want and will use the resulting product. They answer different questions and should not be confused.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the single biggest factor in whether a proof of concept succeeds?</p>
+    <p class="ob-faq-a">Defining a specific, quantified success metric before starting. Projects with one achieve a 54% success rate, compared with just 12% for projects without a defined metric.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do so many AI projects get abandoned after the proof of concept stage?</p>
+    <p class="ob-faq-a">Around 30% are abandoned, most commonly due to escalating costs, unclear business value, or poor data quality, reasons that usually trace back to not defining success criteria and a budget ceiling before starting.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business can now test whether an AI idea is technically workable in a day or two rather than weeks, at a small fraction of what an MVP would cost, making it realistic to kill a bad idea cheaply before committing serious budget. The discipline that actually matters is writing down a specific success metric and cost ceiling before starting, since that single step roughly quadruples the chance of the exercise producing a genuinely useful answer.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, before committing budget to any AI idea your business is considering, write down the one specific, measurable result that would prove the idea works technically, and the maximum you are willing to spend finding out. If you cannot state both clearly, that is the gap to close before running any proof of concept.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help running a fast, cheap proof of concept on your next AI idea?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">Once your proof of concept clears its own bar, the next step is <a class="ob-link" href="#/articles/ai-mvp-development-smb">building the first production-ready version</a>, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a> is a useful next stop before you start.</p>
+
+<p class="ob-sources">Sources: <a href="https://agentic-ai-solutions.com/blog/ai-proof-of-concept-guide-2026/" target="_blank" rel="noopener noreferrer">Agentic AI Solutions, What Does an AI Proof of Concept Look Like? A Complete 2026 Guide</a>; <a href="https://www.hso.com/blog/ai-proof-of-concept/" target="_blank" rel="noopener noreferrer">HSO, AI Proof of Concept (PoC): Guide for Businesses</a>; <a href="https://themobilereality.com/blog/business/poc-vs-mvp/" target="_blank" rel="noopener noreferrer">The Mobile Reality, PoC vs MVP 2026: Cut Prototype Time 90%, Validation Still 3+ Months</a>; <a href="https://riseuplabs.com/ai-poc-guide/" target="_blank" rel="noopener noreferrer">Riseup Labs, AI PoC Guide: A Step-By-Step Framework To Plan, Build, And Scale</a>.</p>
