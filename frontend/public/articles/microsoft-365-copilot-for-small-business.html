@@ -1,0 +1,158 @@
+<!--
+title: The AI you're already paying for is hiding inside Word and Outlook
+tags: AI Technology, AI Implementation
+date: 2026-11-06
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: In Microsoft's own tests, early Copilot users finished everyday writing and research tasks 29% faster, without opening a single new app.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">If you're building a company from scratch, you're already drowning in software, accounting, email, scheduling, a CRM you haven't filled in yet. Before adding one more AI subscription to the pile, check what's already inside the tools you were using anyway: Word, Excel, Outlook, Teams. Microsoft's own assistant, Copilot, lives inside all of them.</p>
+
+<div class="ob-callout">
+  <p>Microsoft's own study found early Copilot users finished common writing and research tasks 29% faster, no new software, just AI inside apps they already had open.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">29%</div>
+    <div class="ob-stat-label">faster at everyday tasks like drafting, summarising and searching, in Microsoft's own controlled study of early Copilot users</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">73%</div>
+    <div class="ob-stat-label">of early Copilot users said they completed tasks faster once they started using it</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$21</div>
+    <div class="ob-stat-label">starting price per user, per month (paid yearly) for the Microsoft 365 Copilot add-on</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">It's not a new app, it's already where you're working</h2>
+  <p class="ob-section-sub">Copilot sits inside Word, Excel, Outlook and Teams rather than living in its own tab</p>
+
+  <p class="ob-p">Most AI tools make you open a separate website, copy your work in, wait, then copy it back out. Copilot skips that: it's built into Microsoft 365. Ask it to draft a client email in Outlook, summarise a thread in Teams, or build a formula in Excel, and it works inside the document itself, one less tool to log into.</p>
+  <p class="ob-p">Take a one-person consultancy pulling together a client proposal in Word. Instead of writing the first draft from a blank page, they describe the brief to Copilot, get a structured first pass in under a minute, then spend their time tightening the argument, turning a 90-minute task into closer to 30.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What Microsoft's own numbers actually show</h2>
+  <p class="ob-section-sub">The headline stats come from Microsoft's research into its earliest users, not a marketing claim</p>
+
+  <p class="ob-p">Microsoft's Work Trend Index tested Copilot on the same writing, searching and summarising tasks, with and without it switched on. Users were 29% faster across the board, and nearly four times quicker on one search-heavy task. Self-reported numbers agree: 73% said they completed tasks faster, 70% felt more productive overall. Not every task gets easier, but for the repetitive admin that eats a founder's week, it's worth testing on your own work.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What it costs, and where it fits</h2>
+  <p class="ob-section-sub">The Copilot add-on starts from $21 a user a month on an annual plan, on top of your existing Microsoft 365 subscription</p>
+
+  <p class="ob-p" style="margin-bottom: 0;">Copilot isn't free, it's an add-on to Microsoft 365 Business plans, from $21 per user, per month, paid yearly ($25.20 monthly), or bundled into Business Premium. For a founder already paying for Microsoft 365, that's a smaller jump than a brand-new subscription. Watching every pound? Try the limited free Copilot Chat built into most Business plans first.</p>
+
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">Copilot at a glance</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Add-on price, paid yearly</span><span class="ob-compare-num">$21/user/mo</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Add-on price, paid monthly</span><span class="ob-compare-num">$25.20/user/mo</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Free tier available</span><span class="ob-compare-num">Copilot Chat</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need to already use Microsoft 365 for Copilot to work?</p>
+    <p class="ob-faq-a">Yes, the paid add-on sits on top of an existing Microsoft 365 Business subscription. Not using Word, Excel or Outlook already? A standalone AI assistant will suit you better.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does Microsoft use my business data to train its AI?</p>
+    <p class="ob-faq-a">Microsoft says Copilot doesn't use your organisation's prompts or data to train its models for other customers. Still, check your plan's data terms before putting anything sensitive through it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How is this different from just using ChatGPT?</p>
+    <p class="ob-faq-a">ChatGPT is a separate app you copy text into and out of. Copilot works inside the document you're already editing, saving the copy-paste step and keeping formatting intact.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it worth it for a one-person startup?</p>
+    <p class="ob-faq-a">Trial the free Copilot Chat first. Add the paid tier once you can point to specific weekly tasks, proposals, reports, inbox triage, where the time saved covers the cost.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>For a small business, the real cost of admin isn't the software bill, it's the founder's own time, the scarcest resource in the building. A tool that lives inside apps you already pay for has a lower bar to actually get used day to day than something brand new. That matters more for a two-person company than a 200-person one, because there's no one else to hand the admin to.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, open whichever Microsoft 365 app you use most and check if Copilot Chat is already on your plan, many Business Basic and Standard plans include a limited free version. Try it on one real task, like drafting a client email, before deciding if the paid add-on earns its $21 a month.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out which AI tools are actually worth paying for?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you want a single workspace rather than AI bolted onto separate apps, <a class="ob-link" href="#/articles/notion-ai-for-startup-founders">another AI tool that runs your whole workspace from one place</a> is worth a look too.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/copilots-earliest-users-teach-us-about-generative-ai-at-work" target="_blank" rel="noopener noreferrer">Microsoft WorkLab, Work Trend Index Special Report: What Can Copilot's Earliest Users Teach Us About Generative AI at Work?</a>; <a href="https://www.microsoft.com/en-us/copilot/pricing/business" target="_blank" rel="noopener noreferrer">Microsoft 365 Copilot pricing (official)</a>.</p>
