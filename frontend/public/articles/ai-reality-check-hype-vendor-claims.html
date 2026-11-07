@@ -1,0 +1,181 @@
+<!--
+title: Why that eye-popping AI vendor stat probably isn't your result
+tags: AI Strategy, AI Implementation
+date: 2026-11-07
+image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
+excerpt: Companies expect 171% ROI from agentic AI, but only 39% can show any actual profit impact. The FTC has filed 13 AI-washing cases since 2024. Here's how to read a vendor claim sceptically.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Companies expect an average 171% return on investment from agentic AI, but only 39% can currently point to any actual profit impact, and MIT research found 95% of AI pilots deliver zero measurable financial impact. Generative AI itself sits in what Gartner calls the trough of disillusionment on its 2026 hype cycle, having passed peak inflated expectations in 2024. The FTC has filed 13 AI-washing enforcement cases since 2024 against companies making exaggerated AI capability claims. This article covers how to read a vendor's AI claims sceptically, and what actually separates marketing from a working product.</p>
+
+<div class="ob-callout">
+  <p>This is about evaluating vendor and marketing claims about AI capability against real-world outcomes. It is not about your own business's internal readiness, which is a separate set of gaps covered elsewhere.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">171% vs 39%</div>
+    <div class="ob-stat-label">expected ROI from agentic AI, versus the share of companies that can currently show any actual profit impact</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">38.8 pts</div>
+    <div class="ob-stat-label">gap between one vendor's headline deflection rate claim and the real enterprise median</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">13</div>
+    <div class="ob-stat-label">AI-washing enforcement cases filed by the FTC against companies since 2024</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the gap between expectation and result is so large</h2>
+  <p class="ob-section-sub">The trough of disillusionment, in real numbers</p>
+
+  <p class="ob-p">Companies expect an average 171% return on investment from agentic AI, but only 39% can currently point to any actual profit impact from it. 60% of AI initiatives generate no material value despite continued investment, and only 5% create substantial value at scale. MIT research found that 95% of AI pilots deliver zero measurable impact on profit and loss. Generative AI itself has moved into what Gartner's 2026 Hype Cycle calls the trough of disillusionment, having passed the peak of inflated expectations back in 2024.</p>
+  <p class="ob-p">Agentic AI, AI systems that take multi-step actions rather than just answering a question, currently sits at the peak of its own hype cycle, and Gartner projects more than 40% of agentic AI projects will be cancelled by 2027 due to unclear ROI, escalating costs and inadequate controls, suggesting this specific category is heading toward the same disillusionment curve generative AI has already been through.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A concrete example of how vendor claims diverge from reality</h2>
+  <p class="ob-section-sub">Cherry-picked case studies versus cross-program averages</p>
+
+  <p class="ob-p">One customer service AI vendor advertises an 80% ticket deflection rate. Independent data on Zendesk's enterprise customer base puts the real median deflection rate at 41.2%, a gap of 38.8 percentage points between the headline marketing figure and what a typical enterprise customer actually experiences. This is not necessarily a fabricated number, it likely reflects a genuine best-case customer, but presenting it as a representative expectation rather than a ceiling is where the claim becomes misleading.</p>
+  <p class="ob-p">This pattern, a genuine but exceptional result presented as a typical outcome, is common enough across the AI vendor landscape that any headline performance figure should be treated as the best case a vendor has seen, not the number your business should expect on day one.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>39%</h4>
+      <p>of companies show real AI profit impact</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>95%</h4>
+      <p>of AI pilots have zero P&amp;L impact</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>13</h4>
+      <p>FTC AI-washing cases filed since 2024</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The claims regulators are now actively pursuing</h2>
+  <p class="ob-section-sub">AI washing has moved from a concern to an enforcement priority</p>
+
+  <p class="ob-p">The FTC has filed 13 AI-washing enforcement cases against companies since 2024, targeting three specific patterns: claiming a product is AI-powered when it actually relies on simple rules or human work behind the scenes, exaggerating how advanced or proprietary the underlying AI actually is, and implying AI drives a specific result it does not actually produce. Regulators are applying existing fraud and deception law to these claims rather than waiting for new AI-specific statutes.</p>
+  <p class="ob-p">For a business evaluating a vendor, this regulatory activity is a useful signal in itself: a vendor facing scrutiny for exactly the kind of claim being made to you is a stronger warning sign than any due diligence question you could ask directly, and checking whether a vendor or its specific claims have faced regulatory attention is now a reasonable part of evaluating an AI purchase.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">How to evaluate a vendor claim without the marketing gloss</h2>
+  <p class="ob-section-sub">Ask for the median, not the headline</p>
+
+  <p class="ob-p">Ask any vendor quoting an impressive headline figure for the median result across their full customer base, not their best case, and ask specifically how that median was measured and over what period. A vendor unwilling or unable to provide this is telling you something important about how representative their headline number actually is.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Treat any vendor's number as a ceiling to test against in your own pilot, not a guarantee, and measure your own result against your own defined metric over a fixed test window rather than assuming your business will match the marketing figure. The gap between 80% and 41% in customer service deflection shows exactly how large that difference can be.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do so few companies see the AI ROI they expect?</p>
+    <p class="ob-faq-a">Companies expect an average 171% ROI from agentic AI, but only 39% currently show any actual profit impact, and MIT found 95% of AI pilots deliver zero measurable financial impact, largely because headline vendor figures reflect best cases rather than typical results.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How big is the gap between vendor marketing claims and real results?</p>
+    <p class="ob-faq-a">It varies, but one documented example shows an 80% headline deflection rate claim against a real enterprise median of 41.2%, a gap of 38.8 percentage points, illustrating how a genuine best-case result can be presented as a typical outcome.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Are regulators actually taking action against exaggerated AI claims?</p>
+    <p class="ob-faq-a">Yes. The FTC has filed 13 AI-washing enforcement cases against companies since 2024, targeting false claims about a product being AI-powered, exaggerating how advanced the AI is, or implying it produces results it does not.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the single best question to ask a vendor quoting an impressive AI statistic?</p>
+    <p class="ob-faq-a">Ask for the median result across their full customer base, not their best case, and how it was measured. A vendor who cannot answer this clearly is likely quoting an exceptional result as if it were typical.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business has less time and budget to recover from a disappointing AI purchase than a large enterprise absorbing the same 95% pilot failure rate MIT identified. Asking a vendor for their median result rather than their headline figure, and checking whether regulators have scrutinised similar claims from that vendor or category, costs nothing and directly targets the specific gap between marketing and reality that trips up most AI purchases.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, take the single most impressive statistic from any AI vendor you are currently considering, and email them asking directly for the median result across their full customer base rather than their best case, plus how that median was measured. Their answer, or lack of one, tells you a great deal about what to actually expect.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help telling a real AI result from a marketing one?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you want to check your own readiness before you buy anything, <a class="ob-link" href="#/articles/ai-reality-check-skills-ethics-infrastructure">the three internal readiness gaps that decide whether AI adoption works</a> is a good starting point, alongside <a class="ob-link" href="#/articles/ai-tool-selection-pilot-tactics-smb">the tactics of picking and testing one AI tool</a>, <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://talyx.ai/insights/enterprise-ai-implementation-failure" target="_blank" rel="noopener noreferrer">Talyx, Why 90% of Enterprise AI Implementations Fail (2026)</a>; <a href="https://www.terminal-x.ai/research/ai-roi-in-2026-why-most-enterprise-ai-fails-and-what-actually-works" target="_blank" rel="noopener noreferrer">Terminal X, AI ROI in 2026: Why Enterprise AI Fails &amp; Works</a>; <a href="https://www.gartner.com/en/articles/hype-cycle-for-agentic-ai" target="_blank" rel="noopener noreferrer">Gartner, 2026 Hype Cycle for Agentic AI</a>; <a href="https://www.dlapiper.com/en-us/insights/publications/2026/05/ftc-ai-washing-action-underscores-enforcement-in-business-to-business-context" target="_blank" rel="noopener noreferrer">DLA Piper, FTC AI-washing action underscores enforcement in business-to-business context</a>.</p>
