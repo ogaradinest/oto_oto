@@ -1,0 +1,154 @@
+<!--
+title: Closing the AI skills gap: the funded training SMBs can claim
+tags: AI Strategy, AI Implementation
+date: 2026-11-05
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: Skills, governance and data infrastructure are the three gaps that actually decide whether AI adoption works. Free UK funding now covers a meaningful share of closing at least one of them.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.2); color: #FF6B2C; border-radius: 20px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">97% of organisations report an AI skills gap, and two in three UK employees have had no formal AI training at all, even though 82% of enterprise leaders say their organisation offers some form of AI training. Only 31% of UK SMEs have adopted AI meaningfully. This gap between stated effort and actual readiness shows up in three specific places: workforce skills, governance and ethics, and data infrastructure. This article covers what each gap actually looks like for a small business, and where UK government funding now covers a meaningful part of closing it.</p>
+
+<div class="ob-callout">
+  <p>This is a check against three specific internal readiness gaps: skills, governance, and data infrastructure. It is not a debunking of inflated AI marketing claims, which is a separate and equally important reality check covered elsewhere.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">97%</div>
+    <div class="ob-stat-label">of organisations report an AI skills gap of some kind</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">2 in 3</div>
+    <div class="ob-stat-label">UK employees have had no formal AI training</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£6.4m</div>
+    <div class="ob-stat-label">UK government fund covering up to 50% of AI training costs for eligible SMEs</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The skills gap: training exists, but not where it is needed</h2>
+  <p class="ob-section-sub">A paradox between stated effort and actual readiness</p>
+  <p class="ob-p">97% of organisations report an AI skills gap, and over 90% of global enterprises are projected to face critical skills shortages by 2026, a gap risking an estimated $5.5 trillion in lost economic value globally. Yet 82% of enterprise leaders say their organisation provides some form of AI training. The disconnect is in how that training is delivered: only 35% of leaders report a mature, organisation-wide upskilling programme, with most training fragmented, optional and disconnected from the actual tasks staff need to do.</p>
+  <p class="ob-p" style="margin-bottom: 0;">For UK small businesses specifically, two in three employees have had no formal AI training at all, and only 31% of UK SMEs have adopted AI meaningfully. The UK government's AI Skills for Business programme, launched January 2026, now offers free benchmarked AI courses to all UK adults, and a separate £6.4 million Flexible AI Upskilling Fund covers up to 50% of training costs for eligible businesses, a genuine, funded route to closing this specific gap.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The governance gap: policies exist, accountability often does not</h2>
+  <p class="ob-section-sub">Fewer businesses with no policy, but gaps remain in what those policies cover</p>
+  <p class="ob-p">The share of businesses with no responsible AI policy in place fell sharply from 24% to 11%, a real improvement, and dedicated AI governance roles grew 17% in 2025. But having a policy document is not the same as having working accountability: many businesses still lack a specific process for monitoring how an AI tool behaves in practice, reviewing decisions it makes, or assigning responsibility when it produces a harmful or wrong outcome.</p>
+  <p class="ob-p">For a small business, this gap is usually not about writing the wrong policy, it is about not writing one specific enough to answer a real question when something goes wrong: who is told, who decides what happens next, and how the mistake gets corrected. A policy that only states general principles without these specifics provides little help in the moment it is actually needed.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Organisations reporting an AI skills gap: 97%</span>
+    <span class="ob-badge">Businesses with no responsible AI policy: 11%</span>
+    <span class="ob-badge">UK SMEs adopting AI meaningfully: 31%</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The infrastructure gap: dark data undermines everything built on top of it</h2>
+  <p class="ob-section-sub">AI is only as good as the data it can actually see</p>
+  <p class="ob-p">Lack of talent is cited as a barrier by 46% of organisations, data privacy concerns by 43%, and poor data quality by 40%, a cluster of related problems that often trace back to the same root cause for small businesses: dark data, information that exists somewhere in the organisation but is hidden, unstructured, or simply not connected to anything an AI tool can use.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Fragmented, unclassified data does not just limit what an AI tool can do, it actively creates the specific failure modes small businesses fear most: confident but wrong answers and security exposure from data nobody realised was accessible. Fixing this rarely means buying new infrastructure outright. It usually starts with the more basic work of cataloguing what data actually exists and where.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A realistic order for closing these three gaps</h2>
+  <p class="ob-section-sub">Skills first, since funding now covers part of the cost</p>
+  <p class="ob-p">For a small business, skills is the most immediately actionable gap given the current funding available: the free AI Skills for Business courses and the £6.4 million upskilling fund covering up to half of training costs make this the lowest-cost gap to start closing right now, with AI apprenticeships fully funded for under-25s from August 2026.</p>
+  <p class="ob-p" style="margin-bottom: 0;">Governance and infrastructure both take longer to fix properly, but neither requires an enterprise-scale solution for a small business. A specific, written escalation process for AI mistakes and a basic inventory of where your business's data actually lives are both achievable without a dedicated team, and both directly address the two gaps least likely to be closed by any external funding programme.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How widespread is the AI skills gap really?</p>
+    <p class="ob-faq-a">97% of organisations report some form of AI skills gap, and two in three UK employees have had no formal AI training, despite 82% of leaders saying their organisation provides some training.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is UK government funding available to help close the skills gap?</p>
+    <p class="ob-faq-a">Yes. The AI Skills for Business programme, launched January 2026, offers free benchmarked courses, and a £6.4 million Flexible AI Upskilling Fund covers up to 50% of training costs for eligible SMEs, alongside fully funded AI apprenticeships for under-25s from August 2026.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the governance gap, specifically?</p>
+    <p class="ob-faq-a">Many businesses have a written AI policy but lack a specific process for monitoring how a tool behaves, reviewing its decisions, or assigning responsibility when something goes wrong, even though the share with no policy at all has fallen from 24% to 11%.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is dark data and why does it matter for AI readiness?</p>
+    <p class="ob-faq-a">Data that exists somewhere in an organisation but is hidden, unstructured or disconnected from any system an AI tool can use. It is a major driver of the poor data quality and privacy concerns cited by 40% and 43% of organisations respectively as barriers to AI adoption.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business faces the same three readiness gaps as a large enterprise, skills, governance and data infrastructure, but with genuinely funded routes to closing at least the first one: free courses and grants covering up to half of training costs. Treating these three gaps as separate, specific problems, rather than one vague AI readiness issue, gives a small business a concrete starting point for each, rather than an overwhelming, undifferentiated task.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, check whether your business or any staff member is eligible for the UK's AI Skills for Business free courses or the Flexible AI Upskilling Fund, since this is the fastest, lowest-cost way to close the skills gap specifically. Then separately check whether you have a written process for what happens when an AI tool gets something wrong.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help working out which of these three gaps is costing your business the most?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If the infrastructure gap is the one holding you back, <a class="ob-link" href="#/articles/ai-data-governance-framework">the practical framework behind AI data governance</a> is a good place to start, and <a class="ob-link" href="#/articles/ai-usage-policy-staff-template">a staff-facing AI usage policy that actually gets read</a> covers the governance gap in more detail.</p>
+
+<p class="ob-sources">Sources: <a href="https://workera.ai/blog/the-5-5-trillion-skills-gap-what-idcs-new-report-reveals-about-ai-workforce-readiness" target="_blank" rel="noopener noreferrer">Workera, The $5.5 Trillion Skills Gap: What IDC's New Report Reveals About AI Workforce Readiness</a>; <a href="https://www.tc-group.com/news/business-insights/ai-adoption-in-uk-smes/" target="_blank" rel="noopener noreferrer">TC Group, AI Adoption in UK SMEs: Why 2026 Is Already Different</a>; <a href="https://smallbusinesscharter.org/help-to-grow-management/news-and-case-studies/gbp6-4-million-ai-upskilling-fund-launched-for-smes" target="_blank" rel="noopener noreferrer">Small Business Charter, £6.4 Million AI Upskilling Fund Launched for SMEs</a>; <a href="https://tessgroup.co.uk/ai-apprenticeships-for-smes" target="_blank" rel="noopener noreferrer">TESS Group, AI Apprenticeships for SMEs (UK)</a>.</p>
