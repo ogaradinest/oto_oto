@@ -1,0 +1,167 @@
+<!--
+title: The oversight gap: why AI agents still need you checking in
+tags: AI Governance, AI Implementation
+date: 2026-11-06
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: Gartner predicts over 40% of agentic AI projects will be cancelled by 2027, mostly because they were left running with nobody checking in.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">You set up an AI agent to reorder stock, chase invoices, or answer customer emails, and the dream is that it just runs. No checking in, no stepping in. That's the pitch everyone's selling. The problem is, that's not quite how it goes, and the businesses finding that out the hard way are the ones who believed it a little too literally.</p>
+
+<div class="ob-callout">
+  <p>Over 40% of agentic AI projects are on track to be scrapped by the end of 2027, Gartner predicts, and the common thread is nobody was minding the store.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">40%</div>
+    <div class="ob-stat-label">of agentic AI projects are predicted to be cancelled by 2027, Gartner says, mostly because they ran with no one checking the output</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">36%</div>
+    <div class="ob-stat-label">of active small business AI users still name accuracy as their top worry, they won't risk an unchecked mistake on taxes or legal work (Simply Business, 2026 AI Outlook)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">10%</div>
+    <div class="ob-stat-label">of small business owners would let AI handle something as high-stakes as their insurance with no human check (Simply Business, 2026 AI Outlook)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the "set it and forget it" myth sticks</h2>
+  <p class="ob-section-sub">Demos always show the happy path</p>
+
+  <p class="ob-p">Every AI demo shows the smooth version: the agent reorders stock perfectly, the chatbot never slips up. Real businesses have messier inputs, a supplier changes a code, a customer asks something oddly worded, and that's exactly where an unsupervised agent quietly goes wrong, often for days before anyone notices.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What happens when nobody's checking</h2>
+  <p class="ob-section-sub">Small mistakes compound fast</p>
+
+  <p class="ob-p">A small furniture retailer wired an AI agent into its supplier ordering system to reorder stock automatically. For six weeks it worked beautifully. Then a supplier changed a product code, the agent mis-mapped it, and reordered 40 units of a discontinued armchair instead of the fast-selling sofa running low. Nobody caught it for 12 days, about £3,400 in dead stock and a missed bestseller.</p>
+  <p class="ob-p">The fix wasn't scrapping the agent, it was a five-minute daily glance at its queued orders before they went to the supplier. That one habit would have caught the mismatch on day one, not day twelve.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The oversight that actually works</h2>
+  <p class="ob-section-sub">A five-minute check beats a surprise invoice</p>
+
+  <p class="ob-p">This isn't about ditching AI agents, just building in a checkpoint that costs minutes, not hours: review a short daily log of what the agent did, make anything touching money or customers pause for one-click approval, and start new automations on reversible tasks before trusting them with the rest.</p>
+
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Daily 5-min review</h4>
+      <p>Scan what the agent did, not a full redo of the work</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Approval click</h4>
+      <p>Before it sends or orders, one click beats a surprise invoice</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Weekly error-log check</h4>
+      <p>Catch drift before it becomes a pattern</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Start reversible</h4>
+      <p>Trust new automations with low-stakes tasks first</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How often do I need to check an AI agent?</p>
+    <p class="ob-faq-a">A five- to ten-minute daily glance is usually enough, you're scanning for anything off, not redoing the work.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">If I check its work anyway, what's the point of AI?</p>
+    <p class="ob-faq-a">It still does the bulk of the work, you're the final sign-off, not starting from scratch. Still a big time saving.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Which tasks are safe to fully automate?</p>
+    <p class="ob-faq-a">Low-stakes, reversible ones, like drafting a post. Anything touching money or a customer's bill deserves a quick look first.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the easiest way to add a check without slowing down?</p>
+    <p class="ob-faq-a">Set the agent to pause before the risky step, sending, ordering, rather than reviewing after. One click beats fixing a mistake.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business has no IT team quietly monitoring every AI agent, it's you, or whoever's wearing that hat this week. That makes the habit more important, not less: a wrong reorder doesn't get caught by a second team, you find out when the bill arrives. The fix isn't avoiding AI agents, it's building the five-minute check into how you already use them.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pick the AI tool you've let run most unsupervised, and add one checkpoint, a daily review or an approval step before it sends or orders anything.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want help building the right oversight into your AI tools?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If you're weighing how much control to hand over in the first place, <a class="ob-link" href="#/articles/does-ai-mean-losing-control-of-your-business">does AI mean losing control of your business?</a> is a good next read.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener noreferrer">Gartner, Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027</a>; <a href="https://www.simplybusiness.com/small-businesses-are-using-ai-but-theyre-not-letting-it-run-the-show-2026-outlook/" target="_blank" rel="noopener noreferrer">Simply Business, Small Businesses Are Using AI But They're Not Letting It Run the Show: 2026 Outlook</a>.</p>
