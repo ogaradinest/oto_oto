@@ -1,0 +1,159 @@
+<!--
+title: The onboarding fix that cut one warehouse's ramp-up time in half
+tags: AI Implementation
+date: 2026-11-08
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: More than a quarter of UK employers have been stood up by a new starter on day one, and one small warehouse fixed its own version of that problem with an AI onboarding assistant before peak season even began.
+author: cristian
+-->
+
+<style>
+  /* ── Base ── */
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  /* ── Opening callout ── */
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  /* ── Stats bar ── */
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  /* ── Section containers ── */
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  /* ── Badge row ── */
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #FF6B2C; font-weight: 700; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+
+  /* ── FAQ dark section ── */
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  /* ── SMB relevance box ── */
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── Suggested action box ── */
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  /* ── CTA ── */
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  /* ── Sources line ── */
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">If you've ever hired more than two people at once, you know the drill. Same tour of the building, same explanation of the scanner app, same answer to "where's the kettle", ten times over, while the actual work piles up behind you. Now do that every November when the Christmas orders land and you need extra hands fast. It's no wonder new starters sometimes just don't show.</p>
+
+<div class="ob-callout">
+  <p>More than a quarter of UK employers say a new recruit has simply failed to turn up on day one, and once someone does start, barely one in eight employees think their employer's onboarding was actually good.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">27%</div>
+    <div class="ob-stat-label">of UK employers have been "ghosted" by a new starter who didn't show up on day one (CIPD, 2024)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">12%</div>
+    <div class="ob-stat-label">of employees strongly agree their employer does a great job onboarding new starters (Gallup workplace research)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£30,614</div>
+    <div class="ob-stat-label">average cost to a UK employer of replacing a staff member once recruitment, training and lost productivity are added up (Oxford Economics for Unum)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: THE SAME INDUCTION SPEECH ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">The same induction speech, ten times over</h2>
+  <p class="ob-section-sub">Hiring in a hurry usually means training badly</p>
+
+  <p class="ob-p">Take a small pack-and-dispatch warehouse near Milton Keynes. Nine permanent staff, no HR department, and every November the owner takes on fourteen seasonal pickers to get through the Christmas rush. For years that meant two full shifts per batch of new starters, the owner walking each one through the scanner app, the safety rules, the break times, and the same twenty questions, again and again.</p>
+
+  <p class="ob-p">The real cost wasn't visible on any single day. It showed up as picking mistakes in week one, running at around 9%, and as the odd new starter who accepted the job, then simply never turned up, leaving a gap on the rota with no warning.</p>
+</div>
+
+<!-- ─── SECTION 2: WHAT CHANGED ─── -->
+<div class="ob-section">
+  <h2 class="ob-section-title">What changed once the welcome ran itself</h2>
+  <p class="ob-section-sub">An AI onboarding assistant, not a bigger induction team</p>
+
+  <p class="ob-p">The owner built a simple AI onboarding assistant: a chatbot paired with a handful of short videos, sent to every new starter the moment they accepted the job, days before their first shift. It answered the obvious questions, walked through the scanner app step by step, and laid out exactly what to expect on day one, so arriving for a shift stopped feeling like a leap into the unknown.</p>
+
+  <p class="ob-p">Six weeks into this year's seasonal hiring, ramp-up time had dropped from two full shifts of shadowing to about half a shift. Week-one picking errors fell from roughly 9% to 3%. And the pre-day-one no-shows nearly disappeared, because candidates had already had a proper welcome, and a named contact to message, before they ever walked through the door.</p>
+
+  <div class="ob-badge-row">
+    <span class="ob-badge">Ramp-up time: 2 shifts → half a shift</span>
+    <span class="ob-badge">Week-one picking errors: 9% → 3%</span>
+    <span class="ob-badge">Pre-day-one no-shows: down sharply</span>
+  </div>
+</div>
+
+<!-- ─── DARK: QUICK ANSWERS ─── -->
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do I need an HR team or a dedicated trainer to set this up?</p>
+    <p class="ob-faq-a">No. Most AI onboarding tools are built for businesses without one, and the warehouse above runs it with nine permanent staff and no HR function at all.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this worth it for just a handful of seasonal hires?</p>
+    <p class="ob-faq-a">Often more so. The smaller the batch, the more your own time is worth protecting, and repeating the same induction ten times a season adds up fast.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does an AI assistant replace someone welcoming new starters in person?</p>
+    <p class="ob-faq-a">No. It handles the repeatable stuff, like FAQs, paperwork and the "where's the kettle" questions, so whoever greets them on day one can spend that time on what actually needs a human.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the fastest way to try this before a busy season hits?</p>
+    <p class="ob-faq-a">Write down the ten questions every new starter asks you in their first shift, build a short FAQ or chatbot flow around just those, and see if ramp-up time drops before building out the rest.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business doesn't have a training department to absorb bad onboarding, it has the owner's own morning. Every hour spent repeating the same induction is an hour not spent on customers, orders or anything that actually grows the business, and with replacing a staff member running over £30,000 once everything is added up, a new starter who quietly leaves in week two is not a small loss to shrug off.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write down the ten questions every new hire has asked you in their first shift over the past year. Turn just those into a short FAQ, checklist or simple chatbot flow that goes out the moment someone accepts a job, before you build anything bigger.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want more small business AI case studies like this one?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">If hiring is the bottleneck, <a class="ob-link" href="#/articles/ai-cv-screening-cuts-sme-hiring-time">how AI CV screening cut another SME's hiring time in half</a> covers the stage before onboarding, and <a class="ob-link" href="#/articles/write-a-job-description-with-ai-before-you-hire">getting the job description right with AI before you even post it</a> covers the stage before that.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.cipd.org/uk/about/press-releases/over-quarter-of-uk-employers-been-ghosted-by-new-recruits-day-one/" target="_blank" rel="noopener noreferrer">CIPD, Over a quarter of UK employers have been 'ghosted' by new recruits on day one</a>; <a href="https://www.gallup.com/workplace/247172/problems-onboarding-program.aspx" target="_blank" rel="noopener noreferrer">Gallup, Transforming Onboarding Into a Strategic Function</a>; <a href="https://www.hrreview.co.uk/hr-news/recruitment/it-costs-over-30k-to-replace-a-staff-member/50677" target="_blank" rel="noopener noreferrer">HR Review, It costs over £30K to replace a staff member (Oxford Economics research for Unum)</a>.</p>
