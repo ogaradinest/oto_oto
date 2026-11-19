@@ -1,0 +1,183 @@
+<!--
+title: You do not need to read code to catch a weak AI partner
+tags: AI Implementation, AI Governance
+date: 2026-11-16
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: AI-washing is now a recognised legal risk in the UK, not just marketing spin. Here are four ways to check whether a development partner's claims hold up, without ever needing to judge their code.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Law firm Hogan Lovells has flagged AI-washing, businesses rebranding basic automation as AI-driven or agentic capability, as a genuine UK litigation and regulatory risk in 2026, not just an exaggeration to shrug off. Real examples include IT firms bolting an API call to a foundation model onto existing analytics tools and calling the result AI-driven insights, or payments companies licensing a third-party language model and rebadging ordinary customer support as agentic. Misleading claims about AI capability can fall under the same UK consumer law that fines businesses up to 10% of global annual turnover. Gartner separately estimates only around 130 of the thousands of vendors claiming genuine agentic AI capability actually have it. None of this helps you if you cannot judge a specific pitch sitting in front of you, and you should not need to read a line of code to catch a weak one.</p>
+
+<div class="ob-callout">
+  <p>If a development partner cannot explain, in plain English, how their approach maps onto a recognised framework such as NIST's AI Risk Management Framework, that is not proof of dishonesty. It is a reason to ask more questions before you sign anything.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">AI-washing</div>
+    <div class="ob-stat-label">a recognised UK legal and litigation risk: rebranding ordinary automation as AI-driven or agentic (Hogan Lovells, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">up to 10%</div>
+    <div class="ob-stat-label">of global annual turnover: maximum UK fine for misleading business claims, including overstated AI capability</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">~130</div>
+    <div class="ob-stat-label">genuine agentic AI vendors, out of thousands claiming the label (Gartner)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why the label alone tells you nothing</h2>
+  <p class="ob-section-sub">'AI-driven' now needs its own verification</p>
+
+  <p class="ob-p">Gartner's estimate that only around 130 vendors out of thousands claiming agentic AI capability are genuine is a useful reminder before any pitch: the word 'AI' on a proposal or a website says almost nothing about what is actually happening underneath. Hogan Lovells' description of real UK AI-washing cases, ordinary automation rebranded as AI-driven insight, standard customer support rebadged as agentic, shows this is not a hypothetical concern. It has become common enough that UK consumer law now treats seriously misleading claims about AI capability the same way it treats other misleading business claims, with fines running up to 10% of global annual turnover for the company involved.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">AI-washing: recognised UK litigation risk (Hogan Lovells)</span>
+    <span class="ob-badge">Misleading claims: fines up to 10% of global turnover</span>
+    <span class="ob-badge">Genuine agentic vendors: ~130 out of thousands (Gartner)</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Four checks that need no technical skill at all</h2>
+  <p class="ob-section-sub">Proxies that work whether or not you can read a line of code</p>
+
+  <p class="ob-p">Ask for a small, fixed-price pilot task before any full contract, something narrow enough to finish in two weeks. A genuine specialist will scope this happily, since it is exactly the kind of work they do daily. A vendor who resists, or insists the full engagement must be signed first, is worth a second look.</p>
+  <p class="ob-p">Ask them to explain their approach in plain English, then ask a second person on your team to ask the same question a different way. Communication clarity is one of the few technical-competence signals a non-technical buyer can genuinely judge: jargon that cannot survive being re-explained twice, in different words, to two different people, is a warning sign worth taking seriously.</p>
+  <p class="ob-p">Check for genuine, verifiable partnership or certification status directly on the AI provider's own website, Microsoft, Google, Anthropic, or OpenAI all publish partner directories, rather than trusting a logo displayed on the vendor's own site. And ask which recognised framework, such as NIST's AI Risk Management Framework, shapes how they test and document their systems before deployment. A specific, confident answer is a good sign. A vague one is not.</p>
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Small paid pilot</h4>
+      <p>A fixed-price, two-week task before signing anything larger</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Re-explain twice</h4>
+      <p>Plain English, to two different people on your team</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Verify externally</h4>
+      <p>Check the provider's own partner directory, not their logo</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Ask about their framework</h4>
+      <p>A specific answer beats a vague one</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Two answers that should end the conversation</h2>
+  <p class="ob-section-sub">Red flags that need no technical knowledge to spot</p>
+
+  <p class="ob-p">A partner who cannot name a single reference client you can call directly, only testimonials published on their own site, has given you an answer worth treating as a final one. So has a partner who gets defensive rather than specific when you ask them to re-explain their approach a second time. Neither of these requires any technical judgement to notice, only a willingness to ask the question and actually wait for a real answer.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How can a non-technical business owner tell if an AI vendor's claims are genuine?</p>
+    <p class="ob-faq-a">Four checks work without any technical skill: request a small paid pilot task before signing a full contract, ask them to explain their approach in plain English to two different people, verify any partnership claims directly on the AI provider's own website, and ask which recognised framework guides how they test their systems.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is AI-washing and why does it matter when hiring a development partner?</p>
+    <p class="ob-faq-a">AI-washing is rebranding ordinary automation or a basic API call to a foundation model as advanced AI-driven or agentic capability. Hogan Lovells has flagged it as a genuine UK litigation risk in 2026, and misleading claims about AI capability can fall under the same consumer law used to fine businesses for other misleading claims.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Are most vendors claiming agentic AI capability actually genuine?</p>
+    <p class="ob-faq-a">Not according to Gartner, which estimates only around 130 vendors out of thousands making the claim have genuine agentic capability. This makes independent verification, rather than trusting the label, essential before signing with any AI development partner.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is a fair small pilot task to request before a bigger AI contract?</p>
+    <p class="ob-faq-a">Something narrow enough to complete in about two weeks at a fixed price, ideally the single task that would deliver the most immediate value if it worked. A genuine specialist scopes this kind of request easily; reluctance to do so is itself useful information.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business is the least likely to have an in-house technical reviewer who can judge a development partner's claims directly, and the most exposed if it signs a large contract based on an AI-washed pitch. The four checks here work precisely because they rely on verifiable external facts, a partner directory, a reference client, a fixed-price trial, rather than on technical judgement the business owner may not have.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before signing with any AI development partner, ask for one thing: a small, fixed-price pilot task you can evaluate in two weeks. Pair that with one phone call to a genuine reference client, not a testimonial on their website. Together, these two steps catch most weak partners without requiring you to judge a single line of code.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-development-partner-selection-checklist">what to check in the contract before you sign</a>, <a class="ob-link" href="#/articles/ai-custom-solution-diagnostic-signs">what Gartner's agent-washing warning means for buyers</a>, <a class="ob-link" href="#/articles/ai-genai-project-contract-risk">the contract risks specific to a generative AI project</a>, and <a class="ob-link" href="#/articles/ai-implementation-roadmap-timeline-phases">the AI implementation roadmap and timeline</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.hoganlovells.com/en/publications/aiwashing-when-ai-hype-becomes-a-litigation-risk" target="_blank" rel="noopener noreferrer">Hogan Lovells, AI-washing: when AI hype becomes a litigation risk</a>; <a href="https://www.gov.uk/government/publications/complying-with-consumer-law-when-using-ai-agents/complying-with-consumer-law-when-using-ai-agents" target="_blank" rel="noopener noreferrer">CMA / GOV.UK, Complying with consumer law when using AI agents</a>; <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener noreferrer">Gartner, Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027</a>; <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST, AI Risk Management Framework</a>.</p>
