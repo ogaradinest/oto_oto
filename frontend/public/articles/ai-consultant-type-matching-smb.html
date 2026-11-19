@@ -1,0 +1,164 @@
+<!--
+title: Big Four, boutique, or freelance: picking the right AI tier
+tags: AI Strategy, AI Implementation
+date: 2026-11-17
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: Before checking whether a consultant is any good, work out which tier you should even be talking to. Big Four, boutique, and freelance are three different markets, not three sizes of the same thing.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">AI consulting splits into three genuinely different markets, not three sizes of the same service. Big Four and equivalent global firms typically run AI engagements starting at $50,000 and climbing past $500,000, built around an enterprise sales model that rarely engages seriously with companies under 500 employees. Boutique specialist agencies and independent freelance consultants operate in a different market entirely, with day rates roughly $800 to $2,000 or more, well below Big Four pricing, and project timelines built around weeks rather than the six-to-twelve-month engagements common at the top tier. Most small business guidance about choosing a consultant skips this first, more basic question: which of these three markets should you even be talking to?</p>
+
+<div class="ob-callout">
+  <p>KPMG's own research on build, buy, or borrow decisions recommends the partner-driven 'borrow' model specifically for organisations where internal resources or AI talent are stretched thin. That is a small business's situation almost by definition, and it points away from a Big Four-scale engagement, not towards one.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">$50k-$500k+</div>
+    <div class="ob-stat-label">typical Big Four AI engagement range, often excluding companies under 500 employees</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">$800-$2,000+/day</div>
+    <div class="ob-stat-label">typical day rate range for freelance and boutique AI consultants</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">4-12 weeks</div>
+    <div class="ob-stat-label">typical time to first value from a focused boutique engagement, versus 6-12 months for a larger one</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Three tiers, and one of them structurally excludes you</h2>
+  <p class="ob-section-sub">Why the Big Four rarely call back a small business</p>
+
+  <p class="ob-p">Big Four and equivalent enterprise consultancies built their AI practices around a sales and delivery model that requires a six-figure engagement floor just to make the unit economics work for them. That is not a judgement on quality, it is a structural fact about who their business model is designed to serve. A small business requesting a modest, well-scoped project is asking for something that does not fit their pipeline, regardless of how good the underlying advice would be.</p>
+  <p class="ob-p">Boutique agencies and independent freelance consultants occupy the tier below that, with day rates and total project costs a fraction of Big Four pricing, and a delivery style built around a single defined project rather than a multi-year transformation programme. This is the tier where almost every small business AI engagement actually belongs.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Big Four AI engagements: $50k-$500k+</span>
+    <span class="ob-badge">Boutique/freelance day rates: $800-$2,000+</span>
+    <span class="ob-badge">Boutique time to first value: 4-12 weeks</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">KPMG's own advice points away from KPMG-scale engagements</h2>
+  <p class="ob-section-sub">The borrow model, from the people who sell the build model</p>
+
+  <p class="ob-p">KPMG's own framework for deciding between building, buying, or borrowing AI capability specifically recommends the partner-driven borrow model for organisations where internal resources, infrastructure, or AI talent are stretched thin, exactly the situation most small businesses are in. That recommendation, coming from one of the firms operating at the top pricing tier, is a useful signal in its own right: even the largest consultancies acknowledge that a resource-constrained organisation is better served by a lighter-weight, partner-based engagement than by the kind of transformation programme they typically sell.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Matching your situation to a tier</h2>
+  <p class="ob-section-sub">A simple filter before you request any quotes</p>
+
+  <p class="ob-p">An independent freelance consultant suits a single, narrow task with a tight budget and an ongoing, informal relationship, useful when you need specific expertise for a defined question rather than end-to-end delivery. A boutique agency suits a defined project with real project management and delivery capability behind it, typically reaching first value in four to twelve weeks. A Big Four engagement only becomes genuinely relevant once your business has reached a scale, roughly several hundred employees or a multi-million-pound AI budget, where their engagement minimum stops being the binding constraint on the relationship.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why won't a Big Four consultancy take on a small AI project?</p>
+    <p class="ob-faq-a">Their business model requires a six-figure engagement floor to make the economics work, built around an enterprise sales and delivery structure. This is a structural fact about who they serve, not a reflection of a small business's project quality.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should a small business use a freelance consultant or a boutique agency?</p>
+    <p class="ob-faq-a">A freelance consultant suits a single, narrow task with a tight budget and an informal ongoing relationship. A boutique agency suits a defined project needing real delivery capability, typically reaching first value in four to twelve weeks. Most small businesses with an actual project to deliver are better served by a boutique agency.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does a small business ever need a Big Four AI consultancy?</p>
+    <p class="ob-faq-a">Rarely, until the business reaches a scale where a six-figure-plus engagement is proportionate to the budget and the AI initiative genuinely spans multiple large-scale systems. Even KPMG's own research recommends a lighter-weight, partner-driven model for organisations with stretched internal resources.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does a boutique AI consulting engagement typically cost?</p>
+    <p class="ob-faq-a">Day rates for boutique agencies and freelance consultants typically run $800 to $2,000 or more, a fraction of Big Four pricing, with most engagements reaching first value in four to twelve weeks rather than six to twelve months.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business that approaches a Big Four consultancy is usually wasting time it does not have, since the engagement minimum excludes the project before quality or fit ever enters the conversation. Knowing which of the three tiers actually serves a business your size, before evaluating any specific consultant within that tier, saves the most common wasted step in choosing AI help.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before requesting your first AI consulting quote, estimate your realistic project budget. Under roughly £30,000, look at freelance consultants. Between £30,000 and £150,000 for a defined project, look at boutique agencies. Above that, with a genuinely enterprise-scale need, a larger consultancy becomes worth approaching, but only then.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-consultancy-how-to-choose-uk">the criteria that predict a good AI consultancy</a>, <a class="ob-link" href="#/articles/ai-consultancy-pricing-uk">what you'll actually be quoted in the UK</a>, <a class="ob-link" href="#/articles/ai-consultancy-engagement-types-uk">what AI consultancy involves, phase by phase</a>, and <a class="ob-link" href="#/articles/ai-build-buy-borrow-framework-smb">the build, buy, or borrow decision framework</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://kpmg.com/kpmg-us/content/dam/kpmg/pdf/2026/25-19086-agentic-ai-untangled-navigating-the-build-buy-or-borrow.pdf" target="_blank" rel="noopener noreferrer">KPMG, Agentic AI untangled: Navigating the build, buy, or borrow decision (January 2026)</a>; <a href="https://nicolalazzari.ai/guides/ai-consultant-pricing-guide-uk" target="_blank" rel="noopener noreferrer">Nicola Lazzari, AI Consultant Pricing Guide UK</a>.</p>
