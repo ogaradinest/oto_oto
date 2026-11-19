@@ -1,0 +1,174 @@
+<!--
+title: What a language model actually does, in plain English
+tags: AI Technology, AI Strategy
+date: 2026-11-18
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: A plain-English look at what a large language model actually is, grounded in a public hallucination leaderboard and a peer-reviewed finding about where AI tools genuinely struggle.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">The Office for National Statistics found that 25% of UK businesses reported using some form of AI by late December 2025, up 15 percentage points since the question was first asked in September 2023. That is genuine growth, and it is also a far smaller number than the adoption figures that circulate in AI marketing material, which often count a single team experimenting with a chatbot as full deployment. If three in four businesses have not actually put an AI tool to work yet, most owners are still working out what a large language model, the technology behind ChatGPT, Claude, and Gemini, actually does. Here is a plain explanation, built around numbers you can check yourself rather than a vendor's pitch.</p>
+
+<div class="ob-callout">
+  <p>A public leaderboard tracks, model by model, how often a named AI system invents information that was not in the source document it was given. The published rates run from under 3% for the strongest performers to over 20% for the weakest, updated monthly. That one measurable fact explains more about what a language model is and is not than most sales material does.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">25%</div>
+    <div class="ob-stat-label">of UK businesses reported using AI by December 2025, up 15 points since the question was first tracked in 2023 (ONS)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">2%-20%+</div>
+    <div class="ob-stat-label">range of published hallucination rates across major AI models, tracked monthly on a public leaderboard (Vectara HHEM)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">30%+</div>
+    <div class="ob-stat-label">drop in accuracy when the answer sits in the middle of a long document rather than near the start or end (Stanford/Meta AI research)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What a language model is actually doing</h2>
+  <p class="ob-section-sub">Not a database, not a search engine</p>
+
+  <p class="ob-p">A large language model behaves less like a calculator, which gives the same correct answer every time, and more like a well-read colleague answering from memory in a meeting: fast, usually right, occasionally confident and wrong, never pausing to check a source before speaking. Underneath, it predicts the next word, over and over, based on patterns picked up from enormous amounts of text during training. It has not looked anything up. It is generating the words most likely to follow, given everything said so far.</p>
+  <p class="ob-p">This is why an LLM can draft a proposal or summarise a report with real skill, and can also state a wrong figure or a fabricated case reference with exactly the same fluent confidence it uses when right. Nothing about the tone of the answer tells you which one you are getting.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Predicts the next word, not a stored fact</span>
+    <span class="ob-badge">Works from training patterns, not a live lookup</span>
+    <span class="ob-badge">Sounds equally confident whether right or wrong</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The number that explains the trust problem</h2>
+  <p class="ob-section-sub">A public leaderboard, updated monthly</p>
+
+  <p class="ob-p">The Vectara Hallucination Leaderboard gives every named AI model a document to summarise and checks whether the summary sticks strictly to facts actually in that document. Results last updated in May 2026 put the strongest models under 3%, mid-tier models commonly between 5% and 12%, and the weakest tracked models over 20%. The point worth taking is not which model currently sits top of the table, since that changes with every update. Hallucination is a real, measured behaviour, and it varies meaningfully between models, not just between AI in general and no AI at all.</p>
+  <p class="ob-p">Before trusting any AI tool with something that needs to be factually right, check whether that specific model has a track record on a similar task, rather than assuming newer or pricier automatically means more accurate.</p>
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">At a glance</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Strongest tracked models</span><span class="ob-compare-num">under 3% hallucination rate</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Weakest tracked models</span><span class="ob-compare-num">over 20% hallucination rate</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Leaderboard updates</span><span class="ob-compare-num">monthly, publicly available</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why pasting in a whole document rarely works well</h2>
+  <p class="ob-section-sub">The middle of a long input is the weak spot</p>
+
+  <p class="ob-p">Researchers at Stanford and Meta AI tested how well language models find a specific piece of information depending on where it sits inside a long passage. The result held across every model family tested: accuracy stayed strong when the relevant detail sat near the start or end of what was fed in, and dropped by more than 30% when that detail sat in the middle, even for models built to handle long inputs. A bigger context window does not fix this. It just moves where the weak spot sits.</p>
+  <p class="ob-p">The fix needs no technical knowledge: when feeding a contract, email chain, or long report into an AI tool, put the specific question or most important fact near the top, or break a long document into shorter sections and ask about each separately, rather than trusting the model to spot one detail buried on page forty of sixty.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is a large language model, in one plain sentence?</p>
+    <p class="ob-faq-a">Software trained to predict the next word based on patterns learned from enormous amounts of text. It is not a system that looks up or verifies facts, so it can produce fluent, confident answers that are sometimes wrong.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How many UK businesses are actually using AI tools like this?</p>
+    <p class="ob-faq-a">The ONS found 25% of UK businesses reported using some form of AI by December 2025, up 15 percentage points since the question was first tracked in September 2023. Most businesses have not deployed anything yet, so there is no reason to feel behind.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How can I check whether an AI model is likely to make things up?</p>
+    <p class="ob-faq-a">The Vectara Hallucination Leaderboard publishes a monthly, independently run comparison of how often named models invent information not in the source they were given. Rates currently range from under 3% for the strongest performers to over 20% for the weakest, so the model you pick genuinely matters.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why did an AI tool miss something I know was in the document I gave it?</p>
+    <p class="ob-faq-a">Peer-reviewed research from Stanford and Meta AI found accuracy drops by more than 30% when the relevant detail sits in the middle of a long document rather than near the start or end. Putting key information near the top, or splitting a long document into shorter sections, works around this.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business without an in-house AI specialist is the most likely to either over-trust an AI tool's output, by pasting in a contract and accepting a summary without checking a clause buried in the middle, or avoid the tools altogether out of a vague sense that they just guess. Knowing two specific, measured things, that hallucination rates differ meaningfully between named models and that long documents have a genuine weak spot in the middle, turns an AI tool into something with known limits rather than a mystery box.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, take one document you would normally paste whole into an AI tool and instead paste in only the relevant page or section, then check the answer against something you already know to be true. This costs nothing, takes a few minutes, and builds a working instinct for where the tool is reliable and where it needs a second check.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-reality-check-hype-vendor-claims">cutting through AI vendor hype claims</a>, <a class="ob-link" href="#/articles/ai-tool-category-map-smb">a map of AI tool categories for a small business</a>, <a class="ob-link" href="#/articles/ai-tool-selection-pilot-tactics-smb">how to pilot an AI tool before committing</a>, and <a class="ob-link" href="#/articles/ai-data-governance-framework">a practical framework for AI data governance</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/bulletins/businessinsightsandimpactontheukeconomy/8january2026" target="_blank" rel="noopener noreferrer">ONS, Business insights and impact on the UK economy (8 January 2026)</a>; <a href="https://github.com/vectara/hallucination-leaderboard" target="_blank" rel="noopener noreferrer">Vectara, Hallucination Leaderboard</a>; <a href="https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00638/119630/Lost-in-the-Middle-How-Language-Models-Use-Long" target="_blank" rel="noopener noreferrer">Liu et al., Lost in the Middle: How Language Models Use Long Contexts, Transactions of the Association for Computational Linguistics (MIT Press)</a>.</p>
