@@ -1,0 +1,179 @@
+<!--
+title: Picking an AI vendor is a relationship, not a feature list
+tags: AI Implementation, AI Governance
+date: 2026-11-14
+image: https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1200&q=80
+excerpt: Picking an AI customer service tool is choosing a vendor relationship, not just a feature list. Most small business due diligence stops at price and never reaches the questions that matter most.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Gartner predicts agentic AI will autonomously resolve 80% of common customer service issues without human intervention by 2029, driving a 30% reduction in operational costs. A separate Gartner survey of 321 customer service leaders, run in October 2025, found only 20% have actually reduced staffing because of AI so far, with 55% reporting stable staffing while handling higher volumes. The gap between the long-range prediction and the current reality matters for anyone about to sign a multi-year contract based on a vendor's roadmap promises rather than what the tool does today.</p>
+
+<div class="ob-callout">
+  <p>Zapier's 2026 survey of enterprise executives found 81% are concerned about AI vendor dependency, and 74% say losing their primary AI vendor would disrupt day-to-day operations or leave them unable to function. Among those who had actually attempted to switch AI vendors, only 42% described the move as smooth.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">80% by 2029</div>
+    <div class="ob-stat-label">share of routine customer service issues Gartner predicts agentic AI will resolve without a human</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">20%</div>
+    <div class="ob-stat-label">of customer service leaders have actually cut staffing due to AI so far; 55% kept staffing stable (Gartner, Oct 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">81%</div>
+    <div class="ob-stat-label">of enterprise leaders are concerned about AI vendor dependency (Zapier, 2026)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The prediction and the current reality are on different timelines</h2>
+  <p class="ob-section-sub">What Gartner's own two surveys show side by side</p>
+
+  <p class="ob-p">Gartner's 2029 prediction of 80% autonomous resolution is a genuine forecast from a credible source, not marketing copy. It is also four years away and describes an industry-wide direction, not a guarantee about any specific tool you might sign up for this quarter. Gartner's own October 2025 survey of active customer service leaders found a much more modest present-day picture: 20% have reduced staffing because of AI, and the majority, 55%, describe staffing as stable even as volumes rise.</p>
+  <p class="ob-p">The practical implication for a small business is straightforward: evaluate a tool on what it demonstrably does today, in a trial with your own customers, not on the multi-year roadmap a vendor's sales team describes during the pitch.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Gartner 2029 prediction: 80% autonomous resolution</span>
+    <span class="ob-badge">Gartner Oct 2025 reality: 20% actually cut staffing</span>
+    <span class="ob-badge">55% report stable staffing despite higher volumes</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The lock-in question most small businesses never ask</h2>
+  <p class="ob-section-sub">What Zapier's own switching data shows</p>
+
+  <p class="ob-p">Zapier's 2026 survey found 81% of enterprise leaders worried about dependency on a single AI vendor, and 74% said losing that vendor would disrupt daily operations or leave them unable to function. The more revealing figure sits underneath those headlines: among leaders who had actually attempted to migrate away from an AI vendor, only 42% called the process smooth. Confidence about switching and the actual experience of switching are two different things.</p>
+  <p class="ob-p">Before signing with any AI customer service vendor, ask three specific questions: can you export your full conversation history and trained response library in a usable format, what is the minimum contract term, and what does the vendor's off-boarding process actually involve if you decide to leave. A vendor confident in their product will answer all three without hesitation.</p>
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Export rights</h4>
+      <p>Conversation history and trained responses, in a usable format</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Contract term</h4>
+      <p>Minimum length before you can exit</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Off-boarding process</h4>
+      <p>What actually happens if you leave</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The other question: what happens when it hands off to a human</h2>
+  <p class="ob-section-sub">This is usually what customers actually notice</p>
+
+  <p class="ob-p">Zendesk's 2026 customer experience research found 74% of consumers describe having to repeat themselves across interactions as very frustrating. That frustration is rarely about the AI's conversational ability itself. It is almost always about a poor handoff: the human agent who picks up the conversation has no visibility into what the customer already explained to the AI, so the customer starts over. Testing any AI customer service tool specifically on this handoff, not just on how well it answers questions alone, catches the failure mode that actually drives complaints.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should a small business trust vendor predictions about future AI customer service capability?</p>
+    <p class="ob-faq-a">Treat them as direction, not a guarantee for your contract term. Gartner's own October 2025 survey found only 20% of customer service leaders have actually cut staffing due to AI so far, well short of the industry's longer-range 2029 predictions. Evaluate a tool on a trial with your own customers, not a roadmap.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the biggest AI vendor lock-in risk for a small business?</p>
+    <p class="ob-faq-a">Not being able to take your conversation history and trained responses with you. Zapier's 2026 survey found that among enterprise leaders who had actually tried switching AI vendors, only 42% described the process as smooth, despite most expecting it to be straightforward beforehand.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should I check before signing a contract with an AI customer service vendor?</p>
+    <p class="ob-faq-a">Ask whether you can export your full conversation history and response library, what the minimum contract term is, and exactly what the off-boarding process involves. These three questions catch most of the lock-in risk before it becomes a problem.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do customers get frustrated with AI customer service even when the AI answers correctly?</p>
+    <p class="ob-faq-a">Usually because of a poor handoff to a human agent. Zendesk's research found 74% of consumers find repeating themselves across interactions very frustrating, which is a design and integration issue rather than a reflection of how good the underlying AI actually is.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business signing its first AI customer service contract is far less likely than a large enterprise to have a procurement team asking about data export rights or contract exit terms, which makes the Zapier lock-in findings more relevant here, not less. The fix is three specific questions asked before signing, not a legal review: can you export your data, how long is the minimum term, and what does leaving actually involve.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before signing with any AI customer service vendor, or before renewing an existing contract, email them three questions in writing: can we export our full conversation history and trained responses, what is the minimum contract term, and what does off-boarding actually look like if we leave. Keep the written answers on file, since a vague or evasive reply is itself useful information.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-customer-service-automation-rollout">what to automate first in customer service</a>, <a class="ob-link" href="#/articles/ai-customer-service-tool-selection-roi">the real cost of AI customer service software</a>, <a class="ob-link" href="#/articles/ai-agents-customer-service-resolution">what the resolution-rate numbers actually mean</a>, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2025-03-05-gartner-predicts-agentic-ai-will-autonomously-resolve-80-percent-of-common-customer-service-issues-without-human-intervention-by-20290" target="_blank" rel="noopener noreferrer">Gartner, Gartner Predicts Agentic AI Will Autonomously Resolve 80% of Common Customer Service Issues by 2029</a>; <a href="https://www.gartner.com/en/newsroom/press-releases/2025-12-02-gartner-survey-finds-only-20-percent-of-customer-service-leaders-report-ai-driven-headcount-reduction" target="_blank" rel="noopener noreferrer">Gartner, Gartner Survey Finds Only 20% of Customer Service Leaders Report AI-Driven Headcount Reduction</a>; <a href="https://zapier.com/blog/ai-vendor-lock-in-survey/" target="_blank" rel="noopener noreferrer">Zapier, Zapier Survey Finds Nearly 3 in 4 Enterprises Would Face Disruption If They Lost Their Primary AI Vendor</a>; <a href="https://cxtrends.zendesk.com/" target="_blank" rel="noopener noreferrer">Zendesk, CX Trends 2026</a>.</p>
