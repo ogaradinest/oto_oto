@@ -1,0 +1,183 @@
+<!--
+title: The AI skills gap is a judgement problem, not a cost one
+tags: AI Implementation, AI Strategy
+date: 2026-11-10
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: The FSB says AI use in UK small firms nearly tripled since 2023. Skills confidence did not keep pace, and closing that gap is cheaper than most owners assume.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">The Federation of Small Businesses found that AI use among UK small firms nearly tripled in two years, from 20% in 2023 to 55% now, a shift the FSB says could add £42 billion a year to the UK economy if it continues. That is a genuinely fast climb. But the same FSB research found skills gaps are now the second most cited barrier to further AI adoption, right behind cost, and 34% of small firms still say they are not sure which AI tools would actually help their business. Buying the tool turned out to be the easy part.</p>
+
+<div class="ob-callout">
+  <p>A University of St Andrews study of nearly 10,000 UK SMEs found AI adoption can lift productivity by 27% to 133%. That is not a typo, and it is not a small range. It exists because two businesses can buy the identical subscription and get wildly different results depending on how well the team actually uses it.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">20% to 55%</div>
+    <div class="ob-stat-label">small UK firms using AI, 2023 to 2026 (FSB)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">39%</div>
+    <div class="ob-stat-label">of small firms cite skills gaps as a barrier to further AI adoption (FSB)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">27-133%</div>
+    <div class="ob-stat-label">productivity range AI adoption delivers for UK SMEs (University of St Andrews)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Adoption climbed. Confidence did not climb with it</h2>
+  <p class="ob-section-sub">What the FSB numbers actually show</p>
+
+  <p class="ob-p">British Chambers of Commerce research from March 2026 puts overall UK AI adoption above half of all firms, up from 35% in 2025 and 25% in 2024, a trend that broadly matches the FSB's small business figures. Growth like that usually gets reported as good news, and in one sense it is. But the FSB also found that 92% of small business owners now have some concern about AI, up from 73% in 2023. More people using the tools has not produced more comfort using them.</p>
+  <p class="ob-p">The productivity upside is real once the gap closes. The St Andrews research found the strongest gains concentrated in service businesses such as hospitality and catering, applying AI to practical, unglamorous jobs: staff rotas, reducing food waste, drafting routine paperwork. None of that needed a data science team. It needed someone willing to learn the tool properly for their own job.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Small firm AI use: 20% (2023) to 55% (2026)</span>
+    <span class="ob-badge">Owner concern about AI: 73% (2023) to 92% (2026)</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What is holding teams back is judgement, not cost</h2>
+  <p class="ob-section-sub">Cost has slipped down the list of excuses</p>
+
+  <p class="ob-p">Cost concerns still lead the FSB's barrier list, but skills gaps come next at 39%, ahead of most other objections. A further 34% of small firms said they simply were not sure which AI tools would benefit their specific operations. That is a filtering problem more than a technology problem: too many tools, not enough time to work out which one fits a five-person accountancy practice or a twelve-person builder's merchant.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">39% cite skills gaps as a barrier</span>
+    <span class="ob-badge">34% unsure which tools would help</span>
+    <span class="ob-badge">Cost still the top-cited barrier overall</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Three moves that cost nothing but time</h2>
+  <p class="ob-section-sub">None of these need a training budget</p>
+
+  <p class="ob-p">Start with the task your team already does with AI, even informally, and turn it into a shared reference. Ask each person to bring their single best prompt for something they do weekly, drafting client emails, summarising meeting notes, writing job adverts, and collect the best versions somewhere everyone can find them. Most AI underuse comes from people not knowing what a good prompt for their own job looks like, not from any deeper technical gap.</p>
+  <p class="ob-p">Run one 20-minute peer session a month where someone shows the rest of the team what they have worked out. It needs no facilitator and no slide deck, just one person willing to share their screen. Spread over a year, that adds up to a meaningful amount of practical exposure, at no cost beyond the time already spent in the room.</p>
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Week 1</h4>
+      <p>Collect each person's best prompt for one weekly task</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Week 2</h4>
+      <p>Run a 20-minute peer show-and-tell</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Ongoing</h4>
+      <p>Repeat monthly, no facilitator needed</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why does a small business have an AI skills gap even after buying AI tools?</p>
+    <p class="ob-faq-a">Because a subscription on its own teaches nobody anything. The FSB found skills gaps are the second biggest barrier to further AI adoption in UK small firms, right behind cost, mostly because teams are never shown what good use of the tool looks like for their specific job.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is the AI skills gap mostly a technical problem?</p>
+    <p class="ob-faq-a">Rarely, for a small business. The FSB found 34% of small firms are unsure which AI tools would even help their operations, which is a judgement gap more than a coding one. Most small business AI use needs no technical skill at all, just practice.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much does closing the AI skills gap actually cost?</p>
+    <p class="ob-faq-a">Very little if you use peer learning. A monthly 20-minute internal session, where one person shows the team what they have learned, costs nothing beyond time and builds real exposure over a year.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do I know if AI training is actually working?</p>
+    <p class="ob-faq-a">Pick one task everyone in the business already does, measure how long it takes before and after a month of shared prompts and peer tips, and compare. St Andrews research found AI adoption lifts SME productivity by 27% to 133%, and the businesses at the higher end are usually measuring something specific rather than assuming it is working.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A five-person business cannot absorb a six-figure AI training budget, and the FSB's own numbers suggest it does not need to. The barrier for small firms is judgement and confidence, not money: 39% cite a skills gap and 34% do not know which tools would help, while cost concerns are already easing as more owners adopt. That means the fix is organisational, not financial, which matters for a business that cannot hire a dedicated AI lead.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, ask everyone on your team to send you their single best AI prompt for something they already do regularly, a client email, a job advert, a meeting summary. Collect the replies in one shared document. It costs nothing, takes about fifteen minutes of your time to set up, and becomes the most useful AI training material your business owns.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-reality-check-skills-ethics-infrastructure">the funded routes to closing the skills gap</a>, <a class="ob-link" href="#/articles/ai-adoption-uk-benchmark-2026">the wider UK AI adoption benchmark</a>, <a class="ob-link" href="#/articles/ai-tool-selection-pilot-tactics-smb">a simple pilot tactic for picking the right tool</a>, and <a class="ob-link" href="#/articles/ai-usage-policy-staff-template">a staff-facing AI usage policy</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.fsb.org.uk/media-centre/press-release/pace-of-ai-adoption-means-government-and-education-system-have-to-catch-up-fast-MCWW5ZRBPHABA3LAKK5YONCSC7TM" target="_blank" rel="noopener noreferrer">FSB, Pace of AI adoption means Government and education system have to catch up fast</a>; <a href="https://news.st-andrews.ac.uk/archive/adopting-ai-could-boost-the-productivity-of-small-and-medium-businesses-by-up-to-133/" target="_blank" rel="noopener noreferrer">University of St Andrews, Adopting AI could boost the productivity of small and medium businesses by up to 133%</a>; <a href="https://www.britishchambers.org.uk/news/2026/03/half-of-smes-using-ai-with-limited-headcount-impact-so-far/" target="_blank" rel="noopener noreferrer">British Chambers of Commerce, Half of SMEs using AI, with limited headcount impact so far</a>.</p>
