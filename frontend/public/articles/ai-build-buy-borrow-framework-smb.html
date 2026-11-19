@@ -1,0 +1,165 @@
+<!--
+title: Build, buy, or borrow: the AI option most firms skip
+tags: AI Strategy, AI Implementation
+date: 2026-11-15
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Most advice frames AI as build versus buy. KPMG's own research treats it as build, buy, or borrow, and the third option fits a small business better than the other two most of the time.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">KPMG's January 2026 framework on agentic AI reframes a question most small business guides present as binary, build or buy, into three real paths: build it yourself, buy something off the shelf, or borrow capability by co-developing with a specialist partner. KPMG's own Q3 2025 Pulse Survey found 42% of companies have now integrated AI agents into their workflows, up from just 11% in early 2025, and 57% favour a blended approach combining more than one of these paths, up from 51% the previous quarter. The option most listicles skip entirely, borrowing, is often the one that fits a business too small to build and too specific in its needs to buy something generic.</p>
+
+<div class="ob-callout">
+  <p>Whichever path you choose, ongoing maintenance typically runs 15 to 25% of the original build cost every year, covering monitoring, retraining and updates. The build, buy, or borrow decision mostly changes who carries that cost, not whether it exists.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">42%</div>
+    <div class="ob-stat-label">of companies have integrated AI agents into their workflows, up from 11% in early 2025 (KPMG, Q3 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">57%</div>
+    <div class="ob-stat-label">of organisations now favour a blended build-and-buy approach, up from 51% (KPMG, Q3 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">15-25%</div>
+    <div class="ob-stat-label">typical annual maintenance cost as a share of the original build cost, on any path</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Build, buy, or borrow: the third option most advice skips</h2>
+  <p class="ob-section-sub">KPMG's framework, translated down</p>
+
+  <p class="ob-p">KPMG's framework treats building as the path for full control and deep differentiation, at the cost of the most time, money and in-house expertise. Buying means fast access to a proven, prebuilt tool, at the cost of looking like every other business using the same product. Borrowing sits in between: co-developing something with a specialist partner who brings the technical capability while you bring the domain knowledge of your own business, sharing both the cost and the risk of getting it wrong.</p>
+  <p class="ob-p">For a small business, borrowing usually looks like working with a consultancy or development partner who builds something genuinely shaped around your workflow using existing frameworks and models, rather than a fully bespoke build from zero or a generic subscription that almost fits. It sits closer to buying in cost and speed, and closer to building in how well the result actually matches your business, which is exactly why most binary build-or-buy guides miss it.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Build: full control, highest cost and time</span>
+    <span class="ob-badge">Buy: fastest, least differentiated</span>
+    <span class="ob-badge">Borrow: shared cost, shaped around your workflow</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The one number that applies no matter which path you pick</h2>
+  <p class="ob-section-sub">The ongoing cost, not the upfront one</p>
+
+  <p class="ob-p">Annual maintenance, covering model retraining, performance monitoring, and updates as the systems around it change, typically runs 15 to 25% of the original build cost every year, regardless of how the system was created. Building it yourself means your business carries all of that cost directly. Buying an off-the-shelf tool usually bundles most of it into the subscription price, so the vendor absorbs it instead. Borrowing through a partner typically splits it: the partner handles the technical maintenance under an ongoing support arrangement, while you pay a smaller recurring fee than a full in-house team would cost.</p>
+  <p class="ob-p">This is the number most small businesses forget to ask about before choosing a path. A build that looks affordable based on the initial quote can become the most expensive option within two years once that annual maintenance share is added in.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Three questions that place you on the decision tree</h2>
+  <p class="ob-section-sub">Adapted from KPMG's framework for a business with no dedicated tech team</p>
+
+  <p class="ob-p">Does an existing off-the-shelf tool already cover most of what you actually need, with only minor gaps? If yes, buy, and stop there. Is this specific capability the thing that genuinely differentiates your business from competitors, not just a nice-to-have efficiency gain? If yes, and you have the budget and time for ongoing maintenance, building may be worth it. If neither of those two answers is a clear yes, borrowing is usually the right default: a partner-built solution shaped around your business, without the full cost and risk of building entirely alone.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the difference between buying and borrowing an AI solution?</p>
+    <p class="ob-faq-a">Buying means using an off-the-shelf tool as it comes, with minimal changes. Borrowing, in KPMG's framework, means co-developing something with a specialist partner who combines their technical capability with your knowledge of your own business, producing a result shaped around your workflow without the full cost of building entirely from scratch.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is building an AI solution in-house realistic for a small business?</p>
+    <p class="ob-faq-a">Rarely, according to KPMG's own guidance, which describes building as best suited to organisations with advanced technical expertise, robust infrastructure, and continuous access to subject matter experts, generally larger, better-resourced companies. Most small businesses are better served by buying or borrowing.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why does the build, buy, or borrow choice matter if the maintenance cost is the same either way?</p>
+    <p class="ob-faq-a">The maintenance cost, typically 15 to 25% of build cost annually, applies on every path. What the decision actually changes is who carries it. Building means your business absorbs it directly, buying bundles it into a subscription, and borrowing usually splits it between you and your partner.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How is a blended build-and-buy approach different from picking one path?</p>
+    <p class="ob-faq-a">KPMG's research found 57% of organisations now favour blending paths, for example buying a base platform and extending it with custom elements. For a small business, this often looks like buying a mainstream tool and borrowing a partner's help to configure or extend it for a specific workflow, rather than treating build, buy and borrow as mutually exclusive.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Most build-versus-buy guides are written for organisations with a technology department capable of actually building something, which leaves a small business choosing between an expensive, unrealistic option and a generic tool that never quite fits. KPMG's third path, borrowing through a specialist partner, is the one most guides skip, and it is usually the most realistic option for a business with no in-house AI team but a genuinely specific workflow a generic tool cannot match.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before your next AI decision, write down which of the three paths you are actually choosing between: building it entirely yourself, buying an off-the-shelf tool as it comes, or borrowing a partner's help to shape something around your specific workflow. Most owners default to buy without realising borrow was a genuine third option, worth at least one comparison quote.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-development-partner-selection-checklist">what to check before signing with a development partner</a>, <a class="ob-link" href="#/articles/ai-mvp-development-smb">why an API-first MVP works for most small businesses</a>, <a class="ob-link" href="#/articles/ai-integration-legacy-systems-cost">what ongoing integration costs actually look like</a>, and <a class="ob-link" href="#/articles/ai-implementation-roadmap-timeline-phases">the AI implementation roadmap and timeline</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://kpmg.com/kpmg-us/content/dam/kpmg/pdf/2026/25-19086-agentic-ai-untangled-navigating-the-build-buy-or-borrow.pdf" target="_blank" rel="noopener noreferrer">KPMG, Agentic AI untangled: Navigating the build, buy, or borrow decision (January 2026)</a>; <a href="https://whitehat-seo.co.uk/blog/ai-consulting-costs-roi" target="_blank" rel="noopener noreferrer">Whitehat, AI Consulting Costs UK</a>.</p>
