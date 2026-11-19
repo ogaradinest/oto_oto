@@ -1,0 +1,172 @@
+<!--
+title: What to check before you sign with an AI development partner
+tags: AI Implementation, AI Strategy
+date: 2026-11-10
+image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80
+excerpt: MIT research puts specialist vendor success at roughly 67% versus 33% for internal builds. The day rate on the quote tells you almost nothing about which one you are getting.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">MIT's 2025 State of AI in Business research, drawn from over 300 public deployments, found that buying AI capability from a specialist vendor succeeds roughly 67% of the time, against roughly 33% for teams trying to build the same thing internally. That is a genuinely large gap. It is also easy to misread, because picking any external agency is not the same as picking a good one, and the day rate on a quote tells you almost nothing about which kind you have found.</p>
+
+<div class="ob-callout">
+  <p>The ICO's own guidance on AI supplier contracts is blunt: businesses should check a supplier's data processing terms, retention periods, model training policy, and any subprocessors before signing, not after. Most small businesses find this out the hard way, once, and then never skip it again.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">67% vs 33%</div>
+    <div class="ob-stat-label">success rate for specialist vendor builds versus internal builds (MIT, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">£375-£850+</div>
+    <div class="ob-stat-label">typical UK IT contractor day rate range across roles, before any AI-specialism premium (FutureFill.AI / IT Jobs Watch, 2026)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">5%</div>
+    <div class="ob-stat-label">of enterprise generative AI pilots reach measurable business impact (MIT, 2025)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Picking a specialist beats building it yourself, most of the time</h2>
+  <p class="ob-section-sub">But not every specialist is actually specialised</p>
+
+  <p class="ob-p">The MIT NANDA research behind the 67% versus 33% figure found the gap was not really about coding skill. Internal teams usually can write the code. What they lack is repeated exposure to the specific failure modes of AI systems: brittle workflows, models that do not learn from feedback, and integrations that break the moment a business process changes slightly. A vendor who has shipped twenty similar projects has already hit those failure modes and fixed them.</p>
+  <p class="ob-p">The catch is that 'AI development agency' now covers everyone from a genuine specialist team to a general software house that added AI to its service list last year. Neither looks different on a website. The way to tell them apart is to ask for two or three past projects in a comparable industry and speak to those clients directly, not to read the case studies on the agency's own site.</p>
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">At a glance</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Specialist vendor build</span><span class="ob-compare-num">~67% success rate</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Internal build</span><span class="ob-compare-num">~33% success rate</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The day rate tells you less than the contract does</h2>
+  <p class="ob-section-sub">What actually varies between quotes</p>
+
+  <p class="ob-p">Live UK contractor market data shows day rates running from roughly £375 to £500 for QA and testing roles, £500 to £600 for general software development, and £650 to £850 for cloud architecture and specialist engineering, with AI-specific development work typically sitting at the higher end of that range given how few people have real production experience. A quote that looks cheap is not automatically a bad sign, and one that looks expensive is not automatically a good one. What predicts the outcome is what happens once the day rate is agreed.</p>
+  <p class="ob-p">The ICO's guidance on AI supplier contracts is specific about what to check before signing: the data processing terms, how long your data is retained, whether the supplier uses your inputs to train its own models, and who any subprocessors are. A small business that skips this step often finds out, only after a dispute, that a supplier's standard terms gave the supplier broader rights over the business's own data than anyone intended.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">QA/testing: £375-£500/day</span>
+    <span class="ob-badge">Software development: £500-£600/day</span>
+    <span class="ob-badge">Cloud architecture: £650-£850/day</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Five questions worth asking before you sign</h2>
+  <p class="ob-section-sub">None of these require a lawyer to ask</p>
+
+  <p class="ob-p">Ask who owns the code and the trained model once the project ends, not just who owns the finished output. Ask whether your data or prompts will be used to train the vendor's own systems, and if so, ask for the opt-out in writing. Ask what happens to support and maintenance once the initial contract term ends, since this is where costs often reappear unexpectedly. Ask for a reference client in a similar industry and actually call them. And ask what a clean exit looks like: if you want to leave in a year, what exactly do you take with you?</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should a small business build AI capability in-house or hire an agency?</p>
+    <p class="ob-faq-a">MIT's 2025 research found specialist vendor builds succeed roughly 67% of the time, against roughly 33% for internal builds, mainly because vendors have already hit and fixed the common failure modes. For most small businesses without a dedicated technical team, a specialist agency is the lower-risk route.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do I know if an AI development agency is a genuine specialist?</p>
+    <p class="ob-faq-a">Ask for two or three past projects in a comparable industry and speak to those clients directly rather than relying on the agency's own case studies. A genuine specialist will have this ready. One that hesitates is worth a second look.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should be in an AI development contract that isn't in a normal software contract?</p>
+    <p class="ob-faq-a">The ICO recommends checking the supplier's data processing terms, data retention periods, whether your inputs are used to train the vendor's own models, and who any subprocessors are. These are AI-specific risks that a generic software contract often does not cover.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do AI agency quotes vary so much for what sounds like the same project?</p>
+    <p class="ob-faq-a">Mostly role mix and seniority. UK contractor day rates span roughly £375 for testing roles up to £850 or more for cloud architecture and specialist engineering, according to live market data, and a quote can look cheap simply because it is staffed by less experienced people, not because the agency is more efficient.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business rarely has the internal bench to build AI capability itself, which is exactly why the MIT gap between vendor and internal success rates matters more here than at a large enterprise. But a small business also has the least room to absorb a bad contract, a supplier that quietly trains its own model on your customer data, or a codebase you cannot take with you if the relationship ends. Asking the ownership and data questions upfront costs nothing and prevents the most expensive mistakes.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before you request your next AI development quote, write down five questions: who owns the code and model at the end, will your data train the vendor's own systems, what happens to support after the contract ends, can you speak to a reference client, and what does an exit look like. Send that list to any agency before they price the work, and treat a reluctant answer as your answer.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-consultancy-how-to-choose-uk">the criteria that predict a good AI consultancy</a>, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>, <a class="ob-link" href="#/articles/ai-mvp-development-smb">why an API-first MVP works for most small businesses</a>, and <a class="ob-link" href="#/articles/ai-integration-legacy-systems-cost">why integration usually costs more than the build itself</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener noreferrer">MIT NANDA, State of AI in Business 2025 (The GenAI Divide)</a>; <a href="https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/contracts-and-third-parties/" target="_blank" rel="noopener noreferrer">ICO, Contracts and third parties (AI data protection audit toolkit)</a>; <a href="https://www.futurefill.ai/contractor-rates-uk" target="_blank" rel="noopener noreferrer">FutureFill.AI, UK Contractor Rates 2026</a>.</p>
