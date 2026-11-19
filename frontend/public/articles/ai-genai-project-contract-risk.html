@@ -1,0 +1,164 @@
+<!--
+title: What a new EU liability rule means before you commission AI
+tags: AI Governance, AI Implementation
+date: 2026-11-16
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: Commissioning a generative AI build carries risk categories a normal software project does not: model deprecation, output verification, and a new EU liability rule that shifts the burden of proof.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">The EU's revised Product Liability Directive, 2024/2853, keeps strict, no-fault liability as its core principle and extends it explicitly to software and AI systems. A claimant only needs to show the system was defective and that the defect caused harm, not that anyone was at fault, with member states required to have this in national law by 9 December 2026. Separately, a public database tracking AI-related court filings had logged 1,313 documented cases involving fabricated AI-generated content by April 2026, and financial sanctions tied to these failures rose roughly elevenfold over eighteen months. Commissioning a generative AI project carries specific risk categories a normal software project simply does not have.</p>
+
+<div class="ob-callout">
+  <p>Large language model providers typically retire a given model version within 12 to 18 months. If a commissioned system is built tightly around one model's specific behaviour, a routine vendor deprecation can force a months-long, costly re-engineering project nobody budgeted for.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">strict liability</div>
+    <div class="ob-stat-label">the EU's standard for defective AI products, no longer requiring proof of fault (Directive 2024/2853)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">1,313</div>
+    <div class="ob-stat-label">documented court cases involving fabricated AI-generated content, as of April 2026</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">~11x</div>
+    <div class="ob-stat-label">increase in financial sanctions tied to AI hallucination failures, 2023 to 2025</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The EU just made 'the AI got it wrong' a harder defence</h2>
+  <p class="ob-section-sub">Strict liability, and the burden of proof has shifted</p>
+
+  <p class="ob-p">Directive 2024/2853 redefines 'product' to explicitly cover software and AI systems, and it applies strict liability: an injured person needs to prove the product was defective and that the defect caused the harm, not that any specific person or company was negligent. This matters most for a generative AI system that interacts with or affects individuals directly, a customer-facing assistant, an HR tool, anything producing output a person might rely on, rather than a purely internal analytics tool nobody outside the business ever sees.</p>
+  <p class="ob-p">For a UK small business, direct exposure depends on selling into the EU or using an EU-based AI vendor, but the practical lesson applies regardless: a commissioned generative AI contract should specify who is responsible for testing outputs before go-live, what documentation exists to demonstrate that testing happened, and who carries the cost if the system produces something harmful once live.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Directive 2024/2853: strict liability, no fault required</span>
+    <span class="ob-badge">Member states must implement by 9 December 2026</span>
+    <span class="ob-badge">Applies to software and AI systems explicitly</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The verification cost most people forget to budget for</h2>
+  <p class="ob-section-sub">Hallucination is not a rare edge case anymore</p>
+
+  <p class="ob-p">The 1,313 documented court cases involving fabricated AI content, and the roughly elevenfold rise in related financial sanctions over eighteen months, both point to the same practical lesson: any generative AI system producing text, summaries, or answers a person might act on without checking needs a built-in verification step. That step should be scoped and priced as part of the commissioned build itself, with a specific person or process responsible for checking output before it reaches a customer or gets used in a decision, not added as an afterthought once something has already gone wrong.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Ask about model deprecation before you sign</h2>
+  <p class="ob-section-sub">Your commissioned system depends on someone else's roadmap</p>
+
+  <p class="ob-p">Major AI providers typically give a given model version a working life of roughly 12 to 18 months before retiring it. If the system your business commissions is built tightly around one specific model's behaviour rather than designed to swap models with reasonable effort, a routine deprecation notice from the provider can force expensive, months-long re-engineering during the contract term, at a cost that was never part of the original quote. Ask directly what happens when the underlying model is retired, whether the system is built to swap models, and who pays for that migration work if it happens while you are still under contract.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the EU's new AI liability rule apply to a UK small business?</p>
+    <p class="ob-faq-a">Directly, only if you sell into the EU or use an EU-based AI vendor. Directive 2024/2853 requires member states to implement strict, no-fault liability for defective software and AI products by 9 December 2026. Even without direct exposure, the underlying practice, documenting output testing before go-live, is worth adopting regardless.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How common are hallucination-related legal problems now?</p>
+    <p class="ob-faq-a">Common enough to be actively tracked. A public database had logged 1,313 documented court cases involving fabricated AI-generated content by April 2026, with related financial sanctions rising roughly elevenfold over the previous eighteen months.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why does model deprecation matter for a commissioned generative AI project?</p>
+    <p class="ob-faq-a">Because major AI providers typically retire a given model version within 12 to 18 months. A system built tightly around one model's specific behaviour can require expensive, months-long re-engineering when that model is retired, a cost worth pricing into the contract upfront rather than discovering later.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What should a generative AI development contract cover that a normal software contract does not?</p>
+    <p class="ob-faq-a">Who is responsible for verifying outputs before go-live, what happens when the underlying model is deprecated and who pays for that migration, and how liability is allocated if the system produces harmful or incorrect output once live. These risks are specific to generative AI and rarely appear in a standard software contract.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business commissioning its first generative AI project is unlikely to have a legal team cross-checking a contract against an EU liability directive or a provider's model deprecation schedule, which makes these the exact gaps worth asking about directly before signing. None of the three questions, who verifies output, who pays for a forced model migration, and who is liable if something goes wrong, require a lawyer to ask, only a willingness to ask them before the contract is signed rather than after something breaks.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before signing a contract for any generative AI project, ask the developer in writing three questions: who is responsible for verifying the system's output before it reaches a customer, what happens if the underlying AI model is retired during the contract term, and who bears the cost of that migration if it happens. Keep the written answers on file.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-development-partner-selection-checklist">what to check before signing with a development partner</a>, <a class="ob-link" href="#/articles/ai-build-buy-borrow-framework-smb">the build, buy, or borrow decision framework</a>, <a class="ob-link" href="#/articles/ai-data-governance-framework">the practical framework behind AI data governance</a>, and <a class="ob-link" href="#/articles/ai-legal-drafting-small-firm-compliance">what UK regulators expect from AI-assisted drafting</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng" target="_blank" rel="noopener noreferrer">EUR-Lex, Directive (EU) 2024/2853 on liability for defective products</a>; <a href="https://www.damiencharlotin.com/hallucinations/" target="_blank" rel="noopener noreferrer">Damien Charlotin, AI Hallucination Cases Database</a>; <a href="https://www.nortonrosefulbright.com/en-us/knowledge/publications/792d8bf3/ai-in-litigation-update-on-gen-ai-sanctions-in-2026" target="_blank" rel="noopener noreferrer">Norton Rose Fulbright, AI in litigation: Update on Gen AI sanctions in 2026</a>.</p>
