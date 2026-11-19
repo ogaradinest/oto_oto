@@ -1,0 +1,163 @@
+<!--
+title: Three checks that separate AI pilots that actually work
+tags: AI Strategy, AI Implementation
+date: 2026-11-19
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Before writing an AI vision statement or forming a committee, run three concrete readiness checks grounded in what actually separated working AI deployments from the ones that stalled.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">MIT's NANDA initiative analysed 300 real generative AI deployments, alongside 150 leader interviews and a 350-employee survey, and found that only around 5% of pilots produced a measurable, rapid return. The other 95% stalled, with no real impact on the numbers that matter. Gartner has independently projected that over 40% of agentic AI projects will be cancelled by the end of 2027, a separate figure pointing at the same underlying pattern. MIT's researchers were specific about the cause: the gap was rarely about the quality of the AI model itself. It came down to how the tool was chosen and who actually owned it once it launched. Three concrete traits separated the working pilots from the rest, and none of them require a formal AI vision statement, a governance board, or a learning programme to check.</p>
+
+<div class="ob-callout">
+  <p>Businesses that bought a specialist tool and paired it with a genuine vendor relationship succeeded around 67% of the time in MIT's dataset. Businesses that tried to build the equivalent system in-house succeeded roughly a third as often.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">~5%</div>
+    <div class="ob-stat-label">of generative AI pilots delivered a measurable, rapid return, in MIT's analysis of 300 real deployments</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">67%</div>
+    <div class="ob-stat-label">success rate when a business bought a specialist AI tool and partnered with a vendor, versus roughly a third as often when building in-house (MIT)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">50%+</div>
+    <div class="ob-stat-label">of AI budgets go to sales and marketing tools, even though MIT found the strongest measured return in back-office automation</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Check One: Are You Buying or Building?</h2>
+  <p class="ob-section-sub">The gap is wider than most owners expect</p>
+
+  <p class="ob-p">MIT's data shows a stark split: buying a specialist tool and forming a real relationship with the vendor, one where support and adjustments actually happen, succeeded around 67% of the time. Building an equivalent system in-house succeeded roughly a third as often. This is not a stated preference from a survey. It is drawn from actual deployment outcomes. Unless a business already runs its own engineering team, this single check settles the build-versus-buy question in most cases before any comparison of specific vendors even starts.</p>
+  <div class="ob-compare-grid">
+    <div class="ob-compare-card">
+      <div class="ob-compare-label">MIT deployment outcomes</div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Buy + genuine vendor partnership</span><span class="ob-compare-num">~67% success</span></div>
+      <div class="ob-compare-row"><span class="ob-compare-name">Build the system in-house</span><span class="ob-compare-num">~1/3 as often</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Check Two: Is the Money Going Where the Return Actually Is?</h2>
+  <p class="ob-section-sub">Sales and marketing get the budget, back office gets the result</p>
+
+  <p class="ob-p">More than half of AI budgets in MIT's dataset went toward sales and marketing tools, content generation, lead scoring, and similar customer-facing applications. The strongest measured return, though, concentrated in back-office automation: cutting external agency and outsourcing costs, and streamlining routine processing work nobody outside the business ever sees. Before funding the most visible AI project, a readiness check worth running is whether a duller back-office task, invoicing, scheduling, or document processing, would actually pay back faster.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Sales and marketing tools take the largest budget share</span>
+    <span class="ob-badge">Back-office automation delivered the strongest return</span>
+    <span class="ob-badge">The two rarely line up in most spending plans</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Check Three: Who Actually Owns It, Day to Day?</h2>
+  <p class="ob-section-sub">A committee is not the same as an owner</p>
+
+  <p class="ob-p">MIT's researchers found successful deployments were driven by the line managers and employees actually doing the work, not by a central AI committee overseeing things from a distance. The practical readiness check: name one specific person, not a department or a board, who will use the tool daily, notice when its output is wrong, and decide whether to keep using it. If nobody fits that description yet, the project is not ready to start, whatever the pilot's business case looks like on paper.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What percentage of AI pilots actually deliver a measurable return?</p>
+    <p class="ob-faq-a">Around 5%, according to MIT's analysis of 300 real enterprise AI deployments. The other 95% stalled with no measurable impact on revenue or costs, mainly due to how the tool was chosen and owned rather than the underlying model's quality.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should a small business build its own AI tool or buy one?</p>
+    <p class="ob-faq-a">MIT's data shows buying a specialist tool and pairing it with a genuine vendor relationship succeeded around 67% of the time, versus roughly a third as often for in-house builds. For most businesses without a dedicated engineering team, that is a strong steer toward buying.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Where does AI actually pay back fastest for a typical business?</p>
+    <p class="ob-faq-a">MIT found back-office automation, cutting outsourced costs and streamlining routine processing, delivered a stronger measured return than the sales and marketing tools that receive the majority of AI budgets.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do we need an AI committee or governance board before starting a project?</p>
+    <p class="ob-faq-a">Not to start a first project. MIT's research found successful deployments were driven by the specific line manager or employee using the tool daily, not a central board. A named, hands-on owner matters more at the start than a formal governance structure.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business cannot absorb a 95% pilot failure rate the way a large enterprise budget can. Getting these three checks right before spending anything matters far more when there is no second budget line to fall back on. None of the checks need a consultant or a governance process, just honest answers to three specific questions before signing anything.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, before starting or continuing any AI project, write down the answers to the three checks: are you buying or building, is the budget going toward the task with the fastest payback rather than the most visible one, and can you name the one person who owns it day to day. Resolve any uncertain answer before spending further.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-build-buy-borrow-framework-smb">the fuller build, buy, or borrow decision framework</a>, <a class="ob-link" href="#/articles/ai-leadership-visible-support-team-adoption">why visible leadership support drives adoption</a>, <a class="ob-link" href="#/articles/ai-tool-selection-pilot-tactics-smb">how to pilot an AI tool before committing</a>, and <a class="ob-link" href="#/articles/ai-reality-check-hype-vendor-claims">cutting through AI vendor hype claims</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" target="_blank" rel="noopener noreferrer">MIT NANDA Initiative, The GenAI Divide: State of AI in Business 2025 (via Fortune)</a>; <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener noreferrer">Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027</a>.</p>
