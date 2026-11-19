@@ -1,0 +1,164 @@
+<!--
+title: Free AI chat logs are not protected by legal privilege
+tags: AI Governance, AI Implementation
+date: 2026-11-18
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: Free AI drafting tools are not banned for solicitors. What they are not, is a place for anything actually confidential, and a US court has now shown exactly what that costs.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">In February 2026, Judge Jed Rakoff of the Southern District of New York ruled in United States v. Heppner that documents a defendant created using Anthropic's consumer-tier Claude were protected by neither attorney-client privilege nor the work product doctrine. Part of the reasoning was direct: Anthropic's own privacy policy notified users their inputs could be used for training and disclosed to third parties, so the exchanges were never confidential to begin with. The Law Society told UK solicitors something similar back in its Generative AI: the essentials guidance, first published in 2024: do not put confidential information into a free AI tool unless you have an actual contractual relationship with the provider. Free is rarely free. It usually means your input becomes part of the arrangement.</p>
+
+<div class="ob-callout">
+  <p>None of this makes free AI tools off-limits for legal drafting. The SRA's 2025 position explicitly does not prohibit them. It means the free tier and the confidential-matter tier are two different tools, and using the wrong one for the wrong document is where the actual risk sits.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">Feb 2026</div>
+    <div class="ob-stat-label">a US federal court ruled AI chat logs from a free consumer tool were not privileged (United States v. Heppner)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">2024</div>
+    <div class="ob-stat-label">the year the Law Society told solicitors not to put confidential information into free AI tools without a vendor relationship</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">3 grounds</div>
+    <div class="ob-stat-label">cited by the court for denying privilege: no attorney relationship, no confidentiality, no intent to seek legal advice from the AI</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What 'free' actually costs you</h2>
+  <p class="ob-section-sub">The Heppner ruling, in plain terms</p>
+
+  <p class="ob-p">The defendant in the case had used Claude's consumer tier to prepare documents outlining defence strategy, then shared the output with his own lawyers. The court found no privilege applied for three separate reasons: an AI platform is not an attorney and cannot form the trusting relationship privilege requires, the provider's own privacy policy disclosed that inputs could be used for training and shared with third parties, so nothing said to it was ever confidential, and the defendant could not have intended to obtain legal advice from a tool that is not a lawyer in the first place.</p>
+  <p class="ob-p">None of those three reasons are specific to litigation strategy. They apply to any confidential document put into a free consumer AI tool, which is exactly the pattern the Law Society's guidance was written to prevent.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">No attorney-client relationship with an AI tool</span>
+    <span class="ob-badge">No confidentiality if the provider's policy allows training on inputs</span>
+    <span class="ob-badge">No intent to seek legal advice from a non-lawyer tool</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The Law Society already said this, in plain English</h2>
+  <p class="ob-section-sub">The free tier is fine, for the right kind of matter</p>
+
+  <p class="ob-p">The Law Society's Generative AI: the essentials guidance advises against putting confidential information into a free online generative AI tool where the firm has no operational relationship with the vendor beyond simply using it, meaning no contract, no data processing agreement, no accountability if something goes wrong. This lines up directly with the ICO's expectation that a Data Protection Impact Assessment and Data Processing Agreement should be in place before client data goes anywhere near a third-party AI tool, and with the SRA's general principle that AI output should be treated, and reviewed, the same way output from a junior fee earner would be.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A simple two-tier rule for free legal AI tools</h2>
+  <p class="ob-section-sub">Match the tool to the matter, not the other way round</p>
+
+  <p class="ob-p">Use free tiers for genuinely non-confidential work only: generic template drafting, publicly available precedent research, practising a document structure before real facts go anywhere near it. The moment an actual client name, fact, or document enters the picture, move to a paid business tier with a signed data processing agreement in place. This single rule prevents both the Heppner-style privilege problem and the Law Society and ICO compliance gap at the same time, and it costs nothing beyond the discipline of checking which tier you are actually in before you start typing.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does using a free AI tool for legal drafting waive attorney-client privilege?</p>
+    <p class="ob-faq-a">United States v. Heppner found that documents created with a free consumer AI tool were not privileged, partly because the provider's own privacy policy disclosed that inputs could be used for training or shared with third parties, meaning the exchange was never confidential in the first place. The court stopped short of ruling that AI use always waives privilege, but the reasoning applies broadly to free consumer tiers.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does the Law Society actually say about free AI tools for solicitors?</p>
+    <p class="ob-faq-a">Its Generative AI: the essentials guidance advises against putting confidential information into a free online AI tool where the firm has no contractual or operational relationship with the provider. Free tools remain permitted. They remain the wrong choice for anything genuinely confidential.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it ever safe to use a free AI tool in legal practice?</p>
+    <p class="ob-faq-a">Yes, for genuinely non-confidential work such as generic templates, publicly available research, or practising a document structure. The moment real client facts or documents are involved, the Law Society and ICO both expect a paid tier with a proper data processing agreement instead.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How is this different from the general SRA compliance rules for AI in legal drafting?</p>
+    <p class="ob-faq-a">The SRA sets the general principle, that AI output should be reviewed like a junior fee earner's work and clients told when AI is used. This specific risk, losing privilege or breaching confidentiality by using a free tier for a confidential matter, sits underneath that general principle as one of its most concrete, now court-tested consequences.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small or solo legal practice is the most likely to reach for a free AI tool by default, simply because it is free, and the least likely to have a system in place distinguishing which matters are safe to run through it. The two-tier rule here, free for non-confidential work, a paid tier with a DPA for anything involving real client facts, is a single habit that removes the specific risk the Heppner ruling and the Law Society's own guidance both point at.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, check which AI tool your practice currently uses for drafting, and whether it is the free tier or a paid business tier with a data processing agreement. If it is free, write one line into your workflow: no client names, facts, or documents go into it, full stop, until the practice has moved that specific matter to a properly licensed tier.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-legal-drafting-small-firm-compliance">SRA and ICO compliance for AI drafting in a small firm</a>, <a class="ob-link" href="#/articles/ai-contract-review-small-business-budget">AI contract review without a law firm retainer</a>, <a class="ob-link" href="#/articles/ai-usage-policy-staff-template">a staff-facing AI usage policy</a>, and <a class="ob-link" href="#/articles/ai-ethics-framework-small-business">an AI ethics framework without a committee</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://harvardlawreview.org/blog/2026/03/united-states-v-heppner/" target="_blank" rel="noopener noreferrer">Harvard Law Review Blog, United States v. Heppner</a>; <a href="https://www.lawsociety.org.uk/topics/ai-and-lawtech/generative-ai-the-essentials" target="_blank" rel="noopener noreferrer">The Law Society, Generative AI: the essentials</a>; <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" target="_blank" rel="noopener noreferrer">ICO, Guidance on AI and data protection</a>.</p>
