@@ -1,0 +1,153 @@
+<!--
+title: Your value proposition is selling before you ever speak
+tags: AI for Marketing & Sales, AI Implementation
+date: 2026-11-09
+image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
+excerpt: 61% of B2B buyers now say they'd rather buy without ever talking to a sales rep, Gartner found, which means your one-sentence value proposition is doing the selling long before you get the chance to.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Ask ten people what your new business actually does. If you can't get a straight answer out in one sentence, neither can your website. That's the problem with a value proposition: it feels like fluff right up until you're staring at a blank homepage, or a friend asks 'so what is it, exactly?' and you ramble for two minutes about features nobody asked about. You don't need a branding agency to fix this. AI can get you a tight, testable value proposition in under an hour, if you feed it the right raw material first.</p>
+
+<div class="ob-callout">
+  <p>Most B2B buyers now form a judgement about a business before anyone from that business ever gets to speak to them, and researchers have found people size up a website's credibility in roughly the time it takes to blink.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">61%</div>
+    <div class="ob-stat-label">of B2B buyers say they'd prefer to buy without ever talking to a sales rep, Gartner's 2025 sales survey found, meaning your written value proposition does the selling before you get the chance to</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">50ms</div>
+    <div class="ob-stat-label">is roughly how long it takes a visitor to form a first impression of a website, according to Google-funded research published in Behaviour &amp; Information Technology</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">29%</div>
+    <div class="ob-stat-label">the conversion lift one landing page saw purely from rewriting a vague headline into a clearer, benefit-led value proposition, per a documented MarketingExperiments test</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why 'We Help Businesses With AI' Says Nothing</h2>
+  <p class="ob-section-sub">A value proposition names one outcome, for one person, in one sentence</p>
+
+  <p class="ob-p">A value proposition isn't a tagline or a mission statement. It's a single sentence that answers three things at once: who this is for, what specific problem you fix for them, and why that beats whatever they're doing now. If a stranger can't repeat your business back to you after reading it once, it isn't working yet, however clever it sounds in the boardroom.</p>
+  <p class="ob-p">Take a one-person bookkeeping startup. The founder's homepage read 'cloud bookkeeping for growing businesses' for its first month live, and brought in zero sign-ups. After running real customer conversations through an AI prompt, she rewrote it to 'Catch up three years of messy VAT bookkeeping in two weeks, fixed price, no judgement.' Same traffic, same price, four paying clients the following month, because it finally named a problem instead of a category.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Build It in an Hour With AI, Not a Branding Sprint</h2>
+  <p class="ob-section-sub">Feed it your customers' real words, not your own guesses</p>
+
+  <p class="ob-p">Pull five to ten real customer quotes, complaints or messages from people who've asked about your idea. Paste them into ChatGPT or Claude along with a value proposition canvas prompt: list the customer's pains and desired gains, then your product's pain relievers and gain creators, then draft five one-sentence value propositions in different framings, outcome-led, problem-led, and head-to-head against the obvious alternative.</p>
+  <p class="ob-p">Don't just pick the line you personally like best. Put two or three candidates in a homepage headline or an email subject line, or just say them out loud to five real prospects, and watch for 'tell me more' rather than a polite nod. The version that gets people leaning in, not the one that sounds most impressive to you, is the one to keep.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the actual difference between a value proposition and a slogan?</p>
+    <p class="ob-faq-a">A slogan is memorable; a value proposition is testable. If you can't rephrase it as 'because of [you], [this customer] gets [this outcome] instead of [the alternative]', it's a slogan, not a value proposition.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Can AI really write this instead of hiring a branding consultant?</p>
+    <p class="ob-faq-a">For a strong first draft, yes. AI is good at turning scattered customer language into clean sentence options fast, but it still needs real customers' words as input, not just your own assumptions about them.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How many value propositions does one business need?</p>
+    <p class="ob-faq-a">Usually one for the whole company, though you may need a slightly different phrasing per landing page or audience if you genuinely sell to more than one kind of customer.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What if I don't have customers yet to quote?</p>
+    <p class="ob-faq-a">Use the language from building your ideal customer profile instead, draft from that, then validate the result live with five target customers before you build anything else around it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business rarely has a sales team to explain things in person, so the written line on your homepage, pitch and first cold email often is the whole business, as far as a stranger is concerned. With most B2B buyers now forming an opinion before any conversation happens, a vague value proposition isn't cosmetic, it's lost revenue you never see because people simply never got in touch.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pull five real messages where a potential customer described their problem in their own words, feed them to an AI chatbot with the value proposition canvas prompt above, and put the sharpest result as your homepage headline for seven days to see what happens to enquiries.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ideal-customer-profile-with-ai">once you know exactly who that customer is</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-sales-survey-finds-61-percent-of-b2b-buyers-prefer-a-rep-free-buying-experience" target="_blank" rel="noopener noreferrer">Gartner Sales Survey Finds 61% of B2B Buyers Prefer a Rep-Free Buying Experience</a>; <a href="https://research.google.com/pubs/archive/38315.pdf" target="_blank" rel="noopener noreferrer">Google-funded research: Attention, Web Designers — You Have 50 Milliseconds to Make a Good Impression (Behaviour &amp; Information Technology)</a>; <a href="https://marketingexperiments.com/?p=7505" target="_blank" rel="noopener noreferrer">MarketingExperiments: How headlines helped lead to a nearly 29% conversion boost</a>.</p>
