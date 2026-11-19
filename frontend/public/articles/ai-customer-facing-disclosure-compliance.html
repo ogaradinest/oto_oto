@@ -1,0 +1,179 @@
+<!--
+title: Telling customers they are talking to AI is now the law
+tags: AI Governance, AI Implementation
+date: 2026-11-12
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: Two new rules landed in 2026, one from the CMA and one from the EU AI Act. Both boil down to the same requirement, and neither needs a compliance team to satisfy.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">On 9 March 2026, the UK's Competition and Markets Authority published its first guidance on AI agents and consumer law, titled Complying with consumer law when using AI agents. The core message is simple: if a customer is talking to an AI system, they need to know it, and the business deploying that system stays fully responsible for what it says and does, even when the technology was built and supplied by someone else. The EU AI Act adds a second, more specific version of the same idea from 2 August 2026, requiring chatbots and virtual assistants to disclose they are AI at or before the first interaction.</p>
+
+<div class="ob-callout">
+  <p>The detail most small businesses miss: the CMA is explicit that you remain legally responsible for your AI agent's mistakes even when a third party built the tool. Buying a chatbot off the shelf does not transfer that responsibility to the vendor.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">9 March 2026</div>
+    <div class="ob-stat-label">date the CMA published its first guidance on AI agents and consumer law</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">2 August 2026</div>
+    <div class="ob-stat-label">date the EU AI Act's chatbot disclosure duty (Article 50) becomes enforceable</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">up to 10%</div>
+    <div class="ob-stat-label">of global annual turnover: maximum fine under UK consumer law for serious breaches</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Two new rules, one requirement</h2>
+  <p class="ob-section-sub">Tell the customer, and mean it</p>
+
+  <p class="ob-p">The CMA's guidance is grounded in existing law, the Consumer Rights Act 2015 and the Digital Markets, Competition and Consumers Act 2024, rather than a new AI-specific statute. Its central point is that the same consumer protection rules apply whether a customer deals with a human or an AI agent. Businesses are expected to clearly disclose when an interaction involves AI, particularly in situations where a customer might otherwise assume they are speaking to a person, and enforcement can carry fines of up to 10% of global annual turnover for serious breaches.</p>
+  <p class="ob-p">The EU AI Act's Article 50 covers similar ground with a sharper deadline. From 2 August 2026, providers of chatbots and virtual assistants must design them so a person is informed they are interacting with AI, with that notice given at or before the first interaction, not buried in terms and conditions afterwards. Fines run up to €15 million or 3% of global annual turnover. A UK small business without EU customers falls outside Article 50's direct scope. One that sells into the EU, or uses an AI vendor based there, should check its own position carefully, since that scope can apply sooner than expected.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">CMA guidance published: 9 March 2026</span>
+    <span class="ob-badge">EU AI Act Article 50 enforceable: 2 August 2026</span>
+    <span class="ob-badge">CMA fines up to 10% of global turnover</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What this actually looks like for a five-person business</h2>
+  <p class="ob-section-sub">Not a legal team, a sentence at the top of the chat window</p>
+
+  <p class="ob-p">For most small businesses, compliance is closer to a sentence than a project. A short line at the start of any AI-driven chat, email, or phone interaction stating that the customer is dealing with an AI assistant satisfies the core disclosure requirement in both the CMA guidance and the EU AI Act. Pair that with a visible, working way to reach a human, since the CMA's guidance treats a dead end with no escalation path as a consumer protection problem in its own right, not just a poor customer experience.</p>
+  <p class="ob-p">The second, easier-to-miss step is checking your chatbot or AI customer service vendor's contract for who carries liability if the tool gives a customer wrong information. Because the CMA has confirmed that responsibility sits with the business deploying the tool, not automatically with the vendor who built it, this is a five-minute contract check that most small businesses using an off-the-shelf tool have never actually done.</p>
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Disclose</h4>
+      <p>One clear line at the start of any AI-driven interaction</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Escalate</h4>
+      <p>A visible, working way to reach a human</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Check the contract</h4>
+      <p>Confirm who is liable for what the AI tool says</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The 20-minute compliance check</h2>
+  <p class="ob-section-sub">Worth doing before your next chatbot review, not after</p>
+
+  <p class="ob-p">Open every AI-driven customer touchpoint your business uses, chat widget, email autoresponder, phone assistant, and confirm three things: it identifies itself as AI at the start of the interaction, a human is reachable within a step or two if the customer asks, and you know from your vendor contract who is responsible if it gives wrong information. If any of the three is missing, it is a same-day fix in most cases, not a project that needs scheduling for next quarter.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does the CMA's AI agent guidance apply to a small business, not just large companies?</p>
+    <p class="ob-faq-a">Yes. The guidance applies to any business using AI agents in consumer-facing roles, regardless of size, since it is based on existing consumer protection law rather than a size threshold.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is a UK-only small business affected by the EU AI Act's chatbot rules?</p>
+    <p class="ob-faq-a">Not directly, unless it sells into the EU or uses an AI vendor established there. However, the CMA's own guidance already imposes a very similar UK-side disclosure expectation, so most small businesses need to act on this regardless of the EU Act's scope.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Who is liable if a third-party chatbot gives a customer the wrong information?</p>
+    <p class="ob-faq-a">The business that deployed it, according to the CMA's guidance, not automatically the vendor who built the tool. Checking your vendor contract for how liability is actually allocated between you is worth doing before an incident, not after.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the simplest way to comply with the new AI disclosure rules?</p>
+    <p class="ob-faq-a">A short, clear line at the start of any AI-driven chat, email, or call stating the customer is talking to an AI assistant, plus a visible way to reach a human. Both the CMA guidance and the EU AI Act's Article 50 accept disclosure at this level of simplicity.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business is exactly the kind of organisation most likely to buy an off-the-shelf AI chatbot without a legal review of the contract behind it, and exactly the kind of organisation the CMA's guidance makes fully responsible regardless. The fix costs nothing: a disclosure line, a human escalation path, and a contract check. Doing all three takes under half an hour and removes the most likely source of a consumer law complaint from an AI tool a small business did not even build.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, open every AI-driven customer touchpoint your business runs and check three things: does it say it is AI at the start, can a customer reach a human within a step or two, and does your vendor contract say who is liable if it gets something wrong. Fix whichever of the three is missing before your next customer conversation happens through it.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-governance-basics">AI governance basics for a small business</a>, <a class="ob-link" href="#/articles/agentic-ai-governance-enterprise">agentic AI governance in 2026</a>, <a class="ob-link" href="#/articles/ai-customer-service-automation-rollout">what to automate first in customer service</a>, and <a class="ob-link" href="#/articles/ai-usage-policy-staff-template">a staff-facing AI usage policy</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gov.uk/government/publications/complying-with-consumer-law-when-using-ai-agents/complying-with-consumer-law-when-using-ai-agents" target="_blank" rel="noopener noreferrer">CMA / GOV.UK, Complying with consumer law when using AI agents</a>; <a href="https://artificialintelligenceact.eu/article/50/" target="_blank" rel="noopener noreferrer">EU Artificial Intelligence Act, Article 50 (transparency obligations)</a>.</p>
