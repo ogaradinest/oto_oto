@@ -1,0 +1,178 @@
+<!--
+title: When the software you already own does what you would build
+tags: AI Strategy, AI Implementation
+date: 2026-11-15
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Before commissioning a custom AI build, check what your existing tools now do natively. Then use three specific signs, not a gut feeling, to decide whether custom is genuinely worth it.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">Gartner predicts 40% of enterprise applications will ship with task-specific AI agents built in by the end of 2026, up from under 5% in 2025. A meaningful share of what would have needed a custom build eighteen months ago is now arriving as a native feature in tools businesses already pay for. At the same time, Gartner's separate research finds over 40% of agentic AI projects will be cancelled by the end of 2027, mostly from escalating costs, unclear business value, or inadequate risk controls. Custom is not automatically the wrong call. It is also not automatically the right one, and the gap between those two Gartner findings is exactly where a small business needs a clearer test than a gut feeling.</p>
+
+<div class="ob-callout">
+  <p>Gartner also warns of 'agent washing': vendors rebranding existing chatbots and automation tools as AI agents without genuine agentic capability. Of the thousands of vendors making that claim, Gartner estimates only around 130 are real. Check what your current vendor has actually shipped recently before assuming nothing off the shelf can do the job.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">40%</div>
+    <div class="ob-stat-label">of enterprise apps will have task-specific AI agents built in by end of 2026, up from under 5% in 2025 (Gartner)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">40%+</div>
+    <div class="ob-stat-label">of agentic AI projects will be cancelled by end of 2027, mostly from cost and unclear value (Gartner)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">~130</div>
+    <div class="ob-stat-label">genuine agentic AI vendors, out of thousands claiming the label (Gartner)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Check what your existing tools already do before assuming you need custom</h2>
+  <p class="ob-section-sub">The bar for 'off-the-shelf' keeps moving</p>
+
+  <p class="ob-p">Gartner's prediction that task-specific agents will reach 40% of enterprise applications by the end of 2026 means the software you already pay for is absorbing capability that used to require a bespoke build. A CRM, a helpdesk platform, or an accounting tool that lacked a specific automated feature a year ago may already have added it. Before requesting a custom quote for anything, check the changelog or release notes of the tools you already use from the last six months. It is a five-minute check that regularly rules out a project that would otherwise have cost thousands.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Enterprise apps with built-in task agents: under 5% (2025) to 40% (end of 2026)</span>
+    <span class="ob-badge">Genuine agentic vendors: ~130 out of thousands claiming the label</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Three genuine signs you need something built</h2>
+  <p class="ob-section-sub">Not just 'the free tool is annoying'</p>
+
+  <p class="ob-p">The workflow spans three or more systems that were never designed to talk to each other, and no existing vendor bridges all of them: this is the clearest technical signal, since off-the-shelf tools are built for the two or three most common integrations, not every possible combination a specific business happens to run.</p>
+  <p class="ob-p">The task you want automated is specifically what makes your business different from a competitor, not a generic efficiency gain every business in your sector also wants. McKinsey's research on AI strategy frames this precisely: differentiate through proprietary, customisable capability where it creates genuine advantage, and use existing solutions everywhere else. If the task is not part of what makes a customer choose you over the business down the road, it rarely justifies a custom build.</p>
+  <p class="ob-p">You hold a genuinely large, proprietary dataset that a generic model has never seen and cannot use without specific training on it, such as years of your own inspection reports, claims history, or technical documentation. A generic tool with no access to that data will always underperform something built to use it directly.</p>
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Multi-system gap</h4>
+      <p>3+ systems no vendor bridges</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Genuine differentiator</h4>
+      <p>Not a generic efficiency gain</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Proprietary data</h4>
+      <p>A dataset no generic model has seen</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The caution that comes with deciding to build</h2>
+  <p class="ob-section-sub">Over 40% of agentic projects get cancelled for a reason</p>
+
+  <p class="ob-p">Even once one of the three signs above genuinely applies, Gartner's finding that over 40% of agentic AI projects will be cancelled by 2027, mostly from escalating costs and unclear business value, is worth treating as a warning rather than a statistic about other companies. The practical response is to scope a small, narrow pilot around the single clearest sign first, with one measurable outcome, rather than committing to a full custom build in one step. A project that proves itself on one narrow task is far easier to defend, and far cheaper to cancel if it does not work, than one scoped as a full transformation from the outset.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do I know if my business actually needs a custom AI solution?</p>
+    <p class="ob-faq-a">Look for three specific signs: a workflow spanning multiple systems no vendor bridges, a task that is genuinely what differentiates your business rather than a generic efficiency gain, and a proprietary dataset a generic AI tool has never seen. If none of these clearly apply, an off-the-shelf tool is usually the better starting point.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is it worth checking existing tools before commissioning a custom build?</p>
+    <p class="ob-faq-a">Yes. Gartner predicts 40% of enterprise applications will have task-specific AI agents built in by the end of 2026, up from under 5% in 2025, so a feature that required a custom build eighteen months ago may already exist natively in a tool you already pay for.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is 'agent washing' and why does it matter when evaluating vendors?</p>
+    <p class="ob-faq-a">Agent washing is when a vendor rebrands an existing chatbot or automation tool as an AI agent without genuine agentic capability. Gartner estimates only around 130 of the thousands of vendors making this claim are real, which is worth checking before ruling out an off-the-shelf option.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should a small business jump straight to a full custom AI build?</p>
+    <p class="ob-faq-a">No. Gartner found over 40% of agentic AI projects will be cancelled by 2027, largely from escalating costs and unclear value. Scoping a small pilot around the single clearest need first, with one measurable outcome, is a lower-risk way to test whether a custom build is genuinely worth it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business has the least room to absorb a cancelled custom project, which makes the gap between Gartner's two findings, more built-in AI in existing tools, but a high cancellation rate for agentic projects, more relevant here than at a large enterprise. Checking existing tools first and testing with a narrow pilot before committing to a full build protects a budget that cannot easily absorb an expensive, cancelled project.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>Before requesting a quote for any custom AI build, spend fifteen minutes checking the release notes of the tools you already use from the last six months, and write down which of the three signs, a multi-system gap, a genuine differentiator, or proprietary data, actually applies to what you want built. If none clearly apply, look harder at what already exists before commissioning anything new.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-build-buy-borrow-framework-smb">the build, buy, or borrow decision framework</a>, <a class="ob-link" href="#/articles/ai-proof-of-concept-smb">how fast a proof of concept can now be tested</a>, <a class="ob-link" href="#/articles/ai-mvp-development-smb">why an API-first MVP works for most small businesses</a>, and <a class="ob-link" href="#/articles/ai-tool-category-map-smb">a five-category map for picking the right kind of tool</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025" target="_blank" rel="noopener noreferrer">Gartner, Gartner Predicts 40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026</a>; <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener noreferrer">Gartner, Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027</a>; <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-ai-centric-imperative-navigating-the-next-software-frontier" target="_blank" rel="noopener noreferrer">McKinsey, The AI-centric imperative: Navigating the next software frontier</a>.</p>
