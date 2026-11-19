@@ -1,0 +1,170 @@
+<!--
+title: AI strategy advice forgets most owners wear every hat
+tags: AI Strategy
+date: 2026-11-11
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Enterprise AI trend reports are written for a leadership team of five or six people. Here is how to compress that advice down to what one owner can actually act on.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">The Federation of Small Businesses found that the average UK small business owner spends more than 33 hours a month on internal admin, on top of running the actual business, and that tax compliance alone costs the small business community 242 million hours and nearly £25 billion a year. Against that backdrop, most AI strategy content still arrives structured for a leadership team: one set of recommendations for an operations lead, another for marketing, another for sales, another for customer service, sometimes another for HR. A small business owner is already doing all of those jobs. The advice needs compressing before it is any use.</p>
+
+<div class="ob-callout">
+  <p>Gartner's 2026 CIO survey found only 17% of organisations have actually deployed AI agents, even though more than 60% expect to within two years. Large companies with dedicated technology departments are still mostly at the planning stage. A small business that has not adopted the latest AI trend yet is not behind anyone.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">33 hrs/month</div>
+    <div class="ob-stat-label">average time UK small business owners spend on internal admin (FSB, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">242 million hrs</div>
+    <div class="ob-stat-label">yearly hours the UK small business community spends on tax compliance alone (FSB, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">17%</div>
+    <div class="ob-stat-label">of organisations have actually deployed AI agents, versus the volume of coverage suggesting otherwise (Gartner, 2026)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Enterprise AI advice assumes a leadership team you do not have</h2>
+  <p class="ob-section-sub">One person, several job titles, one inbox</p>
+
+  <p class="ob-p">A typical enterprise AI strategy report breaks its recommendations out by role: something for the operations lead managing infrastructure, something else for the marketing lead running campaigns, another line for the sales director, another for customer service, sometimes a further note for whoever handles training. That structure makes sense for an organisation with five separate department heads sitting in five separate meetings. It makes no sense at all applied literally to a business where one person holds all five of those jobs at once.</p>
+  <p class="ob-p">The FSB's numbers on admin time explain why this matters beyond mere annoyance. An owner already carrying 33 hours a month of internal admin, inside a small business community losing 242 million hours a year to tax compliance alone, has close to no spare capacity for advice that assumes dedicated attention per department. Advice written for six job titles has to become advice for one person's actual week, or it simply will not get used.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">33 hours/month: average owner time on internal admin (FSB)</span>
+    <span class="ob-badge">242 million hours/year: UK tax compliance burden on small firms (FSB)</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What the enterprise numbers mean once you compress them</h2>
+  <p class="ob-section-sub">Adoption is narrow even where a whole department exists for it</p>
+
+  <p class="ob-p">McKinsey's November 2025 State of AI research found that even inside large organisations with dedicated AI teams, adoption concentrates in a handful of narrow functions: IT service desks, internal knowledge retrieval, engineering copilots, and customer operations. No single function exceeds roughly 10% fully-scaled deployment, even at that scale. Gartner's separate 2026 survey found only 17% of organisations have deployed AI agents at all, against more than 60% who say they plan to within two years.</p>
+  <p class="ob-p">The practical read for a small business is reassuring rather than discouraging. Large companies with entire teams dedicated to this are not transforming six departments simultaneously either. They are picking one or two narrow, task-specific uses and proving those out first. A small business doing the same thing, on a single task instead of six departments, is following the pattern that is actually working, not falling behind a pattern that mostly does not exist yet.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Adoption concentrated in IT service desk, knowledge retrieval, engineering copilots, customer ops (McKinsey)</span>
+    <span class="ob-badge">No single function above ~10% fully-scaled, even at large firms (McKinsey)</span>
+    <span class="ob-badge">17% of organisations have deployed AI agents (Gartner)</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A one-person version of a six-department strategy</h2>
+  <p class="ob-section-sub">Pick the job you already do the most of</p>
+
+  <p class="ob-p">Instead of separately addressing operations, marketing, sales, customer service and admin, start by identifying which of those hats eats the largest share of your week. The FSB's admin figure is a useful prompt here: is most of that 33 hours email, scheduling, invoicing, or answering the same customer questions repeatedly? Whichever task shows up most often is the one to point a single AI tool at first, exactly the narrow, task-specific approach McKinsey found actually scaling inside large organisations.</p>
+  <p class="ob-p">Everything else on a typical enterprise AI strategy list can wait. A small business does not need a governance committee, a sales AI initiative, and a marketing AI initiative running at once. It needs one task, tried properly, before the next one gets any attention at all.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does a small business need a separate AI strategy for marketing, sales, and operations?</p>
+    <p class="ob-faq-a">No. That structure comes from enterprise reports written for organisations with a separate leader for each function. A small business gets more from picking the single task eating the most time each week and starting there, matching the narrow, task-specific pattern McKinsey found actually scaling at large companies too.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is a small business behind if it has not adopted AI agents yet?</p>
+    <p class="ob-faq-a">No. Gartner's 2026 research found only 17% of organisations have actually deployed AI agents, despite over 60% planning to within two years. Most of the coverage is running well ahead of actual deployment, everywhere, not just in small businesses.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much time could AI realistically save a small business owner?</p>
+    <p class="ob-faq-a">There is no universal figure, but the FSB's finding that owners already spend over 33 hours a month on internal admin is a useful starting point: whichever slice of that time is repetitive and predictable, like scheduling or routine replies, is usually where a single AI tool shows results fastest.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What part of enterprise AI strategy advice should a small business ignore?</p>
+    <p class="ob-faq-a">The department-by-department structure itself. The underlying recommendations are often still useful, but they need translating into one person's actual weekly tasks rather than applied as written to a leadership team that does not exist.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>Enterprise AI strategy content is not wrong, it is simply addressed to the wrong audience when a small business reads it literally. An owner already absorbing 33 hours a month of admin, inside a small business community losing 242 million hours a year to tax compliance alone, cannot action six department-level recommendations at once. Compressing that advice down to the single task eating the most time is not a lesser version of the strategy. It is the only version that fits an owner's actual week.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, write down the single task that eats the largest share of your admin time, whether that is email, scheduling, invoicing, or answering repeat customer questions. Pick only that one task to try an AI tool against this month, and leave every other part of your business exactly as it is until that one task is genuinely working.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-business-trends-worth-acting-on">the four AI trends actually worth acting on this year</a>, <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>, <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>, and <a class="ob-link" href="#/articles/ai-tool-selection-pilot-tactics-smb">a 14-day pilot tactic for picking one tool</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.fsb.org.uk/media-centre/uk-small-business-statistics" target="_blank" rel="noopener noreferrer">FSB, UK Small Business Statistics</a>; <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">McKinsey, The State of AI in 2025: Agents, innovation, and transformation</a>; <a href="https://www.gartner.com/en/articles/hype-cycle-for-agentic-ai" target="_blank" rel="noopener noreferrer">Gartner, 2026 Hype Cycle for Agentic AI</a>.</p>
