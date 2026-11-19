@@ -1,0 +1,179 @@
+<!--
+title: Most AI training does not match what employees actually do
+tags: AI Implementation, AI Strategy
+date: 2026-11-11
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: PwC finds AI use at work climbing fast. KPMG finds training and policy have not kept pace. A short, role-matched roadmap closes more of that gap than a single company-wide session.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">PwC's UK Workforce Hopes and Fears research found 52% of UK workers used AI in their job over the past 12 months, up from 47% in 2024. KPMG's global trust study, published the same year, found only 47% of UK employees have received any form of AI training, and only 40% say their workplace even has a policy covering it. Usage is climbing faster than the structure around it, and that gap is exactly where mistakes happen: wrong information trusted at face value, sensitive data pasted somewhere it should not be, or a tool used well by one person and badly by the next desk over.</p>
+
+<div class="ob-callout">
+  <p>The EU AI Act's Article 4, in force since February 2025, requires organisations to ensure staff have AI literacy proportionate to their role. Most UK small businesses are not directly bound by it. But the underlying idea is worth borrowing anyway: training matched to how someone actually uses a tool beats one all-staff seminar every time.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">52%</div>
+    <div class="ob-stat-label">of UK workers used AI in their job in the past 12 months (PwC, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">47%</div>
+    <div class="ob-stat-label">of UK employees have received any form of AI training (KPMG, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">bottom third</div>
+    <div class="ob-stat-label">the UK's ranking for AI literacy and training among 47 countries surveyed (KPMG, 2025)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Usage is ahead of training, and that is where mistakes happen</h2>
+  <p class="ob-section-sub">What the PwC and KPMG numbers show together</p>
+
+  <p class="ob-p">PwC also found that only 15% of UK workers use generative AI daily, and just 7% regularly use agentic AI, so most of that 52% usage figure is occasional rather than deep. KPMG's research adds the other half of the picture: only 47% of UK employees have received any training at all, and only 40% say their employer has a policy covering AI use. Put together, a lot of AI use in UK workplaces right now is unsupervised, informal, and different from one desk to the next.</p>
+  <p class="ob-p">That inconsistency is the actual risk, more than the AI itself. One person on a team might already know not to paste client data into a public chatbot. Another might not have thought about it at all. Training that treats the whole team the same, or skips training entirely, does nothing to close that specific gap.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">52% used AI at work in the past year (PwC)</span>
+    <span class="ob-badge">47% have received any AI training (KPMG)</span>
+    <span class="ob-badge">40% have a workplace AI policy (KPMG)</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A three-tier roadmap that matches how people actually use AI</h2>
+  <p class="ob-section-sub">Not everyone in the business needs the same session</p>
+
+  <p class="ob-p">Tier one is literacy for everyone: what the tools are, what counts as safe use, and what should never go into a prompt, covered in a single short session for the whole business. Tier two is role-specific and built around each team's actual weekly work rather than generic tutorial content: a marketing hire drafting campaign copy needs a different session to someone in operations summarising supplier reports. Tier three is advanced, reserved for the one or two people who end up building templates and prompts the rest of the team reuses, covering prompt structure and knowing when to hand something back to a human.</p>
+  <p class="ob-p">Most small businesses either skip tier one entirely and go straight to buying a tool, or run one generic session and call it done. Both leave the same gap KPMG measured: usage without a shared baseline of what safe, sensible AI use actually looks like for that specific business.</p>
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Tier 1: Literacy</h4>
+      <p>One short session, everyone, safe use and the basics</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Tier 2: Role-specific</h4>
+      <p>Built around each team's actual weekly tasks</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Tier 3: Advanced</h4>
+      <p>One or two people who build templates for the rest</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Sequence matters more than content</h2>
+  <p class="ob-section-sub">Skipping tier one is the most common mistake</p>
+
+  <p class="ob-p">Run tier one before anyone rolls out a tool company-wide, even informally. It takes under an hour and covers the three things that actually prevent the mistakes worth worrying about: what is safe to share, what needs a human check before it goes out, and where the shared reference material lives. Only after that should tier two roll out, one team at a time, starting with whichever team already uses AI the most, since they will surface the real questions faster than a hypothetical training plan ever could.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How much AI training does a small business actually need?</p>
+    <p class="ob-faq-a">Less than most people assume. A single short literacy session for the whole team, followed by a role-specific session for each department built around real weekly tasks, covers most of the gap KPMG identified between AI usage and formal training in UK workplaces.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does UK law require AI training for staff?</p>
+    <p class="ob-faq-a">Not directly for most small businesses. The EU AI Act's Article 4 requires role-proportionate AI literacy for organisations it covers, and while most UK small businesses fall outside its direct scope, the principle, matching training to how someone actually uses the tool, is worth adopting regardless.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should every employee get the same AI training?</p>
+    <p class="ob-faq-a">No. PwC and KPMG's research both point to a gap between general AI usage and role-specific competence. A marketing role and a finance role use AI for entirely different tasks, so a single generic session leaves most of the actual skills gap untouched.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What is the biggest mistake small businesses make with AI training?</p>
+    <p class="ob-faq-a">Skipping the basic literacy step and going straight to role-specific or tool-specific training. Without a shared baseline on safe use, KPMG's finding that only 40% of UK workplaces have any AI policy translates directly into inconsistent, risky use across the same team.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business cannot run a corporate-style training department, and it does not need to match the EU AI Act's literacy requirement to benefit from the same logic behind it: training that matches the role gets used, and training that does not gets ignored. With only 47% of UK employees trained at all and 40% covered by any policy, according to KPMG, a business that runs even a short, well-sequenced roadmap is already ahead of most of its peers.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, list every role in your business on one page and write next to each one the single weekly task where AI could save the most time. That page becomes your training curriculum: tier one covers what applies to everyone on it, and tier two covers the specific line next to each person's role.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-skills-gap-smb-training-priorities">why the AI skills gap is a judgement problem, not a cost one</a>, <a class="ob-link" href="#/articles/ai-usage-policy-staff-template">a staff-facing AI usage policy that actually gets read</a>, <a class="ob-link" href="#/articles/ai-ethics-framework-small-business">an AI ethics framework without a committee</a>, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.pwc.co.uk/services/human-resource-services/insights/uk-hopes-and-fears-survey.html" target="_blank" rel="noopener noreferrer">PwC, UK Workforce Hopes and Fears Survey 2025</a>; <a href="https://kpmg.com/uk/en/media/press-releases/2025/04/majority-of-uk-public.html" target="_blank" rel="noopener noreferrer">KPMG, Majority of UK public lack AI education or training and don't trust the technology</a>; <a href="https://artificialintelligenceact.eu/article/4/" target="_blank" rel="noopener noreferrer">EU Artificial Intelligence Act, Article 4 (AI literacy)</a>.</p>
