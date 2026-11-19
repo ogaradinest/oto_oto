@@ -1,0 +1,179 @@
+<!--
+title: You are probably already paying for the AI you never turned on
+tags: AI Implementation, AI Technology
+date: 2026-11-13
+image: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+excerpt: Before any custom AI integration project, check what your existing Microsoft 365 or Google Workspace subscription already includes. Most small businesses are paying for AI features they have never switched on.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">A Forrester Total Economic Impact study found that Google Workspace with Gemini delivers a 336% return on investment over three years, with 40% faster information retrieval and a 30% improvement in collaboration. A separate Forrester study on Microsoft 365 Copilot found a 116% three-year ROI, built around an average of 9 hours saved per user per month. Both studies were commissioned by the vendor, so the headline multipliers deserve some scepticism. What is harder to dismiss is the underlying pattern: a meaningful amount of that value comes from AI features already included in subscriptions many small businesses already hold.</p>
+
+<div class="ob-callout">
+  <p>McKinsey's State of AI research found that AI high performers are distinguished less by which tool they bought and more by whether they redesigned an actual workflow around it. Switching on a built-in AI feature changes nothing if the old manual step stays in place alongside it.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">336%</div>
+    <div class="ob-stat-label">three-year ROI from Google Workspace with Gemini, Forrester-commissioned study</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">116%</div>
+    <div class="ob-stat-label">three-year ROI from Microsoft 365 Copilot, separate Forrester-commissioned study</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">9 hrs/month</div>
+    <div class="ob-stat-label">average time saved per user with Microsoft 365 Copilot, per Forrester's composite model</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The AI you already pay for is probably switched off</h2>
+  <p class="ob-section-sub">Two commissioned studies, one honest caveat</p>
+
+  <p class="ob-p">Forrester's Microsoft 365 Copilot study is built on a composite organisation with $6.25 billion in annual revenue and 25,000 employees, so the absolute dollar figures do not translate directly to a small business. The underlying finding scales down more honestly than the headline number: real time savings, roughly 8 hours a month for typical users and considerably more for heavy users, come from replacing a specific repeated task, not from installing the feature and carrying on as before.</p>
+  <p class="ob-p">Google's Gemini-in-Workspace study reports similar shape: faster information retrieval and better collaboration, concentrated in the specific tasks people already do most often inside email, documents, and spreadsheets. A small business is unlikely to see 336% written on an invoice anywhere, but the direction of the finding, that a lot of value sits inside tools already being paid for, holds regardless of company size.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Google Workspace + Gemini: 336% 3-year ROI (Forrester)</span>
+    <span class="ob-badge">Microsoft 365 Copilot: 116% 3-year ROI (Forrester)</span>
+    <span class="ob-badge">Average time saved: 9 hours/user/month (Forrester)</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Why 'it is already there' does not mean 'it is already used'</h2>
+  <p class="ob-section-sub">Workflow redesign, not just a new button</p>
+
+  <p class="ob-p">McKinsey's research on AI high performers found that the businesses seeing real returns tend to redesign the specific workflow around the AI feature, rather than bolting the feature onto an unchanged process. A team that turns on an AI meeting summary tool but still has someone manually write up the same notes afterwards has added a step, not removed one. The feature only pays for itself once it actually replaces something.</p>
+  <p class="ob-p">This is the part most small businesses skip. Buying the subscription is easy. Sitting down and asking which specific weekly task, the meeting notes, the first-draft email reply, the report someone pulls together every Friday, an existing AI feature could fully take over, rather than just assist with, is the step that turns a paid-for feature into an actual time saving.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Three places to look before any custom integration</h2>
+  <p class="ob-section-sub">The order that avoids an unnecessary IT project</p>
+
+  <p class="ob-p">Start with the admin settings of whatever tool you already pay the most for, email and document platform, CRM, accounting software, and check what AI features are included but not switched on. Most subscription software has added at least one in the past year. Next, look at simple, no-code automation between the tools you already use; connecting two existing tools with a native AI step rarely needs custom development. Only once both of those are genuinely exhausted does a custom integration project, with its own separate cost and timeline, become worth pricing out.</p>
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>1. Check what's included</h4>
+      <p>Admin settings of your main paid tools</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>2. Try no-code connectors</h4>
+      <p>Native AI steps between tools you already use</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>3. Custom integration last</h4>
+      <p>Only once the first two are exhausted</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Do the Copilot and Gemini ROI figures apply to a small business?</p>
+    <p class="ob-faq-a">Not literally. Forrester's Microsoft 365 Copilot study is modelled on a 25,000-employee composite organisation, so the dollar figures do not scale down directly. The underlying pattern, that real value comes from replacing a specific task rather than adding the feature on top, applies regardless of company size.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Should a small business turn on every AI feature in its existing software?</p>
+    <p class="ob-faq-a">No. Pick the one weekly task that already takes the most time and check whether an existing feature can fully replace it, rather than switching on every available feature at once and hoping something sticks.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">When does a custom AI integration actually make sense?</p>
+    <p class="ob-faq-a">Only after checking what your existing subscriptions already include and what simple no-code automation between tools can achieve. A custom integration project carries its own separate cost and timeline, and is rarely the right first step.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why do businesses pay for AI features they never use?</p>
+    <p class="ob-faq-a">Usually because switching the feature on was treated as the finish line rather than the start. McKinsey's research found the businesses seeing real returns redesign the actual workflow around the feature, removing a manual step rather than simply adding a new one alongside it.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business is more likely than a large enterprise to already be paying for Microsoft 365, Google Workspace, or a CRM with AI features bundled in and untouched, since it rarely has a dedicated team whose job is to audit what a subscription actually includes. Checking existing tools before buying anything new, or before pricing a custom integration, is the cheapest possible AI project a small business can run, because most of the cost was already paid months ago.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, open the admin or settings panel of the one tool your business pays for the most, email, documents, or your CRM, and list every AI feature already included. Pick the one closest to a task you do every week, and use it to fully replace that task once, rather than just trying it alongside your usual process.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-integration-legacy-systems-cost">what a custom AI integration actually costs when you do need one</a>, <a class="ob-link" href="#/articles/ai-tool-selection-pilot-tactics-smb">a 14-day pilot tactic for picking one tool</a>, <a class="ob-link" href="#/articles/ai-proof-of-concept-smb">how fast a proof of concept can now be tested</a>, and <a class="ob-link" href="#/articles/ai-implementation-checklist">the AI implementation checklist</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://tei.forrester.com/go/Google/WorkspaceWithGemini/index.html" target="_blank" rel="noopener noreferrer">Forrester, The Total Economic Impact of Google Workspace With Gemini</a>; <a href="https://tei.forrester.com/go/microsoft/M365Copilot/docs/TheTEIOfMicrosoft365Copilot.pdf" target="_blank" rel="noopener noreferrer">Forrester, The Total Economic Impact of Microsoft 365 Copilot</a>; <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">McKinsey, The State of AI in 2025: Agents, innovation, and transformation</a>.</p>
