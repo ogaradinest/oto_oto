@@ -1,0 +1,144 @@
+<!--
+title: AI hiring tools don't remove bias, they can hide it better
+tags: AI Implementation, AI Governance
+date: 2026-11-09
+image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80
+excerpt: When an AI tool recommends a candidate, people follow that recommendation up to 90% of the time, even when it's quietly biased, a University of Washington study found.
+author: dan
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+  }
+</style>
+
+<p class="ob-lead">Say you've started running CVs through an AI tool because the applications are piling up and you don't have an HR team to lean on. Fair enough. But most owners assume this makes hiring more objective, less gut-feel, less &quot;I just liked them.&quot; The research says the opposite can happen, it happens fast, and almost nobody catches it while it's happening.</p>
+
+<div class="ob-callout">
+  <p>When an AI tool shows a preference for one candidate over another, people go along with it up to 90% of the time, even when that preference is biased.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">90%</div>
+    <div class="ob-stat-label">how often reviewers followed an AI tool's hiring recommendation even when it favoured one racial group, in a University of Washington study of 528 people across 1,526 screening scenarios</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">85.1%</div>
+    <div class="ob-stat-label">of head-to-head bias tests in a peer-reviewed resume-screening audit (Wilson &amp; Caliskan, AIES 2024) where the AI favoured white-coded names over Black-coded names</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">67.7%</div>
+    <div class="ob-stat-label">net share of UK bosses uncomfortable using AI to shortlist candidates, per a CIPD survey of 814 UK employers, yet most have no clear way to check the tool for bias</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The Myth: AI Removes the Bias, It Doesn't Add It</h2>
+  <p class="ob-section-sub">People trust the machine's judgement more than their own</p>
+
+  <p class="ob-p">Take Marcus, who runs an 11-person logistics firm in Luton. He started running CVs through a free AI screening add-on last spring, drowning in applications for one warehouse supervisor role. It worked exactly as advertised, ranking 60 CVs down to 8 in minutes. What nobody had built it to flag was that three strong candidates with non-Anglicised names scored lower than near-identical CVs with Anglicised names. He only caught it because his co-founder recognised one of the filtered names from a trade event and asked why she hadn't made the cut.</p>
+  <p class="ob-p">That's not a one-off. The University of Washington study found that once an AI tool showed a preference for one racial group, reviewers followed it up to 90% of the time, even though the same people split their picks evenly with no AI recommendation shown at all. A separate audit of resume-screening tools found they favoured white-coded names in 85.1% of bias tests. The tool doesn't just reflect bias, it launders it, and people trust the output precisely because it looks objective.</p>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">The Fix: Treat the Score as a First Pass, Never the Final Word</h2>
+  <p class="ob-section-sub">Three habits that cost nothing and take minutes</p>
+
+  <p class="ob-p">You don't need to rip out your AI tool. You need a human check with actual teeth, not a rubber stamp. Strip names, schools and photos before the first pass if your tool allows it, most do via a settings toggle. Score against a short written list of what the job needs, not a vague &quot;fit&quot; rating, because that's exactly where bias hides easiest.</p>
+  <p class="ob-p">The CIPD survey of 814 UK bosses found a net 67.7% uncomfortable using AI to shortlist candidates, yet most had no process for checking it, which is the real problem. Discomfort without a check changes nothing. Once a month, pull a sample of rejected CVs and read five yourself. If the same pattern shows up twice, recalibrate the tool, or drop it, for that role.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Strip names before the first pass</span>
+    <span class="ob-badge">Score against a written checklist, not "fit"</span>
+    <span class="ob-badge">Spot-check rejected CVs monthly</span>
+    <span class="ob-badge">Keep the final decision human</span>
+  </div>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does this mean I shouldn't use AI to screen CVs at all?</p>
+    <p class="ob-faq-a">No, just don't let it make the final call alone. Use it for volume, then spot-check what it filters out.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">How do I know if my AI hiring tool is actually biased?</p>
+    <p class="ob-faq-a">You can't audit the model, but you can audit the outcomes. Pull rejected CVs monthly and check whether a pattern keeps showing up.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is this a real legal risk for a small business?</p>
+    <p class="ob-faq-a">Yes. Discrimination law looks at the outcome, not who made the call. A biased result is your liability, tool or no tool.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What's the cheapest way to cut this risk this week?</p>
+    <p class="ob-faq-a">Strip candidate names before any screening pass and swap a gut-feel summary for a numbered scorecard. Both are free.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business doesn't have a legal team to catch this before it becomes a problem, and one discrimination claim or one quietly-lost great hire hits a ten-person firm far harder than a ten-thousand-person one. The fixes here aren't expensive software, they're five-minute habits, which makes them one of the few AI risks a small business can actually afford to manage properly.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, pull the last 20 CVs your AI tool screened out, strip the names, and read five of them yourself. If a pattern jumps out, write a one-line scorecard before you screen the next batch.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://otobrothers.co.uk/blog" target="_blank" rel="noopener noreferrer">Follow otobrothers for more</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-cv-screening-cuts-sme-hiring-time">how AI CV screening cut one SME's hiring time in half</a> and <a class="ob-link" href="#/articles/write-a-job-description-with-ai-before-you-hire">writing a fairer job ad with AI before the CVs even arrive</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.techrepublic.com/article/ai-hiring-bias-research/" target="_blank" rel="noopener noreferrer">TechRepublic: Recruiters Follow AI's Biased Hiring Recommendations 90% of the Time (University of Washington study)</a>; <a href="https://www.pin.com/blog/ai-resume-screening-bias-study/" target="_blank" rel="noopener noreferrer">Wilson &amp; Caliskan, AIES 2024 resume-screening bias audit</a>; <a href="https://www.cipd.org/uk/views-and-insights/thought-leadership/insight/ai-people-management/" target="_blank" rel="noopener noreferrer">CIPD: AI and people management (survey of 814 UK bosses)</a>.</p>
