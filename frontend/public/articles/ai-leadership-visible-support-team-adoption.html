@@ -1,0 +1,179 @@
+<!--
+title: Employee enthusiasm for AI hinges on visible leadership
+tags: AI Strategy
+date: 2026-11-12
+image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+excerpt: Leaders are growing more confident about AI. BCG's research shows that confidence rarely reaches the people doing the actual work, and closing that gap does not need a change management team.
+author: cristian
+-->
+
+<style>
+  .ob-lead { font-size: 1.2rem; line-height: 1.85; color: #374151; margin-bottom: 2rem; }
+  .ob-p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+  .ob-p:last-child { margin-bottom: 0; }
+  .ob-link { color: #FF6B2C; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,107,44,0.35); padding-bottom: 1px; }
+
+  .ob-callout { background: #fff8f5; border-left: 4px solid #FF6B2C; padding: 1.4rem 1.75rem; margin: 2rem 0 2.5rem; border-radius: 0 12px 12px 0; }
+  .ob-callout p { margin: 0; font-size: 1.1rem; color: #1a1a3d; font-weight: 600; line-height: 1.7; }
+
+  .ob-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 2.5rem; }
+  .ob-stat { text-align: center; background: #f9fafb; border-radius: 14px; padding: 1.5rem 1rem; border: 1px solid #e5e7eb; }
+  .ob-stat-num { font-size: 2rem; font-weight: 900; color: #FF6B2C; line-height: 1; }
+  .ob-stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem; font-weight: 500; }
+
+  .ob-section { border: 1.5px solid #e5e7eb; border-radius: 20px; padding: 2.5rem; margin: 2.5rem 0; position: relative; }
+  .ob-section::before { content: ''; position: absolute; top: -1.5px; left: 2rem; right: 2rem; height: 4px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); border-radius: 0 0 4px 4px; }
+  .ob-section-title { font-size: 2.5rem; font-weight: 900; color: #1a1a3d; line-height: 1.1; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .ob-section-sub { font-size: 0.95rem; color: #9ca3af; font-weight: 400; margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+
+  .ob-compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0.5rem 0; }
+  .ob-compare-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+  .ob-compare-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
+  .ob-compare-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+  .ob-compare-row:last-child { border-bottom: none; }
+  .ob-compare-name { font-size: 0.88rem; color: #374151; font-weight: 600; }
+  .ob-compare-num { font-size: 1.1rem; color: #FF6B2C; font-weight: 900; white-space: nowrap; }
+
+  .ob-barrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
+  .ob-barrier-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .ob-barrier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF6B2C, #ff9a6c); }
+  .ob-barrier-card h4 { font-size: 0.9rem; font-weight: 700; color: #1a1a3d; margin: 0.4rem 0 0.4rem; }
+  .ob-barrier-card p { font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0; }
+
+  .ob-badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+  .ob-badge { background: #fff8f5; border: 1px solid rgba(255,107,44,0.3); color: #1a1a3d; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1rem; border-radius: 999px; }
+
+  .ob-section.ob-dark-section { background: #1a1a3d; border-color: #1a1a3d; }
+  .ob-section.ob-dark-section::before { background: linear-gradient(90deg, #FF6B2C, #ff9a6c 60%, transparent); }
+  .ob-section.ob-dark-section .ob-section-title { color: white; }
+  .ob-section.ob-dark-section .ob-section-sub { color: #6b7280; border-bottom-color: rgba(255,255,255,0.08); }
+  .ob-faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ob-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ob-faq-q { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .ob-faq-a { font-size: 0.88rem; color: #9ca3af; line-height: 1.7; margin: 0; }
+
+  .ob-smb { background: #f7f8fc; border-left: 4px solid #1a1a3d; padding: 1.4rem 1.75rem; margin: 2.5rem 0; border-radius: 0 12px 12px 0; }
+  .ob-smb-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a3d; margin-bottom: 0.5rem; }
+  .ob-smb p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-action { background: #fff8f5; border: 1.5px solid rgba(255,107,44,0.25); border-radius: 16px; padding: 1.6rem 1.85rem; margin: 1.5rem 0 2.5rem; }
+  .ob-action-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #FF6B2C; margin-bottom: 0.5rem; }
+  .ob-action p { margin: 0; font-size: 0.98rem; color: #374151; line-height: 1.75; }
+
+  .ob-cta-wrap { text-align: center; margin: 2.5rem 0; padding: 2rem; background: #1a1a3d; border-radius: 20px; }
+  .ob-cta-wrap p { color: #d1d5db; font-size: 0.95rem; margin: 0 0 1rem; }
+  .ob-cta-btn { display: inline-block; background: #FF6B2C; color: white; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 999px; text-decoration: none; }
+
+  .ob-sources { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+  .ob-sources a { color: #9ca3af; text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .ob-section { padding: 1.75rem 1.25rem; }
+    .ob-section-title { font-size: 1.8rem; }
+    .ob-barrier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<p class="ob-lead">BCG's AI at Work 2025 research found that the share of employees who feel positive about generative AI rises from 15% to 55% when leadership visibly supports it, a dramatic jump. The catch is that only around one-quarter of frontline employees say they actually receive that visible support. Russell Reynolds Associates' Global Leadership Monitor found leaders' own confidence moving the right way, up from 35% to 44% over a year when asked whether their team could align resources around GenAI, with the share of leaders piloting or fully implementing GenAI in their own function rising to 49%, up from 29% the year before. Confidence is improving among the people at the top. It is not reaching most of the people beneath them yet.</p>
+
+<div class="ob-callout">
+  <p>Expleo's UK business confidence index slipped from a peak of 74 in September 2025 to 67 in April 2026, even as adoption kept climbing. Confidence and adoption are not the same curve, and a small business owner should not assume rising usage means rising trust in it.</p>
+</div>
+
+<div class="ob-stat-row">
+  <div class="ob-stat">
+    <div class="ob-stat-num">15% to 55%</div>
+    <div class="ob-stat-label">employees positive about GenAI, without versus with strong leadership support (BCG, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">~25%</div>
+    <div class="ob-stat-label">of frontline employees say they actually receive that leadership support (BCG, 2025)</div>
+  </div>
+  <div class="ob-stat">
+    <div class="ob-stat-num">35% to 44%</div>
+    <div class="ob-stat-label">leaders' confidence their team can align resources around GenAI, one year on (Russell Reynolds Associates, 2025)</div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">Confidence is a leadership problem before it is a technology problem</h2>
+  <p class="ob-section-sub">What the BCG and Russell Reynolds numbers show together</p>
+
+  <p class="ob-p">The two data sets fit together in an uncomfortable way. Leaders are getting somewhat more confident in their own ability to steer AI adoption, and more of them are piloting or fully implementing it inside their own function. But BCG's finding that only around a quarter of frontline employees report receiving visible leadership support means that growing confidence at the top is mostly staying at the top. Staff are left to work out whether the business actually believes in the tool it just handed them.</p>
+  <p class="ob-p">Expleo's confidence index adds a caution to the picture: even where usage keeps rising, the UK-wide confidence measure has been falling since its September 2025 peak. A team using AI more often is not automatically a team that trusts it more, and a leader who assumes otherwise is likely to misread quiet compliance as genuine buy-in.</p>
+  <div class="ob-badge-row">
+    <span class="ob-badge">Employee positivity with leadership support: 15% to 55% (BCG)</span>
+    <span class="ob-badge">Frontline employees who actually get that support: ~25% (BCG)</span>
+    <span class="ob-badge">UK confidence index: 74 (Sept 2025) to 67 (Apr 2026), Expleo</span>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">What visible support actually looks like for one person</h2>
+  <p class="ob-section-sub">No change management team required</p>
+
+  <p class="ob-p">At small business scale, visible leadership support is not a programme, it is a handful of repeated habits. Using the tool yourself, in front of staff, rather than only mandating it for others. Talking about a failed attempt openly instead of only sharing the wins, since staff read silence about failure as a sign the whole thing is not meant to be questioned. Naming one shared metric everyone can see, so the tool's success or failure is a shared fact rather than a private judgement made somewhere else.</p>
+  <p class="ob-p">The common failure pattern is the opposite of all three: an owner announces a new AI tool once, in an email or a quick meeting, and is never seen using it again. Staff are left to work out the details themselves, and BCG's frontline support figure suggests most businesses fall into exactly this pattern without meaning to.</p>
+  <div class="ob-barrier-grid">
+    <div class="ob-barrier-card">
+      <h4>Use it visibly</h4>
+      <p>Not just mandate it for the team</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Share failures too</h4>
+      <p>Not only the wins</p>
+    </div>
+    <div class="ob-barrier-card">
+      <h4>Name one shared metric</h4>
+      <p>So progress is a fact, not a private judgement</p>
+    </div>
+  </div>
+</div>
+
+<div class="ob-section">
+  <h2 class="ob-section-title">A five-minute monthly habit that counts as real support</h2>
+  <p class="ob-section-sub">Small, repeated, and visible beats one big announcement</p>
+
+  <p class="ob-p">Set a recurring five minutes, once a month, where you tell the team one specific thing AI helped with and one specific thing it got wrong or wasted time on. This single habit, repeated, is what turns a leader's private confidence into something a team can actually see and respond to. It costs nothing beyond the time, and it directly targets the exact gap BCG measured between leadership confidence and frontline experience of that confidence.</p>
+</div>
+
+<div class="ob-section ob-dark-section">
+  <h2 class="ob-section-title">Quick Answers</h2>
+  <p class="ob-section-sub">The questions small business owners ask most</p>
+
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Does leadership support for AI really change how employees feel about it?</p>
+    <p class="ob-faq-a">Substantially, according to BCG's research. Employee positivity about GenAI rises from 15% to 55% where leadership support is visible, though only around a quarter of frontline employees currently report receiving that support.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Is leadership confidence in AI actually rising?</p>
+    <p class="ob-faq-a">Yes, gradually. Russell Reynolds Associates found leaders' confidence in their team's ability to align resources around GenAI rose from 35% to 44% over a year, with the share of leaders piloting or fully implementing GenAI in their own function reaching 49%.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">Why does confidence in AI sometimes fall even as adoption rises?</p>
+    <p class="ob-faq-a">Expleo's UK confidence index fell from a peak of 74 in September 2025 to 67 in April 2026 despite continued adoption growth, showing usage and trust move on different timelines. More people using a tool does not automatically mean more people trust it.</p>
+  </div>
+  <div class="ob-faq-item">
+    <p class="ob-faq-q">What does visible AI leadership support look like in a small business?</p>
+    <p class="ob-faq-a">Using the tool yourself where staff can see it, talking openly about a failed attempt rather than only the wins, and naming one shared metric everyone can track. None of this requires a formal change management process.</p>
+  </div>
+</div>
+
+<div class="ob-smb">
+  <div class="ob-smb-label">Why this matters for you</div>
+  <p>A small business owner is both the leader BCG's research describes and, functionally, part of the frontline that rarely sees genuine support. That double role is actually an advantage: closing the gap between leadership confidence and frontline experience does not require cascading a message through several management layers, only choosing to be visibly consistent about using and discussing the tool with the two or three people who work alongside you.</p>
+</div>
+
+<div class="ob-action">
+  <div class="ob-action-label">Try this next</div>
+  <p>This week, tell your team one specific thing AI has helped with recently and one specific thing it got wrong, in person or in a short message. Repeat that same five-minute update once a month. It is the single cheapest way to close the gap between how confident you feel about AI and how much support your team actually sees.</p>
+</div>
+
+<div class="ob-cta-wrap">
+  <p>Want to see how this applies to your business?</p>
+  <a class="ob-cta-btn" href="https://calendar.app.google/UugK49VvNqpE7iJN8" target="_blank" rel="noopener noreferrer">Book a free call with otobrothers</a>
+</div>
+
+<p class="ob-p" style="margin-top: 0.5rem;">For more, see <a class="ob-link" href="#/articles/ai-team-training-roadmap-by-role">a role-matched AI training roadmap</a>, <a class="ob-link" href="#/articles/ai-skills-gap-smb-training-priorities">why the AI skills gap is a judgement problem, not a cost one</a>, <a class="ob-link" href="#/articles/ai-strategy-failure-points">why most AI strategies fail before they start</a>, and <a class="ob-link" href="#/articles/ai-implementation-roadmap-timeline-phases">the realistic phase-by-phase AI timeline for a small business</a>.</p>
+
+<p class="ob-sources">Sources: <a href="https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain" target="_blank" rel="noopener noreferrer">BCG, AI at Work 2025: Momentum Builds, but Gaps Remain</a>; <a href="https://www.russellreynolds.com/en/insights/articles/leaders-views-on-generative-ai-in-2025" target="_blank" rel="noopener noreferrer">Russell Reynolds Associates, Optimistic, with Exceptions: Leaders' Views on Generative AI in 2025</a>; <a href="https://expleo.com/global/en/insights/news/uk-business-confience-ai-peak/" target="_blank" rel="noopener noreferrer">Expleo, UK business confidence in AI slips from peak</a>.</p>
